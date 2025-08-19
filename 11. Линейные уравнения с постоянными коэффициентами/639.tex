@@ -1,0 +1,146 @@
+% Page setup
+\documentclass[a5paper,10pt]{article}
+\pagenumbering{gobble}
+
+% Margin setup
+\usepackage{geometry}
+\geometry{left=1cm}
+\geometry{right=1cm}
+\geometry{top=1cm}
+\geometry{bottom=1.5cm}
+
+% %For inserting tables
+% \usepackage{array}
+
+% Formula aligning
+\usepackage{amsmath}
+
+% For formula diacritics
+%\usepackage{amsfonts}
+
+% For additional symbols
+\usepackage{amssymb}
+
+% For bigger integral signs
+\usepackage{bigints}
+
+% For appropriate vector signings
+%\usepackage{esvect}
+
+% For semantic advancements
+%\usepackage{enotez}
+
+% For degree sign
+% \usepackage{gensymb}
+
+%For pictures
+\usepackage{graphicx}
+
+%For framing
+\usepackage{framed}
+
+% Automatic paragraph indentations
+\usepackage{indentfirst}
+\setlength{\parindent}{1em}
+
+% Formula spacing configuration
+\delimitershortfall-1sp
+\usepackage{mleftright}
+\mleftright
+
+% For resizing
+\usepackage{relsize}
+
+%For svg support
+%\usepackage[inkscapelatex=false]{svg}
+
+%For underlining
+\usepackage{ulem}
+
+% For floaty text
+%\usepackage{wrapfig}
+
+% Extra math fonts
+\usepackage{yhmath}
+
+% For cyrillic characters support
+\usepackage[english, russian]{babel}
+
+% For proper font
+\usepackage{fontspec}
+
+% TNR within formulas
+\usepackage{mathptmx}
+
+% TNR within text
+\setmainfont{Times New Roman}
+
+% Automatic brackets placement
+\newcommand{\br}[1]{\left(#1\right)}
+\newcommand{\vbr}[1]{\left|#1\right|}
+\newcommand{\cbr}[1]{\left\{#1\right\}}
+\newcommand{\rbr}[1]{\left[#1\right]}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+
+% Enfore fractures to be full-sized everywhere
+% \renewcommand{\frac}{\dfrac}
+
+% Special operator definitions
+% \DeclareMathOperator{\dis}{\rho}
+% \DeclareMathOperator{\dif}{\d}
+
+% Theorem definitions
+\usepackage{amsthm}
+\theoremstyle{definition}
+% \newtheorem*{theorem}{Теорема}
+% \newtheorem*{corollary}{Следствие}
+% \newtheorem*{criteria}{Критерий}
+% \newtheorem*{algorithm}{Алгоритм}
+\newtheorem*{formula}{Формула}
+% \newtheorem*{remark}{Замечание}
+% \newtheorem*{proposition}{Предложение}
+
+% Restrict inlne formula breaking
+\binoppenalty=10000 
+\relpenalty=10000 
+
+\begin{document}
+
+\begin{framed}
+\begin{formula}[вспомогательного угла]
+$$A \sin{x} \pm B \cos{x} = \sqrt{A^2 + B^2} \sin\br{x \pm \phi},$$
+
+где $\phi$ называется вспомогательным углом таким, что
+
+$$
+\sin{\phi} = \frac {B}{\sqrt{A^2 + B^2}},\ 
+\cos{\phi} = \frac {A}{\sqrt{A^2 + B^2}},\
+\tg{\phi} = \frac {B}{A}.
+$$
+В частности, можно взять $\phi = \arctg\br{\frac {B}{A}}$.
+\end{formula}
+\end{framed}
+
+\begin{framed}
+$$\int \sin\br{at} e^{bt} dt = \frac {e^{bt}}{a^2 + b^2} \br{b \sin\br{ax} - a \cos\br{ax}} + C$$
+\end{framed}
+
+Уравнение силы тока $I\br{t}$ имеет вид $LI'\br{t} + RI\br{t} = V \sin\br{\omega t}$. 
+$I'\br{t} + \frac {R} {L} I\br{t} = \linebreak = \frac {V}{L} \sin\br{\omega t}$.
+$I'\br{t} e^{\mathlarger{\frac{R}{L} t}} + \frac {R} {L} I\br{t} e^{\mathlarger{\frac{R}{L} t}} = \frac {V}{L} e^{\mathlarger{\frac{R}{L} t}} \sin\br{\omega t}$. 
+$\br{I\br{t} e^{\mathlarger{\frac{R}{L} t}}}' = \frac {V}{L}  \sin\br{\omega t} e^{\mathlarger{\frac{R}{L} t}}$.
+
+$I\br{t} e^{\mathlarger{\frac{R}{L} t}} = \bigintsss{\frac {V}{L} \sin\br{\omega t} e^{\mathlarger{\frac{R}{L} t}} dt} = \dfrac {V}{L^2 \omega^2 + R^2} e^{\mathlarger{\frac {R}{L}t}} \br{R \sin\br{\omega t} - L \omega \cos\br{\omega t}} + C$.
+
+$$I\br{t} = I_{0}\br{t} + I_{1}\br{t} = C e^{-\mathlarger{\frac {R}{L}t}} + \dfrac {V}{L^2 \omega^2 + R^2} \br{R \sin\br{\omega t} - L \omega \cos\br{\omega t}}.$$
+
+Из вида общего решения видно, что оно при $t \to +\infty$ стремится к установившемуся режиму 
+$$ I_{1}\br{t} = \dfrac {V}{L^2 \omega^2 + R^2} \br{R \sin\br{\omega t} - L \omega \cos\br{\omega t}}. $$
+
+Приведя к виду со вспомогательным углом $\phi = \arctan\br{\dfrac{L\omega}{R}}$, получим
+
+$$ I_{1}\br{t} = \frac {V}{\sqrt{L^2 \omega^2 + R^2}} \sin\br{\omega t - \phi}. $$
+
+
+\end{document}

@@ -1,0 +1,168 @@
+% Page setup
+\documentclass[a5paper,10pt]{article}
+\pagenumbering{gobble}
+
+% Margin setup
+\usepackage{geometry}
+\geometry{left=1cm}
+\geometry{right=1cm}
+\geometry{top=1cm}
+\geometry{bottom=1.5cm}
+
+% %For inserting tables
+% \usepackage{array}
+
+% Formula aligning
+\usepackage{amsmath}
+
+% For formula diacritics
+%\usepackage{amsfonts}
+
+% For additional symbols
+\usepackage{amssymb}
+
+% For bigger integral signs
+\usepackage{bigints}
+
+% For appropriate vector signings
+%\usepackage{esvect}
+
+% For semantic advancements
+%\usepackage{enotez}
+
+% For degree sign
+% \usepackage{gensymb}
+
+%For pictures
+\usepackage{graphicx}
+
+%For framing
+\usepackage{framed}
+
+% Automatic paragraph indentations
+\usepackage{indentfirst}
+\setlength{\parindent}{1em}
+
+% Formula spacing configuration
+\delimitershortfall-1sp
+\usepackage{mleftright}
+\mleftright
+
+% For resizing
+\usepackage{relsize}
+
+%For svg support
+%\usepackage[inkscapelatex=false]{svg}
+
+%For underlining
+\usepackage{ulem}
+
+% For floaty text
+%\usepackage{wrapfig}
+
+% Extra math fonts
+\usepackage{yhmath}
+
+% For cyrillic characters support
+\usepackage[english, russian]{babel}
+
+% For proper font
+\usepackage{fontspec}
+
+% TNR within formulas
+\usepackage{mathptmx}
+
+% TNR within text
+\setmainfont{Times New Roman}
+
+% Automatic brackets placement
+\newcommand{\br}[1]{\left(#1\right)}
+\newcommand{\vbr}[1]{\left|#1\right|}
+\newcommand{\cbr}[1]{\left\{#1\right\}}
+\newcommand{\rbr}[1]{\left[#1\right]}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+
+% Redefinition of some operators (to the appropriation of Russian notation)
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+% Enfore fractures to be full-sized everywhere
+% \renewcommand{\frac}{\dfrac}
+
+% Special operator definitions
+% \DeclareMathOperator{\dis}{\rho}
+% \DeclareMathOperator{\dif}{\d}
+
+% Theorem definitions
+\usepackage{amsthm}
+\theoremstyle{definition}
+% \newtheorem*{theorem}{Теорема}
+% \newtheorem*{corollary}{Следствие}
+% \newtheorem*{criteria}{Критерий}
+% \newtheorem*{algorithm}{Алгоритм}
+\newtheorem*{formula}{Формула}
+% \newtheorem*{remark}{Замечание}
+% \newtheorem*{proposition}{Предложение}
+
+% Restrict inlne formula breaking
+\binoppenalty=10000 
+\relpenalty=10000 
+
+\begin{document}
+
+\begin{framed}
+\begin{formula}[вспомогательного угла]
+$$A \sin{x} \pm B \cos{x} = \sqrt{A^2 + B^2} \sin\br{x \pm \phi},$$
+
+где $\phi$ называется вспомогательным углом таким, что
+
+$$
+\sin{\phi} = \frac {B}{\sqrt{A^2 + B^2}},\ 
+\cos{\phi} = \frac {A}{\sqrt{A^2 + B^2}},\
+\tg{\phi} = \frac {B}{A}.
+$$
+В частности, можно взять $\phi = \arctg\br{\frac {B}{A}}$.
+\end{formula}
+\end{framed}
+
+
+Уравнение силы тока $I = I\br{t}$ будет иметь вид
+
+$$R I\br{t} + L I'\br{t} + \frac{1}{C} q\br{t} = V \sin\br{\omega t},$$
+
+где $q\br{t}$ -- заряд конденсатора.
+
+Взяв производную, получим
+
+$$LC I''\br{t} + RC I\br{t} + I\br{t} = VC\omega \cos\br{\omega t}.$$
+
+Характеристическое уравнение имеет вид $LC \lambda^{2} + RC \lambda + \lambda = 0$. Вне зависимости от знака дискриминанта по теореме Виета $\lambda_{1} + \lambda_{2} = 1 > 0$, но $\lambda_{1} + \lambda_{2} = -RC < 0$. Следовательно, корни этого уравнения таковы, что $\Re{\lambda_{1}} < 0$ и $\Re{\lambda_{2}} < 0$. Последнее означает, что оба элемента фундаметнальной системы решений будут стремиться к нулю со скоростью, сопоставимой с $e^{\mathlarger{-\frac {R}{2L}} \displaystyle{t}}$ (в случае кратных корней $t e^{\mathlarger{-\frac {R}{2L}} \displaystyle{t}}$).
+
+Итак, установившийся режим не вытекает из решения однородного уравнения, значит он полностью совпадает с частным решением неоднородного, которое в соответствии с видом правой части имеет вид
+
+$$I_{1}\br{t} = a \sin\br{\omega t} + b \cos\br{\omega t},$$
+
+где $a$, $b$ -- искомые коэффициенты.
+\begin{align*}
+    I'_{1}\br{t} = a \omega \cos\br{\omega t} - b \omega \sin\br{\omega t} && I''_{1}\br{t} = -a \omega^2 \sin\br{\omega t} - b \omega^2 \cos\br{\omega t}.
+\end{align*}
+\begin{equation*}
+    \begin{cases}
+        \br{-LC\omega^2 + 1} a - RC \omega b = 0 \\
+        RC \omega a + \br{-LC\omega^2 + 1} b = VC\omega 
+    \end{cases}
+\end{equation*}
+\begin{align*}
+    \Delta_{0} = \br{-LC\omega^2 + 1}^2 + \br{RC\omega}^2 && a = \frac {VRC^2\omega^2} {\Delta_{0}} && b = \frac {\br{1 - LC\omega^2}VC\omega} {\Delta_{0}}
+\end{align*}
+
+Подставив, получаем
+$$I\br{t} = \frac{1}{\Delta_{0}} VC\omega \br{CR\omega \sin\br{\omega t} + \br{1 - LC\omega^2} \cos\br{\omega t}}.$$
+
+Со вспомогательным углом $\phi = \arctan\br{\dfrac{LC\omega^2 - 1}{CR\omega}}$ имеем установившийся режим $I_{1}\br{t}$ в следующей форме:
+$$I_{1} = \frac {VC\omega} {\sqrt{\Delta_{0}}} \sin\br{\omega t - \phi} = \frac {V} {\sqrt{R^2 + \br{L\omega - \dfrac {1}{C\omega}}^2}} \sin\br{\omega t - \phi}.$$
+
+Амплитуда $A = A\br{\omega} = \displaystyle{\frac {V} {\sqrt{R^2 + \br{L\omega - \dfrac {1}{C\omega}}^2}} }$ силы тока тем больше, чем меньше $\br{L\omega - \dfrac {1}{C\omega}}^2$. Наибольшая амплитуда достигается при $\omega = \pm \dfrac{1}{\sqrt{LC}}$ и равна $\dfrac {V} {R}$.
+
+\end{document}
