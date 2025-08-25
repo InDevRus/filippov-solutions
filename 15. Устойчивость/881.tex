@@ -1,0 +1,65 @@
+% Page setup
+\documentclass[a5paper,10pt]{article}
+ 
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+Для каждого пункта сначала будем находить общее решение $x = x\br{t}$, затем решение задачи Коши $\phi\br{t}$. Затем будем доказывать устойчивость или неустойчивость по Ляпунову.
+
+а) $3\br{t - 1}\dot{x}\br{t} = x\br{t}$. 
+$\dfrac {dx} {dt} \sqrt[3]{t - 1} - \dfrac {1} {3 \sqrt[3]{\br{t - 1}^{2}}} x\br{t} = 0$. 
+$\dfrac {d}{dt} \br{\dfrac{x} {\sqrt[3]{t - 1}}} = 0$. 
+Общее решение имеет вид
+$x\br{t} = C \sqrt[3]{t - 1}$; решение задачи Коши -- это функция: $\phi\br{t} = 0$.
+\begin{align*}
+    \text{При } t \ge t_{0} = 1 \text{ имеем:} &&
+    \vbr{x\br{t} - \phi\br{t}} = \vbr{C} \sqrt[3]{t - 1}, &&
+    \vbr{x\br{t_{0}} - \phi\br{t_{0}}} = \vbr{C}.
+\end{align*}
+
+Условие устойчивости не выполняется, приведём пример. Пусть $\epsilon = 1$, $\delta > 0$ и $C$ такое, что $0 < \vbr{C} < \delta$. При $t \ge \tpow{\vbr{C}}{-3} + 1$ получаем $\vbr{C} \sqrt[3]{t - 1} \ge 1 = \epsilon$.
+
+Таким образом, решение неустойчиво.
+
+б) $\dot{x}\br{t} + \br{t^2 - 4} x\br{t} = 0$.
+$\dot{x}\br{t} \tpow{e}{\frac {1} {3}t^3 - 4t} + \br{t^2 - 4} \tpow{e}{\frac {1} {3}t^3 - 4t} = 0$.
+$\dfrac {d}{dt} \br{x\br{t} \tpow{e}{\frac {1} {3}t^3 - 4t}} = 0$.
+$x\br{t} = C \tpow{e}{4t - \frac {1} {3}t^3}$ -- общее решение; $\phi\br{t} = 0$ -- решение задачи Коши.
+\begin{align*}
+    \text{При } t \ge t_{0} = 0 \text{ имеем:} &&
+    \vbr{x\br{t} - \phi\br{t}} = \vbr{C} \tpow{e}{4t - \frac {1} {3}t^3}, &&
+    \vbr{x\br{t_{0}} - \phi\br{t_{0}}} = \vbr{C}.
+\end{align*}
+
+Функция $f\br{t} = \tpow{e}{4t - \frac {1}{3}t^3}$ возрастает при $t\in \rbr{0; 2}$, убывает при $t \in \left[2; +\infty \right)$. Значит $t = 2$ -- точка максимума и $\tmax{t\in \left[0; +\infty \right)}{f\br{t}} = f\br{2} = \tpow{e}{\frac {16} {3}}$.
+
+Возьмём $\delta\br{\epsilon} = \tpow{e}{-\frac {16} {3}} \cdot \epsilon$ для наперёд выбранного $\epsilon > 0$. Если $\vbr{C} < \delta$, то $\vbr{C} \tpow{e}{4t - \frac {1} {3}t^3} \linebreak < \delta \tpow{e}{\frac {16} {3}} = \epsilon$, и показана устойчивость решения.
+
+в) $\dot{x}\br{t} + x\br{t} = t$.
+$\dot{x}\br{t} \tpow{e}{t} + x\br{t} \tpow{e}{t} = t \tpow{e}{t}$. 
+$x\tpow{e}{t} = \br{t - 1}\tpow{e}{t} + C$. $x\br{t} = C\tpow{e}{-t} + t - 1$ -- общее решение; $\phi\br{t} = 2\tpow{e}{-t} + t - 1$ -- решение задачи Коши.
+\begin{align*}
+    \text{При } t \ge t_{0} = 0 \text{ имеем:} &&
+    \vbr{x\br{t} - \phi\br{t}} = \vbr{C - 2} e^{-t}, &&
+    \vbr{x\br{t_{0}} - \phi\br{t_{0}}} = \vbr{C - 2}.
+\end{align*}
+Для таких $t$ выполняется $\tpow{e}{-t} \le 1$, а потому при выборе $\delta\br{\epsilon} = \epsilon$ из $\vbr{C - 2} < \delta$ следует $\vbr{C - 2} \tpow{e}{-t} < \epsilon$. Итак, решение устойчиво.
+
+г) Поделив на $x^3$, получаем 
+$\br{\dfrac {1} {x^2}} - 2 \dfrac {1} {x^3} t x'\br{t} - 1 = 0$.
+$\dfrac {d}{dt} \br{\dfrac {t}{x^2}} = 1$. 
+$\dfrac {t} {x^2} = t + C$.
+Итак, общее решение равняется $x\br{t} = \pm \sqrt{\dfrac {t} {t + C}}$; кроме того, есть дополнительное (но не особое) решение $\phi\br{t} = 0$, которое и является решением данной задачи Коши. В качестве переменного решения $x\br{t}$ будем рассматривать любое, кроме дополнительного.
+\begin{align*}
+    \text{При } t \ge t_{0} = 1 \text{ имеем:} &&
+    \vbr{x\br{t} - \phi\br{t}} = \sqrt{\frac {t} {t + C}}, &&
+    \vbr{x\br{t_{0}} - \phi\br{t_{0}}} = \sqrt{\frac {1} {1 + C}}.
+\end{align*}
+Кроме того, $C > 0$, так как, если $C < 0$, то решения непродолжаемы на $t \in \left[t_{0}; +\infty \right)$, а при $C = 0$ решение равняется $\pm 1$ и интереса не представляет.
+
+Покажем, что решение неустойчиво. Возьмём $\epsilon = \dfrac {1} {2}$ и любое $\delta > 0$. Пусть $x\br{t}$ такое решение, что $\sqrt{\dfrac {1} {1 + C}} < \delta$, то есть $C > 1 + \dfrac {1} {\delta^2}$. Однако, всякая функция $f\br{t} = \sqrt{\dfrac {t} {t + C}}$ возрастает, значит при $t \ge \dfrac {1} {3} C > \dfrac {1} {3} \br{1 + \dfrac {1} {\delta^2}}$ получаем 
+$\sqrt{\dfrac {t} {t + C}} \ge \sqrt{\dfrac {\frac {1} {3} C} {\frac {1} {3} C + C}} = \dfrac {1} {2} = \epsilon$.
+Это означает неустойчивость решения.
+
+\end{document}
