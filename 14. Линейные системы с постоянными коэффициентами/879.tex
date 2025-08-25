@@ -1,113 +1,7 @@
-% Page setup
 \documentclass[a5paper,10pt]{article}
-\pagenumbering{gobble}
 
-% Margin setup
-\usepackage{geometry}
-\geometry{left=1cm}
-\geometry{right=1cm}
-\geometry{top=1cm}
-\geometry{bottom=1.5cm}
-
-% %For inserting tables
-% \usepackage{array}
-
-% Formula aligning
-\usepackage{amsmath}
-
-% For formula diacritics
-%\usepackage{amsfonts}
-
-% For additional symbols
-\usepackage{amssymb}
-
-% For bigger integral signs
-\usepackage{bigints}
-
-% For appropriate vector signings
-%\usepackage{esvect}
-
-% For semantic advancements
-%\usepackage{enotez}
-
-% For degree sign
-% \usepackage{gensymb}
-
-%For pictures
-\usepackage{graphicx}
-
-%For framing
-\usepackage{framed}
-
-% Automatic paragraph indentations
-\usepackage{indentfirst}
-\setlength{\parindent}{1em}
-
-% Formula spacing configuration
-\delimitershortfall-1sp
-\usepackage{mleftright}
-\mleftright
-
-% For resizing
-%\usepackage{relsize}
-
-%For svg support
-%\usepackage[inkscapelatex=false]{svg}
-
-%For underlining
-\usepackage{ulem}
-
-% For floaty text
-%\usepackage{wrapfig}
-
-% Extra math fonts
-\usepackage{yhmath}
-
-% For cyrillic characters support
-\usepackage[english, russian]{babel}
-
-% For proper font
-\usepackage{fontspec}
-
-% TNR within formulas
-\usepackage{mathptmx}
-
-% TNR within text
-\setmainfont{Times New Roman}
-
-% Automatic brackets placement
-\newcommand{\br}[1]{\left(#1\right)}
-\newcommand{\vbr}[1]{\left|#1\right|}
-\newcommand{\cbr}[1]{\left\{#1\right\}}
-\newcommand{\rbr}[1]{\left[#1\right]}
-\renewcommand{\le}{\leqslant}
-\renewcommand{\ge}{\geqslant}
-
-% Redefinition of some operators (to the appropriation of Russian notation)
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
-
-% Enfore fractures to be full-sized everywhere
-% \renewcommand{\frac}{\dfrac}
-
-% Special operator definitions
-% \DeclareMathOperator{\dis}{\rho}
-% \DeclareMathOperator{\dif}{\d}
-
-% Theorem definitions
-\usepackage{amsthm}
-\theoremstyle{definition}
-% \newtheorem*{theorem}{Теорема}
-% \newtheorem*{corollary}{Следствие}
-% \newtheorem*{criteria}{Критерий}
-% \newtheorem*{algorithm}{Алгоритм}
-\newtheorem*{formula}{Формула}
-% \newtheorem*{remark}{Замечание}
-% \newtheorem*{proposition}{Предложение}
-
-% Restrict inlne formula breaking
-\binoppenalty=10000 
-\relpenalty=10000 
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
 
 \begin{document}
 
@@ -122,7 +16,7 @@ $$
 \cos{\phi} = \frac {A}{\sqrt{A^2 + B^2}},\
 \tg{\phi} = \frac {B}{A}.
 $$
-В частности, можно взять $\phi = \arctg\br{\frac {B}{A}}$.
+В частности, можно взять $\phi = \arctg\br{\dfrac {B}{A}}$.
 \end{formula}
 \end{framed}
 
@@ -130,7 +24,8 @@ $$
 
 $U_{L}\br{t} = L \cdot I'_{L}\br{t}$, $U_{C}\br{t} = \frac {1}{C} q\br{t}$, где $q\br{t}$ -- заряд конденсатора, производная которого в точности равна $I_{C}\br{t}$. Взяв производную, получим $LC I''_{L}\br{t} = I_{C}\br{t}$.
 
-Вся цепь соединена так, что падения напряжений её элементов равняются $U_{R}\br{t} = \linebreak = R I_{R}\br{t} = R \br{I_{L}\br{t} + I_{C}\br{t}}$ и $U_{\br{L, C}}\br{t} = U_{L}\br{t} = L \cdot I'_{L}\br{t}$. Отсюда имеем $R I_{L}\br{t} + R I_{C}\br{t} + \linebreak +  L \cdot I'_{L}\br{t} = V \sin\br{\omega t}$.
+Вся цепь соединена так, что падения напряжений её элементов равняются $U_{R}\br{t} = \linebreak = R I_{R}\br{t} = R \br{I_{L}\br{t} + I_{C}\br{t}}$ и $U_{\br{L, C}}\br{t} = U_{L}\br{t} = L \cdot I'_{L}\br{t}$. Отсюда имеем
+$$R I_{L}\br{t} + R I_{C}\br{t} + L \cdot I'_{L}\br{t} = V \sin\br{\omega t}.$$
 
 Неоднородная система уравнений 
 $$\begin{cases}
@@ -161,7 +56,7 @@ $$I_{L}\br{t} = \frac{V}{R^2\br{1 - LC\omega^2}^2 + \br{L\omega}^2} \br{R\br{1 -
     \end{split}
 \end{equation*}
 где $\phi = \arctg\br{\dfrac{L\omega}{R\br{1 - LC\omega^2}}}$.
-Амплитуда установившегося режима равняется \linebreak $A\br{\omega} = \dfrac {V} {\sqrt{R^2 + \br{\dfrac {L\omega}{1 - LC\omega^2}}^2}}$ и она убывает с возрастанием выражения $\br{\dfrac {L\omega}{1 - LC\omega^2}}^2$.
+Амплитуда установившегося режима равняется $A\br{\omega} = \linebreak = \dfrac {V} {\sqrt{R^2 + \br{\dfrac {L\omega}{1 - LC\omega^2}}^2}}$ и она убывает с возрастанием выражения $\br{\dfrac {L\omega}{1 - LC\omega^2}}^2$.
 
 Наибольшая амплитуда получается при $\omega = 0$ и при $\omega \to +\infty$ и равна $A_{\max} = \dfrac{V}{R}$. Наименьшая будет при $\omega = \pm \dfrac {1} {\sqrt{LC}}$ и равна $A_{\min} = 0$.
 \end{document}

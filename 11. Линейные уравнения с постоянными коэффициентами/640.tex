@@ -1,113 +1,7 @@
-% Page setup
 \documentclass[a5paper,10pt]{article}
-\pagenumbering{gobble}
 
-% Margin setup
-\usepackage{geometry}
-\geometry{left=1cm}
-\geometry{right=1cm}
-\geometry{top=1cm}
-\geometry{bottom=1.5cm}
-
-% %For inserting tables
-% \usepackage{array}
-
-% Formula aligning
-\usepackage{amsmath}
-
-% For formula diacritics
-%\usepackage{amsfonts}
-
-% For additional symbols
-\usepackage{amssymb}
-
-% For bigger integral signs
-\usepackage{bigints}
-
-% For appropriate vector signings
-%\usepackage{esvect}
-
-% For semantic advancements
-%\usepackage{enotez}
-
-% For degree sign
-% \usepackage{gensymb}
-
-%For pictures
-\usepackage{graphicx}
-
-%For framing
-\usepackage{framed}
-
-% Automatic paragraph indentations
-\usepackage{indentfirst}
-\setlength{\parindent}{1em}
-
-% Formula spacing configuration
-\delimitershortfall-1sp
-\usepackage{mleftright}
-\mleftright
-
-% For resizing
-\usepackage{relsize}
-
-%For svg support
-%\usepackage[inkscapelatex=false]{svg}
-
-%For underlining
-\usepackage{ulem}
-
-% For floaty text
-%\usepackage{wrapfig}
-
-% Extra math fonts
-\usepackage{yhmath}
-
-% For cyrillic characters support
-\usepackage[english, russian]{babel}
-
-% For proper font
-\usepackage{fontspec}
-
-% TNR within formulas
-\usepackage{mathptmx}
-
-% TNR within text
-\setmainfont{Times New Roman}
-
-% Automatic brackets placement
-\newcommand{\br}[1]{\left(#1\right)}
-\newcommand{\vbr}[1]{\left|#1\right|}
-\newcommand{\cbr}[1]{\left\{#1\right\}}
-\newcommand{\rbr}[1]{\left[#1\right]}
-\renewcommand{\le}{\leqslant}
-\renewcommand{\ge}{\geqslant}
-
-% Redefinition of some operators (to the appropriation of Russian notation)
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
-
-% Enfore fractures to be full-sized everywhere
-% \renewcommand{\frac}{\dfrac}
-
-% Special operator definitions
-% \DeclareMathOperator{\dis}{\rho}
-% \DeclareMathOperator{\dif}{\d}
-
-% Theorem definitions
-\usepackage{amsthm}
-\theoremstyle{definition}
-% \newtheorem*{theorem}{Теорема}
-% \newtheorem*{corollary}{Следствие}
-% \newtheorem*{criteria}{Критерий}
-% \newtheorem*{algorithm}{Алгоритм}
-\newtheorem*{formula}{Формула}
-% \newtheorem*{remark}{Замечание}
-% \newtheorem*{proposition}{Предложение}
-
-% Restrict inlne formula breaking
-\binoppenalty=10000 
-\relpenalty=10000 
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
 
 \begin{document}
 
@@ -122,7 +16,7 @@ $$
 \cos{\phi} = \frac {A}{\sqrt{A^2 + B^2}},\
 \tg{\phi} = \frac {B}{A}.
 $$
-В частности, можно взять $\phi = \arctg\br{\frac {B}{A}}$.
+В частности, можно взять $\phi = \arctg\br{\dfrac {B}{A}}$.
 \end{formula}
 \end{framed}
 
@@ -137,7 +31,7 @@ $$R I\br{t} + L I'\br{t} + \frac{1}{C} q\br{t} = V \sin\br{\omega t},$$
 
 $$LC I''\br{t} + RC I\br{t} + I\br{t} = VC\omega \cos\br{\omega t}.$$
 
-Характеристическое уравнение имеет вид $LC \lambda^{2} + RC \lambda + \lambda = 0$. Вне зависимости от знака дискриминанта по теореме Виета $\lambda_{1} + \lambda_{2} = 1 > 0$, но $\lambda_{1} + \lambda_{2} = -RC < 0$. Следовательно, корни этого уравнения таковы, что $\Re{\lambda_{1}} < 0$ и $\Re{\lambda_{2}} < 0$. Последнее означает, что оба элемента фундаметнальной системы решений будут стремиться к нулю со скоростью, сопоставимой с $e^{\mathlarger{-\frac {R}{2L}} \displaystyle{t}}$ (в случае кратных корней $t e^{\mathlarger{-\frac {R}{2L}} \displaystyle{t}}$).
+Характеристическое уравнение имеет вид $LC \lambda^{2} + RC \lambda + \lambda = 0$. Вне зависимости от знака дискриминанта по теореме Виета $\lambda_{1} + \lambda_{2} = 1 > 0$, но $\lambda_{1} + \lambda_{2} = -RC < 0$. Следовательно, корни этого уравнения таковы, что $\Re{\lambda_{1}} < 0$ и $\Re{\lambda_{2}} < 0$. Последнее означает, что оба элемента фундаметнальной системы решений будут стремиться к нулю со скоростью, сопоставимой с $\tpow {e} {-\frac {R}{2L} t}$ (в случае кратных корней $t \tpow {e} {-\frac {R}{2L} t}$).
 
 Итак, установившийся режим не вытекает из решения однородного уравнения, значит он полностью совпадает с частным решением неоднородного, которое в соответствии с видом правой части имеет вид
 

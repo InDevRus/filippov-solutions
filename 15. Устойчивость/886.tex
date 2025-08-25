@@ -1,121 +1,9 @@
 % Page setup
 \documentclass[a5paper,10pt]{article}
-\pagenumbering{gobble}
 
-% Margin setup
-\usepackage{geometry}
-\geometry{left=1cm}
-\geometry{right=1cm}
-\geometry{top=1cm}
-\geometry{bottom=1.5cm}
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
 
-% %For inserting tables
-% \usepackage{array}
-
-% Formula aligning
-\usepackage{amsmath}
-
-% For formula diacritics
-\usepackage{amsfonts}
-
-% For additional symbols
-\usepackage{amssymb}
-
-% For bigger integral signs
-\usepackage{bigints}
-
-% For appropriate vector signings
-%\usepackage{esvect}
-
-% For semantic advancements
-%\usepackage{enotez}
-
-% For degree sign
-% \usepackage{gensymb}
-
-%For pictures
-% \usepackage{graphicx}
-
-%For framing
-\usepackage{framed}
-
-% Automatic paragraph indentations
-\usepackage{indentfirst}
-\setlength{\parindent}{1em}
-
-% Formula spacing configuration
-\delimitershortfall-1sp
-\usepackage{mleftright}
-\mleftright
-
-% For resizing
-\usepackage{relsize}
-% More convenient text-style power
-\newcommand{\tpow}[2]{{#1}^{\mathlarger{#2}}}
-\newcommand{\tint}{\displaystyle{\mathlarger{\int}}}
-\newcommand{\tintlim}[2]{\displaystyle{\mathlarger{\int}\displaylimits^{#1}_{#2}}}
-
-%For svg support
-%\usepackage[inkscapelatex=false]{svg}
-
-%For underlining
-%\usepackage{ulem}
-
-% For floaty text
-% \usepackage{wrapfig}
-\usepackage{floatflt}
-\usepackage{placeins}
-
-% Extra math fonts
-\usepackage{yhmath}
-
-% For cyrillic characters support
-\usepackage[english, russian]{babel}
-
-% For proper font
-\usepackage{fontspec}
-
-% TNR within formulas
-\usepackage{mathptmx}
-
-% TNR within text
-\setmainfont{Times New Roman}
-
-% Automatic brackets placement
-\newcommand{\br}[1]{\left(#1\right)}
-\newcommand{\vbr}[1]{\left|#1\right|}
-\newcommand{\cbr}[1]{\left\{#1\right\}}
-\newcommand{\rbr}[1]{\left[#1\right]}
-\renewcommand{\le}{\leqslant}
-\renewcommand{\ge}{\geqslant}
-
-% Redefinition of some operators (to the appropriation of Russian notation)
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
-
-% Enfore fractures to be full-sized everywhere
-% \renewcommand{\frac}{\dfrac}
-
-% Special operator definitions
-% \DeclareMathOperator{\dis}{\rho}
-% \DeclareMathOperator{\dif}{\d}
-
-% Theorem definitions
-\usepackage{amsthm}
-% \theoremstyle{definition}
-% \newtheorem*{theorem}{Теорема}
-% \newtheorem*{corollary}{Следствие}
-% \newtheorem*{criteria}{Критерий}
-% \newtheorem*{algorithm}{Алгоритм}
-% \newtheorem*{formula}{Формула}
-% \newtheorem*{remark}{Замечание}
-% \newtheorem*{proposition}{Предложение}
-
-% Restrict inlne formula breaking
-\binoppenalty=10000 
-\relpenalty=10000 
-
-%For plotting
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 \pgfplotsset{
@@ -132,12 +20,12 @@
 \begin{document}
 
 Искать общее решение данной системы уравнений бессмысленно с точки зрения исследования на устойчивость, так как система сводится к автономному уравнению $\ddot{x}\br{t} - \sin\br{x\br{t}} = 0$ и в результате его решения возникает интеграл
-$$\bigintsss{\frac {dt} {\sqrt{A - \cos\br{t}}}},$$
+$$\bigintssss{\frac {dt} {\sqrt{A - \cos\br{t}}}},$$
 который нельзя для всякого $A$ выразить в элементарных функциях.
 
-Найдём траектории этой системы. $\dfrac {dy} {dx} = \dfrac {\dot{y}} {\dot{x}} = \dfrac {-\sin{x}} {y}$. $2y \dfrac {dy} {dx} = -2\sin{x}$. $y^{2} = C + 2\cos{x}$. $y^2 = 2\br{\cos x + C - 1}$. При $C < 0$ траектории не определены; при $C \ge 2$ представляют собой неограниченные кривые, и одна из таковых показана на рисунке пунктирной линией. Оба случая не представляют интереса.
+Найдём траектории системы. $\dfrac {dy} {dx} = \dfrac {\dot{y}} {\dot{x}} = \dfrac {-\sin{x}} {y}$. $2y \dfrac {dy} {dx} = -2\sin{x}$. $y^{2} = C + 2\cos{x}$. $y^2 = 2\br{\cos x + C - 1}$. При $C < 0$ траектории не определены; при $C \ge 2$ представляют собой неограниченные кривые, и одна из таковых показана на рисунке пунктирной линией. Оба случая не представляют интереса.
 
-Итак, с этого момента при данных обозначениях будем рассматривать траектории $y = \pm \sqrt{2\br{\cos{x} + C - 1}}$ при $0 < C < 2$. Они представляют собой замкнутые кривые. Направления траекторий показаны на рисунке. По ним видно, нулевое решение \linebreak $\Phi\br{t} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ задаёт особую точку $\left\{ \begin{matrix} x = 0 \\ y = 0 \end{matrix} \right.$ фазовой плоскости, относящуюся к типу "центр".
+Итак, с этого момента при данных обозначениях будем рассматривать траектории $y = \pm \sqrt{2\br{\cos{x} + C - 1}}$ при $0 < C < 2$. Они суть замкнутые кривые. Направления траекторий показаны на рисунке. По ним видно, нулевое решение $\Phi\br{t} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ задаёт особую точку $\left\{ \begin{matrix} x = 0 \\ y = 0 \end{matrix} \right.$ фазовой плоскости, являющуюся "центром".
 
 \begin{figure}[h] 
     \begin{tikzpicture}
@@ -181,7 +69,7 @@ $$\bigintsss{\frac {dt} {\sqrt{A - \cos\br{t}}}},$$
             \addplot[domain=pi/3:-pi/3] {f(0.5, x)};
             \addplot[domain=pi/3:-pi/3] {-f(0.5, x)};
             \addplot[VectorGraph, samples = 6, domain = -pi/3:pi/3-0.1] {f(0.5, x)};
-            \addplot[VectorGraph, samples = 3, domain = -pi/3+0.01:pi/3-0.01] {-f(0.5, x)};
+            \addplot[VectorGraph, samples = 4, domain = -pi/3+0.01:pi/3-0.01] {-f(0.5, x)};
         \end{axis}
     \end{tikzpicture}
     \centering
@@ -192,7 +80,7 @@ $$\bigintsss{\frac {dt} {\sqrt{A - \cos\br{t}}}},$$
 \begin{framed}
 Для $x \in \left(0; 2\right]$ выполняется неравенство $\arccos\br{1 - x} < 3\sqrt{x}.$
 \begin{proof}
-    Функция $f\br{x} = 3\sqrt{x} - \arccos\br{1 - x}$ определена    на $x \in \rbr{0; 2}$ и имеет производную $f'\br{x} = \dfrac {3} {2\sqrt{x}} - \dfrac {1} {\sqrt{1 - \br{1 - x}^2}}$. Приравняв её к нулю, находим единственную стационарную точку $x_{0} = \dfrac {14} {9}$. Поскольку до неё производная положительная, а после неё -- отрицательная, это -- точка максимума. Следовательно, минимальное значение достигается в одном из концов отрезка. При этом $g\br{0} = 0$ и $g\br{2} = 3\sqrt{2} - \pi > 0$. Следовательно, $g\br{x} \ge 0$, причём равенство достигается только при $x = 0$. Неравенство доказано.
+    Функция $f\br{x} = 3\sqrt{x} - \arccos\br{1 - x}$ определена    на $x \in \rbr{0; 2}$ и имеет производную $f'\br{x} = \dfrac {3} {2\sqrt{x}} - \dfrac {1} {\sqrt{1 - \br{1 - x}^2}}$. Приравняв её к нулю, находим единственную стационарную точку $x_{0} = \dfrac {14} {9}$. Поскольку до неё производная положительная, а после неё -- отрицательная, это -- точка максимума. Следовательно, минимальное значение достигается в одном из концов отрезка. При этом $f\br{0} = 0$ и $f\br{2} = 3\sqrt{2} - \pi > 0$. Следовательно, $f\br{x} \ge \displaystyle{\min_{x \in \left[0;2\right]}} {f\br{x}} = f\br{0} = 0$, а равенство достигается только при $x = 0$. Неравенство доказано.
 \end{proof}
 \end{framed}
 
@@ -200,7 +88,7 @@ $$\bigintsss{\frac {dt} {\sqrt{A - \cos\br{t}}}},$$
 \begin{align*}\rho_{\max} = \rho_{\max}\br{C} = \rho\br{\arccos\br{1 - C}}= \arccos\br{1 - C}; && \rho_{\min} = \rho_{\min}\br{C} = \rho\br{0} = \sqrt{2C}.
 \end{align*}
 
-Зафиксируем $\epsilon > 0$. Чтобы начальная точка не попала на неограниченную кривую, необходимо потребовать, чтобы выполнялось $C < 2$. Поскольку $\rho_{\max}\br{C} = \linebreak = \arccos\br{1 - C} \le \pi$, положим $\delta = \min\br{\dfrac {\sqrt{2}} {3} \epsilon; \dfrac {\pi} {2}}$. Имеем для всех $t \ge t_{0} = 0$
+Зафиксируем $\epsilon > 0$. Чтобы начальная точка не попала на неограниченную кривую, необходимо потребовать, чтобы выполнялось $C < 2$. Поскольку $\rho_{\max}\br{C} \le \pi$, положим $\delta = \min\br{\dfrac {\sqrt{2}} {3} \epsilon; \dfrac {\pi} {2}}$. Имеем для всех $t \ge t_{0} = 0$
 \begin{align*}
     \vbr{X\br{t} - \Phi\br{t}} = \sqrt{x^2\br{t} + y^2\br{t}}
     && \vbr{X\br{t_0} - \Phi\br{t_0}} = \sqrt{x^2\br{0} + y^2\br{0}}.

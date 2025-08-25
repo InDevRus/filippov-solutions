@@ -1,108 +1,7 @@
-% Page setup
 \documentclass[a5paper,10pt]{article}
-\pagenumbering{gobble}
 
-% Margin setup
-\usepackage{geometry}
-\geometry{left=1cm}
-\geometry{right=1cm}
-\geometry{top=1cm}
-\geometry{bottom=1.5cm}
-
-% %For inserting tables
-% \usepackage{array}
-
-% Formula aligning
-\usepackage{amsmath}
-
-% For formula diacritics
-%\usepackage{amsfonts}
-
-% For additional symbols
-\usepackage{amssymb}
-
-% For bigger integral signs
-\usepackage{bigints}
-
-% For appropriate vector signings
-%\usepackage{esvect}
-
-% For semantic advancements
-%\usepackage{enotez}
-
-% For degree sign
-% \usepackage{gensymb}
-
-%For pictures
-\usepackage{graphicx}
-
-%For framing
-\usepackage{framed}
-
-% Automatic paragraph indentations
-\usepackage{indentfirst}
-\setlength{\parindent}{1em}
-
-% Formula spacing configuration
-\delimitershortfall-1sp
-\usepackage{mleftright}
-\mleftright
-
-% For resizing
-%\usepackage{relsize}
-
-%For svg support
-%\usepackage[inkscapelatex=false]{svg}
-
-%For underlining
-\usepackage{ulem}
-
-% For floaty text
-%\usepackage{wrapfig}
-
-% Extra math fonts
-\usepackage{yhmath}
-
-% For cyrillic characters support
-\usepackage[english, russian]{babel}
-
-% For proper font
-\usepackage{fontspec}
-
-% TNR within formulas
-\usepackage{mathptmx}
-
-% TNR within text
-\setmainfont{Times New Roman}
-
-% Automatic brackets placement
-\newcommand{\br}[1]{\left(#1\right)}
-\newcommand{\vbr}[1]{\left|#1\right|}
-\newcommand{\cbr}[1]{\left\{#1\right\}}
-\newcommand{\rbr}[1]{\left[#1\right]}
-\renewcommand{\le}{\leqslant}
-\renewcommand{\ge}{\geqslant}
-
-% Enfore fractures to be full-sized everywhere
-% \renewcommand{\frac}{\dfrac}
-
-% Special operator definitions
-% \DeclareMathOperator{\dis}{\rho}
-% \DeclareMathOperator{\dif}{\d}
-
-% Theorem definitions
-% \usepackage{amsthm}
-% \newtheorem*{theorem}{Теорема}
-% \newtheorem*{corollary}{Следствие}
-% \newtheorem*{criteria}{Критерий}
-% \newtheorem*{algorithm}{Алгоритм}
-% \newtheorem*{formula}{Формула}
-% \newtheorem*{remark}{Замечание}
-% \newtheorem*{proposition}{Предложение}
-
-% Restrict inlne formula breaking
-\binoppenalty=10000 
-\relpenalty=10000 
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
 
 \begin{document}
 Падения напряжений для сопротивления и конденсатора равняются $RI\br{t}$ и $\frac {1}{C} Q\br{t}$ соответственно, где $I\br{t}$ -- искомая сила тока, $Q\br{t}$ -- заряд конденсатора. При последовательном соединении силы тока всех элементов цепи одинаковы, и поэтому $Q'\br{t} = \linebreak I\br{t}$.
@@ -115,7 +14,7 @@ $$\begin{cases}
     Q\br{0} = q
 \end{cases}$$
 
-$\lambda_{1} = -\dfrac{1}{RC}$, $Q\br{t} = q e^{-\dfrac {1} {RC} \displaystyle{t}}$. Окончательно получаем $I\br{t} = Q'\br{t} = -\dfrac{q}{RC} e^{-\dfrac {1} {RC} \displaystyle{t}}$.
+$\lambda_{1} = -\dfrac{1}{RC}$, $Q\br{t} = q \tpow{e} {-\frac {1} {RC} t}$. Окончательно получаем $I\br{t} = Q'\br{t} = -\dfrac{q}{RC} \tpow{e} {-\frac {1} {RC} t}$.
 Знак может быть отброшен, так как в задаче подразумевалось отыскать модуль силы тока.
 
 \end{document}

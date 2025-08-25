@@ -1,121 +1,9 @@
 % Page setup
 \documentclass[a5paper,10pt]{article}
-\pagenumbering{gobble}
 
-% Margin setup
-\usepackage{geometry}
-\geometry{left=1cm}
-\geometry{right=1cm}
-\geometry{top=1cm}
-\geometry{bottom=1.5cm}
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
 
-% %For inserting tables
-% \usepackage{array}
-
-% Formula aligning
-\usepackage{amsmath}
-
-% For formula diacritics
-\usepackage{amsfonts}
-
-% For additional symbols
-\usepackage{amssymb}
-
-% For bigger integral signs
-\usepackage{bigints}
-
-% For appropriate vector signings
-%\usepackage{esvect}
-
-% For semantic advancements
-%\usepackage{enotez}
-
-% For degree sign
-% \usepackage{gensymb}
-
-%For pictures
-% \usepackage{graphicx}
-
-%For framing
-% \usepackage{framed}
-
-% Automatic paragraph indentations
-\usepackage{indentfirst}
-\setlength{\parindent}{1em}
-
-% Formula spacing configuration
-\delimitershortfall-1sp
-\usepackage{mleftright}
-\mleftright
-
-% For resizing
-\usepackage{relsize}
-% More convenient text-style power
-\newcommand{\tpow}[2]{{#1}^{\mathlarger{#2}}}
-\newcommand{\tint}{\displaystyle{\mathlarger{\int}}}
-\newcommand{\tintlim}[2]{\displaystyle{\mathlarger{\int}\displaylimits^{#1}_{#2}}}
-
-%For svg support
-%\usepackage[inkscapelatex=false]{svg}
-
-%For underlining
-%\usepackage{ulem}
-
-% For floaty text
-% \usepackage{wrapfig}
-\usepackage{floatflt}
-\usepackage{placeins}
-
-% Extra math fonts
-\usepackage{yhmath}
-
-% For cyrillic characters support
-\usepackage[english, russian]{babel}
-
-% For proper font
-\usepackage{fontspec}
-
-% TNR within formulas
-\usepackage{mathptmx}
-
-% TNR within text
-\setmainfont{Times New Roman}
-
-% Automatic brackets placement
-\newcommand{\br}[1]{\left(#1\right)}
-\newcommand{\vbr}[1]{\left|#1\right|}
-\newcommand{\cbr}[1]{\left\{#1\right\}}
-\newcommand{\rbr}[1]{\left[#1\right]}
-\renewcommand{\le}{\leqslant}
-\renewcommand{\ge}{\geqslant}
-
-% Redefinition of some operators (to the appropriation of Russian notation)
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
-
-% Enfore fractures to be full-sized everywhere
-% \renewcommand{\frac}{\dfrac}
-
-% Special operator definitions
-% \DeclareMathOperator{\dis}{\rho}
-% \DeclareMathOperator{\dif}{\d}
-
-% Theorem definitions
-% \usepackage{amsthm}
-% \theoremstyle{definition}
-% \newtheorem*{theorem}{Теорема}
-% \newtheorem*{corollary}{Следствие}
-% \newtheorem*{criteria}{Критерий}
-% \newtheorem*{algorithm}{Алгоритм}
-% \newtheorem*{formula}{Формула}
-% \newtheorem*{remark}{Замечание}
-% \newtheorem*{proposition}{Предложение}
-
-% Restrict inlne formula breaking
-\binoppenalty=10000 
-\relpenalty=10000 
-
-%For plotting
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 \pgfplotsset{
@@ -132,9 +20,9 @@
 \begin{document}
 
 Исследовать решения этой системы на устойчивость путём нахождения общего решения будет затруднительно, так как общее решение, хотя и может быть выражено в квадратурах, будет включать в себя эллиптический интеграл
-$$\bigintssss{\frac {dt} {\sqrt{C^4 - t^4}}}.$$
+$$\mathlarger{\int}{\frac {dt} {\sqrt{C^4 - t^4}}}.$$
 
-Сначала найдём траектории, задаваемые решением этой системы. $\dfrac {dy} {dx} = \dfrac {\dot{x}} {\dot{y}} = \dfrac {-2x^3} {y}$. $2yy'_{x} + 4x^3 = 0$. $y^2 + x^4 = C^4$ (в правой части взят $C^4$, потому что левая часть не даёт отрицательных значений). Для удобства также будем считать $C \ge 0$. Функция \linebreak $y\br{x} = \sqrt{C^4 - x^4}$ задаёт выпуклый вверх график, а в точках $x = \pm C$ значение равно нулю, так что уравнение $y^2 + x^4 = C^4$ задаёт замкнутую выпуклую кривую.
+Сначала найдём траектории, задаваемые решением этой системы. $\dfrac {dy} {dx} = \dfrac {\dot{x}} {\dot{y}} = \dfrac {-2x^3} {y}$. $2yy'_{x} + 4x^3 = 0$. $y^2 + x^4 = C^4$ (в правой части взят $C^4$, потому что левая часть неотрицательная). Для удобства также будем считать $C \ge 0$. Функция $y\br{x} = \sqrt{C^4 - x^4}$ задаёт выпуклый вверх график, а в точках $x = \pm C$ значение равно нулю, так что уравнение $y^2 + x^4 = C^4$ задаёт замкнутую выпуклую кривую.
 
 Направляющие векторы, посчитанные для некоторых точек, указаны на рисунке. Из рисунка видно, что нулевое решение $\Phi_{0}\br{t} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ соответствует особой точке (началу координат) и эта точка относится к типу "центр". Решения, по всей видимости, являются периодическими функциями.
 
@@ -194,7 +82,7 @@ $$\bigintssss{\frac {dt} {\sqrt{C^4 - t^4}}}.$$
 
 Найдём наибольшее расстояние $\rho_{\max} = \rho_{\max}\br{C}$ от точки на этой кривой до начала координат. Для всякого $x \in \rbr{-C; C}$ расстояние равняется $\rho = \rho\br{x} \linebreak = \sqrt{x^2 + y^2} = \sqrt{C^4 + x^2 - x^4}$.
 
-Наибольшее расстояние достигается в точках \linebreak $x = \pm \dfrac {1} {\sqrt{2}}$, если она входит в область определения; в противном случае на $x \in \rbr{0; C}$ расстояние возрастает и наибольшее достигается при $x = C$.
+Наибольшее расстояние достигается в точках \linebreak $x = \pm \dfrac {1} {\sqrt{2}}$, если она входит в область определения; в противном случае на $x \in \rbr{0; C}$ расстояние строго возрастает и наибольшее достигается при $x = C$.
 
 Итак, точное наибольшее расстояние равно
 $$\rho_{\max}\br{C} =  \begin{cases} \sqrt{C^4 + \dfrac {1} {4}}\text{, если } C > \dfrac {1} {2} \\ C \text{, если } C \le \dfrac {1}{2} \end{cases}$$
@@ -208,7 +96,7 @@ $$\rho_{\max}\br{C} =  \begin{cases} \sqrt{C^4 + \dfrac {1} {4}}\text{, если
 
 Возьмём произвольное $\epsilon > 0$ и для удобства ограничим $\delta \le \dfrac {1} {4}$. Положим таким образом $\delta = \min\br{\epsilon^2; \dfrac {1} {4}}$. Заметим, что для всякой начальной точки $A_{0} = \br{x\br{0}; y\br{0}}$, отличной от начала координат, можно однозначно вычислить $C > 0$. Это значит, что через всякую начальную точку $A_{0}$ проходит некоторая траектория $y^2 + x^4 = C^4$, при этом единственная.
 
-Итак, пусть $\sqrt{x^2\br{0} + y^2\br{0}} < \delta$. При таких условиях имеем $\vbr{x\br{0}} < \delta \le \dfrac {1} {4}$ и \linebreak $\vbr{y\br{0}} < \delta \le \dfrac {1} {4}$. Следовательно, $C = \sqrt[4]{x^4\br{0} + y^2\br{0}} < \sqrt[4]{x^2\br{0} + y^2\br{0}} < \sqrt{\delta} \le \dfrac {1} {2}$.
+Итак, пусть $\sqrt{x^2\br{0} + y^2\br{0}} < \delta$. При таких условиях имеем $\vbr{x\br{0}} < \delta \le \dfrac {1} {4}$, $\vbr{y\br{0}} < \linebreak < \delta \le \dfrac {1} {4}$. Следовательно, $C = \sqrt[4]{x^4\br{0} + y^2\br{0}} < \sqrt[4]{x^2\br{0} + y^2\br{0}} < \sqrt{\delta} \le \dfrac {1} {2}$.
 
 Для всякого $t \ge t_{0} = 0$ расстояние $\sqrt{x^2\br{t} + y^2\br{t}}$ от точки $X\br{t}$ на траектории до начала координат таково, что
 $$\sqrt{x^2\br{t} + y^2\br{t}} \le \rho_{\max} = C < \sqrt{\delta} \le \sqrt{\epsilon^2} = \epsilon.$$
