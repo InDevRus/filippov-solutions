@@ -1,6 +1,13 @@
 # Default ignored files
 /.kile/
-*.kilepr
-*.aux
-*.txt
+/**/*.kilepr
+/**/*.aux
+/**/*.txt
+/**/*.log
+/**/*.synctex
+/**/*.synctex.gz
+/**/*.kate-swp
+/**/*.xml
+/**/*.iml
+
 Main.tex
