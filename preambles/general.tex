@@ -1,0 +1,115 @@
+% Page setup
+\pagenumbering{gobble}
+
+% Margin setup
+\usepackage{geometry}
+\geometry{left=1cm}
+\geometry{right=1cm}
+\geometry{top=1cm}
+\geometry{bottom=1.5cm}
+
+% For inserting tables
+\usepackage{array}
+
+% Formula aligning
+\usepackage{amsmath}
+
+% For formula diacritics
+\usepackage{amsfonts}
+
+% Theorem definitions
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem*{theorem}{Теорема}
+\newtheorem*{corollary}{Следствие}
+\newtheorem*{criteria}{Критерий}
+\newtheorem*{algorithm}{Алгоритм}
+\newtheorem*{formula}{Формула}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{proposition}{Предложение}
+
+% For bigger integral signs
+\usepackage{bigints}
+
+% For semantic advancements
+\usepackage{enotez}
+
+% For pictures
+\usepackage{graphicx}
+
+%For framing
+\usepackage{framed}
+
+% Automatic paragraph indentations
+\usepackage{indentfirst}
+\setlength{\parindent}{1em}
+
+% Formula spacing configuration
+\delimitershortfall-1sp
+\usepackage{mleftright}
+\mleftright
+
+% For resizing
+\usepackage{relsize}
+% More convenient text-style common notations
+\newcommand{\tpow}[2]{{#1}^{\mathlarger{#2}}}
+\newcommand{\tint}{\displaystyle{\mathlarger{\int}}}
+\newcommand{\tintlim}[2]{\displaystyle{\mathlarger{\int}\displaylimits_{#1}^{#2}}}
+\newcommand{\tsumlim}[2]{\displaystyle{\mathlarger{\sum}\displaylimits_{#1}^{#2}}}
+\newcommand{\tprodlim}[2]{\displaystyle{\mathlarger{\prod}\displaylimits_{#1}^{#2}}}
+\newcommand{\tmin}[1]{\displaystyle{\min_{\mathsmaller{#1}}}}
+\newcommand{\tmax}[1]{\displaystyle{\max_{\mathsmaller{#1}}}}
+\newcommand{\tlim}[1]{\displaystyle{\lim_{\mathsmaller{#1}}}}
+
+% For floaty text
+\usepackage{wrapfig}
+\usepackage{floatflt}
+
+% For cyrillic characters support
+\usepackage[english, russian]{babel}
+
+% For proper font
+\usepackage[no-math]{fontspec}
+
+% TNR within text
+\setmainfont{Times New Roman}
+
+% TNR within formulas
+\usepackage{newtxmath}
+\DeclareSymbolFont{operators}{OT1}{ntxtlf}{m}{n}
+\SetSymbolFont{operators}{bold}{OT1}{ntxtlf}{b}{n}
+
+% For degree sign
+\usepackage{siunitx}
+
+% Automatic brackets placement
+\newcommand{\br}[1]{\left(#1\right)}
+\newcommand{\vbr}[1]{\left|#1\right|}
+\newcommand{\cbr}[1]{\left\{#1\right\}}
+\newcommand{\rbr}[1]{\left[#1\right]}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant} 
+
+% Automatic replacement for two greek letters
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+% Redefinition of some operators (to the appropriation of Russian notation)
+\DeclareMathOperator{\arcsh}{arcsh}
+\DeclareMathOperator{\arcch}{arcch}
+\DeclareMathOperator{\arcth}{arcth}
+\DeclareMathOperator{\arccth}{arccth}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\inv}{inv}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\renewcommand{\gcd}{\text{НОД}}
+\newcommand{\lcm}{\text{НОК}}
+
+% Restrict inlne formula breaking
+\binoppenalty=10000 
+\relpenalty=10000
+
+% Old greek letters setup
+\input{../preambles/greek_letters}
