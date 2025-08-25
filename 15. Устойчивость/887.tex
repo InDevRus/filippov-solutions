@@ -1,0 +1,137 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{
+    every axis/.append style = {
+        xlabel={$x$},
+        ylabel={$y$}, 
+        axis lines = middle,
+        unit vector ratio = 1 1,
+        font=\small
+    },
+    every axis plot/.append style = {smooth, samples = 100}
+}
+
+\begin{document}
+
+Найдём траектории этой системы.
+$\dfrac {dy} {dx} = \dfrac {\dot{y}} {\dot{x}} = \dfrac {x^3 \br{1 + y^2}} {y}$.
+$\dfrac {2y y'_{x}\br{x}} {1 + y^2} = 2x^3$.
+$\ln\br{1 + y^2} \linebreak = \dfrac {1} {2} x^4 + C$.
+$y^2 = C \tpow{e}{\frac {1} {2} x^4} - 1$. Эти траектории определены только при $C > 0$.
+
+\begin{floatingfigure}{0.4\textwidth}
+\begin{tikzpicture}
+        \pgfplotsset{
+        VectorGraph/.style = {
+            -stealth,
+            quiver = {
+                u = y / (x^2 + y^2) ^ 0.5, 
+                v = x^3 * (1 + y^2) / (x^2 + y^2) ^ 0.5, 
+                scale arrows = 0.1}
+            }
+        }
+        \begin{axis}[
+            width = \textwidth,
+            height = 9.5cm,
+            ymin = -3.4,
+            ymax = 3.4,
+            xmin = -1.9,
+            xmax = 1.8, 
+            xtick = {-3, ..., 3},
+            ytick = {-5, ..., 5},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = sqrt(\C * exp(0.5 * x^4) - 1);
+            }]
+            
+            \addplot[domain = -2:2, thick, gray] {f(1, x)};
+            \addplot[domain = -2:2] {f(1.5, x)};
+            \addplot[domain = -2:2] {f(2, x)};
+            \addplot[domain = -2:2] {-f(1, x)};
+            \addplot[domain = -2:2] {-f(1.5, x)};
+            \addplot[domain = -2:2] {-f(2, x)};
+            
+            \addplot[domain = 1.75:ln(4)^(1/4), samples = 2000]
+            {f(0.5, x)};
+            \addplot[domain = 1.75:ln(4)^(1/4), samples = 2000]
+            {-f(0.5, x)};
+            
+            \addplot[domain = -1.75:-ln(4)^(1/4), samples = 2000]
+            {f(0.5, x)};
+            \addplot[domain = -1.75:-ln(4)^(1/4), samples = 2000]
+            {-f(0.5, x)};
+            
+            \addplot[VectorGraph, samples = 6, domain = -1.2 : 1.2, gray]
+            {f(1, x)};
+            \addplot[VectorGraph, samples = 6, domain = -1.2 : 1.2]
+            {f(1.5, x)};
+            \addplot[VectorGraph, samples = 6, domain = -1.2 : 1.2]
+            {f(2, x)};
+            \addplot[VectorGraph, samples = 6, domain = -1.2 : 1.2]
+            {-f(1, x)};
+            \addplot[VectorGraph, samples = 6, domain = -1.2 : 1.2]
+            {-f(1.5, x)};
+            \addplot[VectorGraph, samples = 6, domain = -1.2 : 1.2]
+            {-f(2, x)};
+            
+            \addplot[VectorGraph, samples = 6, domain = ln(4)^(1/4) : 1.5]
+            {f(0.5, x)};
+            \addplot[VectorGraph, samples = 6, domain = ln(4)^(1/4) : 1.5]
+            {-f(0.5, x)};
+            
+            \addplot[VectorGraph, samples = 6, domain = -1.6 : -ln(4)^(1/4)]
+            {f(0.5, x)};
+            \addplot[VectorGraph, samples = 6, domain = -1.5 : -ln(4)^(1/4)]
+            {-f(0.5, x)};
+        \end{axis}
+    \end{tikzpicture}
+\end{floatingfigure}
+
+Направления траекторий изображены на графике. Характер траекторий показывает, что с ростом $t$ точка
+$\left\{ \begin{matrix} x = x\br{t} \\ y = y\br{t}\end{matrix} \right.$
+удаляется от начала координат, поэтому решение неустойчиво.
+
+Для доказательство неустойчивости будем использовать только траекторию $y = \sqrt{\tpow{e}{\frac {1}{2} x^4} - 1}$. \linebreak Она представляет особый интерес, так как проходит через начало координат, то есть через нулевое решение
+$\Phi\br{t} = \begin{pmatrix}0 \\ 0 \end{pmatrix}$. Это значит, что для всякого $\delta > 0$ можно подобрать точку I-ой четверти на этой траектории, лежащую в окрестности $O\br{\br{0; 0}; \delta}$ начала координат радиуса $\delta$. Эта траектория изображена на фазовой плоскости серым цветом.
+
+Для всякого решения $X\br{t} = \begin{pmatrix} x\br{t} \\ y\br{t} \end{pmatrix}$, составляющего такую траекторию, имеем при $t \ge t_{0} = 0$
+\begin{gather*}
+\vbr{X\br{t} - \Phi\br{t}} 
+= \sqrt{x^2\br{t} + y^2\br{t}} 
+= \sqrt{x^2\br{t} + \tpow{e}{\frac {1}{2} x^4\br{t}} - 1} \\
+\vbr{X\br{t_{0}} - \Phi\br{t_{0}}} = \sqrt{x^2\br{0} + \tpow{e}{\frac {1}{2} x^4\br{0}} - 1}
+\end{gather*}
+
+Пусть $\epsilon = \sqrt{\dfrac {3} {2}}$ и $\delta > 0$. Приведём для них пример такого решения, для которого $\sqrt{x^2\br{0} + \tpow{e}{\frac {1}{2} x^4\br{0}} - 1} < \delta$, но при некоторых $t$ будет $\sqrt{x^2\br{t} + \tpow{e}{\frac {1}{2} x^4\br{t}} - 1} \ge \epsilon$. 
+
+Рассмотрим следующую задачу Коши:
+$$\begin{cases}
+\dfrac {d} {dt} \begin{pmatrix}x\br{t} \\ y\br{t}\end{pmatrix} = \begin{pmatrix} y \\  x^3 \br{1 + y^2} \end{pmatrix}\\
+x\br{0} = \min\br{1; \gamma} \\
+y\br{0} = \sqrt{ \tpow{e}{\frac {1}{2} x^{4}\br{0}} - 1}
+\end{cases}$$
+где $\gamma = \sqrt{\ln\br{\dfrac {\delta^2} {2} + 1}}$. Она удовлетворяет условию единственности, причём поскольку начальная точка фазовой плоскости $A_{0} = \br{x\br{0}; y\br{0}}$ лежит в I-ой четверти, $\frac {dx} {dt}\br{0} > 0$ и $\frac {dy} {dt}\br{0} > 0$. Это означает, что в окрестности точки $A_{0}$ обе функции $x\br{t}$ и $y\br{t}$ возрастают. С другой стороны, при $t \ge t_{0}$ точка остаётся на траектории, а значит и в I-ой четверти, а значит обе производные остаются положительными, а функции неограниченно возрастают.
+
+$0 < x\br{0} \le 1$, значит $x^2\br{0} \ge x^{4}\br{0}$. Для всех положительных $a$ выполняется неравенство $a < e^{a} - 1$, а значит
+\begin{multline*}
+\sqrt{x^2\br{0} + \tpow{e}{\frac {1}{2} x^4\br{0}} - 1} 
+< \sqrt{\tpow{e}{x^2\br{0}} - 1 + \tpow{e}{\frac {1}{2} x^2\br{0}} - 1} 
+< \sqrt{2\br{\tpow{e}{x^2\br{0}} - 1}} \le \\
+\le \sqrt{2\br{\tpow{e}{\gamma^2} - 1}} = \delta 
+\end{multline*}
+
+Найдём такое $t_{1} > t_{0}$, что для $t \ge t_{1}$ будет выполняться $x\br{t} \ge 1$. Тогда для таких $t$ верно, что $x^4\br{t} \ge x^2\br{t}$ и
+$$
+\sqrt{x^2\br{t} + \tpow{e}{\frac {1}{2} x^4\br{t}} - 1} 
+\ge \sqrt{x^2\br{t} + \tpow{e}{\frac {1}{2} x^2\br{t}} - 1} 
+> \sqrt{x^2\br{t} + \dfrac {1} {2} x^2\br{t}} 
+= \sqrt{\dfrac {3} {2} x^2\br{t}} 
+\ge \sqrt{ \dfrac {3} {2} } = \epsilon,
+$$
+в чём и требовалось убедиться. 
+\end{document}
