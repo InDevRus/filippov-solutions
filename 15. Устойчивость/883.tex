@@ -1,0 +1,86 @@
+% Page setup
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{
+    every axis/.append style = {
+        xlabel={$x$},
+        ylabel={$y$}, 
+        axis lines = middle,
+        unit vector ratio = 1 1,
+        font=\small
+    },
+    every axis plot/.append style = {smooth, samples = 100}
+}
+
+\begin{document}
+
+$\dfrac {dy} {dx} = \dfrac {\dot{y}} {\dot{x}} = \dfrac {2y} {x}$.
+$\dfrac {x^2 y'_{x}\br{x} - 2x y\br{x}} {x^4} = 0$. 
+$\dfrac {d} {dx} \br{\dfrac {y\br{x}} {x^2}} = 0$.
+$y = Cx^2$. Итак, траекториями системы являются параболы, проходящие через начало координат фазовой плоскости.
+
+\begin{floatingfigure}{0.275\textwidth}
+    \begin{tikzpicture}
+        \pgfplotsset{
+        VectorGraph/.style = {
+                -stealth,
+                quiver = {
+                    u = x / (x^2 + y^2) ^ 0.5, 
+                    v = 2 * y / (x^2 + y^2) ^ 0.5, 
+                    scale arrows = 0.2}}
+        }
+        \begin{axis}[
+            width = \textwidth,
+            height = 7cm,
+            ymin = -4.2,
+            ymax = 4.7,
+            xmin = -2.2,
+            xmax = 2.45, 
+            xtick = {-3, ..., 3},
+            ytick = {-5, ..., 5},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = \C * x^2;
+            }]
+            
+            \addplot[domain=-3:3] {f(0.5, x)};
+            \addplot[VectorGraph, samples = 6, domain = -2 : -0.5] {f(0.5, x)};
+            \addplot[VectorGraph, samples = 6, domain = 0.5 : 2] {f(0.5, x)};
+            \addplot[domain=-3:3] {f(-0.5, x)};
+            \addplot[VectorGraph, samples = 6, domain = -2 : -0.5] {f(-0.5, x)};
+            \addplot[VectorGraph, samples = 6, domain = 0.5 : 2] {f(-0.5, x)};
+            \addplot[domain=-3:3] {f(1, x)};
+            \addplot[VectorGraph, samples = 6, domain = -2 : -0.75] {f(1, x)};
+            \addplot[VectorGraph, samples = 6, domain = 0.75 : 2] {f(1, x)};
+            \addplot[domain=-3:3] {f(-1, x)};
+            \addplot[VectorGraph, samples = 6, domain = -2 : -0.75] {f(-1, x)};
+            \addplot[VectorGraph, samples = 6, domain = 0.75 : 2] {f(-1, x)};            
+            \addplot[domain=-3:3] {f(2, x)};
+            \addplot[VectorGraph, samples = 6, domain = -2 : -0.75] {f(2, x)};
+            \addplot[VectorGraph, samples = 6, domain = 0.75 : 2] {f(2, x)};
+            \addplot[domain=-3:3] {f(-2, x)};
+            \addplot[VectorGraph, samples = 6, domain = -1.4 : -0.75] {f(-2, x)};
+            \addplot[VectorGraph, samples = 6, domain = 0.75 : 1.4] {f(-2, x)};
+            
+        \end{axis}
+    \end{tikzpicture}
+\end{floatingfigure}
+
+На рисунке показаны траектории вместе с направляющими векторами, посчитанными в некоторых точках вдоль траекторий. Характер направлений указывает на то, что решения удаляются от начала координат, то есть от нулевого решения $\Phi\br{t} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$, так что решение неустойчиво, а особая точка $\left\{ \begin{matrix} x = 0 \\ y = 0 \end{matrix} \right.$ относится к типу "узел".
+
+Докажем по определению неустойчивость. Общее решение имеет вид $X\br{t} = \begin{pmatrix} A e^{t} \\ B e^{2t} \end{pmatrix}$. Для $t \ge t_{0} = 0$
+\begin{align*}
+\br{X\br{t} - \Phi\br{t}}^2 = A^2 e^{2t} + B^2 e^{4t} &&
+\br{X\br{t_{0}} - \Phi\br{t_{0}}}^2 = A^2 + B^2
+\end{align*}
+
+Для $\epsilon = 1$ и любого $\delta > 0$ потребуем, чтобы $A$ и $B$ были таковы, что $0 < A^2 + B^2 < \delta^2$. Обе функции $e^{2t}$ и $e^{4t}$ возрастают, то есть при $t \ge t_{0} = 0$ будет $e^{4t} \ge e^{2t}$. Однако, при
+$t \ge \max\br{ \dfrac {1} {2} \ln\br{\dfrac {1}{A^2 + B^2}}; 0}$ имеем 
+$A^2 e^{2t} + B^2 e^{4t} \ge e^{2t} \br{A^2 + B^2} \ge 1 = \epsilon^2$, и поэтому \linebreak решение неустойчиво.
+
+\end{document}
