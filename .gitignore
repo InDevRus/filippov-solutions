@@ -1,0 +1,6 @@
+# Default ignored files
+/.kile/
+./*.kilepr
+*.aux
+*.txt
+Main.tex
