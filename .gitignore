@@ -9,4 +9,5 @@
 /**/*.xml
 /**/*.iml
 
-Main.tex
+/**/Main.tex
+/**/Main.pdf

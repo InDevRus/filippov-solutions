@@ -1,0 +1,141 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{
+    every axis/.append style = {
+        xlabel={$x$},
+        ylabel={$y$}, 
+        axis lines = middle,
+        unit vector ratio = 1 1,
+        font=\small
+    },
+    every axis plot/.append style = {smooth, samples = 100}
+}
+
+\begin{document}
+
+Траектории этой системы удовлетворяют уравнению $\dfrac {dy} {dx} = \dfrac {\dot{y}} {\dot{x}} = - \dfrac {\sin{x}} {y \cos{x}}$. $2yy'_{x}\br{x} = \linebreak = -2 \dfrac {\sin{x}} {\cos{x}}$. $y^2\br{x} = 2 \ln \vbr{\cos x} + C$. Итак, траектории задаются $y\br{x} = \pm \sqrt{C + \ln \br{\cos^2 x}}$.
+
+\begin{floatingfigure}{0.35\textwidth}
+    \begin{tikzpicture}
+        \pgfplotsset{
+        VectorGraph/.style = {
+            -stealth,
+            quiver = {
+                u = -y * cos(deg(x)) / (x^2 + y^2) ^ 0.5, 
+                v = sin(deg(x)) / (x^2 + y^2) ^ 0.5, 
+                scale arrows = 0.1}
+            }
+        }
+        \begin{axis}[
+            width = \textwidth,
+            height = 7cm,
+            ymin = -2.2,
+            ymax = 2.4,
+            xmin = -1.6,
+            xmax = 1.7, 
+            xtick = {-2, -1, ..., 2},
+            ytick = {-2, -1, ..., 2},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = sqrt(\C + 2 * ln(abs(cos(deg(x)))));
+            }],
+            
+            \addplot[domain = -2 : 2, samples = 1000]
+            (rad(acos(exp(0.5 * (x^2 - 4)))), x);
+            \addplot[domain = -2 : 2, samples = 1000]
+            (-rad(acos(exp(0.5 * (x^2 - 4)))), x);
+            
+            \addplot[domain = -sqrt(2) : sqrt(2), samples = 1000]
+            (rad(acos(exp(0.5 * (x^2 - 2)))), x);
+            \addplot[domain = -sqrt(2) : sqrt(2), samples = 1000] 
+            (-rad(acos(exp(0.5 * (x^2 - 2)))), x);
+            
+            \addplot[domain = -1 : 1, samples = 1000]
+            (rad(acos(exp(0.5 * (x^2 - 1)))), x);
+            \addplot[domain = -1 : 1, samples = 1000]
+            (-rad(acos(exp(0.5 * (x^2 - 1)))), x);
+            
+            \addplot[domain = -sqrt(0.5) : sqrt(0.5), samples = 1000]
+            (rad(acos(exp(0.5 * (x^2 - 0.5)))), x);
+            \addplot[domain = -sqrt(0.5) : sqrt(0.5), samples = 1000]
+            (-rad(acos(exp(0.5 * (x^2 - 0.5)))), x);
+            
+            \addplot[domain = -0.5 : 0.5, samples = 1000, dashed]
+            (rad(acos(exp(0.5 * (x^2 - 0.25)))), x);
+            \addplot[domain = -0.5 : 0.5, samples = 1000, dashed] 
+            (-rad(acos(exp(0.5 * (x^2 - 0.25)))), x);
+            
+            \addplot[domain = -1/3 : 1/3, samples = 1000, dashed]
+            (rad(acos(exp(0.5 * (x^2 - 1/9)))), x);
+            \addplot[domain = -0.5 : 0.5, samples = 1000, dashed] 
+            (-rad(acos(exp(0.5 * (x^2 - 1/9)))), x);
+            
+            \addplot[domain = -0.25 : 0.25, samples = 1000, dashed]
+            (rad(acos(exp(0.5 * (x^2 - 0.0625)))), x);
+            \addplot[domain = -0.5 : 0.5, samples = 1000, dashed] 
+            (-rad(acos(exp(0.5 * (x^2 - 0.0625)))), x);
+
+            \addplot[VectorGraph, samples = 7, domain = -1.43 : 1.435]
+            {f(4, x)};
+            \addplot[VectorGraph, samples = 5, domain = -1.4 : 1.4]
+            {-f(4, x)};
+            
+            \addplot[VectorGraph, samples = 6, domain = -1.19 : 1.19]
+            {f(2, x)};
+            \addplot[VectorGraph, samples = 4, domain = -1.18 : 1.18]
+            {-f(2, x)};
+            
+            \addplot[VectorGraph, samples = 5, domain = -0.91 : 0.91]
+            {f(1, x)};
+            \addplot[VectorGraph, samples = 5, domain = -0.8 : 0.8]
+            {-f(1, x)};
+            
+            \addplot[VectorGraph, samples = 5, domain = -0.672 : 0.677]
+            {f(0.5, x)};
+            \addplot[VectorGraph, samples = 5, domain = -0.7 : 0.7]
+            {-f(0.5, x)};
+        \end{axis}
+    \end{tikzpicture}
+\end{floatingfigure}
+
+
+Они определены только при $C > 0$ и представляют собой замкнутые кривые при всех таких $C$. Эти траектории вместе с направляющими векторами показаны на графике. Оценив рисунок, можно утверждать, что замкнутую траекторию можно подобрать настолько, насколько необходимо, близкой к началу координат фазовой плоскости, то есть к нулевому решению $\Phi\br{t} = \begin{pmatrix}0 \\ 0\end{pmatrix}$.
+
+Вывод: решение устойчиво, хотя и не асимптотически.
+
+\vspace{1.25 cm}
+
+Докажем это по определению. Для всякой начальной точки $A_{0} = \br{x\br{t_{0}}; y\br{t_{0}}}$ при условии $x\br{t_{0}} \in \br{-\dfrac {\pi} {2}; -\dfrac {\pi} {2}}$ можно однозначно отыскать $C =  y^2\br{t_{0}} - \ln\br{\cos^2 x\br{t_{0}}}$, и это означает, что через $A_{0}$ проходит единственная траектория. При $t \ge t_{0}$ точка будет оставаться на этой же траектории с неизменным $C$. Для удобства положим $t_{0} = 0$.
+
+Траектория $y^2\br{x} = 2 \ln \vbr{\cos x} + C$ определена для $\vbr{x} \le \arccos\br{\tpow{e} {-\frac {C} {2}}} < \dfrac {\pi} {2}$. Обозначим за $\rho = \rho\br{t}$ расстояние от точки на траектории $X\br{t} = \begin{pmatrix} x\br{t} \\ y\br{t} \end{pmatrix}$ до начала координат.
+$$\rho\br{t} = \rho\br{x\br{t}} = \sqrt{x^2\br{t} + y^2\br{t}} = \sqrt{x^2\br{t} + \ln\br{\cos^2 x\br{t}} + C} = \sqrt{f\br{x\br{t}} + C},$$
+где за $f\br{x}$ обозначено выражение $f\br{x} = x^2 + \ln\br{\cos^2 x}$. Эта функция чётная и убы-вает для $0 \le x < \dfrac {\pi} {2}$, потому что для таких $x$ имеем $f'\br{x} = 2\br{x - \tg{x}} < 0$. Это значит, что $x^2 + \ln\br{\cos^2 x} = f\br{x} \le f\br{0} = 0$.
+
+Следовательно, в $x = 0$ расстояние наибольшее и равно $\rho_{\max}\br{C} = \sqrt{C}$; наименьшее достигается в концах отрезка $x = \pm \arccos\br{\tpow {e} {-\frac {C} {2}}}$ и равно $\rho_{\min}\br{C} = \arccos\br{\tpow {e} {-\frac {C} {2}}}$.
+\begin{align*}
+\vbr{X\br{t} - \Phi\br{t}} = \sqrt{x^2\br{t} + y^2\br{t}} &&
+\vbr{X\br{t_{0}} - \Phi\br{t_{0}}} = \sqrt{x^2\br{0} + y^2\br{0}} &&
+\end{align*}
+
+Пусть теперь $\epsilon > 0$ -- произвольное и $\delta\br{\epsilon} = \arctg\br{\epsilon}$. Потребуем также, чтобы для начальной точки $A_{0}$ выполнялось $\sqrt{x^2\br{0} + y^2\br{0}} < \delta$. Из этого следует 
+$$\delta > \sqrt{x^2\br{0} + y^2\br{0}} \ge \rho_{\min} = \arccos\br{\tpow {e} {-\frac {C} {2}}}.$$
+
+Функция $g\br{s} = \arccos\br{\tpow {e} {-\frac {s} {2}}}$ возрастает, что позволяет решить относительно $C$ неравенство $\arccos\br{\tpow {e} {-\frac {C} {2}}} < \delta$ и получить $C < \ln\br{\dfrac {1}{\cos^{2} \delta}}$.
+
+Наконец, учитывая неравенство $\ln a \le a - 1$ для всех $a$, основное тригонометрическое тождество и решение неравенства сверху, получаем при $t \ge t_{0} = 0$
+$$\sqrt{x^2\br{t} + y^2\br{t}}
+\le \rho_{\max}\br{C}
+= \sqrt{C}
+< \sqrt{\ln\br{\dfrac {1} {\cos^{2} \delta}}} 
+\le \sqrt{ \dfrac {1}{\cos^{2} \delta} - 1 }
+= \sqrt{\tg^2 \delta}
+= \epsilon.$$
+
+Устойчивость доказана.
+
+\end{document}
