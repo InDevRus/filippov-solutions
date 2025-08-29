@@ -1,0 +1,29 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+$x^2\br{t} + y^2\br{t} = \br{\dfrac {C_1 - C_2 t} {1 + t^2}}^2 + \br{C_{1} t^3 e^{-t} + C_{2}e^{-t}}^2$.
+Выберем $t_{0} = 0$ и тогда $x^2\br{t_{0}} + y^2\br{t_{0}} \linebreak = C_{1}^2 + C_{2}^2$.
+
+Путём исследования функций с помощью производной несложно вычислить:
+\begin{itemize}
+    \item $\tmax{t \ge 0} \br{\vbr{t}^3 e^{-t}} = \br{\dfrac {3} {e}}^3$ достигается при $t =3$;
+    \item $\tmax{t \in {\mathbb{R}}} \dfrac {1 + \vbr{t}} {1 + t^2} = \dfrac {\sqrt{2} + 1} {2}$ достигается при $t = \pm \br{\sqrt{2} - 1}$.
+\end{itemize}
+Каждый из указанных максимумов меньше $2$.
+
+Для наперёд заданного $\epsilon > 0$ положим $\delta\br{\epsilon} = \dfrac {\epsilon} {\sqrt{13}}$. Потребуем, чтобы $C_{1}^2 + C_{2}^2 < \delta^2$. Из этого немедленно следует $\vbr{C_{1}} < \delta$ и $\vbr{C_{2}} < \delta$. Обозначим теперь $m = \max\br{\vbr{C_{1}}; \vbr{C_{2}}}$, и тогда $m < \delta$. Отсюда имеем
+\begin{align*}
+\vbr{\dfrac {C_1 - C_2 t} {1 + t^2}} \le \dfrac {\vbr{C_1} + \vbr{C_2} \vbr{t}} {1 + t^2} \le \dfrac {m \br{1 + \vbr{t}}} {1 + t^2} < 2m; 
+&& \vbr{C_{1} t^3 e^{-t} + C_{2}e^{-t}} < 2m + m = 3m.
+\end{align*}
+
+Наконец, $x^2\br{t} + y^2\br{t} < \br{2m}^2 + \br{3m}^2 = 13m^2 < 13\delta^2 = \epsilon^2$, а поэтому решение устойчиво.
+Кроме того, при всяких $C_{1}$ и $C_{2}$ (в том числе при таких, что $C_{1}^2 + C_{2}^2 < \delta^2$)
+$\tlim{\mathsmaller{t \to +\infty}} \dfrac {C_1 - C_2 t} {1 + t^2} = 0$ и $\tlim{\mathsmaller{t \to +\infty}} \br{C_{1} t^3 e^{-t} + C_{2}e^{-t}} = 0$, что позволяет утверждать $\tlim{\mathsmaller{t \to +\infty}} \begin{pmatrix} x\br{t} \\ y\br{t}\end{pmatrix} = 0$.
+
+Вывод: решение асимптотически устойчиво.
+
+\end{document}
