@@ -1,0 +1,32 @@
+% Page setup
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$
+\begin{cases}
+    x'' - 2y' + 2x = 0 \\
+    y'' + 3x' - 8y = 0
+\end{cases}
+$
+
+Продифференцируем второе уравнение: $3x'' + y''' - 8y' = 0$, откуда $3x'' = 8y' - y''' = \linebreak = 6y' - 6x$. $y''' - 2y' - 6x = 0$. 
+
+Снова возьмём производную и примем во внимание, что $3x' = 8y - y''$: $y^{\br{4}} - 2y'' - 6x' \linebreak = y^{\br{4}} - 2y'' - 2 \br{8y - y''} = y^{\br{4}} - 16y$. Окончательно получаем $y^{\br{4}} - 16y = 0$.
+
+Харакеристическое уравнение имеет вид $\lambda^4 - 16 = 0$. $\lambda^4 - 16 = \br{\lambda^2 - 4} \br{\lambda^2 + 4} = \linebreak = \br{\lambda - 2} \br{\lambda + 2} \br{\lambda^2 + 4}$. $\lambda_{1} = 2$, $\lambda_{2} = -2$, $\lambda_{3, 4} = 0 \pm 2i$.
+
+$y\br{t} = C_{1} e^{2t} + C_{2} e^{-2t} + C_{3} \sin 2t + C_{4} \cos 2t$. В процессе упрощения было получено $y''' - 2y' - 6x = 0$, что позволяет найти $6x = y''' - 2y' = 8C_{1}e^{2t} - 8C_2e^{-2t} - 8C_{3} \cos 2t + \linebreak + 8C_{4} \sin 2t - \br{4 C_{1} e^{2t} - 4 C_{2} e^{-2t} + 4 C_{3} \cos 2t - 2C_{4} \sin 2t} = 4 C_{1}e^{2t} - 4 C_2e^{-2t} - 12C_{3} \cos 2t \linebreak + 12C_{4} \sin 2t$.
+
+Окончательно получаем
+$
+\begin{cases}
+x\br{t} = 2 C_{1}e^{2t} - 2 C_2e^{-2t} - 2C_{3} \cos 2t + 2C_{4} \sin 2t \\
+y\br{t} = 3 C_{1} e^{2t} + 3 C_{2} e^{-2t} + C_{3} \sin 2t + C_{4} \cos 2t 
+\end{cases}
+$
+
+\end{document}
