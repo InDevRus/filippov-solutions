@@ -19,6 +19,9 @@
 
 % Theorem definitions
 \usepackage{amsthm}
+\theoremstyle{remark}
+\newtheorem*{necessity}{Необходимость}
+\newtheorem*{sufficiency}{Достаточность}
 \theoremstyle{definition}
 \newtheorem*{theorem}{Теорема}
 \newtheorem*{corollary}{Следствие}
@@ -51,14 +54,24 @@
 
 % For resizing
 \usepackage{relsize}
+
 % More convenient text-style common notations
+\DeclareMathOperator*\lowlim{\underline{\lim}}
+\DeclareMathOperator*\uplim{\overline{\lim}}
+
+\newcommand{\tlowlim}[1]{\lowlim\limits_{#1}}
+\newcommand{\tuplim}[1]{\uplim\limits_{#1}}
+
 \newcommand{\tpow}[2]{{#1}^{\mathlarger{#2}}}
+
 \newcommand{\tint}{\displaystyle{\int}}
 \newcommand{\tintlim}[2]{\displaystyle{\int\limits_{#1}^{#2}}}
 \newcommand{\tbigint}{\displaystyle{\mathlarger{\int}}}
 \newcommand{\tbigintlim}[2]{\displaystyle{\mathlarger{\int}\limits_{#1}^{#2}}}
+
 \newcommand{\tsumlim}[2]{\displaystyle{\mathlarger{\sum}\displaylimits_{#1}^{#2}}}
 \newcommand{\tprodlim}[2]{\displaystyle{\mathlarger{\prod}\displaylimits_{#1}^{#2}}}
+
 \newcommand{\tmin}[1]{\min\limits_{#1}}
 \newcommand{\tmax}[1]{\max\limits_{#1}}
 \newcommand{\tlim}[1]{\lim\limits_{#1}}

@@ -1,0 +1,37 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$x'\br{t} - a\br{x} x\br{t} = 0$. Обозначим за $A\br{t}$ интеграл $A\br{t} = \int\limits_{0}^{t} a\br{s} ds$, $\dfrac {dA} {dt} = a\br{t}$.
+$x'\br{t} e^{- A\br{t}} - e^{- A\br{t}} a\br{x} x\br{t} = 0$.
+$\dfrac {d} {dt} \br{ x e^{- A\br{t}}} = 0$. $x\br{t} = C e^{A\br{t}}$ -- общее решение. 
+Условие $\tuplim{t \to +\infty} A\br{t} < +\infty$ равносильно ограниченности сверху этой функции, то есть тому, что существует такое $\alpha$, что $A\br{t} \le \alpha$ при всех $t \ge t_{0}$.
+
+Далее за $\phi\br{t} = 0$ обозначено нулевое решение; $t_{0} = 0$.
+
+\begin{necessity}
+
+Пусть $A\br{t}$ сверху неограничена при $t \ge 0$. Покажем, что решение $\phi\br{t}$ неустойчиво.
+
+Пусть $\epsilon = 1$, $\delta > 0$ -- произвольное и $\vbr{x\br{0} - \phi\br{0}} = \vbr{C} < \delta$, $\vbr{C} \ne 0$. $A\br{t}$ неограничена, значит найдётся такое $t_{1} > 0$, что $A\br{t_{1}} \ge \ln\br{\dfrac {\epsilon} {\vbr{C}}}$. В таком случае $\vbr{x\br{t_{1}} - \phi\br{t_{1}}} = \linebreak = \vbr{C} e^{A\br{t_{1}}} \ge \epsilon$.
+Последнее означает, что решение неустойчиво.
+
+\end{necessity}
+
+\begin{sufficiency}
+
+Пусть теперь $A\br{t}$ ограничена сверху числом $\alpha$. Покажем устойчивость решения.
+
+Пусть $\epsilon > 0$ и $\delta\br{\epsilon} = \dfrac {\epsilon} {\tpow{e}{\alpha}}$. Потребуем, чтобы $\vbr{x\br{0} - \phi\br{0}} = \vbr{C} < \delta$. Из этого следует, что для всех $t \ge 0$
+$$\vbr{x\br{t} - \phi\br{t}} = \vbr{C} e^{A\br{t}} < \delta e^{\alpha} = \epsilon.$$
+
+Таким образом, устойчивость решения установлена. Теорема полностью доказана.
+
+\end{sufficiency}
+
+
+
+\end{document}
