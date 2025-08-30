@@ -1,0 +1,17 @@
+% Page setup
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+
+$\left\{\begin{aligned}
+    & x'' = 2y \\
+    & y'' = -2x
+\end{aligned}\right..$ Исключим переменную $y$. $x^{\br{4}} = 2y'' = -4x$. $x^{\br{4}} + 4x = 0$. $\lambda^4 + 4 = 0$. $\lambda_{k} = \sqrt[4]{-4} = \sqrt[4]{-4 + 0i} = \sqrt[4]{4\br{\cos \pi + i \sin \pi}} = \sqrt{2} \br{ \cos \br{\dfrac {\pi + 2 \pi k} {4}} + i \sin \br{\dfrac {\pi + 2 \pi k} {4}} } = \linebreak = \cbr{1 + i; -1 + i; -1 - i; 1 - i}$.
+
+Потому имеем общее решение $x\br{t} = e^{t} \br{A \cos t + B \sin t} + e^{-t} \br{C \cos t + D \sin t}$, $y\br{t} = \frac {1} {2} x''\br{t} = e^{t} \br{B \cos t - A \sin t} + e^{-t} \br{-D \cos t + C \sin t}$.
+
+\end{document}
