@@ -1,0 +1,23 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+    \begin{proposition}
+    При $\vbr{X\br{t}} = \sqrt{x^2\br{t} + y^2\br{t}} \to 0$ верна оценка $x\br{t} y\br{t} = \omicron\br{\vbr{X\br{t}}}$.
+    \end{proposition}
+    
+    Действительно, из неравенства между средними следует $\vbr{xy} \le \dfrac {x^2 + y^2} {2} = \linebreak =  \dfrac {\sqrt{x^2 + y^2}} {2} \cdot \sqrt{x^2 + y^2} = \gamma\br{X\br{t}} \vbr{x} $, где взято $\gamma\br{X\br{t}} = \dfrac {\vbr{X\br{t}}} {2} \to 0$.
+\end{framed}
+
+$\begin{pmatrix}x\br{t} \\ y\br{t}\end{pmatrix}' = A \begin{pmatrix}x\br{t} \\ y\br{t}\end{pmatrix} + \begin{pmatrix}\psi_{x} \\ \psi_{y} \end{pmatrix}$, где $A = \begin{pmatrix} -1 & 1 \\ 2 & -3 \end{pmatrix}$;
+$\psi_{x}\br{x, y} = 2xy = \omicron\br{\vbr{X}}$;
+$\psi_{y}\br{x, y} = \linebreak =  5x^{4} + y^{3} = \omicron\br{\vbr{X}}$.
+
+$\det \br{A - \lambda E} = \br{\lambda + 1} \br{\lambda + 3} - 2 = 0$.
+$\lambda^2 + 4 \lambda + 1 = 0$. $\lambda_{1} = -2 + \sqrt{3} < 0$, $\lambda_{2} = -2 - \sqrt{3} < 0$, и нулевое решение устойчиво по первому приближению.
+
+\end{document}
