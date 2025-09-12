@@ -1,0 +1,25 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+Выделим линейные части:
+    
+\begin{itemize}
+    \item $\tg\br{\zed - y} = \zed - y + o\br{\zed - y} = \zed - y + o\br{\vbr{X}}$
+
+    \item $\sqrt{9 + 12x} = 3 \br{1 + \dfrac {4} {3} x}^{\frac {1} {2}} = 3 \br{1 + \dfrac {1} {2} \cdot \dfrac {4} {3} x + o\br{x}} = 3 + 2x + o\br{\vbr{X}}$
+    
+    \item $3e^{y} = 3 \br{1 + y + o\br{y}} = 3 + 3y + o\br{\vbr{X}}$
+\end{itemize}
+
+Здесь использован тот факт, что при $\vbr{X} = \sqrt{x^2 + y^2 + \zed^2} \to 0$ имеем оценки $o\br{x} = \linebreak =  o\br{y} = o\br{\zed} = o\br{O\br{\vbr{X}}} = o\br{\vbr{X}}$, так как, например, $\vbr{x} = \sqrt{x^2} \le \sqrt{x^2 + y^2 + \zed^2} = \vbr{X}$.
+\begin{align*}
+    X'\br{t} = A X\br{t} + \begin{pmatrix} \psi_{x} \\ \psi_{y} \\ \psi_{\zed} \end{pmatrix} && A = \begin{pmatrix} -2 & -1 & 1 \\ 2 & -3 & 0 \\ 0 & -3 & 0 \end{pmatrix}
+\end{align*}
+
+$\det\br{\lambda E - A} =  \lambda^3 + 5\lambda^2 + 8\lambda + 6 = \br{\lambda + 3} \br{\lambda^2 + 2\lambda + 2}$. Собственные значения равняются $\lambda_{1} = -3$, $\lambda_{2} = -1 + i$, $\lambda_{3} = -1 - i$, поэтому решение устойчиво по первому приближению.
+
+\end{document}

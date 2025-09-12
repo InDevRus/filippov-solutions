@@ -8,40 +8,40 @@
 
 Уравнение $y''\br{x} - 2\br{x - 1} y'\br{x} + x^{2} y = 0$ необходимо привести к каноническому виду прежде, чем применять преобразование Лиувилля (пример \textbf{737*}). Это можно сделать, например, заменой 
 
-$$y\br{x} = \exp \br{- \frac {1} {2} \tint {p\br{x} dx} } z\br{x} $$
+$$y\br{x} = \exp \br{- \frac {1} {2} \tint {p\br{x} dx} } \zed\br{x} $$
 
 В нашем случае $p\br{x} = -2\br{x - 1}$, $q\br{x} = x^2$ так что заменим 
 
-$$y\br{x} = \exp\br{\frac {\br{x - 1}^2} {2}} z\br{x}$$
+$$y\br{x} = \exp\br{\frac {\br{x - 1}^2} {2}} \zed\br{x}$$
 
 Инвариант уравнения равен
 
-$$Q_{z\br{x}} \br{x} = q\br{x} - \frac {1} {2} p'\br{x} - \frac {1} {4} p^{2}\br{x} = 2x$$
+$$Q_{\zed\br{x}} \br{x} = q\br{x} - \frac {1} {2} p'\br{x} - \frac {1} {4} p^{2}\br{x} = 2x$$
 
-После замены имеем уравнение $z''\br{x} + 2x z\br{x} = 0$. Теперь преобразуем полученное уравнение по Лиувиллю. В обозначениях задачи \textbf{737*} $\psi\br{x} = \tpow {\br{2x}} {-\frac {1} {4}}$,
+После замены имеем уравнение $\zed''\br{x} + 2x \zed\br{x} = 0$. Теперь преобразуем полученное уравнение по Лиувиллю. В обозначениях задачи \textbf{737*} $\psi\br{x} = \tpow {\br{2x}} {-\frac {1} {4}}$,
 
 $$\phi\br{x} = \tintlim{0}{x} {\br{\psi\br{s}}^{-2}} ds = \frac {2\sqrt{2}} {3} \tpow{x}{\frac {3} {2}}$$
 
 Соответственно, необходимо заменить переменные следующим образом:
 $$
 \begin{cases}
-z = \psi\br{x} u = \tpow {\br{2x}} {-\frac {1} {4}} u \\
+\zed = \psi\br{x} u = \tpow {\br{2x}} {-\frac {1} {4}} u \\
 t = \phi\br{x} = \dfrac {2\sqrt{2}} {3} \tpow {x} {\frac {3} {2}}
 \end{cases}
 $$
 
-Инвариант преобразованного в терминах $z\br{t}$ уравнения принимает вид
+Инвариант преобразованного в терминах $\zed\br{t}$ уравнения принимает вид
 
-$$Q_{z\br{t}}\br{t} = 1 + \psi^3\br{x} \psi''\br{x} = 1 + \frac {5} {34} x^{-3} = 1 + O\br{x^{-3}} = 1 + O\br{t^{-2}}$$
+$$Q_{\zed\br{t}}\br{t} = 1 + \psi^3\br{x} \psi''\br{x} = 1 + \frac {5} {34} x^{-3} = 1 + O\br{x^{-3}} = 1 + O\br{t^{-2}}$$
 
-Следовательно, для фундаментальной системы решений уравнения $z''\br{t} + Q_{z\br{t}} z\br{t} \\ = 0$ получаем следующие оценки:
+Следовательно, для фундаментальной системы решений уравнения $\zed''\br{t} + Q_{\zed\br{t}} \zed\br{t} \\ = 0$ получаем следующие оценки:
 \begin{align*}
-z_{1}\br{t} = \cos\br{t} + O\br{t^{-1}} \qquad & z_{2}\br{t} = \sin\br{t} + O\br{t^{-1}}
+\zed_{1}\br{t} = \cos\br{t} + O\br{t^{-1}} \qquad & \zed_{2}\br{t} = \sin\br{t} + O\br{t^{-1}}
 \end{align*}
 
 Подставляя обратно, получаем
 \begin{align*}
-  y_{1}\br{x} = \exp\br{\frac {\br{x - 1}^2} {2}} \tpow {\br{2x}}{-\frac {1} {4}} z_{1}\br{t} 
+  y_{1}\br{x} = \exp\br{\frac {\br{x - 1}^2} {2}} \tpow {\br{2x}}{-\frac {1} {4}} \zed_{1}\br{t}
   = \exp\br{\frac {\br{x - 1}^2} {2}} \tpow {\br{2x}}{-\frac {1} {4}} \br{\cos\br{\frac {2\sqrt{2}} {3} \tpow{x}{\frac {3} {2}}} + O\br{\tpow {x} {-\frac {3} {2}}}} \\ 
   = \exp\br{\frac {\br{x - 1}^2} {2}} \br{ \tpow {\br{2x}}{-\frac {1} {4}} \cos\br{\frac {2\sqrt{2}} {3} \tpow{x}{\frac {3} {2}}} + O\br{\tpow{x} {-\frac {7} {4}}}}
 \end{align*}

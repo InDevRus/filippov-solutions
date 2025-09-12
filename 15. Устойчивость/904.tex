@@ -5,18 +5,17 @@
 
 \begin{document}
 
-Выделим линейные части, используя замечательные пределы.
+Выделим линейные части:
     
 \begin{itemize}
-    \item $\tg\br{y - x} = y - x + o\br{\br{y - x}^2} = y - x + o\br{x^2} + o\br{y^2} = y - x + o\br{\vbr{X}}$
+    \item $\tg\br{y - x} = y - x + o\br{y - x} = y - x + o\br{x} + o\br{y} = y - x + o\br{\vbr{X}}$
 
     \item $2^{y} = e^{y \ln 2} = 1 + y \ln 2 + o\br{y} = 1 + y \ln 2 + o\br{\vbr{X}}$
     
-    \item $2 \cos\br{\dfrac {\pi} {3} - x} = \cos x + \sqrt{3} \sin x = 1 + o\br{x} + \sqrt{3} \br{x + o\br{x^2}} = 1 + \sqrt{3}x + o\br{\vbr{X}}$
+    \item $2 \cos\br{\dfrac {\pi} {3} - x} = \cos x + \sqrt{3} \sin x = 1 + o\br{x} + \sqrt{3} \br{x + o\br{x}} = 1 + \sqrt{3}x + o\br{\vbr{X}}$
 \end{itemize}
 
 Здесь использован тот факт, что при $\vbr{X} = \sqrt{x^2 + y^2} \to 0$ имеем оценки $o\br{x} = o\br{y} = \linebreak = o\br{O\br{\vbr{X}}} = o\br{\vbr{X}}$, так как, например, $\vbr{x} = \sqrt{x^2} \le \sqrt{x^2 + y^2} = \vbr{X}$.
-
 \begin{align*}
     X'\br{t} = A X\br{t} + \begin{pmatrix} \psi_{x} \\ \psi_{y} \end{pmatrix} && A = \begin{pmatrix}-1 & 1 \\ -\sqrt{3} & \ln 2 \end{pmatrix}
 \end{align*}
