@@ -9,5 +9,5 @@
 /**/*.xml
 /**/*.iml
 
-/**/Main.tex
-/**/Main.pdf
+/**/Main*.tex
+/**/Main*.pdf
