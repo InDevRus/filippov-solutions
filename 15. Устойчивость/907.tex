@@ -1,0 +1,63 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+Тот факт, что
+$x\br{t} y\br{t} = O\br{x^2\br{t} + y^2\br{t}} = O\br{o\br{\sqrt{x^2\br{t} + y^2\br{t}}}} = o\br{\vbr{X}}$ при $\vbr{X} \to 0$
+был показан в решении задачи \textbf{899}. Таким образом,
+\begin{align*} 
+    \dfrac {d} {dt} \begin{pmatrix} x\br{t} \\ y\br{t} \end{pmatrix} = A \begin{pmatrix} x\br{t} \\ y\br{t} \end{pmatrix} + \begin{pmatrix} o\br{\vbr{X}} \\ o\br{\vbr{X}} \end{pmatrix} && A = \begin{pmatrix} a & -2 \\ 1 & 1 \end{pmatrix}
+\end{align*}
+
+$\det\br{A - \lambda E} = \br{\lambda - a}\br{\lambda - 1} + 2 = \lambda^2 - \br{a + 1} \lambda + a + 2$. Харакетристическое уравнение имеет вид:
+$\lambda^2 - \br{a + 1} \lambda + a + 2 = 0$. $D = \br{a + 1}^2 - 4\br{a + 2} = a^2 - 2a - 7$.
+
+$D \ge 0$ при $a \in \left(-\infty; 1 - \sqrt{8} \right] \cup \left[1 + \sqrt{8}; +\infty \right)$. При таких $a$ по теореме Виета $\lambda_{1} \cdot \lambda_{2} = \linebreak = a + 2$. Таким образом, если $a < 2 < 1 - \sqrt{8}$, то собственные значения разных знаков и нулевое решение неустойчиво. Если $a = -2$, то собственные значения равны $0$ и $-1$ и теорема Ляпунова не даёт ответ. Если $-2 < a \le 1 - \sqrt{8}$, то $\lambda_{1} + \lambda_{2} = a + 1 < 0$, оба корня отрицательны и нулевое решение устойчиво асимптотически. Наконец, в случае $a \ge 1 + \sqrt{8}$ будет $\lambda_{1} + \lambda_{2} = a + 1 > 0$ и оба корня положительны, то есть нулевое решение неустойчиво.
+
+$D < 0$ при $a \in \br{1 - \sqrt{8}; 1 + \sqrt{8}}$. $\Re\br{\lambda} = \dfrac {1} {2} \br{a + 1}$, так что при $a \in \br{1 - \sqrt{8}; -1}$ решение асимптотически устойчиво, при $a \in \br{-1; 1 + \sqrt{8}}$ неустойчиво, а при $a = -1$ вещественные части обоих собственных значений равны $0$ и ответ об устойчивости получить не удастся.
+
+Случаи $a = -2$ и $a = -1$ необходимо рассмотреть отдельно. В обоих случаях будем находить траектории.
+
+\newtheorem{case*}{Случай}
+\begin{case*} $a = -1$.
+
+$\dfrac {dy} {dx} = \dfrac {xy + x + y} {x^2 - x - 2y}$. Это уравнение Дарбу и замена $y = x \cdot t\br{x}$ сведёт его к уравнению Бернулли.
+$t + x \dfrac {dt} {dx} = \dfrac {x^2t + x + xt} {x^2 - x - 2xt} = \dfrac {xt + 1 + t} {x - 1 - 2t}$.
+$x \dfrac {dt} {dx} = \dfrac {x} {x'\br{t}} = \dfrac {xt + 1 + t} {x - 1 - 2t} - t = \linebreak = \dfrac {1 + 2t + 2t^2} {x - 1 - 2t}$.
+$x'\br{t} + \dfrac {1 + 2t} {2t^2 + 2t + 1} x\br{t} = \dfrac {1} {2t^2 + 2t + 1} x^2\br{t}$. $x\br{t} = \dfrac {1} {C \sqrt{2t^2 + 2t + 1} - 2t - 1}$ и общее решение (уравнение траекторий) можно записать по крайней мере в параметрической форме:
+\begin{align*}
+x\br{t} = \dfrac {1} {C \sqrt{2t^2 + 2t + 1} - 2t - 1} && y\br{t} = \dfrac {t} {C \sqrt{2t^2 + 2t + 1} - 2t - 1}
+\end{align*}
+
+$\tlim{\mathsmaller{x \to +\infty}} y\br{t} = \dfrac {1} {-2 + \sqrt{2} C}$ и $\tlim{\mathsmaller{x \to -\infty}} y\br{t} = \dfrac {1} {-2 - \sqrt{2} C}$, и ни один из этих пределов не равен нулю ни при каких $C$. Значит, нулевое решение этой системы, если даже и устойчиво, то устойчиво точно не асимптотически.
+
+\end{case*}
+
+\begin{case*}$a = -2$.
+
+Поступим аналогично. Уравнение траекторий $\dfrac {dy} {dx} = \dfrac {xy + x + y} {x^2 - 2x - 2y}$ снова представляет собой уравнение Дарбу. $y\br{x} = x \cdot t\br{x}$.
+
+$$
+\dfrac {x} {x'\br{t}} 
+= \dfrac {x^2 t + x + xt} {x^2 - 2x - 2xt} - t 
+= \dfrac {xt + 1 + t} {x - 2 - 2t} - t
+= \dfrac {1 + 3t + 2t^2} {x - 2 - 2t}
+$$
+
+$x'\br{t} \br{1 + 3t + 2t^2} = x \br{x - 2 - 2t}$.
+$x'\br{t} + \dfrac {2} {2t + 1} x\br{t} = \dfrac {1} {\br{2t + 1}\br{t + 1}} x^2$.
+Итак, уравнение траекторий имеет параметрический вид:
+\begin{align*}
+x\br{t} = \frac {1} {\br{2t + 1} \br{C + \ln\vbr{\dfrac {2t + 1} {2t + 2}}} + 1}
+&& y\br{t} = \frac {t} {\br{2t + 1} \br{C + \ln\vbr{\dfrac {2t + 1} {2t + 2}}} + 1}
+\end{align*}
+
+Однако, $\tlim{t \to \infty} = \dfrac {1} {2C} \ne 0$, и асимптотическая устойчивость нулевого невозможна.
+\end{case*}
+
+Итак, нулевое решение решение асимптотически устойчиво только при $a \in \br{-2; -1}$.
+
+\end{document}
