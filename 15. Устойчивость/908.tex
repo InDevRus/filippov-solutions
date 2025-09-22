@@ -1,0 +1,30 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{align*} 
+    \dfrac {d} {dt} \begin{pmatrix} x\br{t} \\ y\br{t} \end{pmatrix} = A \begin{pmatrix} x\br{t} \\ y\br{t} \end{pmatrix} + \begin{pmatrix} o\br{\vbr{X}} \\ o\br{\vbr{X}} \end{pmatrix} 
+    && A = \begin{pmatrix} a & 1 \\ 1 & a \end{pmatrix}
+\end{align*}
+
+$\det\br{A - \lambda E} = \br{\lambda - a}^2 - 1 = 0$.
+$D > 0$ для всех $a$, так что корни отрицательны и различны.
+$\lambda^2 - 2a \lambda + a^2 - 1 = 0$.
+\begin{itemize}
+    \item при $a \in \br{-1; 1}$ будет $\lambda_{1} \cdot \lambda_{2} = a^2 - 1 < 0$, то есть собственные значения разных знаков и нулевое решение неустойчиво;
+    
+    \item при $a \in \br{-\infty; -1}$ имеем $\lambda_{1} \cdot \lambda_{2} > 0$ и $\lambda_{1} + \lambda_{2} = 2a < 0$, то есть оба собственных значения отрицательны, и нулевое решение устойчиво асимптотически;
+    
+    \item при $a \in \left[1; +\infty \right)$ получаем $\lambda_{1} \cdot \lambda_{2} \ge 0$ и $\lambda_{1} + \lambda_{2} > 0$, так что по меньшей мере одно из собственных значений положительно и нулевое решение неустойчиво;
+    
+    \item при $a = -1$ собственные значения равны $\lambda_{1} = 0$, $\lambda_{2} = -2$, и по первому приближению утверждать об устойчивости нулевого решения нельзя.
+\end{itemize}
+
+Для случая $a = -1$ покажем, что нулевое решение неустойчиво с помощью функции Ляпунова. Рассмотрим функцию $v\br{x; y} = e^{x + y} - 1$ в открытой области $V = \cbr{x + y > 0}$. На границе $\partial V = \cbr{x + y = 0}$ имеем $v\br{x; y} = 0$, внутри области $v\br{x; y} > 0$, но $\dfrac {dv} {dt}\bigg|_{a = -1} \linebreak = e^{x + y} \br{x^2 + y - x} + e^{x + y} \br{y^2 - y + x} = e^{x + y} \br{x^2 + y^2} > 0$, так как точка $\br{0; 0}$ не лежит в $V$. По теореме Четаева нулевое решение неустойчиво.
+
+Итак, нулевое решение устойчиво асимптотически только при $a < -1$.
+
+\end{document}
