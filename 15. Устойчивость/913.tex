@@ -6,7 +6,7 @@
 \begin{document}
 
 Сделаем замену функций
-$\left\{ \begin{aligned}& u\br{t} = x\br{t} + t^2 \\& v\br{t} = y\br{t} - t \end{aligned}\right.$ и исследуем на устойчивость нулевое решение полученной системы.
+$\tsys{& u\br{t} = x\br{t} + t^2 \\& v\br{t} = y\br{t} - t}$ и исследуем на устойчивость нулевое решение полученной системы.
 
 $\dot{x} = \dot{u} - t$, $\dot{y} = \dot{v} + 1$.
 $\dot{u} - 2t
@@ -16,9 +16,7 @@ $\dot{u} = v^2 - 2v - u$.
 $\dot{v} + 1 = 2\br{u - t^2} + 2t^2 + e^{-2v}$.
 $\dot{v} = 2u + e^{-2v} - 1$.
 
-
-
-Полученная система $\left\{ \begin{aligned}& \dot{u} = v^2 - 2v - u \\& \dot{v} = 2u + e^{-2v} - 1\end{aligned}\right.$ автономна, и её нулевое решение можно исследовать на устойчивость по первому приближению.
+Полученная система $\tsys{& \dot{u} = v^2 - 2v - u \\& \dot{v} = 2u + e^{-2v} - 1}$ автономна, и её нулевое решение можно исследовать на устойчивость по первому приближению.
 
 При $u \to 0$, $v \to 0$:
 $e^{-2v} = 1 - 2v + o\br{v}$. $\dfrac {d} {dt} \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix} = A \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix} + \begin{pmatrix} \psi_{u}\br{u; v} \\ \psi_{v}\br{u; v} \end{pmatrix}$, где 
