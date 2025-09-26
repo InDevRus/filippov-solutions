@@ -1,0 +1,41 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$\tsys{& \ln\br{y^2 - x} = 0 \\&\ x - y - 1 = 0}$. 
+$\tsys{& y^2 - x = 1 \\& x = y + 1}$.
+$y^2 - y - 2 = 0$.
+$\tsys{& x_{1} = 0 \\& y_{1} = -1}$,
+$\tsys{& x_{2} = 3 \\& y_{2} = 2}$.
+
+\begin{enumerate}
+    \item $A_{1} = \br{0; -1}$. $y = u - 1$. 
+    $\dfrac {d} {dt} \begin{pmatrix} x\br{t} \\ u\br{t} \end{pmatrix} 
+    = \begin{pmatrix} \ln\br{\br{u - 1}^2 - x} \\ x - u \end{pmatrix}
+    = \begin{pmatrix} \ln\br{1 - 2u + u^2 - x} \\ x - u \end{pmatrix}
+    = \linebreak
+    = \begin{pmatrix} -2u + u^2 - x + o\br{x} + o\br{u} \\ x - u \end{pmatrix}
+    = \begin{pmatrix} -2u - x + o\br{\sqrt{x^2 + u^2}} \\ x - u \end{pmatrix}
+    = \begin{pmatrix} -1 & -2 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} x \\ u \end{pmatrix} + \Psi$.
+    
+    $\br{\lambda + 1}^2 + 2 = 0$.
+    $\lambda^2 + 2\lambda + 3 = 0$.
+    $D < 0$, $\Re\br{\lambda} = -1$, точка равновесия устойчива.
+    
+    \item $A_{2} = \br{3; 2}$. $\tsys{& x = u + 3 \\& y = 2 + v}$. 
+    $\dfrac {d} {dt} \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix}
+    = \begin{pmatrix} \ln\br{\br{v + 2}^2 - u - 3} \\ u + 3 - v - 2 - 1 \end{pmatrix}
+    = \begin{pmatrix} \ln\br{1 + 4v + v^2 - u} \\ u - v \end{pmatrix}
+    \linebreak
+    = \begin{pmatrix} 4v + v^2 - u + o\br{u} + o\br{v} \\ u - v \end{pmatrix}
+    = \begin{pmatrix} 4v - u + o\br{\sqrt{u^2 + v^2}} \\ u - v \end{pmatrix}
+    = \begin{pmatrix} -1 & 4 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} u \\ v \end{pmatrix} + \Psi$.
+    
+    $\br{\lambda + 1}^2 - 4 = 0$. $\lambda_{1} = -3$, $\lambda_{2} = 1$, точка неустойчива.
+\end{enumerate}
+
+
+\end{document}
