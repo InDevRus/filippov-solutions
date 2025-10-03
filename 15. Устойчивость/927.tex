@@ -1,0 +1,18 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$\tsys{& \dot{x} = -3x + y - x^3 \\&\ \dot{y} = 6x - 2y}$. Будем искать функцию Ляпунова в виде $v\br{x; y} = \dfrac {1} {2} x^2 + \dfrac {k} {2} y^2 $. 
+$\parder{v}{x} \cdot f_{x} = -3x^{2} + xy - x^{4}$.
+$\parder{v}{y} \cdot f_{y} = 6kxy - 2ky^2$.
+$\dfrac{dv}{dt}\bigg| = -3x^2 + \br{1 + 6k} xy - 2ky^2 - x^4$.
+Однородный квадратный трёхчлен $-3x^2 + \br{1 + 6k} xy - 2ky^2$ отрицательно определён, если $D = \br{1 + 6k}^2 - 24k \le 0$. Последнее неравенство имеет единственное решение $k = \dfrac {1} {6}$.
+
+Отсюда получаем искомую квадратичную форму $\dfrac {1} {2} x^2 + \dfrac {1} {12} y^2 $. Рассмотрим пропорциональную ей $v\br{x; y} = 3x^2 + \dfrac {1} {2}y^2$. $\dfrac{dv}{dt}\bigg| = -18 x^2 + 12 xy - 2y^2 - 6x^4 = -2 \br{3x + y}^2 - 6x^4$. Не считая начала координат, имеем $\dfrac{dv}{dt}\bigg| \le 0$, при этом $\dfrac{dv}{dt}\bigg| = 0$, если и только если $x = 0$ и $3x + y = 0$, то есть только в начале координат.
+
+Итак, $\dfrac{dv}{dt}\bigg| < 0$ и $\dfrac{dv}{dt}\bigg|$ непрерывна, то есть можно взять в точности $w\br{x; y} = \dfrac{dv}{dt}\bigg|$, а потому по теореме Ляпунова нулевое решение асимптотически устойчиво.
+
+\end{document}
