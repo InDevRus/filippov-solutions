@@ -1,0 +1,20 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$\tsys{& \dot{x} = -x + 2y - y^3 \\& \dot{y} = x - 2y}$. Возьмём функцию Ляпунова $v\br{x; y} = \dfrac {1} {2} x^2 + y^2$.
+$\dfrac {dv} {dt} \bigg| = -x^2 + 2xy - \linebreak - xy^3 + 2xy - 4y^2 = -x^2 + 4xy - 4y^2 - xy^3 = -\br{x + 2y}^2 - xy^3$.
+
+Рассматривать точки $\br{x; y}$ будем только в окрестности $\vbr{X} = \sqrt{x^2 + y^2} < \epsilon_{0} = 2$.
+
+В области $xy \ge 0$ имеем $xy^3 = xy \cdot y^2 \ge 0$, и тогда $\dfrac {dv} {dt} \bigg| \le 0$, причём $\dfrac {dv} {dt} \bigg| = 0$ тогда и только тогда, когда одновременно $x + 2y = 0$ и $xy^3 = 0$. Последнее возможно только в начале координат. Итак, в этой области можно утверждать $\dfrac {dv} {dt} \bigg| < 0$.
+
+С другой стороны, в области $xy < 0$ получаем $\dfrac {dv} {dt} \bigg| = -x^2 - 4y^2 + xy \br{4 - y^2}$. В описанной выше окрестности $\vbr{y} \le \sqrt{x^2 + y^2} < \epsilon_{0} = 2$, то есть $y^2 < 4$ и $4 - y^2 > 0$.
+Следовательно, $xy \br{4 - y^2} < 0$ и $\dfrac {dv} {dt} \bigg| < 0$, причём равенство нулю невозможно.
+
+Итак, при всех возможных $\br{x; y}$ внутри окрестности радиуса $\epsilon_{0}$ получаем $\dfrac {dv} {dt} \bigg| < 0$. Теорема Ляпунова гарантирует асимптотическую устойчивость нулевого решения.
+
+\end{document}
