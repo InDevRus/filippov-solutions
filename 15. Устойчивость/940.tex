@@ -1,0 +1,17 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+Воспользуемся критерием Михайлова для характеристического уравнения 
+$\lambda^4 + 3,1\lambda^3 \linebreak + 5,2 \lambda^2 + 9,8\lambda + 5,8 = 0$. 
+$10\lambda^4 + 31\lambda^3 + 52 \lambda^2 + 98\lambda + 58 = 0$. 
+$p\br{\xi} = 10\xi^2 - 52\xi + 58$,
+$q\br{\eta} = -31\eta + 98$.
+$\eta_{1} = \dfrac {98} {31} = 3 \dfrac {5}{31}$.
+Критерий $\xi_{1} < \eta_{1} < \xi_{2}$ выполнен тогда и только тогда, когда $p\br{\eta_{1}} < 0$. При этом квадратичная функция $p\br{\xi}$ имеет точку минимума $\xi_{0} = 2,6$, значит правее этой точки $p\br{\xi}$ возрастает и 
+$p\br{\eta_{1}} < p\br{3 \dfrac {10,5} {31}} = p\br{3,5} = -1,5$. Следовательно, критерий Михайлова выполняется и нулевое решение устойчиво.
+
+\end{document}
