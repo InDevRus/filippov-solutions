@@ -1,0 +1,136 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+Любая задача Коши вида 
+$\tsys{& \ddot {x}\br{t} + p\br{t} x\br{t} = 0
+\\& x\br{t_{0}} = \alpha
+\\& \dot{x}\br{t_{0}} = \beta}$
+имеет единственное продолжаемое на всю числовую прямую решение даже в точках $t_{0} = 2\pi n$, $n \in \mathbb{Z}$ разрыва функции $p\br{t}$. Действительно, и в левой, и в правой полуокрестностях всякой такой точки $t_{0}$ задача Коши будет удовлетворять условиям теоремы Пикара и иметь там единственное решение. Если соединить полученные, вообще говоря, разные функции в левой и правой полуокрестностях, то получится итоговое непрерывно дифференцируемое решение задачи Коши, вторая производная которого может быть разрывной там, где разрывна $p\br{t}$. Процесс также можно продолжить и посчитать значения $x\br{t}$ и $\dot{x}\br{t}$ в ближайшей точке разрыва $p\br{t}$ и составить из неё новую задачу Коши, решение которой также будет единственным и непрерывно дифференцируемым.
+
+Перейдём к равносильной системе $\tsys{& \dot{x}\br{t} = u\br{t} \\& \dot{u}\br{t} = -p\br{t} x\br{t}}$, или в матричной форме 
+$\dfrac {d} {dt}
+\begin{pmatrix} x \\ u \end{pmatrix}
+\linebreak = A\br{t}
+\begin{pmatrix} x \\ u \end{pmatrix}$, где 
+$A\br{t} = \begin{pmatrix}0 & 1 \\ -p\br{t} & 0 \end{pmatrix}$. Искать фундаментальную матрицу решений будем из $X\br{\Omicron_{2}} = E_{2}$. Искомая матрица монодромии $C = C_{2 \times 2}$ такова, что 
+$X\br{t + 2\pi} = X\br{t} C$ для всех $t$. В частности, $X\br{\pi} = X\br{-\pi} C$ и $C = \br{X\br{-\pi}}^{-1} X\br{\pi}$.
+
+$X\br{t} = \begin{pmatrix}x_{1}\br{t} & x_{2}\br{t} \\ u_{1}\br{t} & u_{2}\br{t}\end{pmatrix}$,
+$X\br{\Omicron_{2}} = \begin{pmatrix}x_{1}\br{0} & x_{2}\br{0} \\ u_{1}\br{0} & u_{2}\br{0}\end{pmatrix} = \begin{pmatrix}1 & 0 \\ 0 & 1 \end{pmatrix}$. Условимся без ограничения общности, что $a \ge 0$ и $b \ge 0$.
+Решив эти две задачи Коши на промежутке $t \in \rbr{-\pi; \pi}$, получаем
+\begin{align*}
+    &
+    x_{1}\br{t} = \tsys{
+    & \cos\br{bt}\text{, если } t \in \rbr{-\pi; 0} 
+    \\& \cos\br{at}\text{, если } t \in \left(0; \pi\right] } 
+    && 
+    x_{2}\br{t} = \tsys{
+    & g_{b}\br{t} \text{, если } t \in \rbr{-\pi; 0} 
+    \\& g_{a}\br{t} \text{, если } t \in \left(0; \pi\right] } 
+    \\
+    &
+    u_{1}\br{t} = \tsys{
+    & -b\sin\br{bt}\text{, если } t \in \rbr{-\pi; 0} 
+    \\& -a\sin\br{at}\text{, если } t \in \left(0; \pi\right] }
+    &&
+    u_{2}\br{t} = \tsys{
+    & \cos\br{bt}\text{, если } t \in \rbr{-\pi; 0} 
+    \\& \cos\br{at}\text{, если } t \in \left(0; \pi\right] },
+\end{align*}
+где $g_{s}\br{t} = \tsys{&\dfrac {1} {s} \sin\br{st} \text{, если } s > 0 \\& t \text{, если } s = 0}$ -- нечётная функция, необходимая для покрытия \linebreak случаев $a = 0$ и $b = 0$.
+
+Пользуясь непрерывностью решений, будем находить значения этих четырёх функций в $\pi$ и $-\pi$ как соответствующие пределы при $x \to -\pi + 0$ и $x \to \pi - 0$ соответственно.
+\begin{align*}
+    X\br{-\pi} = 
+    \begin{pmatrix}
+        \cos\br{b\pi} & - g_{b}\br{\pi} 
+        \\ b \sin\br{b\pi} & \cos\br{b\pi} 
+    \end{pmatrix}
+    &&
+    X\br{\pi} =
+    \begin{pmatrix}
+        \cos\br{a\pi} & g_{a}\br{\pi}
+        \\ -a \sin\br{a\pi} & \cos\br{a\pi}
+    \end{pmatrix}
+\end{align*}
+\begin{align*}
+    \det\br{X\br{-\pi}} = 1
+    &&
+    \br{X\br{-\pi}}^{-1} 
+    = \adj\br{X\br{-\pi}} = \begin{pmatrix}
+        \cos\br{b\pi} & g_{b}\br{\pi} 
+        \\ -b \sin\br{b\pi} & \cos\br{b\pi} 
+    \end{pmatrix}    
+\end{align*}
+
+Итак, матрица монодромии равняется
+\begin{align*}
+    C = \begin{pmatrix} 
+        \cos\br{a\pi} \cos\br{b\pi} - a \sin\br{a\pi} g_{b}\br{\pi}
+        &  g_{a}\br{\pi} \cos\br{b\pi} + \cos\br{a\pi} \cos\br{b\pi}
+        \\
+        -b \cos\br{a\pi} \sin\br{b\pi} - a \sin\br{a\pi} \cos\br{b\pi}
+        & -b g_{a}\br{\pi} \sin\br{b\pi} + \cos\br{a\pi} \cos\br{b\pi}
+    \end{pmatrix}.
+\end{align*}
+
+Для каждого из перечисленных далее случаев мультипликаторы $\rho_{1}$ и $\rho_{2}$ целесообразнее находить, если матрица монодромии предварительно упрощена. Факт устойчивости устанавливается по следующему критерию, формулировка которого взята из книги Ламберто Чезари <<Асимптотическое поведение и устойчивость решений обыкновенных дифференциальных уравнений>>, глава II, \S\ 4, предложение 4.1.2.
+
+\begin{framed}
+    \begin{criteria}[устойчивости по мультипликаторам] \end{criteria}
+    Пусть дана линейная однородная система с периодическими коэффицентами.
+    \begin{itemize}
+        \item Для асимптотической устойчивости нулевого решения необходимо и достаточно, чтобы все мультипликаторы лежали внутри единичного круга $\vbr{\rho} < 1$.
+        \item Для устойчивости необходимо и достаточно, чтобы
+        \begin{enumerate}
+            \item все мультипликаторы лежали в замкнутом единичном круге $\vbr{\rho} \le 1$;
+            \item каждый мультипликатор $\rho_{k}$, лежащий на единичной окружности (т.е. $\vbr{\rho_{k}} = 1$), имел кратность как корень характеристического (векового) уравнения $\det\br{C - \rho E} = 0$, равную дефекту $\nullity\br{C - \rho_{k} E}$.
+        \end{enumerate}
+    \end{itemize}
+\end{framed}
+
+а) $a = \dfrac {1} {2}$, $b = 0$.
+$C = \begin{pmatrix} -\frac {\pi} {2} \vspace{1mm} & 2 \\ -\frac {1} {2} & 0 \end{pmatrix}$.
+$\det\br{C - \rho E} = \rho^2 + \dfrac {\pi} {2} \rho + 1$.
+$2\rho^2 + \pi \rho + 2 = 0$.
+
+$\rho_{1} = -\dfrac {\pi} {4} - \sqrt{1 - \dfrac {\pi^2} {16}}\ i$.
+$\rho_{2} = -\dfrac {\pi} {4} + \sqrt{1 - \dfrac {\pi^2} {16}}\ i$.
+$\vbr{\rho_{1}} = \vbr{\rho_{2}} = 1$ \vspace{2mm}, и нулевое решение устойчиво, но не асимптотически.
+
+б) $a = \dfrac {1} {2}$, $b = 1$.
+$C = \begin{pmatrix} 0 & -2 \\ \frac {1} {2} & 0 \end{pmatrix}$.
+$\det\br{C - \rho E} = \rho^2 + 1$.
+$\rho_{1} = -i$,
+$\rho_{2} = i$.
+$\vbr{\rho_{1}} = \vbr{\rho_{2}} = 1$ \vspace{2mm}, и нулевое решение устойчиво, но не асимптотически.
+
+в) $a = \dfrac {1} {2}$, $b = \dfrac {3} {2}$.
+$C = \begin{pmatrix} \frac {1} {3} & 0 \\ 0 & 3 \end{pmatrix}$.
+$\det\br{C - \rho E} = \br{\rho - \dfrac {1} {3}} \br{\rho - 3}$.
+$\rho_{1} = \dfrac {1} {3}$, $\rho_{2} = 3$, и нулевое решение неустойчиво.
+
+г) $a = \dfrac {3} {4}$, $b = 0$.
+$C = \begin{pmatrix} \vspace{1mm} \dfrac {-4 - 3\pi} {4\sqrt{2}} & \dfrac {1} {3\sqrt{2}} \\ -\dfrac {3} {4\sqrt{2}} & -\dfrac {1} {\sqrt{2}} \end{pmatrix}$.
+$\det\br{C - \rho E} = \rho^2 + \br{\dfrac {3\pi + 8} {4\sqrt{2}}}\rho + \dfrac {3\pi + 5} {8}$. 
+$\rho_{1} = \dfrac {-8 - 3\pi - \sqrt{9\pi^2 - 16}} {8\sqrt{2}}$,
+$\rho_{2} = \dfrac {-8 - 3\pi + \sqrt{9\pi^2 - 16}} {8\sqrt{2}}$.
+Но $\rho_{1} < \dfrac {-8 - 3 \cdot 3 - \sqrt{9 \cdot 3^2 - 16}} {8 \cdot 2} \linebreak 
+= \dfrac {-17 - \sqrt{65}} {16} < \dfrac {-17 - 8} {16} = -\dfrac {25} {16} < -1$, а нулевое решение неустойчиво.
+
+д) $a = 1$, $b = 0$. 
+$C = \begin{pmatrix} -1 & -1 \\ 0 & -1 \end{pmatrix}$.
+$\det\br{C - \rho E} = \br{\rho + 1}^2$.
+$\rho_{1} = \rho_{2} = -1$.
+$\vbr{\rho_{1}} = \vbr{\rho_{2}} = 1$.
+$\nullity\br{C - \rho_{1} E} = \nullity \begin{pmatrix}0 & -1 \\ 0 & 0 \end{pmatrix} = 2 - 1 = 1$, а кратность корня равна $2$. Из-за этого нулевое решение неустойчиво.
+
+е) $a = 1$, $b = \dfrac {3} {2}$.
+$C = \begin{pmatrix} 0 & 0 \\ -\frac {3} {2} & 0 \end{pmatrix}$.
+$\det\br{C - \rho E} = \rho^2$. $\rho_{1} = \rho_{2} = 0$, и решение асимптотически устойчиво.
+
+\end{document}
