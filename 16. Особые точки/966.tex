@@ -1,0 +1,91 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{
+    every axis/.append style = {
+        xlabel={$x$},
+        ylabel={$y$}, 
+        axis lines = middle,
+        unit vector ratio = 1 1,
+        font=\small
+    },
+    every axis plot/.append style = {smooth, samples = 100}
+}
+
+\begin{document}
+
+$y'\br{x} = \dfrac {2x - y} {x - y}$. Это уравнение задаёт траектории, например, системы $\tsys{& \dot{x} = x - y \\& \dot{y} = 2x - y}$.
+$A = \begin{pmatrix} 1 & -1 \\ 2 & -1 \end{pmatrix}$.
+$\det\br{\lambda E - A} = \br{\lambda - 1}\br{\lambda + 1} + 2 = \lambda^2 + 1$. 
+$\lambda_{1} = -i$, $\lambda_{2} = i$.
+
+Итак, особая точка $\br{0; 0}$ -- это <<центр>>.
+
+Это означает, что решение дифференциального уравнения можно получить даже в явном виде.
+$y' = \dfrac {2 - \frac {y} {x}} {1 - \frac {y} {x}}$. 
+$y = \zed\br{x} \cdot x$.
+$\dfrac {\zed - 1} {\zed^2 - 2\zed + 2} \zed' + \dfrac {1} {x} = 0$.
+$\dfrac {1} {2} \ln\vbr{\zed^2 - 2\zed + 2} + \ln\vbr{x} = C$.
+$\br{\br{\zed - 1}^2 + 1} x^2 = C^2$.
+$\br{y - x}^2 + x^2 = C^2$.
+$y^2 + 2x^2 - 2xy = C^2$.
+Эта квадратичная форма задаёт эллипсы, в чём несложно убедиться, приведя эту форму к каноническому виду, для чего достаточно сделать поврот на угол $\alpha = \arctg\br{\dfrac {1 + \sqrt{5}} {2}}$.
+Подстановка $\tsys{& x = \cos\br{\alpha} u - \sin\br{\alpha} v \\& y = \sin\br{\alpha} u + \cos\br{\alpha} v}$ приводит к форме $\dfrac {u^2} {a^2} + \dfrac {v^2} {b^2} = C^2$, где $a = \dfrac {1 + \sqrt{5}} {2}$, $b = \dfrac {1 - \sqrt{5}} {2}$.
+
+\begin{floatingfigure}{0.5\textwidth}
+    \begin{tikzpicture} 
+        \begin{axis}[
+                width = \textwidth,
+                height = 9.5cm,
+                ymin = -3.4,
+                ymax = 3.4,
+                xmin = -2.4,
+                xmax = 2.4, 
+                xtick = {-3, -2, ..., 3},
+                ytick = {-5, -4, ..., 5},
+                minor tick num = 1,
+            ],
+            \newcommand{\ALPHAA}{(1 + sqrt(5)) / 2}
+            \newcommand{\ALPHAB}{(1 - sqrt(5)) / 2}
+            
+            \addplot[domain = -5 : 5, dashed]
+            {\ALPHAA * x};
+            
+            \draw [thick]  (0, 0) ellipse [
+                rotate = atan(\ALPHAA),
+                x radius = \ALPHAA * 0.25,
+                y radius = \ALPHAB * 0.25,
+            ];
+            \draw [thick]  (0, 0) ellipse [
+                rotate = atan(\ALPHAA),
+                x radius = \ALPHAA * 0.5,
+                y radius = \ALPHAB * 0.5,
+            ];
+            \draw [thick]  (0, 0) ellipse [
+                rotate = atan(\ALPHAA),
+                x radius = \ALPHAA,
+                y radius = \ALPHAB,
+            ];
+            \draw [thick]  (0, 0) ellipse [
+                rotate = atan(\ALPHAA),
+                x radius = \ALPHAA * 1.5,
+                y radius = \ALPHAB * 1.5,
+            ];
+            \draw [thick]  (0, 0) ellipse [
+                rotate = atan(\ALPHAA),
+                x radius = \ALPHAA * 2,
+                y radius = \ALPHAB * 2,
+            ];
+        \end{axis}
+    \end{tikzpicture}
+\end{floatingfigure}
+
+Соответственно, ось эллипса будет направлена вдоль
+$y = \tg\br{\alpha} x = \dfrac {1 + \sqrt{5}} {2} x$.
+Соответствующая прямая показана пунктирной линией.
+
+\end{document}
