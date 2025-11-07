@@ -17,21 +17,6 @@
 % For formula diacritics
 \usepackage{amsfonts}
 
-% Theorem definitions
-\usepackage{amsthm}
-\theoremstyle{remark}
-\newtheorem*{necessity}{Необходимость}
-\newtheorem*{sufficiency}{Достаточность}
-\theoremstyle{definition}
-\newtheorem*{theorem}{Теорема}
-\newtheorem*{lemma}{Лемма}
-\newtheorem*{corollary}{Следствие}
-\newtheorem*{criteria}{Критерий}
-\newtheorem*{algorithm}{Алгоритм}
-\newtheorem*{formula}{Формула}
-\newtheorem*{remark}{Замечание}
-\newtheorem*{proposition}{Предложение}
-
 % For bigger integral signs
 \usepackage{bigints}
 
@@ -59,34 +44,6 @@
 % For resizing
 \usepackage{relsize}
 
-% More convenient text-style common notations
-\newcommand{\tsys}[1]{\left\{ \begin{aligned}#1\end{aligned} \right.}
-
-\DeclareMathOperator*\lowlim{\underline{\lim}}
-\DeclareMathOperator*\uplim{\overline{\lim}}
-
-\newcommand{\tlowlim}[1]{\lowlim\limits_{#1}}
-\newcommand{\tuplim}[1]{\uplim\limits_{#1}}
-
-\newcommand{\tpow}[2]{{#1}^{\mathlarger{#2}}}
-
-\newcommand{\tint}{\displaystyle{\int}}
-\newcommand{\tintlim}[2]{\displaystyle{\int\limits_{#1}^{#2}}}
-\newcommand{\tbigint}{\displaystyle{\mathlarger{\int}}}
-\newcommand{\tbigintlim}[2]{\displaystyle{\mathlarger{\int}\limits_{#1}^{#2}}}
-
-\newcommand{\tsumlim}[2]{\displaystyle{\mathlarger{\sum}\displaylimits_{#1}^{#2}}}
-\newcommand{\tprodlim}[2]{\displaystyle{\mathlarger{\prod}\displaylimits_{#1}^{#2}}}
-
-\newcommand{\tmin}[1]{\min\limits_{#1}}
-\newcommand{\tmax}[1]{\max\limits_{#1}}
-\newcommand{\tlim}[1]{\lim\limits_{#1}}
-
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-
-\newcommand{\tparder}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\parder}[2]{\dfrac{\partial #1}{\partial #2}}
-
 % For floaty text
 \usepackage{wrapfig}
 \usepackage{subcaption}
@@ -94,6 +51,8 @@
 
 % For cyrillic characters support
 \usepackage[english, russian]{babel}
+
+\input{../preambles/macros/theorems}
 
 % For proper font
 \usepackage[no-math]{fontspec}
@@ -109,37 +68,10 @@
 % For degree sign
 \usepackage{siunitx}
 
-% Automatic brackets placement
-\newcommand{\br}[1]{\left(#1\right)}
-\newcommand{\vbr}[1]{\left|#1\right|}
-\newcommand{\cbr}[1]{\left\{#1\right\}}
-\newcommand{\rbr}[1]{\left[#1\right]}
-\renewcommand{\le}{\leqslant}
-\renewcommand{\ge}{\geqslant} 
-
-% Automatic replacement for two greek letters
-\renewcommand{\epsilon}{\varepsilon}
-\renewcommand{\phi}{\varphi}
-
-% Redefinition of some operators (to the appropriation of Russian notation)
-\DeclareMathOperator{\arcsh}{arcsh}
-\DeclareMathOperator{\arcch}{arcch}
-\DeclareMathOperator{\arcth}{arcth}
-\DeclareMathOperator{\arccth}{arccth}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\nullity}{null}
-\DeclareMathOperator{\inv}{inv}
-\DeclareMathOperator{\adj}{adj}
-\DeclareMathOperator{\sgn}{sgn}
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
-
-\renewcommand{\gcd}{\text{НОД}}
-\newcommand{\lcm}{\text{НОК}}
-
 % Restrict inlne formula breaking
 \binoppenalty=10000 
 \relpenalty=10000
 
-% Greek letters setup
+\input{../preambles/macros/operators}
+\input{../preambles/macros/redefinitions}
 \input{../preambles/greek_letters}
