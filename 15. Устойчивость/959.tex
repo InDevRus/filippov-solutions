@@ -93,44 +93,45 @@ $X\br{\Omicron_{2}} = \begin{pmatrix}x_{1}\br{0} & x_{2}\br{0} \\ u_{1}\br{0} & 
     \end{itemize}
 \end{framed}
 
-а) $a = \dfrac {1} {2}$, $b = 0$.
-$C = \begin{pmatrix} -\frac {\pi} {2} \vspace{1mm} & 2 \\ -\frac {1} {2} & 0 \end{pmatrix}$.
-$\det\br{C - \rho E} = \rho^2 + \dfrac {\pi} {2} \rho + 1$.
-$2\rho^2 + \pi \rho + 2 = 0$.
-
-$\rho_{1} = -\dfrac {\pi} {4} - \sqrt{1 - \dfrac {\pi^2} {16}}\ i$.
-$\rho_{2} = -\dfrac {\pi} {4} + \sqrt{1 - \dfrac {\pi^2} {16}}\ i$.
-$\vbr{\rho_{1}} = \vbr{\rho_{2}} = 1$ \vspace{2mm}, и нулевое решение устойчиво, но не асимптотически.
-
-б) $a = \dfrac {1} {2}$, $b = 1$.
-$C = \begin{pmatrix} 0 & -2 \\ \frac {1} {2} & 0 \end{pmatrix}$.
-$\det\br{C - \rho E} = \rho^2 + 1$.
-$\rho_{1} = -i$,
-$\rho_{2} = i$.
-$\vbr{\rho_{1}} = \vbr{\rho_{2}} = 1$ \vspace{2mm}, и нулевое решение устойчиво, но не асимптотически.
-
-в) $a = \dfrac {1} {2}$, $b = \dfrac {3} {2}$.
-$C = \begin{pmatrix} \frac {1} {3} & 0 \\ 0 & 3 \end{pmatrix}$.
-$\det\br{C - \rho E} = \br{\rho - \dfrac {1} {3}} \br{\rho - 3}$.
-$\rho_{1} = \dfrac {1} {3}$, $\rho_{2} = 3$, и нулевое решение неустойчиво.
-
-г) $a = \dfrac {3} {4}$, $b = 0$.
-$C = \begin{pmatrix} \vspace{1mm} \dfrac {-4 - 3\pi} {4\sqrt{2}} & \dfrac {1} {3\sqrt{2}} \\ -\dfrac {3} {4\sqrt{2}} & -\dfrac {1} {\sqrt{2}} \end{pmatrix}$.
-$\det\br{C - \rho E} = \rho^2 + \br{\dfrac {3\pi + 8} {4\sqrt{2}}}\rho + \dfrac {3\pi + 5} {8}$. 
-$\rho_{1} = \dfrac {-8 - 3\pi - \sqrt{9\pi^2 - 16}} {8\sqrt{2}}$,
-$\rho_{2} = \dfrac {-8 - 3\pi + \sqrt{9\pi^2 - 16}} {8\sqrt{2}}$.
-Но $\rho_{1} < \dfrac {-8 - 3 \cdot 3 - \sqrt{9 \cdot 3^2 - 16}} {8 \cdot 2} \linebreak 
-= \dfrac {-17 - \sqrt{65}} {16} < \dfrac {-17 - 8} {16} = -\dfrac {25} {16} < -1$, а нулевое решение неустойчиво.
-
-д) $a = 1$, $b = 0$. 
-$C = \begin{pmatrix} -1 & -1 \\ 0 & -1 \end{pmatrix}$.
-$\det\br{C - \rho E} = \br{\rho + 1}^2$.
-$\rho_{1} = \rho_{2} = -1$.
-$\vbr{\rho_{1}} = \vbr{\rho_{2}} = 1$.
-$\nullity\br{C - \rho_{1} E} = \nullity \begin{pmatrix}0 & -1 \\ 0 & 0 \end{pmatrix} = 2 - 1 = 1$, а кратность корня равна $2$. Из-за этого нулевое решение неустойчиво.
-
-е) $a = 1$, $b = \dfrac {3} {2}$.
-$C = \begin{pmatrix} 0 & 0 \\ -\frac {3} {2} & 0 \end{pmatrix}$.
-$\det\br{C - \rho E} = \rho^2$. $\rho_{1} = \rho_{2} = 0$, и решение асимптотически устойчиво.
+\begin{enumerate}[label={\asbuk*})]
+    \item $a = \dfrac {1} {2}$, $b = 0$. 
+    $C = \begin{pmatrix} -\frac {\pi} {2} \vspace{1mm} & 2 \\ -\frac {1} {2} & 0 \end{pmatrix}$.
+    $\det\br{C - \rho E} = \rho^2 + \dfrac {\pi} {2} \rho + 1$.
+    $2\rho^2 + \pi \rho + 2 = 0$.
+    $\rho_{1} = \linebreak = -\dfrac {\pi} {4} - \sqrt{1 - \dfrac {\pi^2} {16}}\ i$.
+    $\rho_{2} = -\dfrac {\pi} {4} + \sqrt{1 - \dfrac {\pi^2} {16}}\ i$.
+    \vspace{2mm}  $\vbr{\rho_{1}} = \vbr{\rho_{2}} = 1$, и нулевое решение устойчиво, но не асимптотически.
+    
+    \item $a = \dfrac {1} {2}$, $b = 1$.
+    $C = \begin{pmatrix} 0 & -2 \\ \frac {1} {2} & 0 \end{pmatrix}$.
+    $\det\br{C - \rho E} = \rho^2 + 1$.
+    $\rho_{1} = -i$,
+    $\rho_{2} = i$.
+    $\vbr{\rho_{1}} = \vbr{\rho_{2}} = 1$, и нулевое решение устойчиво, но не асимптотически.
+    
+    \item $a = \dfrac {1} {2}$, $b = \dfrac {3} {2}$.
+    $C = \begin{pmatrix} \frac {1} {3} & 0 \\ 0 & 3 \end{pmatrix}$.
+    $\det\br{C - \rho E} = \br{\rho - \dfrac {1} {3}} \br{\rho - 3}$.
+    $\rho_{1} = \dfrac {1} {3}$, $\rho_{2} = 3$, и нулевое решение неустойчиво.
+    
+    \item $a = \dfrac {3} {4}$, $b = 0$.
+    $C = \begin{pmatrix} \vspace{1mm} \dfrac {-4 - 3\pi} {4\sqrt{2}} & \dfrac {1} {3\sqrt{2}} \\ -\dfrac {3} {4\sqrt{2}} & -\dfrac {1} {\sqrt{2}} \end{pmatrix}$.
+    $\det\br{C - \rho E} = \rho^2 + \br{\dfrac {3\pi + 8} {4\sqrt{2}}}\rho + \dfrac {3\pi + 5} {8}$. 
+    $\rho_{1} = \dfrac {-8 - 3\pi - \sqrt{9\pi^2 - 16}} {8\sqrt{2}}$,
+    $\rho_{2} = \dfrac {-8 - 3\pi + \sqrt{9\pi^2 - 16}} {8\sqrt{2}}$.
+    Но $\rho_{1} < \dfrac {-8 - 3 \cdot 3 - \sqrt{9 \cdot 3^2 - 16}} {8 \cdot 2} \linebreak 
+    = \dfrac {-17 - \sqrt{65}} {16} < \dfrac {-17 - 8} {16} = -\dfrac {25} {16} < -1$, а нулевое решение неустойчиво.
+    
+    \item $a = 1$, $b = 0$. 
+    $C = \begin{pmatrix} -1 & -1 \\ 0 & -1 \end{pmatrix}$.
+    $\det\br{C - \rho E} = \br{\rho + 1}^2$.
+    $\rho_{1} = \rho_{2} = -1$.
+    $\vbr{\rho_{1}} = \vbr{\rho_{2}} = 1$.
+    $\nullity\br{C - \rho_{1} E} = \nullity \begin{pmatrix}0 & -1 \\ 0 & 0 \end{pmatrix} = 2 - 1 = 1$, а кратность корня равна $2$. Из-за этого нулевое решение неустойчиво.
+    
+    \item $a = 1$, $b = \dfrac {3} {2}$.
+    $C = \begin{pmatrix} 0 & 0 \\ -\frac {3} {2} & 0 \end{pmatrix}$.
+    $\det\br{C - \rho E} = \rho^2$. $\rho_{1} = \rho_{2} = 0$, и решение асимптотически устойчиво.
+\end{enumerate}
 
 \end{document}

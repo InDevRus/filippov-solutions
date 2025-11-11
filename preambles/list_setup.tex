@@ -1,6 +1,13 @@
 % For enumeration customizing
 \usepackage{enumitem}
 
-\setlist{nosep, leftmargin=*}
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
+\makeatother
 
-\setlist[enumerate]{label = \arabic*)}
+\setlist{nosep}
+
+\setlist[enumerate]{
+    wide,
+    label = \arabic*)
+}
