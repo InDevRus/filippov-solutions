@@ -1,0 +1,62 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$\tsys{
+    & Q\br{x; y} = y + \sqrt{1 + 2x^2}
+    \\& P\br{x; y} = x + y + 1
+}$;
+$\tsys{
+& \sqrt{1 + 2x^2} = -y
+\\& x = -y - 1
+}$;
+$y^2 = 1 + 2y^2 + 4y + 2$;
+$y^2 + 4y + 3 = 0$;
+$y_{1} = -1$, $y_{2} = -3$, и оба являются корнями.
+
+Особыми точками будут $A_{1}\br{0; -1}$ и $A_{2}\br{2; -3}$.
+
+\begin{enumerate}
+    \item $y = \phi - 1$.
+    $\dfrac {d\phi} {dx} 
+    = \dfrac {\phi - 1 + \sqrt{1 - 2x^2}} {x + \phi}$;
+    $\psi_{\phi}\br{x; \phi} 
+    = \sqrt{1 - 2x^2} - 1 = 1 + \dfrac {1} {2} \br{-2x^2} + o\br{x^2} - 1 \linebreak
+    = O\br{x^2}
+    = O\br{r^2}$,
+    так что, например, 
+    $\dfrac {\psi_{\phi}\br{x; \phi}} {r^{1 + 0,5}} \to 0$ при $r\br{x; \phi} \to 0$.
+    
+    Таким образом, уравнение с выделенными линейными частями имеет вид
+    $\dfrac {d\phi} {dx} = \linebreak = \dfrac {\phi} {x + \phi}$.
+    $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
+    $\det\br{A - \lambda E} = \br{\lambda - 1}^2$.
+    $\lambda_{1} = \lambda_{2} = 1$ и особая точка $A_{1}\br{0; -1}$ -- <<вырожденный узел>>.
+    
+    $A - \lambda_{1} E 
+    = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} 
+    \sim \begin{pmatrix} 0 & 1 \end{pmatrix}$,
+    $v_{1} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$.
+    Единственная сепаратриса $\phi_{1} = 0$ будет касательной для траекторий.
+    
+    \item $\tsys{& x = \xi + 2 \\& y = \phi - 3}$.
+    $\dfrac {d\phi} {d\xi} = \dfrac {\phi + \sqrt{9 + 2\xi^2 + 8\xi} - 3} {\xi + \phi}$.
+    $\sqrt{9 + 2\xi^2 + 8\xi} - 3
+    = 3 \sqrt{1 + \dfrac {2} {9}\xi^2 + \dfrac {8} {9}\xi} - 3 \linebreak
+    = 3\ \br{1 + \dfrac {1} {2} \br{\dfrac {2} {9} \xi^2 + \dfrac {8} {9} \xi} + O\br{\br{\dfrac {2} {9} \xi^2 + \dfrac {8} {9} \xi}^2}} - 3
+    = \dfrac {4} {3} \xi + O\br{\xi^2}
+    = \dfrac {4} {3} \xi + O\br{r^2}$ при $r \to 0$.
+    
+    Без нелинейностей получаем $\dfrac {d\phi} {d\xi} = \dfrac {\dfrac {4} {3} \xi + \phi} {\xi + \phi}$.
+    $A = \begin{pmatrix} 1 & 1 \\ \frac {4} {3} & 1 \end{pmatrix}$. \\
+    $\det\br{A - \lambda E} = \dfrac {1} {3} \br{3\lambda^2 - 6\lambda - 1}$.
+    $\lambda_{1} = \dfrac {3 - 2\sqrt{3}} {3}$,
+    $\lambda_{2} = \dfrac {3 + 2\sqrt{3}} {3}$, и особая точка $A_{2}\br{2; -3}$ -- <<седло>>.    
+    
+    Для $\lambda_{1} = \dfrac {3 - 2\sqrt{3}} {3}$ имеем собственный вектор $v_{1} = \begin{pmatrix} \sqrt{3} \\ -2 \end{pmatrix}$, сепаратрису $\phi_{1} = -\dfrac {2} {\sqrt{3}} \xi$, а для $\lambda_{2} = \dfrac {3 + 2\sqrt{3}} {3}$ имеем собственный вектор $v_{2} = \begin{pmatrix} \sqrt{3} \\ 2 \end{pmatrix}$, сепаратрису $\phi_{2} = \dfrac {2} {\sqrt{3}} \xi$.
+\end{enumerate}
+
+\end{document}
