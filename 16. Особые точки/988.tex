@@ -1,0 +1,101 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+    \begin{proposition}\end{proposition}
+    При $r\br{\xi; \phi} = \sqrt{\xi^2 + \phi^2} \to 0$ имеем $\xi \phi = O\br{r^2}$. В частности, $\dfrac{\xi \phi} {r^{1 + \epsilon}} = \dfrac {\gamma\br{r} r^2} {r^{1 + \epsilon}} \to 0$ для всех $\epsilon \in \br{0; 1}$.
+    
+    Действительно, 
+    $0 \le \br{\vbr{\xi} - \vbr{\phi}}^2$
+    и 
+    $\vbr{\xi \phi} 
+    \le \dfrac {1} {2} \br{\xi^2 + \phi^2}
+    \le \dfrac {1} {2} \br{r^2 + r^2}
+    = r^2$,
+    что показывает $\xi \phi = O\br{r^2}$.
+\end{framed}
+
+$\tsys{
+    & P\br{x; y} = \sqrt{x^2 - y + 2} - 2
+    \\& Q\br{x; y} = \arctg\br{x^2 + xy}
+}$;
+$\tsys{
+    & \sqrt{x^2 - y + 2} - 2 = 0
+    \\& \arctg\br{x^2 + xy} = 0
+}$;
+$\tsys{
+    & y = x^2 - 2
+    \\& x^2 + xy = 0
+}$;
+$x \br{x + x^2 - 2} = 0$.
+$\tsys{
+    & x_{1} = 0
+    \\& y_{1} = -2
+}$,
+$\tsys{
+    & x_{2} = 1
+    \\& y_{2} = -1 
+}$,
+$\tsys{
+    & x_{3} = -2
+    \\& y_{3} = 2
+}$, и особые точки -- $A_{1}\br{0\; -2}$, $A_{2}\br{1; -1}$ и $A_{3} = \br{-2; 2}$.
+
+Будем также пользоваться тем, что $\sqrt{1 + u} = 1 + \dfrac {1} {2}u + O\br{u^2}$ и $\arctg\br{u} = u + O\br{u^3}$ при $u \to 0$.
+
+\begin{enumerate}
+    \item $y = \phi - 2$. \\
+    $\dot{x} = \sqrt{x^2 + \phi + 4} - 2 
+    = 2\sqrt{1 + \dfrac {x^2} {4} - \dfrac {\phi} {4}} - 2 
+    = 2\ \br{1 + \dfrac {1} {2} \br{\dfrac {x^2} {4} - \dfrac {\phi} {4}} + O\br{\br{\dfrac {x^2} {4} - \dfrac {\phi} {4}}^2}} - 2 = \linebreak 
+    = - \dfrac {\phi} {4} + O\br{r^2}$. $\dot{\phi} = \arctg\br{x^2 + x\phi - 2x} = x^2 + x\phi - 2x + O\br{\br{x^2 + x\phi - 2x}^3} = -2x + O\br{r^2}$.
+    $A = \begin{pmatrix} 0 & - \frac {1} {4} \vspace{1mm} \\ -2 & \hspace{2mm} 0 \end{pmatrix}$.
+    $\lambda^2 - \dfrac {1} {2} = 0$.
+    $\lambda_{1} = -\dfrac {1} {\sqrt{2}}$, $\lambda_{2} = \dfrac {1} {\sqrt{2}}$, а особая точка $A_{1}\br{0; -2}$ -- <<седло>>.
+    
+    Найдём сепаратрисы. 
+    $A - \lambda_{1} E \sim \begin{pmatrix} -2\sqrt{2} & 1\end{pmatrix}$,
+    $v_{1} = \begin{pmatrix} 1 \\ 2\sqrt{2} \end{pmatrix}$,
+    $\phi_{1} = 2\sqrt{2} x$. 
+    Аналогично, 
+    $A - \lambda_{2} E \sim \begin{pmatrix} 2\sqrt{2} & 1\end{pmatrix}$,
+    $v_{2} = \begin{pmatrix} 1 \\ -2\sqrt{2} \end{pmatrix}$, 
+    $\phi_{2} = -2\sqrt{2} x$.
+    
+    \item $\tsys{& x = \xi + 1 \\& y = \phi - 1}$. $\dot{\xi} = \sqrt{\xi^2 + 2\xi - \phi + 4} - 2 
+    = 2\sqrt{1 + \dfrac {\xi^2} {4} + \dfrac {\xi} {2} - \dfrac {\phi} {4}} - 2 
+    = 2\ \left( 1 + \dfrac {1}{2} \left(\dfrac {\xi^2} {4} + \dfrac {\xi} {2} - \right. \right. \linebreak 
+    - \left.\left. \dfrac {\phi} {4} \right) + O\br{\br{\dfrac {\xi^2} {4} + \dfrac {\xi} {2} - \dfrac {\phi} {4}}^2} \right) - 2 = \dfrac {\xi} {2} - \dfrac {\phi} {4} + O\br{r^2}$. $\dot{\phi} = \arctg\br{\br{\xi + 1}\br{\xi + \phi}} = \xi^2 + \xi + \xi\phi + \linebreak 
+    +\ \phi + O\br{r^3} = \xi + \phi + O\br{r^2}$.
+    $A = \begin{pmatrix} \frac {1} {2} & - \frac {1} {4} \vspace{1mm} \\ 1 & \hspace{2mm} 1 \end{pmatrix}$.
+    $\lambda_{1, 2} = \dfrac {3 \mp \sqrt{3} i} {4}$, и особая точка $A_{2}\br{1; -1}$ является <<фокусом>>, причём неустойчивым, то есть траектории раскручиваются.
+    
+    В $\tsys{& \xi = -0,6 \\& \phi = 0,6}$ для 
+    $\tsys{
+        & \dot{\xi} = \sqrt{\xi^2 + 2\xi - \phi + 4} - 2 
+        \\& \dot{\phi} = \arctg\br{\br{\xi + 1}\br{\xi + \phi}}
+    }$ имеем вектор $\tsys{& \dot{\xi}\br{-0,6; 0,6} = -0,4 \\& \dot{\phi}\br{-0,6; 0,6} = 0}$. \linebreak Следовательно, направление раскручивания траекторий -- против часовой.
+    
+    \item $\tsys{& x = \xi - 2 \\& y = \phi + 2}$.
+    $\dot{\xi} = \sqrt{\xi^2 - 4\xi - \phi + 4} - 2
+    = 2\ \br{1 + \dfrac {1} {2} \br{\dfrac {\xi^2} {4} - \xi - \dfrac {\phi} {4}} + O\br{r^2}} - 2
+    = -\xi - \linebreak - \dfrac {\phi} {4} + O\br{r^2}$.
+    $\dot{\phi} = \arctg\br{\br{\xi - 2} \br{\xi + \phi}}
+    = \xi^2 - 2\xi + \xi \phi - 2\phi + O\br{r^3}
+    = -2\xi - 2\phi + O\br{r^2}$.
+    $A = \begin{pmatrix} -1 & - \frac {1} {4} \vspace{1mm} \\ 1 & \hspace{2mm} 1 \end{pmatrix}$.
+    $\lambda_{1} = \dfrac {-3 - \sqrt{3}} {2}$.
+    $\lambda_{2} = \dfrac {-3 + \sqrt{3}} {2}$.
+    $\lambda_{1} < \lambda_{2} < 0$, поэтому особая точка $A_{3}\br{-2; 2}$ -- <<узел>>, при этом устойчивый.
+    В полной аналогии с предыдущими случаями находим
+    $v_{1} = \begin{pmatrix} 1 \\ 2 + 2\sqrt{3} \end{pmatrix}$,
+    $v_{2} = \begin{pmatrix} 1 \\ 2 - 2\sqrt{3} \end{pmatrix}$;
+    $\phi_{1} = \br{2 + 2\sqrt{3}} \xi$ -- трансверсаль, а
+    $\phi_{2} = \br{2 - 2\sqrt{3}} \xi$ -- касательная.
+\end{enumerate}
+
+\end{document}
