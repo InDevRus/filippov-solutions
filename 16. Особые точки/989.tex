@@ -1,0 +1,59 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$\tsys{
+    & P\br{x; y} = x^2 - y
+    \\& Q\br{x; y} = x^2 - \br{y - 2}^2
+}$;
+$\tsys{
+    & y = x^2
+    \\& x^2 - \br{x^2 - 2}^2 = 0
+}$;
+$\br{x - \br{x^2 - 2}}\br{x + \br{x^2 - 2}} = 0$. \\
+Особыми точками будут $A_{1} = \br{-2; 4}$, $A_{2} = \br{-1; 1}$, $A_{3} = \br{1; 1}$, $A_{4} = \br{2; 4}$.
+
+\begin{enumerate}
+    \item $\tsys{& x = \xi - 2 \\& y = \phi + 4}$.
+    $\tsys{& \dot{\xi} = -4\xi - \phi + \xi^2 \\& \dot{\phi} = -4\xi - 4\phi + \xi^2 - \phi^2}$.
+    $A = \begin{pmatrix} -4 & -1 \\ -4 & -4 \end{pmatrix}$.
+    $\br{\lambda + 4}^2 - 4 = 0$.
+    $\lambda_{1} = -6$, $\lambda_{2} = -2$. Это значит, что особая точка $A_{1}\br{-2; 4}$ -- <<узел>>, причём устойчивый.
+    
+    $A - \lambda_{1} E \sim \begin{pmatrix} 2 & -1 \end{pmatrix}$, $v_{1} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$.
+    $A - \lambda_{2} E \sim \begin{pmatrix} 2 & 1 \end{pmatrix}$, $v_{2} = \begin{pmatrix} 1 \\ -2 \end{pmatrix}$. 
+    $\phi_{1} = 2\xi$ -- трансверсаль, $\phi_{2} = -2\xi$ -- касательная.
+    
+    \item $\tsys{& x = \xi - 1 \\& y = \phi + 1}$.
+    $\tsys{& \dot{\xi} = -2\xi - \phi + \xi^2 \\& \dot{\phi} = -2\xi + 2\phi + \xi^2 - \phi^2}$.
+    $A = \begin{pmatrix} -2 & -1 \\ -2 & 2 \end{pmatrix}$.
+    $\lambda^2 - 4 - 2 = 0$.
+    $\lambda_{1} = -\sqrt{6}$, $\lambda_{2} = \sqrt{6}$, что означает, что особая точка $A_{2} = \br{-1; 1}$ -- <<седло>>.
+    
+    $A - \lambda_{1} E \sim \begin{pmatrix} 2 - \sqrt{6} & 1 \end{pmatrix}$, $v_{1} = \begin{pmatrix} 1 \\ -2 + \sqrt{6} \end{pmatrix}$.
+    $A - \lambda_{2} E \sim \begin{pmatrix} 2 + \sqrt{6} & 1 \end{pmatrix}$, $v_{2} = \begin{pmatrix} 1 \\ -2 - \sqrt{6} \end{pmatrix}$.
+    $\phi_{1} = \br{-2 + \sqrt{6}} \xi$ и $\phi_{2} = \br{-2 - \sqrt{6}} \xi$ -- сепаратрисы.
+    
+    \item $\tsys{& x = \xi + 1 \\& y = \phi + 1}$.
+    $\tsys{& \dot{\xi} = 2\xi - \phi + \xi^2 \\& \dot{\phi} = 2\xi + 2\phi + \xi^2 - \phi^2}$.
+    $A = \begin{pmatrix} 2 & -1 \\ 2 & 2 \end{pmatrix}$.
+    $\br{\lambda - 2}^2 + 2 = 0$.
+    $\lambda_{1} = 2 - \sqrt{2}i$, $\lambda_{2} = 2 + \sqrt{2}i$. Таким образом, особая точка $A_{3} = \br{1; 1}$ -- <<фокус>>, причём неустойчивый.
+    В точке $\tsys{& \xi = 1 \\& \phi = 0}$ получаем вектор $\tsys{& \dot{\xi}\br{1; 0} = 3 \\& \dot{\phi}\br{1; 0} = 3}$, так что направление раскручивания траекторий -- против часовой.
+    
+    \item $\tsys{& x = \xi + 2 \\& y = \phi + 4}$.
+    $\tsys{& \dot{\xi} = 4\xi - \phi + \xi^2 \\& \dot{\phi} = 4\xi - 4\phi + \xi^2 - \phi^2}$.
+    $A = \begin{pmatrix} 4 & -1 \\ 4 & -4 \end{pmatrix}$.
+    $\lambda^2 - 16 + 4 = 0$.
+    $\lambda_{1} = -2\sqrt{3}$, $\lambda_{2} = 2\sqrt{3}$, а особая точка $A_{4}\br{2;  4}$ -- <<седло>>.
+    
+    $A - \lambda_{1} E \sim \begin{pmatrix} 4 + 2\sqrt{3} & -1 \end{pmatrix}$, $v_{1} = \begin{pmatrix} 1 \\ 4 + 2\sqrt{3} \end{pmatrix}$.
+    $A - \lambda_{2} E \sim \begin{pmatrix} 4 - 2\sqrt{3} & -1 \end{pmatrix}$, $v_{2} = \begin{pmatrix} 1 \\ 4 - 2\sqrt{3} \end{pmatrix}$.
+    Сепаратрисами будут $\phi_{1} = \br{4 + 2\sqrt{3}} \xi$ и $\phi_{2} = \br{4 - 2\sqrt{3}} \xi$.
+\end{enumerate}
+
+
+\end{document}

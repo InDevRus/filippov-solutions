@@ -8,6 +8,10 @@
 /**/*.kate-swp
 /**/*.xml
 /**/*.iml
+/**/*.fls
+/**/*.fdb_latexmk
 
 /**/Main*.tex
 /**/Main*.pdf
+/**/Temp*.tex
+/**/Temp*.pdf
