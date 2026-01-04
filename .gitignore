@@ -15,3 +15,8 @@
 /**/Main*.pdf
 /**/Temp*.tex
 /**/Temp*.pdf
+
+/**/**.toc
+/**/**.snm
+/**/**.out
+/**/**.nav
