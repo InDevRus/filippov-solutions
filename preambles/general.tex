@@ -52,7 +52,10 @@
 % For cyrillic characters support
 \usepackage[english, russian]{babel}
 
-\input{../preambles/macros/theorems}
+\usepackage{import}
+\providecommand*{\ProjectRootPath}{..}
+
+\import{\ProjectRootPath/preambles/macros/}{theorems}
 
 % For proper font
 \usepackage[no-math]{fontspec}
@@ -72,7 +75,8 @@
 \binoppenalty=10000 
 \relpenalty=10000
 
-\input{../preambles/list_setup}
-\input{../preambles/macros/operators}
-\input{../preambles/macros/redefinitions}
-\input{../preambles/greek_letters}
+\import{\ProjectRootPath/preambles/macros/}{operators}
+\import{\ProjectRootPath/preambles/macros/}{redefinitions}
+
+\import{\ProjectRootPath/preambles/}{greek_letters}
+\import{\ProjectRootPath/preambles/}{list_setup}
