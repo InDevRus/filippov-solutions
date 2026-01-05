@@ -57,16 +57,7 @@
 
 \import{\ProjectRootPath/preambles/macros/}{theorems}
 
-% For proper font
-\usepackage[no-math]{fontspec}
-
-% TNR within text
-\setmainfont{Times New Roman}
-
-% TNR within formulas
-\usepackage{newtxmath}
-\DeclareSymbolFont{operators}{OT1}{ntxtlf}{m}{n}
-\SetSymbolFont{operators}{bold}{OT1}{ntxtlf}{b}{n}
+\import{\ProjectRootPath/preambles}{font_setup}
 
 % For degree sign
 \usepackage{siunitx}
