@@ -1,0 +1,153 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$\br{x^2 - 1} y' + 2xy^2 = 0$. $\dfrac {y'} {y^2} + \dfrac {2x} {x^2 - 1} = 0$, причём $y = 0$ в том числе является решением. 
+
+$\tint \dfrac {y'} {y^2} dx = \tint \dfrac {1} {y^2} d\br{y\br{x}} = -\dfrac {1} {y} + C$.
+$\tint \dfrac {2x} {x^2 - 1} dx = \ln\vbr{x^2 - 1} + C$.
+
+$\dfrac {1} {y} = C + \ln\vbr{x^2 - 1}$.
+$y = \dfrac {1} {C + \ln\vbr{x^2 - 1}}$.
+
+Итак, общее решение имеет вид $y = \dfrac {1} {C + \ln\vbr{x^2 - 1}}$, а также дополнительно $y = 0$.
+
+\begin{figure}[!h]
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                    samples = 300,
+                },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.6, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = 1 / (\C + ln(abs(x^2 - 1)));
+            }]
+            
+            \draw[thick] (-9, 0) -- (9, 0);
+            
+            \addplot [
+                black,
+                mark = *,
+                mark options = {scale = .75}
+                ] coordinates {
+                (1, 0)
+                (-1, 0)
+            };
+            \foreach \C in {0.5, 1, 2} {
+                \addplot[Graph, domain = sqrt(1 + exp(-\C)) + 0.01 : 4] {f(\C, \x)};
+                \addplot[Graph, domain = sqrt(1 - exp(-\C)) + 0.01 : sqrt(1 + exp(-\C)) - 0.01]
+                {f(\C, \x)};
+                \addplot[Graph, domain = -sqrt(1 - exp(-\C)) + 0.01 : sqrt(1 - exp(-\C)) - 0.01]
+                {f(\C, \x)};
+                \addplot[Graph, domain = -sqrt(1 + exp(-\C)) + 0.01 : -sqrt(1 - exp(-\C)) - 0.01]
+                {f(\C, \x)};
+                \addplot[Graph, domain = -4 : -sqrt(1 + exp(-\C)) - 0.01]
+                {f(\C, \x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption*{$C > 0$}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                    samples = 300,
+                },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.6, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = 1 / (\C + ln(abs(x^2 - 1)));
+            }]
+            
+            \draw[thick] (-9, 0) -- (9, 0);
+            
+            \addplot [
+                black,
+                mark = *,
+                mark options = {scale = .75}
+                ] coordinates {
+                (1, 0)
+                (-1, 0)
+            };
+            \foreach \C in {-2, -1, -0.5} {
+                \addplot[Graph, domain = sqrt(1 + exp(-\C)) + 0.01 : 4] {f(\C, \x)};
+                \addplot[Graph, domain = -sqrt(1 + exp(-\C)) + 0.01 : sqrt(1 + exp(-\C)) - 0.01] {f(\C, \x)};
+                \addplot[Graph, domain = -4 : -sqrt(1 + exp(-\C)) - 0.01] {f(\C, \x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption*{$C < 0$}
+\end{minipage}
+\end{figure}
+
+Теперь найдем такое решение, что $y\br{0} = 1$. 
+Решение $y = 0$ не подходит, значит подставим $x = 0, y = 0$ в общее решение. 
+$1 = \dfrac {1} {C}$, $C = 1$.
+
+Искомое частное решение равняется $y = \dfrac {1} {1 + \ln\vbr{x^2 - 1}}$, причём $\vbr{x} < \sqrt{1 - \dfrac {1} {e}}$ \vspace{1mm} и за границы этого интервала решение продлить нельзя.
+\begin{figure}[!h]
+\begin{minipage}{\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                    samples = 300,
+                },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 5cm,
+            ymin = -0.6,
+            ymax = 4.2,
+            xmin = -1.2,
+            xmax = 1.6, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = 1 / (\C + ln(abs(x^2 - 1)));
+            }]
+            
+            \pgfmathsetmacro{\A}{sqrt(1 - exp(-1))}
+            
+            \draw[dashed] (-\A, -1) -- (-\A, 5);
+            \draw[dashed] (\A, -1) -- (\A, 5);
+            
+            \foreach \C in {1} {
+                \addplot[Graph, thick, domain = -sqrt(1 - exp(-\C)) + 0.01 : sqrt(1 - exp(-\C)) - 0.01]
+                {f(\C, \x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption*{Частное решение, удовлетворяющее $y\br{0} = 1$}
+\end{minipage}%
+\end{figure}
+
+\end{document}

@@ -1,0 +1,106 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$x y' = y^2 - y$.
+$\dfrac {y'} {y^2 - y} = \dfrac {1} {x}$, причём $y = 0$ и $y = 1$ также являются решениями.
+
+$\tint \dfrac {y'(x)} {y^2(x) - y(x)} dx = 
+\tint \dfrac {1} {y^2 - y} dy = 
+\tint \br{ \dfrac {1 - y} {y\br{y - 1}} + \dfrac {y} {y\br{y - 1}}} dy = 
+\tint \br{ \dfrac {1} {y - 1} - \dfrac {1} {y}} dy \linebreak =
+\ln\vbr{y - 1} - \ln\vbr{y} + C = \ln\vbr{1 - \dfrac {1}{y}} + C$.
+
+$\ln\vbr{1 - \dfrac {1}{y}} = \ln\vbr{x} + C$.
+$1 - \dfrac {1} {y} = Cx$.
+$y = \dfrac {1} {1 + Cx}$, а решение $y = 1$ получается при $C = 0$.
+
+Итак, общее решение имеет вид $y = \dfrac {1} {1 + Cx}$, кроме которого имеется дополнительное $y = 0$.
+
+\begin{figure}[!h]
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 200,
+            },
+            Point/.style = {
+                black, mark = *, mark options = {scale = 1}
+            }
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -5.2,
+            xmax = 5.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = 1 / (1 + \C * x);
+            }]
+            
+            \addplot [Point] coordinates {
+                (0, 1)
+            };
+            
+            \addplot[Graph, domain = -6 : 6] {1};
+            \addplot[Graph, thick, domain = -6 : 6] {0};
+            
+            \foreach \C in {0.5, 1, 2} {
+                \addplot[Graph, domain = -1 / (\C) + 0.01 : 6] {f(\C, x)};
+                \addplot[Graph, domain = -6 : -1 / (\C) - 0.01] {f(\C, x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption*{$C \ge 0$}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 200,
+            },
+            Point/.style = {
+                black, mark = *, mark options = {scale = 1}
+            }
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -5.2,
+            xmax = 5.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = 1 / (1 + \C * x);
+            }]
+            
+            \addplot [Point] coordinates {
+                (0, 1)
+            };
+            
+            \addplot[Graph, domain = -6 : 6] {0};
+            
+            \foreach \C in {-0.5, -1, -2} {
+                \addplot[Graph, domain = -1 / (\C) + 0.01 : 6] {f(\C, x)};
+                \addplot[Graph, domain = -6 : -1 / (\C) - 0.01] {f(\C, x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption*{$C < 0$}
+\end{minipage}
+\end{figure}
+
+Решение задачи с начальным условием $y\br{1} = 0,5$ таково, что $0,5 = \dfrac {1} {1 + C}$, $C = 1$. Значит, $y\br{x} = \dfrac {1} {1 + x}$ в области $x > -1$.
+
+\end{document}

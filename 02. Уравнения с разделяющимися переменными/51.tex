@@ -1,0 +1,56 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+$xy dx + \br{x + 1} dy = 0$.
+В том числе являются решениями кривые $y = 0$ и $x = -1$, притом последняя учитывается, так как уравнение изначально было дано в дифференциалах.
+$\dfrac {x}{x + 1} dx + \dfrac {1} {y} dy = 0$.
+
+$\tint{\dfrac {x}{x + 1}} dx = \tint \br{1 - \dfrac {1} {x + 1}} dx = x - \ln \vbr{x + 1} + C$; $\tint \dfrac {dy} {y} = \ln\vbr{y} + C$.
+
+Итак, $x - \ln\vbr{x + 1} + \ln\vbr{y} = C$. Потенцируя, получаем $\dfrac {\tpow{e}{x} y} {x + 1} = C$. Общее также можно получить в явном виде: $y = C \br{x + 1} \tpow{e}{-x}$, причём решение $y = 0$ достигается при $C = 0$.
+
+Окончательно получаем общее решение $y = C \br{x + 1} \tpow{e}{-x}$ и дополнительное $x = -1$.
+
+\begin{figure}[h]
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                    samples = 500,
+                    thick
+                },
+        }
+        \begin{axis}[
+            width = 14cm,
+            height = 15cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -3.2,
+            xmax = 8.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = \C * (x + 1) * exp(-x);
+            }]
+            
+            \draw[thick] (-1, -5) -- (-1, 5);
+            
+            \addplot[Graph, domain = -3 : 8, black] {f(1, x)};
+            \addplot[Graph, domain = -3 : 8, blue] {f(-1, x)};
+            \addplot[Graph, domain = -3 : 8, olive] {f(2, x)};
+            \addplot[Graph, domain = -3 : 8, orange] {f(-2, x)};
+            \addplot[Graph, domain = -3 : 8, gray] {f(0.5, x)};
+            \addplot[Graph, domain = -3 : 8, red] {f(-0.5, x)};
+            \addplot[Graph, domain = -3 : 8, violet] {f(0.1, x)};
+            \addplot[Graph, domain = -3 : 8, magenta] {f(-0.1, x)};
+            
+        \end{axis}
+    \end{tikzpicture}
+    \centering
+\end{figure}
+
+\end{document}
