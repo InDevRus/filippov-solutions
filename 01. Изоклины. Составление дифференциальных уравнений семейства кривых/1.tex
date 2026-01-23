@@ -1,0 +1,127 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$f\br{x; y} = y - x^2$. Уравнение изоклины: $y - x^2 = k$. $y = k + x^2$. Построим достаточное количество парабол для различных значений $k$. На левом рисунке изображены изоклины, на правом -- решения уравнений.
+
+\begin{figure}[!h]
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 100,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 40,
+                quiver = {scale arrows = 0.075},
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -3.2,
+            xmax = 3.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = \C + x^2;
+                dot_x(\x, \y) = 1;
+                dot_y(\x, \y) = y - x^2;
+            }]
+            
+            \foreach \C in {-10, -9.5, ..., 10} {
+                \addplot[Graph, gray, domain = -4 : 4] {f(\C, x)};
+                \addplot[DirectionGraph1, domain = -4 : 4] {f(\C, x)};
+                \addplot[DirectionGraph2, domain = -4 : 4] {f(\C, x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 100,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 40,
+                quiver = {scale arrows = 0.075},
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -3.2,
+            xmax = 3.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = \C + x^2;
+                dot_x(\x, \y) = 1;
+                dot_y(\x, \y) = y - x^2;
+                g(\C, \x) = \C * exp(x) + x^2 + 2 * x + 2;
+            }]
+            
+            \foreach \C in {-10, -9.5, ..., 10} {
+                \addplot[Graph, gray, domain = -4 : 4] {f(\C, x)};
+                \addplot[DirectionGraph1, domain = -4 : 4] {f(\C, x)};
+                \addplot[DirectionGraph2, domain = -4 : 4] {f(\C, x)};
+            }
+            
+            \foreach \C in {-5, -4, -3, -2, -1, -0.5, 0, 0.5, 1} {
+                \addplot[Graph, thick, domain = -4 : 4] {g(\C, x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\end{figure}
+
+\begin{remark} Кривые на рисунке справа построены по общему решению исходного уравнения, которое имеет вид $y\br{x} = C\tpow{e}{x} + x^2 + 2x + 2$.
+\end{remark}
+
+
+\end{document}

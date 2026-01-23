@@ -1,0 +1,169 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$f\br{x; y} = \dfrac {1} {2} \br{x^2 + y^2} - 1$. Уравнение изоклины: $\dfrac {1} {2} \br{x^2 + y^2} - 1 = k$. $x^2 + y^2 = 2\br{k + 1}$, причём $k \ge -1$. Таким образом, изоклинами будут окружности радиуса $\sqrt{2\br{k + 1}}$. На левом рисунке изображены изоклины, на правом -- приближённые решения уравнений.
+
+\begin{figure}[!h]
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 200,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 40,
+                quiver = {scale arrows = 0.075},
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            trig format plots=rad,
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                xi(\k, \x) = sqrt(2 * (\C + 1)) * cos(x);
+                psi(\k, \x) = sqrt(2 * (\C + 1)) * sin(x);
+                dot_x(\x, \y) = 1;
+                dot_y(\x, \y) = 0.5 * (x^2 + y^2) - 1;
+            }]
+            
+            \foreach \C in {-1, -0.9, -0.75} {
+                \addplot[Graph, gray, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph1, samples = 15, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph2, samples = 15, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+            }
+            
+            \foreach \C in {-0.5, -0.25, 0} {
+                \addplot[Graph, gray, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph1, samples = 35, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph2, samples = 35, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+            }
+            
+            \foreach \C in {0.5, 1, 1.5, 2, 2.75, 3.5, 4.25, 5.15, 6, 7} {
+                \addplot[Graph, gray, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph1, samples = 60, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph2, samples = 60, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            trig format plots=rad,
+            Graph/.style = {
+                opacity = 0.5,
+                samples = 200,
+                restrict y to domain = -5 : 5,
+            },
+            PreciseGraph/.style = {
+                Graph,
+                samples = 200,
+                opacity = 1,
+            },
+            DirectionGraph/.style = {
+                opacity = 0.5,
+                samples = 40,
+                quiver = {scale arrows = 0.075},
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                xi(\k, \x) = sqrt(2 * (\C + 1)) * cos(x);
+                psi(\k, \x) = sqrt(2 * (\C + 1)) * sin(x);
+                dot_x(\x, \y) = 1;
+                dot_y(\x, \y) = 0.5 * (x^2 + y^2) - 1;
+                f1(\x) = -x + 1/3600446356684800*x^31 - 1/43438564915200*x^29 + 919/903643853112000*x^27 - 31049/1029793564800000*x^25 + 1433743/2171148099120000*x^23 - 1741/156029328000*x^21 + 38771/258810552000*x^19 - 754063/463134672000*x^17 + 49853/3405402000*x^15 - 257/2316600*x^13 + 299/415800*x^11 - 11/2835*x^9 + 11/630*x^7 - 1/15*x^5 + 1/3*x^3;
+                f2(\x) = 1 + 1/3600446356684800*x^31 - 19/1440*x^6 + 1/30971581562880*x^28 + 299/107520*x^8 + 490643/7664025600*x^12 - 2563/5806080*x^10 + 754173803/5690998849536000*x^17 - 1461883/3766102179840000*x^21 - 2663767/715559414169600*x^19 - 2474057/395440728883200000*x^25 + 816397/10292850247680000*x^23 - 1/86877129830400*x^29 + 42083/115666413198336000*x^27 - 143/40320*x^7 + 1/96*x^5 + 1/8*x^3 - 1/4*x^2 + 1/16*x^4 - 1/2*x - 5893477/3487131648000*x^15 + 268291/16605388800*x^13 - 18247/159667200*x^11 + 1109/1451520*x^9 - 331/259632801792000*x^26 + 9677/260372496384000*x^24 - 1115689/1593350922240000*x^22 + 728347/69742632960000*x^20 - 88371809/753220435968000*x^18 + 741411689/669529276416000*x^16 - 11970821/1394852659200*x^14;
+                f3(\x) = -1 + 1/3600446356684800*x^31 + 19/1440*x^6 - 1/30971581562880*x^28 - 299/107520*x^8 - 490643/7664025600*x^12 + 2563/5806080*x^10 + 754173803/5690998849536000*x^17 - 1461883/3766102179840000*x^21 - 2663767/715559414169600*x^19 - 2474057/395440728883200000*x^25 + 816397/10292850247680000*x^23 - 1/86877129830400*x^29 + 42083/115666413198336000*x^27 - 143/40320*x^7 + 1/96*x^5 + 1/8*x^3 + 1/4*x^2 - 1/16*x^4 - 1/2*x - 5893477/3487131648000*x^15 + 268291/16605388800*x^13 - 18247/159667200*x^11 + 1109/1451520*x^9 + 331/259632801792000*x^26 - 9677/260372496384000*x^24 + 1115689/1593350922240000*x^22 - 728347/69742632960000*x^20 + 88371809/753220435968000*x^18 - 741411689/669529276416000*x^16 + 11970821/1394852659200*x^14;
+                f4(\x) = 2 + x + x^3 + x^2 + 1/43438564915200*x^29 + 919/903643853112000*x^27 + 1/3600446356684800*x^31 + 45901/219689293824000*x^24 + 2185727/369885035520000*x^22 + 1/15485790781440*x^28 + 331/64908200448000*x^26 + 649/32400*x^10 + 209/2240*x^8 + 109/360*x^6 + 1440599/163459296000*x^17 + 26399/8553600*x^12 + 353461/321651570240000*x^23 + 1626743/58845346560000*x^21 + 124147477/223612316928000*x^19 + 3556279/98860182220800000*x^25 + 823/18144*x^9 + 3/4*x^4 + 23/126*x^7 + 7/15*x^5 + 1502051/13621608000*x^15 + 21509/19958400*x^13 + 1837/226800*x^11 + 70289/544864320000*x^20 + 13275973/5884534656000*x^18 + 83183857/2615348736000*x^16 + 388153/1089728640*x^14;
+                f5(\x) = -2 + x + x^3 - x^2 + 1/43438564915200*x^29 + 919/903643853112000*x^27 + 1/3600446356684800*x^31 - 45901/219689293824000*x^24 - 2185727/369885035520000*x^22 - 1/15485790781440*x^28 - 331/64908200448000*x^26 - 649/32400*x^10 - 209/2240*x^8 - 109/360*x^6 + 1440599/163459296000*x^17 - 26399/8553600*x^12 + 353461/321651570240000*x^23 + 1626743/58845346560000*x^21 + 124147477/223612316928000*x^19 + 3556279/98860182220800000*x^25 + 823/18144*x^9 - 3/4*x^4 + 23/126*x^7 + 7/15*x^5 + 1502051/13621608000*x^15 + 21509/19958400*x^13 + 1837/226800*x^11 - 70289/544864320000*x^20 - 13275973/5884534656000*x^18 - 83183857/2615348736000*x^16 - 388153/1089728640*x^14;
+                f6(\x) = sqrt(2) + sqrt(2)*x^6/360 + (29*sqrt(2)*x^14)/15240960 + (23*sqrt(2)*x^10)/259200 + (23*sqrt(2)*x^18)/1254113280 + (1061*sqrt(2)*x^16)/3576545280 + sqrt(2)*x^22/16554295296 + (53*sqrt(2)*x^20)/20118067200 + sqrt(2)*x^8/896 + sqrt(2)*x^28/30971581562880 + (239*sqrt(2)*x^24)/16223209390080 + sqrt(2)*x^4/24 + (53*sqrt(2)*x^12)/2128896 + (11281*x^21)/10139505868800 + (14503*x^19)/2752151592960 + (5119*x^17)/32188907520 + x^5/60 + x^31/3600446356684800 + x^27/6844166461440 + (23*x^25)/7900913664000 + (331*x^23)/10688729103360 + (1709*x^15)/2514758400 + (107*x^13)/8087040 + (71*x^11)/1663200 + (17*x^9)/22680 + x^3/6 + x^7/504;
+                f7(\x) = -sqrt(2) - sqrt(2)*x^6/360 - (29*sqrt(2)*x^14)/15240960 - (23*sqrt(2)*x^10)/259200 - (23*sqrt(2)*x^18)/1254113280 - (1061*sqrt(2)*x^16)/3576545280 - sqrt(2)*x^22/16554295296 - (53*sqrt(2)*x^20)/20118067200 - sqrt(2)*x^8/896 - sqrt(2)*x^28/30971581562880 - (239*sqrt(2)*x^24)/16223209390080 - sqrt(2)*x^4/24 - (53*sqrt(2)*x^12)/2128896 + (11281*x^21)/10139505868800 + (14503*x^19)/2752151592960 + (5119*x^17)/32188907520 + x^5/60 + x^31/3600446356684800 + x^27/6844166461440 + (23*x^25)/7900913664000 + (331*x^23)/10688729103360 + (1709*x^15)/2514758400 + (107*x^13)/8087040 + (71*x^11)/1663200 + (17*x^9)/22680 + x^3/6 + x^7/504;
+            }]
+            
+            \addplot[PreciseGraph, blue, domain = -4 : 4] {f1(x)};
+            \addplot[PreciseGraph, olive, domain = -4 : 4] {f2(x)};
+            \addplot[PreciseGraph, red, domain = -4 : 4] {f3(x)};
+            \addplot[PreciseGraph, magenta, domain = -4 : 4] {f4(x)};
+            \addplot[PreciseGraph, orange, domain = -4 : 4] {f5(x)};
+            \addplot[PreciseGraph, violet, domain = -4 : 4] {f6(x)};
+            \addplot[PreciseGraph, purple, domain = -4 : 4] {f7(x)};
+            
+            \foreach \C in {-1, -0.9, -0.75} {
+                \addplot[Graph, gray, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph1, samples = 15, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph2, samples = 15, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+            }
+            
+            \foreach \C in {-0.5, -0.25, 0} {
+                \addplot[Graph, gray, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph1, samples = 35, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph2, samples = 35, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+            }
+            
+            \foreach \C in {0.5, 1, 1.5, 2, 2.75, 3.5, 4.25, 5.15, 6, 7} {
+                \addplot[Graph, gray, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph1, samples = 60, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph2, samples = 60, domain = -pi : pi] ({xi(\C, x)}, {psi(\C, x)});
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\end{figure}
+
+\begin{remark} Кривые на рисунке справа построены по приближениям Пикара на четвёртой итерации. Из-за погрешностей построенные кривые не везде имеют касательную, совпадающую с обозначенной на изоклине. \end{remark}
+
+
+\end{document}

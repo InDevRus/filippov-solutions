@@ -1,0 +1,131 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$2\br{y' + y} = x + 3$. $y' = \dfrac {1} {2} x - y + \dfrac {3} {2}$.
+
+Итак, $f\br{x; y} = \dfrac {1} {2} x - y + \dfrac {3} {2}$. Уравнение изоклины: $\dfrac {1} {2} x - y + \dfrac {3} {2} = k$. $y = \dfrac {1} {2} x + \dfrac {3} {2} - k$. Таким образом, изоклинами будут прямые. На левом рисунке изображены изоклины, на правом -- решения уравнений.
+
+В частности, из построенных изоклин видно, что среди решений есть прямая $y_{0} = \linebreak = \dfrac {1} {2} x  + 1$. Действительно, всякая изоклина -- это прямая с угловым коэффициентом $\dfrac {1} {2}$, так что, если положить $y'\br{x} = f\br{x; y} = k$ равной также $\dfrac {1} {2}$, то получится прямая $y_{0} = \dfrac {1} {2} x  + 1$.
+
+\begin{figure}[!h]
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 10,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 40,
+                quiver = {scale arrows = 0.075},
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\k, \x) = 0.5 * x + 1.5 - \k;
+                dot_x(\x, \y) = 1;
+                dot_y(\x, \y) = 0.5 * x - y + 1.5;
+            }]
+            
+            \foreach \C in {-5, -4.5, ..., 7} {
+                \addplot[Graph, gray, domain = -4.5 : 4.5] {f(\C, x)};
+                \addplot[DirectionGraph1, domain = -4 : 4] {f(\C, x)};
+                \addplot[DirectionGraph2, domain = -4 : 4] {f(\C, x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 100,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 40,
+                quiver = {scale arrows = 0.075},
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\k, \x) = 0.5 * x + 1.5 - \k;
+                dot_x(\x, \y) = 1;
+                dot_y(\x, \y) = 0.5 * x - y + 1.5;
+                g(\C, \x) = \C * exp(-x) + 0.5 * x + 1;
+            }]
+            
+            \foreach \C in {-5, -4.5, ..., 7} {
+                \addplot[Graph, gray, domain = -4.5 : 4.5] {f(\C, x)};
+                \addplot[DirectionGraph1, domain = -4 : 4] {f(\C, x)};
+                \addplot[DirectionGraph2, domain = -4 : 4] {f(\C, x)};
+            }
+            
+            \foreach \C in {-3, -2, -1, -0.5, -0.25, -0.1, -0.05, 0} {
+                \addplot[Graph, domain = -4.5 : 4.5] {g(\C, x)};
+                \addplot[Graph, domain = -4.5 : 4.5] {g(-\C, x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\end{figure}
+
+\begin{remark} Кривые на рисунке справа построены \vspace{1mm} по общему решению исходного  уравнения, которое имеет вид $y\br{x} = C\tpow{e}{-x} + \dfrac {x} {2} + 1$.
+\end{remark}
+
+
+\end{document}
