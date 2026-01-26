@@ -1,0 +1,66 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$f\br{x; y} = \dfrac {y - x} {y^2 + 1}$. Уравнение изоклины: $\dfrac {y - x} {y^2 + 1} = k$, $y - x = ky^2 + k$, $x = -ky^2 + y + -k$. Изоклинами будут параболы вида $x = x\br{y}$ (кроме случая $k = 0$, который задаёт прямую $x = y$).
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 100,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 30,
+                quiver = {scale arrows = 0.050},
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            trig format plots=rad,
+            width = 12cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                xi(\k, \x) = -\k * x^2 + x - \k;
+                psi(\k, \x) = x;
+                dot_x(\x, \y) = 1;
+                dot_y(\x, \y) = (y - x) / (y^2 + 1);
+            }]
+
+            \foreach \C in {-4, -3.75, ..., 4, -0.15, -0.1, 0.1, 0.15, 0.3, 0.35, 0.4, 0.6} {
+                \addplot[Graph, gray, domain = -4.5 : 4.5]
+                ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph1, domain = -4.5 : 4.5] ({xi(\C, x)}, {psi(\C, x)});
+                \addplot[DirectionGraph2, domain = -4.5 : 4.5] ({xi(\C, x)}, {psi(\C, x)});
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
+
+\end{document}

@@ -1,0 +1,187 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$xy' + y = 0$. $y' = -\dfrac {y} {x}$.
+
+$f\br{x; y} = -\dfrac {y} {x}$. Уравнение изоклины: $-\dfrac {y} {x} = k$. $y = -kx$. Таким образом, изоклинами будут прямые. В точке $x = 0$, $y = 0$ поведение касательной нерегулярно. На левом рисунке изображены изоклины, на правом -- решения уравнений.
+
+\begin{figure}[!h]
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 100,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 20,
+                quiver = {scale arrows = 0.075},
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\k, \x) = -\k * x;
+                dot_x(\x, \y) = x;
+                dot_y(\x, \y) = -y;
+            }]
+            
+            \foreach \k in {0.1, 0.25, 0.5, 0.75, 1, 1.5, 2} {
+                \foreach \s in {-1, 1} {
+                    \addplot[Graph, gray, domain = -4.5 : 4.5]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph1, domain = 0.4 : 4]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph2, domain = 0.4 : 4] 
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph1, domain = -4 : -0.4]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph2, domain = -4 : -0.4]
+                    {f(\s * \k, x)};
+                }
+            }
+            
+            \foreach \k in {5, 7.5, 10} {
+                \foreach \s in {-1, 1} {
+                    \addplot[Graph, gray, domain = -4.5 : 4.5]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph1, domain = 0.1 : 1]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph2, domain = 0.1 : 1] 
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph1, domain = -1 : -0.1]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph2, domain = -1 : -0.1]
+                    {f(\s * \k, x)};
+                }
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 100,
+                restrict y to domain = -5 : 5,
+                opacity = 0.5,
+            },
+            PreciseGraph/.style = {
+                Graph,
+                samples = 400,
+                opacity = 1,
+            },
+            DirectionGraph/.style = {
+                samples = 20,
+                quiver = {scale arrows = 0.075},
+                opacity = 0.5,
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\k, \x) = -\k * x;
+                dot_x(\x, \y) = x;
+                dot_y(\x, \y) = -y;
+                g(\C, \x) = \C / x;
+            }]
+            
+            \foreach \k in {0.1, 0.25, 0.5, 0.75, 1, 1.5, 2} {
+                \foreach \s in {-1, 1} {
+                    \addplot[Graph, gray, domain = -4.5 : 4.5]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph1, domain = 0.4 : 4]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph2, domain = 0.4 : 4] 
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph1, domain = -4 : -0.4]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph2, domain = -4 : -0.4]
+                    {f(\s * \k, x)};
+                }
+            }
+            
+            \foreach \k in {5, 7.5, 10} {
+                \foreach \s in {-1, 1} {
+                    \addplot[Graph, gray, domain = -4.5 : 4.5]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph1, domain = 0.1 : 1]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph2, domain = 0.1 : 1] 
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph1, domain = -1 : -0.1]
+                    {f(\s * \k, x)};
+                    \addplot[DirectionGraph2, domain = -1 : -0.1]
+                    {f(\s * \k, x)};
+                }
+            }
+            
+            \foreach \C in {0.1, 0.5, 1, 2, 3, 4} {
+                \foreach \s in {-1, 1} {
+                    \addplot[PreciseGraph, domain = -4.5 : -0.01]
+                    {g(\s * \C, x)};
+                    \addplot[PreciseGraph, domain = 0.01 : 4.5]
+                    {g(\s * \C, x)};
+                }
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\end{figure} 
+
+\begin{remark} Кривые на рисунке справа построены \vspace{1mm} по общему решению исходного уравнения, которое имеет вид $y\br{x} = \dfrac {C} {x}$.
+\end{remark}
+
+
+\end{document}
