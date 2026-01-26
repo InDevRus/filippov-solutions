@@ -1,0 +1,167 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$f\br{x; y} = x - e^{y}$. Уравнение изоклины: $x - e^{y} = k$. $y\br{x} = \ln\br{x - k}$, где $x > k$, либо $x\br{y} = k + e^{y}$. Таким образом, изоклинами будут логарифмические кривые. На левом рисунке изображены изоклины, на правом -- решения уравнений.
+
+\begin{figure}[!h]
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 100,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 20,
+                quiver = {scale arrows = 0.075},
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\k, \x) = \k + exp(x);
+                dot_x(\x, \y) = 1;
+                dot_y(\x, \y) = x - exp(y);
+            }]
+            
+            \foreach \k in {0, 0.5, ..., 10} {
+                \foreach \s in {-1, 1} {
+                    \addplot[Graph, gray, domain = -4.5 : 4.5]
+                    ({f(\s * \k, x)}, {x});
+                    \addplot[DirectionGraph1, domain = -4.5 : 4.5]
+                    ({f(\s * \k, x)}, {x});
+                    \addplot[DirectionGraph2, domain = -4.5 : 4.5] 
+                    ({f(\s * \k, x)}, {x});
+                }
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 100,
+%                 restrict y to domain = -5 : 5,
+                opacity = 0.5,
+            },
+            PreciseGraph/.style = {
+                Graph,
+                opacity = 1,
+            },
+            DirectionGraph/.style = {
+                opacity = 0.5,
+                samples = 20,
+                quiver = {scale arrows = 0.075},
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            height = 10cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -4.2,
+            xmax = 4.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\k, \x) = \k + exp(x);
+                dot_x(\x, \y) = 1;
+                dot_y(\x, \y) = x - exp(y);
+            }]
+            
+            \foreach \k in {0, 0.5, ..., 10} {
+                \foreach \s in {-1, 1} {
+                    \addplot[Graph, gray, domain = -4.5 : 4.5]
+                    ({f(\s * \k, x)}, {x});
+                    \addplot[DirectionGraph1, domain = -4.5 : 4.5]
+                    ({f(\s * \k, x)}, {x});
+                    \addplot[DirectionGraph2, domain = -4.5 : 4.5] 
+                    ({f(\s * \k, x)}, {x});
+                }
+            }
+            \addplot[id = C0, PreciseGraph, domain = 0 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) + 0)};
+            
+            \addplot[id = C1, PreciseGraph, domain = -0.8745 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) + 1)};
+            \addplot[id = C-1, PreciseGraph, domain = 0.8745 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) - 1)};
+
+            \addplot [id = C2, PreciseGraph, domain = -1.38856 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) + 2)};
+            \addplot [id = C-2, PreciseGraph, domain = 1.38856 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) - 2)};
+            
+            \addplot[id = C3, PreciseGraph, domain = -1.69041 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) + 3)};
+            \addplot[id = C-3, PreciseGraph, domain = 1.69041 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) - 3)};
+            
+            \addplot[id = C0.5, PreciseGraph, domain = 0.48081 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) - 0.5)};
+            
+            \addplot[id = C9, PreciseGraph, domain = -2.37658 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) + 9)};
+            \addplot[id = C-9, PreciseGraph, domain = 2.37658 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) - 9)};
+            
+            \addplot[id = C30, PreciseGraph, domain = -2.93403 + 0.01 : 4.5]
+            gnuplot {0.5 * x ** 2 - log(sqrt(0.5 * pi) * erfi(x / sqrt(2)) + 30)};
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\end{figure} 
+
+\begin{remark} Кривые на рисунке справа построены \vspace{1mm} по общему решению исходного уравнения, равному
+$y\br{x} = \dfrac {1} {2} x^2 - \ln\ \br{\tintlim{0}{x} e^{\elevate{\frac {1}{2} t^2}} dt + C}
+= \dfrac {1} {2} x^2 - \ln\ \br{\sqrt{\dfrac {\pi}{2}} \erfi\br{\dfrac {x} {\sqrt{2}}} + C}$,
+где $\erfi\br{x} = \sqrt{\dfrac {\pi} {2}} \tintlim{0}{x} \tpow{e}{t^2} dt$ -- мнимая функция ошибок.
+\end{remark} 
+
+\end{document}
