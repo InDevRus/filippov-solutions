@@ -23,8 +23,17 @@
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
+% Partial derivatives, 1-st order
 \newcommand{\tparder}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\parder}[2]{\dfrac{\partial #1}{\partial #2}}
+
+% Partial derivatives, 2-nd order
+\newcommand{\tpardersecond}[3][]{
+    \ifthenelse{\isempty{#1}}{\frac {\partial^2 #2} {\partial^2 #3^2}}{\frac {\partial^2 #1} {\partial #2 \partial #3}}
+}
+\newcommand{\pardersecond}[3][]{
+    \ifthenelse{\isempty{#1}}{\dfrac {\partial^2 #2} {\partial^2 #3^2}}{\dfrac {\partial^2 #1} {\partial #2 \partial #3}}
+}
 
 % Automatic brackets placement
 \newcommand{\br}[1]{\left(#1\right)}
