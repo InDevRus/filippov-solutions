@@ -1,0 +1,104 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+\begin{property}[точки перегиба]
+Если в некоторой окрестности точки перегиба $x_{0}$ функция дважды дифференцируема, то $f''\br{x_{0}} = 0$.
+\end{property}
+
+\begin{test}[точки перегиба]
+Точка $x_{0}$ дважды дифференцируемой в окрестности $x_{0}$ функции $f\br{x}$ является точкой перегиба, если $f''\br{x_{0}} = 0$, а при переходе через $x_{0} $ функция $f''\br{x}$ меняет знак. В частности, если в окрестности точки $x_{0}$ функция $f\br{x}$ трижды дифференцируема, то достаточно $f'''\br{x_{0}} \ne 0$.
+\end{test}
+\end{framed}
+
+Пользоваться будем тем фактом, что 
+$y''\br{x} = \dfrac {d} {dx} \br {\dfrac {d} {dx} y\br{x} } 
+= \dfrac {d} {dx} \br{f\br{x; y\br{x}}}$.
+
+\begin{enumerate}[label={\asbuk*})]
+\item $y' = y - x^2$.
+$y''\br{x} = \dfrac {d} {dx} \br{y - x^2} = y' - 2x = y - x^{2} - 2x$. \\
+$y'''\br{x} = \dfrac {d} {dx} \br{y - x^2 - 2x} = y' - 2x - 2 = y - x^2 - 2x - 2$.
+
+Пусть $y''\br{x} = y - x^2 - 2x = 0$. Тогда $y = x^2 + 2x$. При этом $y'''\br{x} = y - x^2 - 2x - 2 = \linebreak = -2 \ne 0$, а потому все точки этой кривой являются точками перегиба. Итак, точки перегиба данного уравнения лежат на и только на параболе $y = x^2 + 2x$.
+
+\item $y' = x - e^y$.
+$y''\br{x} = 1 - y' e^y 
+= 1 - \br{x - e^y} e^y
+= 1 - xe^y + e^{2y}$. \\
+$y'''\br{x} = \dfrac {d} {dx} \br{1 - xe^y + e^{2y}} 
+= -e^y - x y' e^y + 2 y' e^{2y} 
+= -e^y - x \br{x - e^y} e^y + 2 \br{x - e^y} e^{2y} \vspace{1mm} \linebreak 
+= -e^y - x^2 e^y + 3 x e^{2y} - 2 e^{3y}$.
+
+Пусть $y''\br{x} = 1 - xe^y + e^{2y} = 0$. Тогда $xe^{y} = 1 + e^{2y}$, $x = e^{-y} + e^{y}$, и
+$y'''\br{x} 
+= -e^y - \linebreak - \br{e^{-y} + e^{y}}^2 e^y + 3 \br{e^{-y} + e^{y}} e^{2y} - 2 e^{3y} 
+= -e^{y} < 0$.
+
+Таким образом, всюду, где $y''\br{x} = 0$ имеем $y'''\br{x} \ne 0$, то есть точки перегиба лежат на кривой $x = e^{-y} + e^{y}$ (или $ x= 2\ch\br{y}$) и только на ней.
+
+\item $x^2 + y^2 y' = 1$.
+$y' = y^{-2} \br{1 - x^2} = y^{-2} - x^2 y^{-2}$. \\
+$y''\br{x} = -2 y^{-3} y' + 2 x^2 y^{-3} y' - 2x y^{-2} 
+= -2y^{-3} y' \br{1 - x^2} - 2x y^{-2}
+= -2y^{-5} \br{1 - x^2}^2 - 2x y^{-2}$. \\
+\begin{multline*}
+    y'''\br{x} 
+    = 10 y^{-6} \br{1 - x^2}^2 y' + 8 x y^{-5} \br{1 - x^2} - 2y^{-2} + 4xy^{-3} y' = \\ 
+    = 10 y^{-8} \br{1 - x^2}^3 + 8 x y^{-5} \br{1 - x^2} - 2y^{-2} + 4xy^{-5} \br{1 - x^2} = \\
+    = 10 y^{-8} \br{1 - x^2}^3 + 12 xy^{-5} \br{1 - x^2} - 2y^{-2}.
+\end{multline*}
+Пусть $y''\br{x} = -2y^{-5} \br{1 - x^2}^2 - 2x y^{-2} = 0$, то есть $\br{1 - x^2}^2 = -xy^3$.
+\begin{multline*}
+    y'''\br{x} 
+    = 10 y^{-8} \br{1 - x^2} \cdot \br{-xy^3} + 12 xy^{-5} \br{1 - x^2} - 2y^{-2}
+    = 2 xy^{-5} \br{1 - x^2} - 2y^{-2} = \\
+    = -2 y^{-8} \br{1 - x^2}^2 - 2y^{-2} 
+    = -2y^{-2} \br{y^{-6} \br{1 - x^2}^2 + 1} < 0.
+\end{multline*}
+
+Итак, всякая точка кривой $xy^3 = -\br{1 - x^2}^2$ является точкой перегиба.
+
+На прямой $y = 0$ первая производная не определена, а потому исследовать функцию $y\br{x}$ на наличие перегиба на этой прямой с помощью производной не получится.
+
+\item $y'\br{x} = f\br{x; y}$.
+Обозначим $\xi = x$. Тогда по правилу произодной сложной функции
+$y''\br{x} 
+= \dfrac {d} {dx} f\br{x; y\br{x}}
+= \dfrac {d} {d\xi} f\br{x\br{\xi}; y\br{\xi}}
+= \parder{f}{x} \dfrac {dx}{d\xi} + \parder{f}{y} \dfrac {dy} {d\xi}
+= \parder{f}{x} + \parder{f}{y} f\br{x; y}$,
+ибо $\dfrac {dx}{d\xi} = 1$ и $\dfrac {dy}{d\xi} = \dfrac{dy}{dx} = f\br{x; y}$.
+
+Итак, уравнение кривой точек перегиба имеет вид
+$f'_{x} + f \cdot f'_{y} = 0$. Это условие необходимое, но не достаточное, так что проверку на наличие перегиба при фиксированных $x$ и $y$ необходимо делать исследованием знака $y''\br{x}$.
+
+Предположим теперь, что функция $f\br{x; y}$ имеет непрерывные вторые частные \linebreak производные $\pardersecond{f}{x}$, $\pardersecond{f}{y}$ и $\pardersecond[f]{x}{y}$ и найдём в этом предположении $y'''\br{x}$.
+
+$$y'''\br{x} = \dfrac {d} {dx} \br{y''\br{x}} = \dfrac {d} {d\xi} \br{\parder{f}{x} + f \parder{f}{y}}.$$
+$\dfrac {d} {d\xi} \parder{f}{x}
+= \dfrac {\partial} {\partial x} \br{\parder{f}{x}} \cdot \dfrac {dx} {d\xi} + \dfrac {\partial} {\partial y} \br{\parder{f}{y}} \cdot \dfrac {dy} {d\xi}
+= \pardersecond{f}{x} + \pardersecond[f]{x}{y} \cdot \dfrac {dy} {dx}
+= \pardersecond{f}{x} + \pardersecond[f]{x}{y} \cdot f$; \\
+\begin{multline*}\dfrac {d} {d\xi} \br{f \cdot \parder{f}{y}} 
+= \dfrac {d} {d\xi} f \cdot \parder{f}{y} + f \cdot \dfrac {d} {d\xi} \parder{f}{y} \\
+= \br{\parder{f}{x} + \parder{f}{y} \cdot f} \parder{f}{y} + f \cdot \br{\dfrac {\partial}{\partial x}\br{\parder{f}{y}} \cdot \dfrac{dx}{d\xi} + \dfrac {\partial}{\partial y}\br{\parder{f}{y}} \cdot \dfrac{dy}{d\xi}} = \\
+= \parder{f}{x}\parder{f}{y} + \br{\parder{f}{y}}^2 \cdot f + \pardersecond[f]{x}{y} \cdot f + \pardersecond{f}{y} \cdot f^2.
+\end{multline*}
+
+Итого, $y'''\br{x} = \dfrac {d} {d\xi} \br{\parder{f}{x}} + \dfrac {d} {d\xi} \br{f \parder{f}{y}} = f''_{xx} + f''_{xy} f + f'_{x}f'_{y} + \br{f'_{y}}^2 f + f''_{xy} f + f''_{yy} f^2 \linebreak 
+= f''_{xx} + 2f''_{xy} f + f''_{yy} f^2 + f'_{y} \cdot \br{f'_{x} + f \cdot f'_{y}}$.
+
+Пусть теперь $f'_{x} + f \cdot f'_{y} = 0$. При таком условии 
+$y'''\br{x} = f''_{xx} + 2f''_{xy} f + f''_{yy} f^2$.
+
+Окончательно получаем достаточные условия наличия перегиба в точке:
+$$\tsys{& f'_{x} + f \cdot f'_{y} = 0 \\& f''_{xx} + 2f''_{xy} f + f''_{yy} f^2 \ne 0}.$$
+
+\end{enumerate}
+\end{document}
