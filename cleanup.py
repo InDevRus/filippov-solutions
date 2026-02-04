@@ -71,11 +71,10 @@ def find_files_to_delete(source_path: str) -> list[pathlib.Path]:
         extension_mask: str
         for extension_mask in map(str.rstrip, source_file):
             if EXTENSION_PATTERN.fullmatch(extension_mask) is not None:
-                extension_mask = extension_mask.rstrip()
-                target_paths.extend(current_path.rglob(extension_mask))
+                target_paths.extend(current_path.rglob(f'*{extension_mask}'))
                 print(f'Загружены файлы расширений {extension_mask}')
-            if len(target_paths) > 0:
-                print()
+        if len(target_paths) > 0:
+            print()
 
     target_paths.sort()
     return target_paths
