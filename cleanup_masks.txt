@@ -1,5 +1,6 @@
-*.log
-*.synctex
-*.synctex.gz
-*.table
-*.gnuplot
+.log
+.synctex
+.synctex.gz
+
+.table
+.gnuplot
