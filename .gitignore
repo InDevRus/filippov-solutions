@@ -1,10 +1,6 @@
 /.kile/
 /**/*.kilepr
 /**/*.aux
-/**/*.txt
-/**/*.log
-/**/*.synctex
-/**/*.synctex.gz
 /**/*.kate-swp
 /**/*.xml
 /**/*.iml
@@ -21,5 +17,8 @@
 /**/**.out
 /**/**.nav
 
+/**/*.log
+/**/*.synctex
+/**/*.synctex.gz
 /**/**.table
 /**/**.gnuplot
