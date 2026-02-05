@@ -5,9 +5,14 @@
 
 \begin{document}
 
-$y^2 + Cx = x^3$. 
-$C = \dfrac {x^3 - y^2} {x}$.
-$0 = \dfrac {\br{3x^2 - 2yy'} x - \br{x^3 - y^2}} {x^2}
-= \dfrac {-2xyy' + 2x^3 + y^2} {x^2}$.
-$y' = \dfrac {2x^3 + y^2} {2xy}$.
+$y = C \br{x - C}^2$.
+$y' = 2C\br{x - C}$.
+Обозначим $\br{x - C} = \delta$ и решим систему
+$\tsys{&C \delta^2 = y \\& 2C\delta = y'}$.
+$C\delta = \dfrac {y'} {2}$.
+$y = C \delta ^2 = C \delta \cdot C = C \dfrac {y'} {2}$.
+$C = \dfrac {2y} {y'}$.
+$y' = \dfrac {4y} {y'} \br{x - \dfrac {2y} {y'}}$.
+$\br{y'}^3 = 4y \br{xy' - 2y}$.
+
 \end{document}
