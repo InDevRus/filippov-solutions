@@ -1,0 +1,20 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$y = ax^2 + b e^{x}$.
+$y' = 2a x + b e^{x}$.
+$y'' = 2 a + b e^{x}$.
+$b e^{x} = y'' - 2a$.
+Подставив в первые два, получим
+$\tsys{& y = ax^2 + y'' - 2a \\& y' = 2ax + y '' - 2a}$.
+$a = \dfrac {y - y''} {x^2 - 2}$.
+$y' = y'' + 2 \br{x - 1} \dfrac {y - y''} {x^2 - 2}$. \\
+$x^2y'' - 2y'' - x^2y' + 2y' + 2xy - 2xy'' - 2y + 2y'' = 0$. \\
+$y''\br{x^2 - 2x} + \br{2 - x^2}y' + \br{2x - 2}y = 0$.
+
+\end{document}
+

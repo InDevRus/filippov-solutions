@@ -1,0 +1,29 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$\br{x - a}^2 + by^2 = 1$.
+$2\br{x - a} + 2byy' = 0$.
+$\br{x - a}^2 = \br{-byy'}^2 = 1 - by^2$. \\
+$b^2y^2 \br{y'}^2 + by^2 = 1$.
+$y^2 \br{b^2\br{y'}^2 + b} = 1$.
+
+Теперь берём производную во второй раз. 
+\begin{multline*}
+\dfrac {d} {dx} \br{y^2 \br{b^2\br{y'}^2 + b}}
+= \dfrac {d} {dx} \br{y^2} \br{b^2\br{y'}^2 + b} + y^2 \cdot \dfrac {d} {dx} \br{b^2\br{y'}^2 + b} \\
+= 2yy' \br{b^2\br{y'}^2 + b} + y^2 \cdot 2b^2y'y''
+= 2yy' \br{b^2 \br{y'}^2 + b + b^2 y y''}.
+\end{multline*}
+$b^2 \br{y'}^2 + b + b^2 y y'' = 0$, а множители $y$ и $y'$ отброшены, так как кривые, задаваемые условиями $y = 0$ и $y' = 0$, не принадлежат исходным кривым.
+
+Итак, имеем систему $\tsys{& y^2 \br{b^2\br{y'}^2 + b} = 1 \\& b^2 \br{y'}^2 + b + b^2 y y'' = 0}$, из которой нужно исключить $b$. \linebreak $b\br{\br{y'}^2 + yy''} = -1$. Умножив первое на $\br{\br{y'}^2 + yy''}^2$, получим
+$$ y^2 \br{b^2 \br{\br{y'}^2 + yy''}^2 \br{y'}^2 + b \br{\br{y'}^2 + yy''}^2} = \br{\br{y'}^2 + yy''}^2.$$
+$y^2 \br{\br{y'}^2 - \br{\br{y'}^2 + yy''}} = \br{\br{y'}^2 + yy''}^2$.
+Окончательно $\br{\br{y'}^2 + yy''}^2 + y^3 y'' = 0$.
+
+\end{document}
+
