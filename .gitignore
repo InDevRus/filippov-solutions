@@ -19,6 +19,7 @@
 
 /**/*.log
 /**/*.synctex
+/**/*.synctex(busy)
 /**/*.synctex.gz
 /**/**.table
 /**/**.gnuplot
