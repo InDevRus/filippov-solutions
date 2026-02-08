@@ -1,0 +1,19 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$\ln y = ax + by$.
+$b = \dfrac {\ln y - ax} {y}$.
+$$0 = \br{\dfrac {\ln y - ax} {y}}'
+= \dfrac { \br{\frac {y'}{y} - a}y - \br{\ln y - ax}y'} {y^2}
+= \dfrac {y'\br{1 - \ln y + ax} - ay} {y^2}; 
+a = \dfrac {y'\br{\ln y - 1}} {xy' - y}.$$
+$$0 = \dfrac {\br{y''\br{\ln y - 1} + \frac {\br{y'}^2} {y}}\br{xy' - y} - y'\br{\ln y - 1}\br{y' + xy'' - y'}} {\br{xy' - y}^2}.$$
+$xy'y''\br{\ln y - 1} + \dfrac {x\br{y'}^3} {y} - yy''\br{\ln y - 1} - \br{y'}^2 - x y' y''\br{\ln y - 1} = 0$. \\
+$y^2 y'' \br{\ln y - 1} = \br{y'}^2 \br{xy' - y}$.
+
+\end{document}
+

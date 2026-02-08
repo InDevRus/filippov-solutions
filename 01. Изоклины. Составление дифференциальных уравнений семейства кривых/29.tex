@@ -1,0 +1,21 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$x = ay^2\br{x} + by\br{x} + c$.
+$1 = 2ayy' + by'$.
+$b = \dfrac {1 - 2ayy'} {y'}$.
+\begin{align*}
+0 = \dfrac {\br{-2a\br{y'}^2 - 2ayy''}y' - \br{1 - 2ayy'} y''} {\br{y'}^2};
+-2a\br{y'}^3 - 2ayy'y'' - y'' + 2ayy'y'' = 0.
+\end{align*}
+$2a\br{y'}^3 + y'' = 0$.
+$a = - \dfrac {y''} {2\br{y'}^3}$.  
+$0 = - \dfrac {2y'''\br{y'}^3 - 6\br{y'y''}^2} {2\br{y'}^3}$.
+$y'y''' = 3\br{y''}^2$.
+
+\end{document}
+

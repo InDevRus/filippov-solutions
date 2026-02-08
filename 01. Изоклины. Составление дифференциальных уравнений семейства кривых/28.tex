@@ -1,0 +1,22 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$y = ax^3 + bx^2 + cx$.
+$y' = 3ax^2 + 2bx + c$.
+$c = y' - 3ax^2 - 2bx$. Подставив, получим
+$y = ax^3 + bx^2 + xy' - 3ax^3 - 2bx^2$.
+$\tsys{& y = -2ax^3 - bx^2 + xy' \\& y' = -6ax^2 - 2bx + y' + xy''}$. \\
+$2y = -4ax^3 - 2bx \cdot x + 2xy'
+= -4ax^3 + 2xy' - x\br{xy'' - 6ax^2} = 2ax^3 + 2xy' - x^2y''$. \\
+$\tsys{& 2y = 2ax^3 + 2xy' - x^2y'' \\& 2y' = 6ax^2 + 2y' + 2xy'' - 2xy'' - x^2y'''}$.
+$6a = y'''$.
+$6y = x^3 y''' + 6xy' - 3x^2 y'' = 0$.
+
+Итак, $x^3 y''' - 3x^2 y'' + 6xy' - 6y = 0$.
+
+\end{document}
+
