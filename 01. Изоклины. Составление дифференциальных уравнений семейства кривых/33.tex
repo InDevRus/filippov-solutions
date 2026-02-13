@@ -1,0 +1,19 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+Парабола $y = ax^2 + bx + c$ проходит через начало координат при условии $c = 0$, что даёт уравнение
+$y = ax^2 + bx$.
+
+$y' = 2ax + b$.
+$b = y' - 2ax$.
+$y = ax^2 + xy' - 2ax^2$.
+$y = xy' - ax^2$.
+$2ax = xy''$. Наконец, подставим в $y = xy' - ax^2$ и получим искомое уравнение $2y = 2xy' - x^2 y''$.
+$x^2y'' - 2xy' + 2y = 0$.
+
+\end{document}
+

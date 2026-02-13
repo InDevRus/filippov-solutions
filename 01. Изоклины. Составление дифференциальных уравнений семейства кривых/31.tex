@@ -1,0 +1,23 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+Параболы с осью, параллельной оси ординат, и касающиеся оси абсцисс задаются $y = a \br{x - b}^2$, $a \ne 0$. Парабола касается прямой $y = x$, если уравнение $a \br{x - b}^2 = x$ имеет единственное решение.
+$ax^2 - \br{2ab + 1}x + ab^2 = 0$.
+$D = 4a^2b^2 + 4ab + 1 - 4a^2b^2 = \linebreak = 4ab + 1$.
+$D = 0$, если $a = - \dfrac {1} {4b}$.
+Получаем $y = -\dfrac {1} {4b} \br{x - b}^2$.
+$\br{x - b}^2 + 4by = 0$. Взяв производную, получим
+$2\br{x - b} + 4by' = 0$.
+$4by' - 2b = -2x$.
+$b = - \dfrac {2x} {4y' - 2}$. Итак,
+$\br{x + \dfrac {2x} {4y' - 2}}^2 - \dfrac {2x \cdot 4y} {4y' - 2} = 0$.
+$\br{\dfrac {4xy'} {4y' - 2}}^2 - \dfrac {8xy} {4y' - 2} = 0$.
+$16x^2\br{y'}^2 - 8xy \br{4y' - 2} = 0$.
+$x \br{y'}^2 - 2yy' + y = 0$.
+
+\end{document}
+

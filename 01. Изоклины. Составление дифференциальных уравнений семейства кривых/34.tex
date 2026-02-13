@@ -1,0 +1,23 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+Для касания окружности оси абсцисс необходимо и достаточно, чтобы её радиус равнялся модулю ординаты центра. Таким образом, вид уравнения такой окружности таков: $\br{x - a}^2 + \br{y - b}^2 = b^2$.
+$\br{x - a}^2 + y^2 - 2by = 0$.
+$\br{x - a} + yy' - by' = 0$.
+Снова дифференцируем: $1 + \br{y'}^2 + yy'' - by'' = 0$.
+Наконец, подставляем в исходное уравнение 
+$\tsys{& b = \dfrac {1 + \br{y'}^2 + yy''} {y''} \\& x - a = by' - yy'}$,
+откуда 
+$x - a = \dfrac {1 + \br{y'}^2 + yy''} {y''} y' - yy' = \dfrac {y' + \br{y'}^3} {y''}$. \\
+$\br{\dfrac {y' + \br{y'}^3} {y''}}^2 + y^2 - 2y \dfrac {1 + \br{y'}^2 + yy''} {y''} = 0$. \\
+$\br{y' + \br{y'}^3}^2 - y^2\br{y''}^2 - 2yy'' - 2y\br{y'}^2y'' = 0$. \\
+$\br{y'}^2 + 2\br{y'}^4 + \br{y'}^6 - y^2\br{y''}^2 - 2yy'' - 2y\br{y'}^2y'' = 0$. \\
+$\br{\br{y'}^6 + 3\br{y'}^4 + 3\br{y'}^2 + 1} - \br{\br{y'}^4 + y^2\br{y''}^2 + 1 + 2\br{y'}^2 + 2yy'' + 2y\br{y'}^2y''} = 0$. \\
+$\br{\br{y'}^2 + 1}^3 - \br{\br{y'}^2 + yy'' + 1}^2 = 0$.
+
+\end{document}
+
