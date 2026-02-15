@@ -1,0 +1,52 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+	Для угла $\phi = \ang{45}$ имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} =\tg\br{\alpha \pm \ang{45}} = \dfrac {\tg\alpha \pm 1} {1 \mp \tg\alpha }$.
+\end{framed}
+
+$x^2 + y^2 = a^2$.
+$2x + 2yy' = 0$.
+Имеем дифференциальное уравнение: $y' = -\dfrac {x} {y}$. 
+$\tg\alpha = -\dfrac {x} {y}$.
+$\tg\beta$ будет иметь, вообще говоря, два различных значения для заданного $\tg\alpha$.
+
+В случае со знаком <<плюс>>
+$\tg \beta = \dfrac {\tg\alpha + 1} {1 - \tg\alpha} = \dfrac {-\dfrac {x} {y} + 1} {1 + \dfrac {x} {y}} = \dfrac {y - x} {x + y} = g\br{x; y\br{x}}$,
+а в случае со знаком <<минус>> 
+$\tg \beta = \dfrac {\tg\alpha - 1} {1 + \tg\alpha} = \dfrac {-y - x} {y - x} = h\br{x; y\br{x}}$.
+Таким образом, имеем два уравнения изогональных траекторий вида $\zed'\br{x} = f\br{x; \zed\br{x}}$ и $\zed'\br{x} = g\br{x; \zed\br{x}}$. Более конкретно, $\zed' = \dfrac {\zed - x} {\zed + x}$ и $\zed' = - \dfrac {\zed + x} {\zed - x}$.
+
+
+\begin{remark}
+	Ниже приведены решения соответствующих уравнений в параметрической форме $\tsys{& x\br{t} = C f\br{t} \\& \zed\br{t} = C t f\br{t}}$ и в полярной форме $\tsys{& x\br{\theta} = C r\br{\theta} \cos\theta \\& \zed\br{\theta} = C r\br{\theta} \sin\theta}$.
+	
+	\centering
+	\begin{tabularx}{0.8\textwidth} { 
+			| >{\centering\arraybackslash}X 
+			| >{\centering\arraybackslash}X 
+			| >{\centering\arraybackslash}X |}
+		\hline
+			Уравнение
+			& Функция $f = f\br{t}$
+			& Функция $r = r\br{\theta}$ \\
+		\hline
+			\rule{0mm}{7mm}
+			$\zed' = \dfrac {\zed - x} {\zed + x}$
+			& $f\br{t} = \dfrac {\tpow{e}{-\arctg t}} {\sqrt{t^2 + 1}}$
+			& $r\br{\theta} = \tpow{e}{-\theta}$ \\ [4mm]
+		\hline
+			\rule{0mm}{7mm}
+			$\zed' = - \dfrac {\zed + x} {\zed - x}$ 
+			& {$f\br{t} = \dfrac {\tpow{e}{\arctg t}} {\sqrt{t^2 + 1}}$}
+			& $r\br{\theta} = \tpow{e}{\theta}$ \\ [4mm]
+		\hline
+	\end{tabularx}
+\end{remark}
+
+\end{document}
+

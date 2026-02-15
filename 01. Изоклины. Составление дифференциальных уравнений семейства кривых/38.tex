@@ -1,0 +1,24 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+	Для угла $\phi = \ang{90}$ имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} =\tg\br{\alpha \pm \ang{90}} = -\ctg \alpha$.
+\end{framed}
+
+$y^2 = x + C$.
+$C = y^2 - x$.
+$0 = 2yy' - 1$.
+Итак, дифференциальное уравнение таково: $y' = \dfrac {1} {2y}$. 
+$\tg\alpha = \dfrac {1} {2y}$.
+$\tg\beta = -\ctg\alpha = -2y$. Окончательно, уравнение изогональных (ортогональных) траекторий имеет вид $\zed' = -2\zed$.
+
+\begin{remark}
+	Уравнение $\zed' = -2\zed$ имеет общее решение $\zed = \widetilde{C} e^{-2x}$.
+\end{remark}
+
+\end{document}
+

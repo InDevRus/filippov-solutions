@@ -1,0 +1,58 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+	Для угла $\phi = \ang{60}$ имеем $\tg{\beta} =
+	\tg\br{\alpha \pm \phi} =
+	\tg\br{\alpha \pm \ang{60}} =
+	\dfrac {\tg\alpha \pm \sqrt{3}} {1 \mp \sqrt{3}\tg\alpha}$.
+\end{framed}
+
+$y = kx$.
+$y' = \dfrac {y} {x}$.
+$\tg \alpha = \dfrac {y} {x}$.
+
+В случае со знаком <<плюс>>
+$\tg \beta = \dfrac {\tg\alpha + \sqrt{3}} {1 - \sqrt{3}\tg\alpha} 
+= \dfrac {y + \sqrt{3}x} {-\sqrt{3}y + x}
+= g\br{x; y\br{x}}$,
+а в случае со знаком <<минус>> 
+$\tg \beta = \dfrac {\tg\alpha - \sqrt{3}} {1 + \sqrt{3}\tg\alpha} 
+= \dfrac {y - \sqrt{3}x} {\sqrt{3}y + x}
+= g\br{x; y\br{x}}$.
+Таким образом, имеем два уравнения изогональных траекторий вида $\zed'\br{x} = f\br{x; \zed\br{x}}$ и $\zed'\br{x} = g\br{x; \zed\br{x}}$, то есть $\zed' = \dfrac {\zed + \sqrt{3}x} {-\sqrt{3}\zed + x}$ и $\zed' = \dfrac {\zed - \sqrt{3}x} {\sqrt{3}\zed + x}$.
+
+\begin{remark}
+	Ниже приведены решения соответствующих уравнений в параметрической форме $\tsys{& x\br{t} = C f\br{t} \\& \zed\br{t} = C t f\br{t}}$ и в полярной форме $\tsys{& x\br{\theta} = C r\br{\theta} \cos\theta \\& \zed\br{\theta} = C r\br{\theta} \sin\theta}$.
+	
+	\centering	
+	\begin{tabularx}{0.8\textwidth} { 
+			| >{\centering\arraybackslash}X 
+			| >{\centering\arraybackslash}X 
+			| >{\centering\arraybackslash}X |}
+		\hline
+			Уравнение
+			& Функция $f = f\br{t}$
+			& Функция $r = r\br{\theta}$ \\
+		\hline
+			\rule{0mm}{9mm}
+			$\zed' = \dfrac {\zed + \sqrt{3}x} {-\sqrt{3}\zed + x}$
+			& $f\br{t} = \dfrac {\tpow{e}{\frac {1} {\sqrt{3}}\arctg t}} {\sqrt{t^2 + 1}}$
+			& $r\br{\theta} = \tpow{e}{\frac {1}{\sqrt{3}}\theta}$
+			\\[5mm]
+		\hline
+			\rule{0mm}{9mm}
+			$\zed' = \dfrac {\zed - \sqrt{3}x} {\sqrt{3}\zed + x}$
+			& $f\br{t} = \dfrac {\tpow{e}{-\frac {1} {\sqrt{3}}\arctg t}} {\sqrt{t^2 + 1}}$
+			& $r\br{\theta} = \tpow{e}{-\frac {1}{\sqrt{3}}\theta}$
+			\\[5mm]
+		\hline
+	\end{tabularx}
+\end{remark}
+
+\end{document}
+
