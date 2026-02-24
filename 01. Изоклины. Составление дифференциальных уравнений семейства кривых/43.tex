@@ -1,0 +1,56 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+	Для угла $\phi = \ang{60}$ имеем $\tg{\beta} =
+	\tg\br{\alpha \pm \phi} =
+	\tg\br{\alpha \pm \ang{60}} =
+	\dfrac {\tg\alpha \pm \sqrt{3}} {1 \mp \sqrt{3}\tg\alpha}$.
+\end{framed}
+
+$3x^2 + y^2 = C$.
+$6x + 2yy' = 0$.
+$y' = \tg\alpha = - \dfrac {3x} {y}$.
+
+Имеем
+$\tg \beta 
+= \dfrac {\sqrt{3} \tg\alpha \pm 1} {\sqrt{3} \mp \tg\alpha}
+= \dfrac {3\sqrt{3}x \pm y} {\sqrt{3}x \mp 3y} $.
+Обозначим
+$\dfrac {3\sqrt{3}x + y} {\sqrt{3}y - 3x} = f\br{x; y\br{x}}$ и 
+$\dfrac {3\sqrt{3}x - y} {\sqrt{3}y + 3x} 
+\linebreak = g\br{x; y\br{x}}$,
+и получается уравнения изогональных траекторий вида $\zed'\br{x} = f\br{x; \zed\br{x}}$ и $\zed'\br{x} = g\br{x; \zed\br{x}}$,
+то есть $\zed' = \dfrac {3\sqrt{3}x + \zed} {3x - \sqrt{3}\zed}$
+и $\zed' = \dfrac {\zed - 3\sqrt{3}x} {\sqrt{3}\zed + 3x} $.
+
+\begin{remark}
+	Ниже приведены решения соответствующих уравнений в параметрической форме $\tsys{& x\br{t} = C f\br{t} \\& \zed\br{t} = C t f\br{t}}$.
+	
+	\centering	
+	\begin{tabularx}{0.8\textwidth} { 
+			| >{\hsize=0.5\hsize\centering\arraybackslash} X 
+			| >{\hsize=1.5\hsize\centering\arraybackslash} X |}
+		\hline
+			Уравнение
+			& Функция $f = f\br{t}$\\
+		\hline
+			\rule{0mm}{15mm}
+			$\elevate[4mm]{\zed' = \dfrac {3\sqrt{3}x + \zed} {3x - \sqrt{3}\zed}}$
+			& $\dfrac {\exp\br{\dfrac {1} {\sqrt{2}} \arctg\br{\dfrac {\sqrt{3}t - 1} {2\sqrt{2}} }}} {\sqrt{\sqrt{3} t^2 - 2t + 3\sqrt{3}}}$
+			\\[4mm]
+		\hline
+			\rule{0mm}{15mm}
+			$\elevate[4mm]{\zed' = \dfrac {-3\sqrt{3}x + \zed} {3x + \sqrt{3}\zed}}$
+			& $\dfrac {\exp\br{-\dfrac {1} {\sqrt{2}} \arctg\br{\dfrac {\sqrt{3}t + 1} {2\sqrt{2}} }}} {\sqrt{\sqrt{3} t^2 + 2t + 3\sqrt{3}}}$
+			\\[4mm]
+		\hline
+	\end{tabularx}
+\end{remark}
+
+\end{document}
+

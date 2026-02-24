@@ -1,0 +1,57 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+	Если в полярных координатах $\tsys{& x = r \cos\theta \\& y = r \sin\theta}$ имеем \vspace{1mm} производную $\dfrac {dr} {d\theta} = A\br{r; \theta}$,
+	то соответствующая производная в декартовых координатах $\dfrac {dy} {dx} = B\br{r; \theta}$ связана с исходной $A\br{r; \theta}$ соотношениями
+	\begin{align*}
+		\dfrac {dy} {dx} 
+		= B\br{A; r; \theta}
+		= \dfrac {A \sin\theta + r \cos\theta} {A \cos\theta - r \sin\theta};&&
+		\dfrac {dr} {d\theta} 
+		= A\br{B; r; \theta} 
+		= r \cdot \dfrac {B \sin\theta + \cos\theta} {B\cos\theta - \sin\theta}.
+	\end{align*}
+\end{framed}
+
+\begin{framed}
+	Для угла $\phi = \ang{90}$ имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} =\tg\br{\alpha \pm \ang{90}} = -\ctg \alpha = -\dfrac {1} {\tg\alpha}$.
+	
+	С учётом указанного выше, для данного угла $\phi$ всякое семейство изогональных траекторий $\zed\br{x}$ и соответствующее семейство в полярной системе $\tsys{& x = \rho \cos\theta \\& \zed = \rho \sin\theta}$ удовлетворяют соотношениям
+	\begin{align*}
+		A_{\zed} 
+		= \rho \cdot \dfrac {B_{\zed} \sin\theta + \cos\theta} {B_{\zed}\cos\theta - \sin\theta};
+		&&
+		B_{\zed}\br{\rho; \theta} = -\dfrac {1} {B_{y}\br{r; \theta}};
+		&&
+		B_{y} = \dfrac {A_{y} \sin\theta + r \cos\theta} {A_{y} \cos\theta - r \sin\theta},
+	\end{align*}
+	где введены обозначения
+	$A_{y} = \dfrac {dr} {d\theta}$,
+	$B_{y} = \dfrac {dy} {dx}$,
+	$A_{\zed} = \dfrac {d\rho} {d\theta}$,
+	$B_{\zed} = \dfrac {d\zed} {dx}$. \vspace{1mm}
+	
+	Последовательно подставив и затем упростив, получим следующую формулу:
+	$$A_{\zed}\br{\rho; \theta} = -\dfrac {\rho^2} {A_{y}\br{r; \theta}}.$$
+\end{framed}
+
+$r = a + \cos\theta$.
+$A_{y} = r'\br{\theta} = -\sin\theta$.
+Таким образом, уравнение изогональных (ортогональных) траекторий в обозначениях, указанных выше, принимает форму
+$\dfrac {d\rho} {d\theta} = A_{\zed} = \linebreak = -\dfrac {\rho^2} {A_{y}} = \dfrac {\rho^2} {\sin\theta}.$
+$\sin\theta\ \rho'\br{\theta} = \rho^2\br{\theta}$.
+
+\begin{remark}
+	Уравнение
+	$\rho' = \dfrac {\rho^2} {\sin\theta}$
+	имеет общее решение
+	$$\rho = \dfrac {1} {C - \ln\br{\tg\dfrac {\theta} {2}}}.$$
+\end{remark}
+
+\end{document}
+
