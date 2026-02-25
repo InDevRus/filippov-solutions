@@ -40,17 +40,18 @@
 	$$A_{\zed}\br{\rho; \theta} = -\dfrac {\rho^2} {A_{y}\br{\rho; \theta}}.$$
 \end{framed}
 
-$r = a + \cos\theta$.
-$A_{y} = r'\br{\theta} = -\sin\theta$.
+$r = a \cos^2\theta$.
+$a = \dfrac {r} {\cos^2 \theta}$.
+$0 = \dfrac {r' \cos^2 \theta + 2r \sin\theta \cos\theta} {\cos^4 \theta}$.
+$r' = -2r \tg\theta = A_{y}$.
 Таким образом, уравнение изогональных (ортогональных) траекторий в обозначениях, указанных выше, принимает форму
-$\dfrac {d\rho} {d\theta} = A_{\zed} = \linebreak = -\dfrac {\rho^2} {A_{y}} = \dfrac {\rho^2} {\sin\theta}.$
-$\sin\theta\ \rho'\br{\theta} = \rho^2\br{\theta}$.
+$\dfrac {d\rho} {d\theta} = A_{\zed} = -\dfrac {\rho^2} {A_{y}} = \dfrac {\rho^2} {2\rho \tg\theta}.$
+$\rho'\br{\theta} = \dfrac {1} {2} \rho\br{\theta} \ctg\theta$.
 
 \begin{remark}
 	Уравнение
-	$\rho' = \dfrac {\rho^2} {\sin\theta}$
-	имеет общее решение
-	$$\rho = \dfrac {1} {C - \ln\br{\tg\dfrac {\theta} {2}}}.$$
+	$\rho' = \dfrac {1} {2} \rho \ctg\theta$
+	имеет общее решение $\rho = C \sqrt{\vbr{\sin\theta}}$.
 \end{remark}
 
 \end{document}
