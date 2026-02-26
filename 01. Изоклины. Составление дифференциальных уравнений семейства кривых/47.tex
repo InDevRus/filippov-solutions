@@ -1,0 +1,45 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+	
+\begin{framed}
+	Для угла $\phi = \arctg 2$
+	имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} = \tg\br{\alpha \pm \arctg 2} = \dfrac {\tg \alpha \pm 2} {1 \mp 2 \tg\alpha}$.
+\end{framed}
+	
+$y = x \ln x + C x$, $x > 0$.
+$C = \dfrac {y - x \ln x} {x}$. \vspace{1mm}
+$0 = \dfrac {\br{y' - \ln x - 1}x - \br{y - x \ln x}} {x^2}
+= \dfrac {y'x - x - y} {x^2}$, 
+Имеем дифференциальное уравнение: $y' = 1 + \dfrac {y} {x} = \tg \alpha$. 
+$\tg\beta$ будет иметь, вообще говоря, два различных значения для заданного $\tg\alpha$. Эти два случая дают
+\begin{align*}
+	\tg \beta = \dfrac {\tg \alpha + 2} {1 - 2 \tg\alpha}
+	= \dfrac {\br{1 + \dfrac {y} {x}} + 2} {1 - 2 \br{1 + \dfrac {y} {x}}}
+	& = -\dfrac {3x + y} {x + 2y} = g\br{x; y\br{x}} \\
+	\tg \beta = \dfrac {\tg \alpha - 2} {1 + 2 \tg\alpha}
+	= \dfrac {\br{1 + \dfrac {y} {x}} - 2} {1 + 2 \br{1 + \dfrac {y} {x}}}
+	& = \dfrac {-x + y} {3x + 2y} = h\br{x; y\br{x}}
+\end{align*}
+
+Итак, имеем два уравнения изогональных траекторий вида $\zed'\br{x} = g\br{x; \zed\br{x}}$ и $\zed'\br{x} = \linebreak = h\br{x; \zed\br{x}}$,
+то есть $\zed' = -\dfrac {3x + \zed} {x + 2\zed}$ и $\zed' = \dfrac {-x + \zed} {3x + 2\zed}$.
+
+\begin{remark}
+	Ниже приведены общие решения уравнений.
+	
+	\begin{enumerate}
+		\item Уравнение $\zed' = -\dfrac {3x + \zed} {x + 2\zed}$ \vspace{1mm} имеет общее решение в виде следующей квадратичной формы:
+		$2\zed^2 + 2\zed x + 3x^2 = C$, $C > 0$. \vspace{1mm}
+		
+		\item Уравнение $\zed' = \dfrac {-x + y} {3x + 2y}$ имеет решение в параметрической форме 
+		$\tsys{& x\br{t} = C f\br{t} \\& \zed\br{t} = C t f\br{t}}$,
+		где $f\br{t} = \dfrac {\tpow {e}{\elevate{-2\arctg\br{2t + 1}}}} {\sqrt{2t^2 + 2t + 1}}$.
+	\end{enumerate}
+\end{remark}
+	
+\end{document}
+
