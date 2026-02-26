@@ -1,0 +1,68 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+	Для угла $\phi = \ang{45}$ имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} =\tg\br{\alpha \pm \ang{45}} = \dfrac {\tg\alpha \pm 1} {1 \mp \tg\alpha }$.
+\end{framed}
+
+$x^2 + y^2 = 2ax$.
+$2a = \dfrac {y^2 + x^2} {x}$.
+$0 = \dfrac {\br{2yy' + 2x}x - y^2 - x^2} {x^2}$. \vspace{1mm}
+$2xyy' + x^2 - y^2 = 0$.
+Имеем дифференциальное уравнение $y' = \tg\alpha = \dfrac {y^2 - x^2} {2xy}$.
+$\tg\beta$ будет иметь, вообще говоря, два различных значения для заданного $\tg\alpha$. Оба случая рассмотрены ниже.
+\begin{align*}
+	\tg\beta = \dfrac {\tg\alpha + 1} {1 - \tg\alpha}
+	= \dfrac {\dfrac {y^2 - x^2} {2xy} + 1} {1 - \dfrac {y^2 - x^2} {2xy}}
+	= \dfrac {y^2 + 2xy - x^2} {-y^2 + 2xy + x^2} 
+	= g\br{x; y\br{x}} &\\
+	\tg\beta = \dfrac {\tg\alpha - 1} {1 + \tg\alpha}
+	= \dfrac {\dfrac {y^2 - x^2} {2xy} - 1} {1 + \dfrac {y^2 - x^2} {2xy}}
+	= \dfrac {y^2 - 2xy - x^2} {y^2 + 2xy - x^2}
+	= h\br{x; y\br{x}} &
+\end{align*}
+
+Итак, имеем два уравнения изогональных траекторий вида $\zed'\br{x} = g\br{x; \zed\br{x}}$ и $\zed'\br{x} \linebreak = h\br{x; \zed\br{x}}$. Более конкретно, $\zed' = \dfrac {\zed^2 + 2x\zed - x^2} {-\zed^2 + 2x\zed + x^2}$ и $\zed' = \dfrac {\zed^2 - 2x\zed - x^2} {\zed^2 + 2x\zed - x^2}$.
+
+\begin{remark}
+	Ниже приведены решения соответствующих уравнений в виде квадратичных форм, каждая из которых в плоскости $Ox\zed$ задаёт окружности. Кроме того, уравнения обладают по одному дополнительному (особому) решению, каждое из которых задаёт прямую. Формально эти два решения также относятся к изогональным траекториям. \vspace{1mm}
+	
+	\centering
+	\begin{tabularx}{\textwidth} { 
+			| >{\hsize=0.275\hsize\centering\arraybackslash} X 
+			| >{\hsize=0.375\hsize\centering\arraybackslash} X 
+			| >{\hsize=0.1\hsize\centering\arraybackslash} X
+			| >{\hsize=0.1\hsize\centering\arraybackslash} X
+			| >{\hsize=0.15\hsize\centering\arraybackslash} X |}
+		\hline
+			Уравнение
+			& Квадратичная форма
+			& Центр
+			& Радиус
+			& Прямая \\
+		\hline
+			\rule{0mm}{7mm}
+			$\zed' = \dfrac {\zed^2 + 2x\zed - x^2} {-\zed^2 + 2x\zed + x^2}$
+			& $\zed^2 - 2C\zed + x^2 + 2Cx = 0$
+			& $\br{-C; C}$
+			& $\sqrt{2}\vbr{C}$
+			& $y = x$
+			\\ [4mm]
+		\hline
+			\rule{0mm}{7mm}
+			$\zed' = \dfrac {\zed^2 - 2x\zed - x^2} {\zed^2 + 2x\zed - x^2}$
+			& $\zed^2 - 2C\zed + x^2 - 2Cx = 0$
+			& $\br{C; C}$
+			& $\sqrt{2}\vbr{C}$
+			& $y = -x$
+			\\ [4mm]
+		\hline
+	\end{tabularx}
+\end{remark}
+
+\end{document}
+
