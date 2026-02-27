@@ -1,0 +1,31 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+	Для угла $\phi = \ang{90}$ имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} =\tg\br{\alpha \pm \ang{90}} = -\ctg \alpha$.
+\end{framed}
+
+$y = Cx + C^3$.
+$y' = C$.
+$y = xy' + \br{y'}^3$.
+$y = x\tg\alpha + \tg^3\alpha$.
+Подставив $\tg\alpha = -\dfrac {1} {\tg\beta}$, получаем
+$y = -\dfrac {x} {\tg \beta} - \dfrac {1} {\tg^3\beta}$, так что
+$y \tg^3 \beta + x\tg^2\beta + 1 = 0$.
+Окончательно, уравнение изогональных (ортогональных) траекторий имеет вид 
+$\zed \br{\zed'}^3 + x\br{\zed'}^2 + 1 = 0$.
+
+\begin{remark}
+	Уравнение $\zed \br{\zed'}^3 + x\br{\zed'}^2 + 1 = 0$ имеет общее решение в параметрической форме 
+	$\tsys{
+		& x\br{t} = \dfrac {Ct} {\sqrt{t^2 + 1}} - \dfrac {1} {t^2} + 2
+		\\& \zed\br{t} = -\dfrac {C} {\sqrt{t^2 + 1}} - \dfrac {2} {t}
+	}$.
+\end{remark}
+
+\end{document}
+
