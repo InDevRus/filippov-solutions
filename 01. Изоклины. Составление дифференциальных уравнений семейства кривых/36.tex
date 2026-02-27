@@ -1,0 +1,27 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$\tsys{
+	& x^2 + y^2 = \zed^2 - 2b\zed 
+	\\& y = ax + b}$,
+где $\tsys{& y = y\br{x} \\& \zed = \zed\br{x}}$.
+Продифференцировав второе, имеем $y' = a$. \\
+$y = xy' + b$.
+$x^2 + y^2 = \zed^2 - 2\zed\br{y - xy'}$.
+$x^2 + y^2 - \zed^2 + 2y\zed + 2x\zed y' = 0$.
+Далее берём производную первого. $2b = \dfrac {\zed^2 - x^2 - y^2} {\zed}$. \vspace{1mm}
+$0 = \dfrac {\br{2\zed\zed' - 2yy' - 2x}\zed - \br{\zed^2 - x^2 - y^2}\zed'} {\zed^2}$. \\
+$\zed^2 \zed' - 2y\zed y' - 2x\zed + x^2 \zed' + y^2\zed' = 0$.
+
+Окончательно получаем
+$\tsys{
+	& x^2 + y^2 - \zed^2 + 2y\zed + 2x\zed y' = 0
+	\\& \zed^2 \zed' - 2y\zed y' - 2x\zed + x^2 \zed' + y^2\zed' = 0
+}$.
+
+\end{document}
+

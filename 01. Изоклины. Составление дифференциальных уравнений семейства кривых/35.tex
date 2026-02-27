@@ -1,0 +1,23 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$\tsys{& ax + \zed = b \\& y^2 + \zed^2 = b^2}$,
+где $\tsys{& y = y\br{x} \\& \zed = \zed\br{x}}$.
+Продифференцировав первое, имеем $a + \zed' = 0$. \\
+$\tsys{& \zed - x\zed' = b \\& y^2 + \zed^2 = b^2}$.
+$y^2 + \zed^2 = \br{\zed - x\zed'}^2$.
+$y^2 + 2x\zed\zed' - x^2 \br{\zed'}^2 = 0$.
+Дифференцирование второго уравнения даёт $yy' + \zed\zed' = 0$.
+
+Окончательно получаем
+$\tsys{
+	& y^2 + 2x\zed\zed' - x^2 \br{\zed'}^2 = 0 
+	\\& yy' + \zed\zed' = 0
+}$.
+
+\end{document}
+
