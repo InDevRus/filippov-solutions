@@ -1,0 +1,30 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+\begin{framed}
+	Для угла $\phi = \ang{90}$ имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} =\tg\br{\alpha \pm \ang{90}} = -\ctg \alpha$.
+\end{framed}
+
+$x^2 + C^2 = 2Cy$.
+$2x = 2Cy'$.
+$C = \dfrac {x} {y'}$.
+$x^2 + \br{\dfrac {x}{y'}}^2 = 2\br{\dfrac {x} {y'}} y$.
+$\br{y'}^2 x - 2yy' + x = 0$.
+$x \tg^2 \alpha - 2y\tg\alpha + x = 0$.
+Подставив $\tg\alpha = -\dfrac {1} {\tg\beta}$, получаем
+$\dfrac {x} {\tg^2 \beta} + \dfrac {2y} {\tg\beta} + x = 0$, так что
+$x \tg^2 \beta + 2y\tg\beta + x = 0$.
+Окончательно, уравнение изогональных (ортогональных) траекторий имеет вид 
+$x\br{\zed'}^2 + 2\zed\zed' + x = 0$.
+
+\begin{remark}
+	Уравнение $x\br{\zed'}^2 + 2\zed\zed' + x = 0$ имеет общее решение в параметрической форме 
+	$\tsys{& x\br{t} = 2C {t} {\br{3t^2 + 1}}^{\mathlarger{-\frac {2} {3}}} \\& y\br{t} = -C \br{t^2 + 1} {\br{3t^2 + 1}}^{\mathlarger{-\frac {2} {3}}}} $.
+\end{remark}
+
+\end{document}
+
