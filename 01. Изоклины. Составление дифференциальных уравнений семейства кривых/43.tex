@@ -12,21 +12,22 @@
 	\dfrac {\tg\alpha \pm \sqrt{3}} {1 \mp \sqrt{3}\tg\alpha}$.
 \end{framed}
 
-$3x^2 + y^2 = C$.
-$6x + 2yy' = 0$.
-$y' = \tg\alpha = - \dfrac {3x} {y}$.
+$y^2 = 2px$.
+$2p = \dfrac {y^2} {x}$.
+$0 = \dfrac {2yy' \cdot x - y^2} {x^2}$.
+$y' = \dfrac {y} {2x} = \tg \alpha$. \vspace{2mm}
 
 Имеем
 $\tg \beta 
-= \dfrac {\sqrt{3} \tg\alpha \pm 1} {\sqrt{3} \mp \tg\alpha}
-= \dfrac {3\sqrt{3}x \pm y} {\sqrt{3}x \mp 3y} $.
+= \dfrac {\dfrac {y} {2x} \pm \sqrt{3}} {1 \mp \sqrt{3} \dfrac {y} {2x}}
+= \dfrac {y \pm 2\sqrt{3}x} {2x \mp \sqrt{3} y}$.
 Обозначим
-$\dfrac {3\sqrt{3}x + y} {\sqrt{3}y - 3x} = g\br{x; y\br{x}}$ и 
-$\dfrac {3\sqrt{3}x - y} {\sqrt{3}y + 3x} 
-\linebreak = h\br{x; y\br{x}}$,
-и получается уравнения изогональных траекторий вида $\zed'\br{x} = g\br{x; \zed\br{x}}$ и $\zed'\br{x} = h\br{x; \zed\br{x}}$,
-то есть $\zed' = \dfrac {3\sqrt{3}x + \zed} {3x - \sqrt{3}\zed}$
-и $\zed' = \dfrac {\zed - 3\sqrt{3}x} {\sqrt{3}\zed + 3x} $.
+$\dfrac {y + 2\sqrt{3}x} {2x - \sqrt{3} y} = g\br{x; y\br{x}}$ и 
+$\dfrac {y - 2\sqrt{3}x} {2x + \sqrt{3} y}
+\linebreak = h\br{x; y\br{x}}$.
+Получаются уравнения изогональных траекторий вида $\zed'\br{x} = g\br{x; \zed\br{x}}$ и $\zed'\br{x} = h\br{x; \zed\br{x}}$,
+то есть $\zed' = \dfrac {\zed + 2\sqrt{3}x} {2x - \sqrt{3} \zed}$
+и $\zed' = \dfrac {\zed - 2\sqrt{3}x} {2x + \sqrt{3} \zed}$.
 
 \begin{remark}
 	Ниже приведены решения соответствующих уравнений в параметрической форме $\tsys{& x\br{t} = C f\br{t} \\& \zed\br{t} = C t f\br{t}}$.
@@ -40,13 +41,13 @@ $\dfrac {3\sqrt{3}x - y} {\sqrt{3}y + 3x}
 			& Функция $f = f\br{t}$\\
 		\hline
 			\rule{0mm}{15mm}
-			$\elevate[4mm]{\zed' = \dfrac {3\sqrt{3}x + \zed} {3x - \sqrt{3}\zed}}$
-			& $\dfrac {\exp\br{\dfrac {1} {\sqrt{2}} \arctg\br{\dfrac {\sqrt{3}t - 1} {2\sqrt{2}} }}} {\sqrt{\sqrt{3} t^2 - 2t + 3\sqrt{3}}}$
+			$\elevate[4mm]{\zed' = \dfrac {\zed + 2\sqrt{3}x} {2x - \sqrt{3} \zed}}$
+			& $\dfrac {\exp\br{\dfrac {3} {\sqrt{23}} \arctg\br{\dfrac {2\sqrt{3}t - 1} {\sqrt{23}} }}} {\sqrt{\sqrt{3} t^2 - t + 2\sqrt{3}}}$
 			\\[4mm]
 		\hline
 			\rule{0mm}{15mm}
-			$\elevate[4mm]{\zed' = \dfrac {-3\sqrt{3}x + \zed} {3x + \sqrt{3}\zed}}$
-			& $\dfrac {\exp\br{-\dfrac {1} {\sqrt{2}} \arctg\br{\dfrac {\sqrt{3}t + 1} {2\sqrt{2}} }}} {\sqrt{\sqrt{3} t^2 + 2t + 3\sqrt{3}}}$
+			$\elevate[4mm]{\zed' = \dfrac {\zed - 2\sqrt{3}x} {2x + \sqrt{3} \zed}}$
+			& $\dfrac {\exp\br{- \dfrac {3} {\sqrt{23}} \arctg\br{\dfrac {2\sqrt{3}t + 1} {\sqrt{23}} }}} {\sqrt{\sqrt{3} t^2 + t + 2\sqrt{3}}}$
 			\\[4mm]
 		\hline
 	\end{tabularx}
