@@ -1,0 +1,94 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$y' = xy^2 + 2xy$.
+$y' = x\br{y^2 + 2y}$.
+Функции $y\br{x} = 0$ и $y\br{x} = -2$ являются решениями.
+$\dfrac {y'} {y\br{y + 2}} = x$.
+Имеем $\dfrac {1} {y\br{y + 2}} = \dfrac {1} {2} \br{ \dfrac {1} {y} - \dfrac {1} {y + 2}}$, так что \vspace{1mm}
+$\tint \dfrac {y'} {y\br{y + 2}} dx = \dfrac {1} {2} \tint \dfrac {dy} {y} - \linebreak - \dfrac {1} {2} \tint \dfrac {dy} {y + 2} = \dfrac {1} {2}\br{\ln\vbr{y} - \ln\vbr{y + 2}} + C$.
+
+$\ln\vbr{y} - \ln\vbr{y + 2} = x^2 + C$.
+$\dfrac {y} {y + 2} = C\tpow{e}{x^2}$. При такой форме общего решения $y\br{x} = 0$ достигается при $C = 0$, а решение $y\br{x} = -2$ будет дополнительным.
+$1 - \dfrac {2} {y + 2} = C\tpow{e}{x^2}$.
+$y\br{x} = \dfrac {2} {1 + C\tpow{e}{\elevate{x^2}}} - 2$.
+
+Окончательно, общее решение равно
+$y\br{x} = \dfrac {2} {1 + C\tpow{e}{\elevate{x^2}}} - 2$,
+и дополнительно $y\br{x} = -2$.
+
+\begin{figure}[!h]
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 200,
+            },
+        }
+        \begin{axis}[
+            width = 7.5cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -5.2,
+            xmax = 5.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = 2 / (1 + \C * exp(x * x)) - 2;
+            }]
+            
+            \pgfplotsinvokeforeach{-3, -2.5, ..., -1.5, 0.15, 0.3, 0.5, 1, ..., 2} {
+                \addplot[Graph, domain = -5.5 : 5.5]
+                {f(#1, x)};
+            }
+            
+            \draw[dashed, thick, blue] (-5.5, -2) -- (5.5, -2);
+            \draw[thick, blue] (-5.5, 0) -- (5.5, 0);
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\pgfplotsset{
+			Graph/.style = {
+				samples = 200,
+			},
+		}
+		\begin{axis}[
+			width = 7.5cm,
+			ymin = -4.2,
+			ymax = 4.2,
+			xmin = -5.2,
+			xmax = 5.2, 
+			xtick = {-10, ..., 10},
+			ytick = {-10, ..., 10},
+			minor tick num = 3,
+			declare function = {
+				f(\C, \x) = 2 / (1 + \C * exp(x * x)) - 2;
+			}]
+			
+			\pgfplotsinvokeforeach{-0.5, -0.375, -0.25} {
+				\addplot[Graph, domain = -5.5 : -sqrt(-ln(-#1)) - 0.01]
+				{f(#1, x)};
+				\addplot[Graph, domain = -sqrt(-ln(-#1)) + 0.01 : sqrt(-ln(-#1)) - 0.01]
+				{f(#1, x)};
+				\addplot[Graph, domain = sqrt(-ln(-#1)) + 0.01 : 5.5]
+				{f(#1, x)};
+			}
+			
+			\draw[dashed, thick, blue] (-5.5, -2) -- (5.5, -2);
+			\draw[thick, blue] (-5.5, 0) -- (5.5, 0);
+		\end{axis}
+	\end{tikzpicture}
+\end{minipage}
+\end{figure}
+
+\end{document}

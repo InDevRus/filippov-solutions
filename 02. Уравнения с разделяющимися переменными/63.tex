@@ -1,0 +1,52 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$y' = y + 2x - 3$.
+Введём новую функцию $u = u\br{x}$ вида
+$u\br{x} = y\br{x} + 2x$, $y = u - 2x$.
+$y' = u' - 2$.
+В результате подстановки получаем разделяемое уравнение \vspace{1mm}
+$u' - 2 = u - 3$.
+$u' = u - 1$.
+$\dfrac {u'} {u - 1} = 1$, при том, что $u\br{x} = 1$ также является решением.
+$\br{\ln\vbr{u - 1}}' = 1$.
+$\ln\vbr{u - 1} = x + C$.
+$u - 1 = C\tpow{e}{x}$.
+$u\br{x} = C\tpow{e}{x} + 1$, а решение $u\br{x} = 1$ достигается при $C = 0$.
+
+Окончательно получаем $y\br{x} = C\tpow{e}{x} - 2x + 1$.
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 200,
+            },
+        }
+        \begin{axis}[
+            width = 12cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -2.2,
+            xmax = 5.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = \C * exp(x) - 2 * x + 1;
+            }]
+
+            \foreach \C in {-2, -1, 0, 0.1, 0.2, 0.25, 0.5, 1, 1.5, 2} {
+                \addplot[Graph, domain = -5.5 : 5.5] {f(\C, x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
+
+\end{document}
