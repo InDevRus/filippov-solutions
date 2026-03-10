@@ -1,0 +1,65 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$\br{x + 2y}y' = 1$.
+Введём новую функцию $u\br{x} = x + 2y\br{x}$.
+$y\br{x} = \dfrac {1} {2} u\br{x} - \dfrac {1} {2} x$.
+$y'\br{x} = \dfrac {1} {2} u'\br{x} - \dfrac {1} {2}$.
+В терминах $u = u\br{x}$ получаем новое уравнение 
+$u \br{\dfrac {1} {2} u' - \dfrac {1} {2}} = 1$.
+Функция $u\br{x} = 0$ не является решением, так что
+$u' - 1 = \dfrac {2} {u}$.
+$u' = \dfrac {2 + u} {u}$.
+$\dfrac {u} {u + 2} u' = 1$,
+причём функция $u\br{x} = -2$ является решением.
+
+$\tint \dfrac {u\br{x}} {u\br{x} + 2} u'\br{x} dx = \tint \br{1 - \dfrac {2} {u + 2}} du 
+= u - 2 \ln\vbr{u + 2} + C$.
+
+$u - 2 \ln\vbr{u + 2} + C = x$.
+$y + C = \ln\br{x + 2y + 2}$.
+$x + 2y + 2 = C\tpow {e}{y}$.
+Выразить $y\br{x}$ в элементарных функциях для произвольного $C$ не получится, так что общее решение выразим в обратной форме:
+$x\br{y} = C\tpow{e}{y} - 2y - 2$.
+В эти решения также входит $u\br{x} = \linebreak = x + 2y = -2$ при $C = 0$.
+
+Частное решение, проходящее через точку $\tsys{& x = 0 \\& y = -1}$, задаёт $0 = C \tpow {e} {-1} - 2 \cdot \br{-1} - 2$, откуда $C = 0$.
+Искомое частное решение равно $x\br{y} = -2y - 2$.
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 200,
+                restrict x to domain = -5.5 : 5.5,
+                restrict y to domain = -5.5 : 5.5,
+            },
+        }
+        \begin{axis}[
+            width = 12cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -5.2,
+            xmax = 5.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = \C * exp(x) - 2 * x - 2;
+            }]
+
+            \foreach \C in {-2, -1.5, ..., 2, 0.2, 0.35, 0.7, 3, 5, 9, -5, -10, -20, -40, -80, -160} {
+                \addplot[Graph, domain = -4.5 : 4.5]
+                ({f(\C, x)}, {x});
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
+
+\end{document}

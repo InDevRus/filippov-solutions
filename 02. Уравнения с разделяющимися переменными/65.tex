@@ -1,0 +1,66 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$y' = \sqrt{4x + 2y - 1}$.
+Сделаем линейную замену $u\br{x} = 4x + 2y\br{x} - 1$.
+$y\br{x} = \dfrac {1} {2} u\br{x} - \linebreak - 2x + \dfrac {1} {2}$.
+$y'\br{x} = \dfrac {1} {2} u'\br{x} - 2$. 
+В терминах $u\br{x}$ получаем
+$\dfrac {1} {2} u' - 2 = \sqrt{u}$.
+$u' = 2\sqrt{u} + 4$.
+Правая часть нулю не равняется, поэтому $\dfrac {u'} {\sqrt{u} + 2} = 2$.
+
+$\tint \dfrac {u'\br{x}} {\sqrt{u\br{x}} + 2} dx
+= \tint \dfrac {du} {\sqrt{u} + 2}
+= \begin{bmatrix} u = v^2 \\ v \ge 0 \\ du = 2v dv \end{bmatrix}
+= \tint \dfrac {2v} {v + 2} dv
+= \tint \br{2 - \dfrac {4} {v + 2}} dv = \linebreak
+= 2v - 4\ln\br{v + 2} + C
+= 2\sqrt{u} - 4\ln\br{\sqrt{u} + 1} + C$.
+
+Итак, $2\sqrt{u} - 4\ln\br{\sqrt{u} + 1} = 2x + C$.
+$\sqrt{2y + 4x - 1} - 2\ln\br{\sqrt{2y + 4x - 1} + 1} = x + C$. Последнюю запись будем считать общим решением в неявной форме.
+Чтобы было возможно построить графики этих решений, переведём общее решение в параметрическую форму:
+$$\tsys{& x = f\br{u} \\& y = \dfrac {1} {2} u + \dfrac {1} {2} - 2f\br{u}} \text{, где } f\br{u} = \sqrt{u} - 2\ln\br{\sqrt{u} + 1} + C.$$
+
+Пунктиром нарисована прямая $4x + 2y - 1 = 0$.
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 1000,
+                restrict x to domain = -5.5 : 5.5,
+                restrict y to domain = -5.5 : 5.5,
+            },
+        }
+        \begin{axis}[
+            width = 12cm,
+            ymin = -4.2,
+            ymax = 4.2,
+            xmin = -2.2,
+            xmax = 5.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+                f(\C, \x) = sqrt(x) - 2 * ln(sqrt(x) + 1) + \C;
+                g(\C, \x) = 0.5 * x + 0.5 - 2 * f(\C, x);
+            }]
+            
+            \draw[dashed] (-2.75, 6) -- (2.75, -5);
+
+            \foreach \C in {-2, -1.5, ..., 2.5} {
+                \addplot[Graph, thick, domain = 0 : 100]
+                ({f(\C, x)}, {g(\C, x)});
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
+
+\end{document}
