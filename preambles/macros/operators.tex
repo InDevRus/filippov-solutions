@@ -1,26 +1,35 @@
 % Operator definitions
+
+% Conditions system
 \newcommand{\tsys}[1]{\left\{ \begin{aligned}#1\end{aligned} \right.}
 
+% General upper and lower limits
 \DeclareMathOperator*\lowlim{\underline{\lim}}
 \DeclareMathOperator*\uplim{\overline{\lim}}
 
+% Upper and lower limits (text mode adapted)
 \newcommand{\tlowlim}[1]{\lowlim\limits_{#1}}
 \newcommand{\tuplim}[1]{\uplim\limits_{#1}}
 
+% Power notation (enlarged for text mode)
 \newcommand{\tpow}[2]{{#1}^{\mathlarger{#2}}}
 
+% Text integrals
 \newcommand{\tint}{\displaystyle{\int}}
 \newcommand{\tintlim}[2]{\displaystyle{\int\limits_{#1}^{#2}}}
 \newcommand{\tbigint}{\displaystyle{\mathlarger{\int}}}
 \newcommand{\tbigintlim}[2]{\displaystyle{\mathlarger{\int}\limits_{#1}^{#2}}}
 
+% Iterative sum and product notations
 \newcommand{\tsumlim}[2]{\displaystyle{\mathlarger{\sum}\displaylimits_{#1}^{#2}}}
 \newcommand{\tprodlim}[2]{\displaystyle{\mathlarger{\prod}\displaylimits_{#1}^{#2}}}
 
+% Minimum, maximum and limit with additions conditions underneath
 \newcommand{\tmin}[1]{\min\limits_{#1}}
 \newcommand{\tmax}[1]{\max\limits_{#1}}
 \newcommand{\tlim}[1]{\lim\limits_{#1}}
 
+% Norm operator
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 % Partial derivatives, 1-st order
@@ -40,8 +49,10 @@
 \newcommand{\vbr}[1]{\left|#1\right|}
 \newcommand{\cbr}[1]{\left\{#1\right\}}
 \newcommand{\rbr}[1]{\left[#1\right]}
+
+% Slant inequality signs insertion
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
 
-% Raising the box of equation
+% Raising command for the equation box
 \newcommand{\elevate}[2][1mm]{\raisebox{#1}{\({#2}\)}}
