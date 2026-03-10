@@ -1,0 +1,34 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$y' = \dfrac {1 + \cos 2y} {x^2}$.
+Функции $y\br{x}$ такие, что $\cos 2y = -1$,
+являются решениями, и такими функциями
+будут $y\br{x} = -\dfrac {\pi} {2} + \pi n$, $n$ -- целое.
+$\dfrac {y'} {1 + \cos 2y} = \dfrac {1} {x^2}$.
+$\tint \dfrac {dx} {x^2} = -\dfrac {1} {x} + C$.
+$$\tint \dfrac {y'} {1 + \cos\br{2y\br{x}}} dx
+= \tint \dfrac {dy} {1 + \cos 2y}
+= \tint \dfrac {dy} {2\cos^2 y}
+= \dfrac {1} {2} \tg y + C .$$
+
+Получаем $\tg y = -\dfrac {2} {x} + C$. Общее решение имеет вид $y\br{x} = \arctg \br{- \dfrac {2} {x} + C} + \pi n$,
+а также дополнительные $y\br{x} = -\dfrac {\pi} {2} + \pi n$.
+
+Теперь найдём частные решения, для которых
+$\tlim{\mathsmaller{x \to +\infty}} y\br{x} = \dfrac {9\pi} {4}$.
+\begin{itemize}
+	\item Для общего решения имеем $\tlim{\mathsmaller{x \to +\infty}} y\br{x} = \arctg C + \pi n = \dfrac {9\pi} {4}$. Найдём сначала $n$.
+	$\dfrac {9\pi} {4} - \dfrac {\pi} {2} < \dfrac {9\pi} {4} - \arctg C < \dfrac {9\pi} {4} + \dfrac {\pi} {2}$, так что $\dfrac {7\pi} {4} < \pi n < \dfrac {11\pi} {4}$. \vspace{1mm}
+	Единственное подходящее $n$ -- это $2$. Отсюда $\arctg C = \dfrac {9\pi} {4} - 2\pi = \dfrac {\pi} {4}$ и $C = 1$.
+	
+	Получаем частное решение $y_{1}\br{x} = \arctg\br{1 - \dfrac {2} {x}} + 2\pi$.
+	
+	\item Для дополнительного решения имеем $\tlim{\mathsmaller{x \to +\infty}} = -\dfrac {\pi} {2} + \pi n = \dfrac {9\pi} {4}$. Таких целых $n$ нет, значит среди дополнительных решений подходящих не найдётся.
+\end{itemize}
+
+\end{document}

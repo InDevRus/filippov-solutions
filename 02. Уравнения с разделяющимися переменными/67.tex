@@ -1,0 +1,38 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+$3y^2 y' + 16x = 2xy^3$.
+$y' = \dfrac {2x\br{y^3 - 8}} {3y^2}$.
+При этом $y\br{x} = 0$ -- не решение, а $y\br{x} = 2$ является решением.
+$\dfrac {3y^2 y'} {y^3 - 8} = 2x$.
+$\tint \dfrac {3y^2 y'} {y^3 - 8} dx
+= \tint \dfrac {3y^2 dy}{y^3 - 8}
+= \tint \dfrac {1} {y^3 - 8} d\br{y^3}
+= \ln\vbr{y^3 - 8} + C$. \vspace{1mm}
+
+$\ln\vbr{y^3 - 8} = x^2 + C$.
+$y^3 - 8 = C \tpow{e}{x^2}$.
+$y\br{x} = \sqrt[3]{C \tpow{e}{x^2} + 8}$.
+Более удобная форма имеет вид
+$y\br{x} = 2 \sqrt[3]{C \tpow{e}{x^2} + 1}$,
+причём решение $y\br{x} = 2$ будет входить в общее при $C = 0$.
+
+Теперь найдём $y\br{x}$, ограниченные при $x \to +\infty$.
+
+Если $C \ne 0$, то при достаточно больших $x$
+$\Big($например, при $x > \sqrt{\max\br{0; -\ln\vbr{C}}}$$\Big)$ имеем $\vbr{C \tpow{e}{x^2}} > 1$, а потому
+$\vbr{y\br{x}}
+= 2{\sqrt[3]{\vbr{C \tpow{e}{x^2} + 1}}}
+\ge 2{\sqrt[3]{\vbr{\vbr{C \tpow{e}{x^2}} - 1}}}
+= 2{\sqrt[3]{\vbr{C} \tpow{e}{x^2} - 1}} > \linebreak
+> 2{\sqrt[3]{\vbr{C} \tpow{e}{x^2}}}
+= 2 \sqrt[3]{\vbr{C}} \exp\br{\dfrac {1} {3} x^2} = g\br{x}$.
+При $x \to +\infty$ функция $g\br{x}$ неограничена, так что неограничена и $y\br{x}$.
+
+Таким образом, единственное ограниченное при $x \to +\infty$ решение -- это
+$y\br{x} = 2$.
+\end{document}
