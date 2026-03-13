@@ -1,0 +1,49 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+
+Для каждой линии будем искать дифференциальное уравнение путём выражения произвольной постоянной $C$ и последующего дифференцирования. Затем будем подставлять $y'\br{x} = - \dfrac {1} {\zed'\br{x}}$, где $\zed\br{x}$ -- искомые ортогональные траектории (см. задачи \textbf{37} -- \textbf{50}).
+В первых двух также использован тот факт, что 
+$\tint 2\zed\br{x}\zed'\br{x} dx = \tint 2\zed d\zed = \linebreak
+= \zed^2\br{x} + C$.
+
+\begin{enumerate}
+	\item $y = Cx^2$.
+	$C = \dfrac {y} {x^2}$.
+	$0 = \dfrac {y' \cdot x^2 - y \cdot 2x} {x^4}$.
+	$xy' - 2y = 0$.
+	$- \dfrac {x} {\zed'} = 2\zed$.
+	$\zed' = -\dfrac {x} {2\zed}$.
+	$2\zed\zed' = -x$.
+	$\zed^2 = -\dfrac {1}{2}x^2 + C$.
+	$2\zed^2 + x^2 = C$.
+	
+	\item $y = C\tpow{e}{x}$.
+	$C = y \tpow{e}{-x}$.
+	$0 = y' \tpow{e}{-x} - y \tpow{e}{-x}$.
+	$y' = y$.
+	$-\dfrac {1} {\zed'} = \zed$.
+	$2\zed\zed' = -2$.
+	$\zed^2 = -2x + C$.
+	$\zed^2 + 2x = C$.
+	
+	\item $Cx^2 + y^2 = 1$. $C = \dfrac {1 - y^2} {x^2}$.
+	$0 = \dfrac {-2yy'x^2 - \br{1 - y^2}2x} {x^4}$.
+	$-2yy'x^2 - 2x + 2xy^2 = 0$.
+	$-y' = \dfrac {1 - y^2} {yx}$.
+	$\dfrac {1} {\zed'} = \dfrac {1 - \zed^2} {\zed x}$.
+	$\zed' = \dfrac {\zed x} {1 - \zed^2}$.
+	Среди решений есть $\zed = 0$.
+	$\dfrac {\br{1 - \zed^2} \zed'} {\zed} = x$.
+	
+	$\tint \dfrac {1 - \zed^2} {\zed} d\zed
+	= \tint \br{\dfrac {1} {\zed} - \zed} d\zed
+	= \ln\vbr{\zed} - \dfrac {1} {2} \zed^2 + C$, так что
+	$2\ln\vbr{\zed} - \zed^2 = x^2 + C$.
+	Выразить из этой записи $\zed = \zed\br{x}$ в элементарных функциях для произвольного $C$ не получится.
+\end{enumerate}
+
+\end{document}
