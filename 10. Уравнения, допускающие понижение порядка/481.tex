@@ -1,0 +1,20 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+	
+Уравнение $y'' \br{3 + yy'^2} = \br{y'}^4$ является автономным.
+$y' = p\br{y}$,
+$y'' = p\br{y}p'\br{y}$.
+$pp' \br{3 + yp^2} = p^4$.
+Порядок уже понижен, однако уравнение можно упростить ещё сильнее, заменив $p^2\br{y} = u\br{y}$, $u'\br{y} = 2p\br{y}p'\br{y}$.
+Получаем $u'\br{3 + y u} = u^2$.
+
+\begin{remark}
+	Последнее уравнение можно решить, например, рассмотрев его как линейное относительно обратной функции $y = y\br{u}$, а его общее решение равняется \linebreak
+	$u\br{y} = \dfrac {y \pm \sqrt{y^2 + 6 A}} {2A}$.
+\end{remark}
+	
+\end{document}

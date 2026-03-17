@@ -1,0 +1,20 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+\input{../preambles/general}
+
+\begin{document}
+	
+Порядок уравнения $\br{y'}^2 + 2xyy'' = 0$ является однородным по искомой функции, так как $\deg\br{\br{y'}^2} = \deg\br{yy''} = 2$.
+$y'\br{x} = \zed\br{x} y\br{x}$.
+$y'' = \br{\zed' + \zed^2} y$.
+
+$\zed^2 y^2 + 2x y^2 \br{\zed' + \zed^2} = 0$.
+$\zed^2 + 2x\zed' + 2x\zed^2 = 0$, причём $y\br{x} = 0$ является решением.
+
+\begin{remark}
+	В полученном уравнении переменные можно разделить и получить общее решение, которое равно
+	$\zed\br{x} = \dfrac {2} {\ln\vbr{x} + 2x + A}$.
+\end{remark}
+	
+\end{document}
