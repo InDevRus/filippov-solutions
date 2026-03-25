@@ -17,3 +17,25 @@
 \newtheorem*{proposition}{Предложение}
 \newtheorem*{property}{Свойство}
 \newtheorem*{test}{Признак}
+\newtheorem*{case_unnumbered}{Случай}
+
+\newtheorem{case_numbered}{Случай}
+\newtheorem{step_theorem}{Шаг}
+
+\newenvironment{step}[1]
+{\setcounter{step_theorem}{#1 - 1}\begin{step_theorem}}
+{\end{step_theorem}}
+
+\makeatletter
+
+\newenvironment{case}[1][]{
+	\ifthenelse{\isempty{#1}}
+	{\begin{case_unnumbered}}
+	{\setcounter{case_numbered}{#1 - 1}\begin{case_numbered}}
+}{
+	\ifthenelse{\equal{\@currenvir}{case_unnumbered}}
+	{\end{case_unnumbered}}
+	{\end{case_numbered}}
+}
+
+\makeatother
