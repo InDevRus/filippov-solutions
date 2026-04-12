@@ -26,7 +26,7 @@
     y_{2}\br{t} = 1
 \end{align*}
 
-Матрица монодромии $C$ такова, что для всех $X\br{t + 2} = X\br{t} C$. В частности, $X\br{1} = \linebreak = X\br{-1} C$ и $C = \br{X\br{-1}}^{-1} X\br{1}$.
+Матрица монодромии $C$ такова, что $X\br{t + 2} = X\br{t} C$ для всех $t$. В частности, $X\br{1} = \linebreak = X\br{-1} C$ и $C = \br{X\br{-1}}^{-1} X\br{1}$.
 \begin{align*}
     X\br{-1} = \begin{pmatrix} 1 & 0 \\ -b & 1 \end{pmatrix};
     &&
@@ -53,16 +53,19 @@ $$\det\br{C - \rho E} = \br{\rho - 1}\br{\rho - ab - 1} - ab = \rho^2 - \br{ab +
     \end{itemize}
 \end{framed}
 
-Уравнение и факт устойчивости эффективно зависит только от $ab$, так что для удобства переобозначим $ab = \gamma$. Исследовать будем уравнение $f\br{\rho} = \rho^2 - \br{\gamma + 2}\rho + 1 = 0$.
+Уравнение и факт устойчивости эффективно зависят только от $ab$, так что для удобства переобозначим $ab = \gamma$. Исследовать будем уравнение $f\br{\rho} = \rho^2 - \br{\gamma + 2}\rho + 1 = 0$.
 
 \begin{enumerate}
     \item Случай $D = \gamma \br{\gamma + 4} > 0$.
     $\gamma \in \br{-\infty; -4} \cup \br{0; +\infty}$. Оба корня вещественны. \linebreak Условия $\rho_{1} \in \rbr{-1; 1}$ и $\rho_{2} \in \rbr{-1; 1}$ равносильны выполнению: $f\br{-1} \ge 0$, $f\br{1} \ge 0$ и $\gamma_{0} = \dfrac {\gamma + 2} {2} \in \rbr{-1; 1}$. При этом одновременное выполнение $f\br{1} = -\gamma > 0$ и $f\br{-1} = \linebreak = 4 + \gamma > 0$ означает, что $\gamma \in \rbr{-4; 0}$. Последнее несовместимо с предыдущим, так что при всех $\gamma \in \br{-\infty; -4} \cup \br{0; +\infty}$ нулевое решение неустойчиво.
     
     \item Случай $D = \gamma \br{\gamma + 4} < 0$. $\gamma \in \br{-4; 0}$. \\
-    $\rho_{1} = \dfrac {\gamma + 2 + \sqrt{-\gamma \br{\gamma + 4}} i} {2}$.
-    $\rho_{2} = \dfrac {\gamma + 2 - \sqrt{-\gamma \br{\gamma + 4}} i} {2}$.
-    $\vbr{\rho_{1}} = \vbr{\rho_{2}} = \dfrac {\br{\gamma + 2}^2 - \gamma \br{\gamma + 4}} {4} = 1$. Поскольку в этом случае $\gamma = ab \ne 0$, обе матрицы $C - \rho_{1} E$ и $C - \rho_{2} E$ ненулевые, а потому их дефекты равняются $1$. Таким образом, в этом случае нулевое решение устойчиво, но не асимптотически.
+    \begin{align*}
+    	\rho_{1, 2} = \dfrac {\gamma + 2 \mp \sqrt{-\gamma \br{\gamma + 4}} i} {2};
+    	&& \vbr{\rho_{1}} = \vbr{\rho_{2}} = 
+    	\sqrt{\dfrac {\br{\gamma + 2}^2 - \gamma \br{\gamma + 4}} {4}} = 1.
+    \end{align*}
+    Поскольку в этом случае $\gamma = ab \ne 0$, обе матрицы $C - \rho_{1} E$ и $C - \rho_{2} E$ ненулевые, а потому их дефекты равняются $1$. Таким образом, в этом случае нулевое решение устойчиво, но не асимптотически.
     
     \item Случай $\gamma = ab = -4$. $b = -\dfrac {4} {a}$. $\rho_{1} = \rho_{2} = -1$. 
     $C - \rho_{1} E 
