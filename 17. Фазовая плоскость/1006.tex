@@ -1,0 +1,238 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$\ddot{x}\br{t} = 2x - 2x^3$.
+
+$\tsys{& \dot{x}\br{t} = y \\& \dot{y}\br{t} = 2x - 2x^3}$;
+$\dfrac {dy} {dx} = \dfrac {2x - 2x^3} {y}$.
+$y^2 + x^4 - 2x^2 = C$.
+$y^2 + \br{x^2 - 1}^2 = C$, $C > 0$. \vspace{1mm}
+
+Исследуем особые точки $K\br{0; 0}$, $L\br{-1; 0}$ и $M\br{1; 0}$. 
+
+\begin{enumerate}
+	\item $K\br{0; 0}$. $\dfrac {dy} {dx} = \dfrac {2x - 2x^3} {y} = \dfrac {2x + O\br{x^3}} {y}$.
+	$\begin{pmatrix} 0 & 1 \\ 2 & 0 \end{pmatrix}$.
+	$\lambda^2 - 2 = 0$.
+	$\lambda_{1} = -\sqrt{2}$.
+	$\lambda_{2} = \sqrt{2}$.
+	Особая точка $K\br{0; 0}$ -- <<седло>>.
+	
+	\item Точки $L\br{-1; 0}$ и $M\br{1; 0}$ имеют одинаковое поведение вокруг себя, так как траектории симметричны относительно оси $Oy$.
+	
+	Вместо замены переменных оптимальнее будет разложить числитель по формуле Тейлора в окрестности особой точки.
+	
+	Для первой имеем $\dfrac {dy} {dx} = \dfrac {-4\br{x + 1} + 6\br{x + 1}^2 - 2\br{x + 1}^3} {y} = \dfrac {-4\br{x + 1} + O\br{x + 1}^2} {y}$,
+	так как первая, вторая и т.д. производные числителя равны соответственно $-4$, $12$, $-12$, $0$, $\ldots$
+	
+	Аналогично, для второй точки получаем
+	$\dfrac {dy} {dx} = \dfrac {-4\br{x - 1} - 6\br{x - 1}^2 - 2\br{x - 1}^3} {y} = \linebreak =
+	\dfrac {-4\br{x - 1} + O\br{x - 1}^2} {y}$.
+	
+	Для обоих матрица оператора равна $\begin{pmatrix} 0 & 1 \\ -4 & 0 \end{pmatrix}$, $\lambda^2 + 4 = 0$. Из-за обозначенной выше симметрии обе особые точки -- <<центры>>.
+\end{enumerate}
+
+На графике изображены траектории для разных $C > 0$.
+Фиолетовые кривые соответствуют $C \in \br{0; 1}$, зелёные $C > 1$, а чёрная $C = 1$.
+
+\begin{figure}[h]
+\begin{minipage}{.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\pgfplotsset{
+			Graph/.style = {
+				thin,
+				samples = 500,
+				restrict y to domain = -5 : 5,
+			},
+			DirectionGraph/.style = {
+				samples = 20,
+				quiver = {scale arrows = 0.075},
+				restrict y to domain = -5 : 5,
+			},
+			DirectionGraph1/.style = {
+				DirectionGraph,
+				-stealth,
+				quiver = {
+					u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+					v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+				}
+			},
+			DirectionGraph2/.style = {
+				DirectionGraph,
+				quiver = {
+					u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+					v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+				}
+			},
+		}
+		\begin{axis}[
+			trig format plots = rad,
+			width = 6.5cm,
+			height = 10cm,
+			ylabel=$\dot{x}$,
+			ymin = -1.9,
+			ymax = 1.9,
+			xmin = -1.8,
+			xmax = 1.8, 
+			xtick = {-10, ..., 10},
+			ytick = {-10, ..., 10},
+			minor tick num = 3,
+			declare function = {
+				f(\C, \x) = sqrt(1 + sqrt(\C) * cos(x));
+				g(\C, \x) = sqrt(\C) * sin(x);
+				h(\C, \x) = sqrt(\C - (x^2 - 1)^2);
+				dot_x(\x, \y) = y;
+				dot_y(\x, \y) = 2 * x - 2 * x * x * x;
+			}]
+			
+			\pgfplotsinvokeforeach {0.1, 0.2, 0.4, 0.6, 0.75, 0.9} {
+				\foreach \s in {-1, 1} {
+					\addplot[Graph, magenta, domain = -pi : pi] 
+					({\s * f(#1, \x)}, {g(#1, \x)});
+				}
+			}
+			
+			\pgfplotsinvokeforeach {1} {
+				\foreach \s in {-1, 1} {
+					\addplot[Graph, black, domain = -pi : pi] 
+					({\s * f(#1, \x)}, {g(#1, \x)});
+				}
+			}
+			
+			\pgfplotsinvokeforeach {1.2, 1.5, 1.8, 2.2} {
+				\foreach \s in {-1, 1} {
+					\addplot[Graph, olive, domain = -pi : pi] 
+					({\s * f(#1, \x)}, {g(#1, \x)});
+					\addplot[Graph, olive, domain = -0.1 : 0.1]
+					{\s * h(#1, \x)};
+				}
+			}
+		\end{axis}
+	\end{tikzpicture}	
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\pgfplotsset{
+			Graph/.style = {
+				thin,
+				samples = 500,
+				restrict y to domain = -5 : 5,
+			},
+			DirectionGraph/.style = {
+				samples = 20,
+				quiver = {scale arrows = 0.075},
+				restrict y to domain = -5 : 5,
+			},
+			DirectionGraph1/.style = {
+				DirectionGraph,
+				-stealth,
+				quiver = {
+					u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+					v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+				}
+			},
+			DirectionGraph2/.style = {
+				DirectionGraph,
+				quiver = {
+					u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+					v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+				}
+			},
+		}
+		\begin{axis}[
+			trig format plots = rad,
+			width = 6.5cm,
+			height = 10cm,
+			ylabel=$\dot{x}$,
+			ymin = -1.9,
+			ymax = 1.9,
+			xmin = -1.8,
+			xmax = 1.8, 
+			xtick = {-10, ..., 10},
+			ytick = {-10, ..., 10},
+			minor tick num = 3,
+			declare function = {
+				f(\C, \x) = sqrt(1 + sqrt(\C) * cos(x));
+				g(\C, \x) = sqrt(\C) * sin(x);
+				h(\C, \x) = sqrt(\C - (x^2 - 1)^2);
+				dot_x(\x, \y) = y;
+				dot_y(\x, \y) = 2 * x - 2 * x * x * x;
+			}]			
+			\pgfplotsinvokeforeach {1} {
+				\foreach \s in {-1, 1} {
+					\addplot[Graph, black, domain = -pi : pi] 
+					({\s * f(#1, \x)}, {g(#1, \x)});
+					\addplot[DirectionGraph1, black, domain = -pi + 0.1 : pi - 0.1] 
+					({\s * f(#1, \x)}, {g(#1, \x)});
+				}
+			}
+		\end{axis}
+	\end{tikzpicture}
+\end{minipage}
+\end{figure}
+
+\pagebreak
+Построенный фазовый портрет позволяет сделать вывод о поведении кривых при $t \to +\infty$. Пусть $x\br{t}$ -- решение задачи Коши $\ddot{x}\br{t} = 2x - 2x^3$, $x\br{t_0} = a$, $\dot{x}\br{t_0} = b$. Обозначим $b^2 + \br{a^2 + 1}^2 = C \ge 0$. При $C \ne 1$ любое решение $x\br{t}$ при $t \to +\infty$ принимает ограниченный повторяющийся набор значений, причём:
+\begin{itemize}
+	\item если $b^2 + \br{a^2 - 1}^2 = C \in \br{0; 1}$, то решения сохраняют знак и находятся в окрестности особой точки:
+	\begin{itemize}
+		\item при $a > 0$: $0 < \sqrt{1 - \sqrt{C}} \le x\br{t} \le \sqrt{1 + \sqrt{C}}$;
+		\item при $a < 0$: $-\sqrt{1 + \sqrt{C}} \le x\br{t} \le -\sqrt{1 - \sqrt{C}} < 0$;
+	\end{itemize} 
+	\vspace{1mm}
+	\item если $b^2 + \br{a^2 - 1}^2 = C > 1$, то решения знакопеременны, проходят через ноль бесконечное число раз, и
+	$-\sqrt{1 + \sqrt{C}} \le x\br{t} \le \sqrt{1 + \sqrt{C}}$; \vspace{1mm}
+	\item случаи $C = 0$, т. е.
+	$\tsys{& a = -1 \\& b = 1}$ и $\tsys{& a = 1 \\& b = 1}$ в силу теоремы единственности соответствуют решениям $x\br{t} = -1$ и $x\br{t} = 1$ соответственно;
+	\item случай $a = b = 0$ даёт нулевое решение $x\br{t} = 0$.
+\end{itemize}
+Особого интереса заслуживает случай $b^2 + \br{a^2 - 1}^2 = C = 1$.
+Каждая такая задача Коши имеет на фазовой плоскости такую траекторию, которая не может пересекать начало координат, иначе при конечном $t$ решение стало бы тождественно равным нулю. Следовательно, решение такой задачи Коши сохраняет знак и стремится к нулю при $t \to +\infty$.
+В частности, иллюстрациями к этому случаю будут две задачи Коши со следующими решениями
+\begin{align*}
+	\tsys{& \ddot{x}\br{t} = 2x - 2x^3 \\& x\br{t_{0}} = 0 \\& \dot{x}\br{t_0} = \pm \sqrt{2}} 
+	&& x\br{t} = \pm \dfrac {2} {\sqrt{2\sqrt{2} \ch\br{t - t_{0}} + 1}}.
+\end{align*}
+\begin{figure}[!h]
+	\centering
+	\begin{tikzpicture}
+		\pgfplotsset{
+			Graph/.style = {
+				samples = 500,
+				restrict y to domain = -5 : 5,
+			},
+		}
+		\begin{axis}[
+			trig format plots = rad,
+			xlabel=$t$,
+			ylabel=$x$,
+			width = 14cm,
+			height = 6.5cm,
+			ymin = -1.9,
+			ymax = 1.9,
+			xmin = -4.2,
+			xmax = 4.2, 
+			xtick = {-10, ..., 10},
+			ytick = {-10, ..., 10},
+			minor tick num = 3,
+			declare function = {
+				f(\x) = 2 / sqrt(cosh(2 * sqrt(2) * x) + 1);
+			}]			
+			
+			\pgfplotsinvokeforeach {1} {
+				\foreach \s in {-1, 1} {
+					\addplot[Graph, black, domain = -4.5 : 4.5] {\s * f(x)};
+				}
+			}
+		\end{axis}
+	\end{tikzpicture}
+\end{figure}
+\end{document}
