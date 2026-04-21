@@ -1,0 +1,97 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$\ddot{x} = 1 - \tpow{e}{x}$.
+$\tsys{& \dot{x}\br{t} = y \\& \dot{y}\br{t} = 1 - \tpow{e}{x}}$;
+$\dfrac {dy} {dx} = \dfrac {1 - \tpow{e}{x}} {y}$.
+$2y \dfrac {dy} {dx} = 2 - 2\tpow{e}{x}$.
+$y^2 = 2x - 2\tpow{e}{x} + C$. \\
+В качестве уравнения траектории будем использовать
+$y^2 + 2\br{\tpow{e}{x} - x - 1} = C$, $C > 0$.
+
+Особой точкой будет $E\br{0; 0}$. $1 - \tpow{e}{x} = 1 - \br{1 + x + \dfrac {1}{2} x^2 + o\br{x^2}} = -x + O\br{x^2}$.
+$\dfrac {dy} {dx} = \dfrac {-x + O\br{x^2}} {y}$.
+$\lambda^2 + 1 = 0$.
+$\lambda_{1} = -i$, $\lambda_{2} = i$.
+Поскольку траектории симметричны относительно оси $Ox$, особая точка $E\br{0; 0}$ -- <<центр>>.
+
+\begin{floatingfigure}{0.4\textwidth}
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+            	thin,
+                samples = 500,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 20,
+                quiver = {scale arrows = 0.075},
+                restrict y to domain = -5 : 5,
+                -stealth,
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            trig format plots = rad,
+            width = 6.5cm,
+            height = 10cm,
+            ylabel=$\dot{x}$,
+            ymin = -1.9,
+            ymax = 1.9,
+            xmin = -1.8,
+            xmax = 1.2, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+            	f(\C, \x) = sqrt(abs(\C - 2 * (exp(x) - x - 1)));
+            	dot_x(\x, \y) = y;
+            	dot_y(\x, \y) = 1 - exp(x);
+            }]
+            
+            \foreach \s in {-1, 1} {
+            	\addplot[Graph, domain = -0.483183 - 0.001 : 0.416221 + 0.0025]
+            	{\s * f(0.2, x)};
+            	\addplot[Graph, domain = -0.801218 - 0.0025 : 0.632715 + 0.0025]
+            	{\s * f(0.5, x)};
+            	\addplot[Graph, domain = -0.483183 - 0.001 : 0.416221 + 0.0025]
+            	{\s * f(0.2, x)};
+            	\addplot[Graph, domain = -1.011228 : 0.757114]
+            	{\s * f(0.75, x)};
+            	\addplot[Graph, domain = -1.19825 : 0.857678]
+            	{\s * f(1, x)};
+            	\addplot[Graph, domain = -1.534419 : 1.018298]
+            	{\s * f(1.5, x)};
+            	\addplot[DirectionGraph1, samples = 2, domain = -1.534419 + 0.01 : -1.534419 + 0.075]
+            	{\s * f(1.5, x)};
+            	\addplot[DirectionGraph1, samples = 12, domain = -1.534419 + 0.01 : 1.018298 - 0.05]
+            	{\s * f(1.5, x)};
+%            	\addplot[DirectionGraph1, samples = 2, domain = 1.018298 - 0.75 : 1.018298]
+%            	{\s * f(1.5, x)};
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{floatingfigure}
+Таким образом, ненулевые решения $x\br{t}$ принимают ограниченный повторяющийся набор \linebreak значений и остаются в некоторой окрестности нуля. Более точно,
+$\tpow{e}{x} - x \le \dfrac {C} {2} + 1$.
+
+\end{document}
