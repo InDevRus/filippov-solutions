@@ -1,0 +1,97 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$\ddot{x} = -2\dot{x} - 5x$.
+$\tsys{& \dot{x}\br{t} = y \\& \dot{x}\br{t} = -5x -2y}$;
+$\dfrac {dy} {dx} = \dfrac {-5x - 2y} {y}$.
+
+Особой точкой является $M\br{0; 0}$.
+$\begin{pmatrix} 0 & 1 \\ -5 & -2 \end{pmatrix}$.
+$\lambda^2 + 2\lambda + 5 = 0$.
+$\lambda_{1} = -1 - 2i$, $\lambda_{2} = -1 + 2i$.
+Таким образом, $M\br{0; 0}$ - <<фокус>>, для написанной выше системы устойчивый.
+
+Найдём уравнения траекторий.
+$y' = -2 - \dfrac {5x} {y}$. \\
+$\br{\br{\dfrac {y} {x}}^2 + 2 \cdot \dfrac {y} {x} + 5} x^2 = C^2 \exp\br{\arctg\br{\dfrac {y + x} {2x}}}$.
+Аффинное преобразование $\tsys{& 2x = \check{x} \\& y + x = \check{y}}$
+позволяет получить уравнение траекторий в параметрической форме:
+$$\tsys{
+	& x\br{\phi} = r\br{\phi} \cdot \dfrac {1}{2} \cos \phi 
+	\\& y\br{\phi} = r\br{\phi} \br{\sin \phi - \dfrac {1} {2} \cos \phi}} \text{, где } r\br{\phi} = C \exp\br{\dfrac {\phi} {2}}.$$
+\begin{floatingfigure}{0.4\textwidth}
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 500,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 20,
+                quiver = {scale arrows = 0.075},
+                restrict y to domain = -5 : 5,
+                -stealth,
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            trig format plots = rad,
+            width = 6.5cm,
+            height = 10cm,
+            ylabel=$\dot{x}$,
+            ymin = -1.9,
+            ymax = 1.9,
+            xmin = -1.6,
+            xmax = 1.6, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+            	r_(\C, \x) = \C * exp(0.5 * x);
+            	f(\C, \x) = r_(\C, \x) * 0.5 * cos(x);
+            	g(\C, \x) = r_(\C, \x) * (sin(x) - 0.5 * cos(x));
+            	dot_x(\x, \y) = y;
+            	dot_y(\x, \y) = -5 * x - 2 * y;
+            }]
+            
+            \foreach \s in {-1, 1} {
+            	\addplot[Graph, olive, domain = -10 : 5]
+            	({f(\s * 1, x)}, {g(\s * 1, x)});
+            	\addplot[DirectionGraph1, olive, samples = 10, domain = -2 : 3]
+            	({f(\s * 1, x)}, {g(\s * 1, x)});
+            }
+            \foreach \s in {-1, 1} {
+            	\addplot[Graph, blue, domain = -10 : 5]
+            	({f(\s * 0.5, x)}, {g(\s * 0.5, x)});
+            	\addplot[DirectionGraph1, blue, samples = 10, domain = -0.5 : 4]
+            	({f(\s * 0.5, x)}, {g(\s * 0.5, x)});
+            }
+            \foreach \s in {-1, 1} {
+            	\addplot[Graph, red, domain = -10 : 5]
+            	({f(\s * 1.5, x)}, {g(\s * 1.5, x)});
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{floatingfigure}
+Таким образом решения $x\br{t}$ при $t \to +\infty$ стремятся к нулю.
+
+\end{document}
