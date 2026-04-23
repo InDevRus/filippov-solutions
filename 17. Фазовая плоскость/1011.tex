@@ -1,0 +1,125 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+\input{../preambles/plotting}
+
+\begin{document}
+
+$\ddot{x} = 4\dot{x} - 5x$.
+$\tsys{& \dot{x}\br{t} = y \\& \dot{y}\br{t} = -3x + 4y}$;
+$\dfrac {dy} {dx} = \dfrac {-3x + 4y} {y}$.
+
+Особой точкой является $M\br{0; 0}$.
+$\begin{pmatrix} 0 & 1 \\ -3 & 4 \end{pmatrix}$.
+$\lambda^2 -4\lambda + 3 = 0$.
+$\lambda_{1} = 1$, $\lambda_{2} = 3$.
+Таким образом, $M\br{0; 0}$ -- <<узел>>, для написанной выше системы неустойчивый.
+Для $\lambda_{1} = 1$ собственный вектор $\vv{v}_{1} = \cbr{1; 1}$ отвечает касательной $y = x$; для $\lambda_{2} = 3$ собственным вектором будет $\vv{v}_{2} = \cbr{1; 3}$, и он задаёт трансверсаль $y = 3x$.
+
+Уравнения траекторий имеют вид $y - x = C\br{y - 3x}^3$ (в неё не входит только $y = 3x$), либо же в параметрической форме $\tsys{& x\br{\tau} = -\tau + C \tau^3 \\& y\br{\tau} = -\tau + 3C \tau^3}$.
+	
+\begin{floatingfigure}{0.4\textwidth}
+    \begin{tikzpicture}
+        \pgfplotsset{
+            Graph/.style = {
+                samples = 500,
+                restrict y to domain = -5 : 5,
+            },
+            DirectionGraph/.style = {
+                samples = 20,
+                quiver = {scale arrows = 0.075},
+                restrict y to domain = -5 : 5,
+                -stealth,
+            },
+            DirectionGraph1/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+            DirectionGraph2/.style = {
+                DirectionGraph,
+                quiver = {
+                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
+                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
+                }
+            },
+        }
+        \begin{axis}[
+            trig format plots = rad,
+            width = 6.5cm,
+            height = 10cm,
+            ylabel=$\dot{x}$,
+            ymin = -1.9,
+            ymax = 1.9,
+            xmin = -1.6,
+            xmax = 1.6, 
+            xtick = {-10, ..., 10},
+            ytick = {-10, ..., 10},
+            minor tick num = 3,
+            declare function = {
+            	f(\C, \x) = -x / 2 + \C * x^3;
+            	g(\C, \x) = -x / 2 + 3 * \C * x^3;
+            	dot_x(\x, \y) = y;
+            	dot_y(\x, \y) = -3 * x + 4 * y;
+            }]
+            
+            \addplot[Graph, dashed, domain = -2 : 2] 
+            {x};
+            \addplot[Graph, dotted, domain = -2 : 2] 
+            {3 * x};
+            
+            \pgfmathsetmacro{\k}{1}
+            \foreach \s in {-1, 1} {
+            	\addplot[Graph, olive, domain = -5 : 5]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            }
+            
+            \pgfmathsetmacro{\k}{5}
+            \foreach \s in {-1, 1} {
+            	\addplot[Graph, blue, domain = -5 : 5]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            	\addplot[DirectionGraph1, blue, samples = 6, domain = -0.5 : -0.2]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            	\addplot[DirectionGraph1, blue, samples = 6, domain = 0.2 : 0.5]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            }
+            
+            \pgfmathsetmacro{\k}{0.1}
+            \foreach \s in {-1, 1} {
+            	\addplot[Graph, red, domain = -5 : 5]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            	\addplot[DirectionGraph1, red, samples = 6, domain = -2 : -0.6]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            	\addplot[DirectionGraph1, red, samples = 6, domain = 0.6 : 2]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            }
+            
+            \pgfmathsetmacro{\k}{0.025}
+            \foreach \s in {-1, 1} {
+            	\addplot[Graph, magenta, domain = -10 : 10]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            	\addplot[DirectionGraph1, magenta, samples = 9, domain = -4 : -1.5]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            	\addplot[DirectionGraph1, magenta, samples = 9, domain = 1.5 : 4]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            }
+            
+            \pgfmathsetmacro{\k}{0.01}
+            \foreach \s in {-1, 1} {
+            	\addplot[Graph, purple, domain = -10 : 10]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            	\addplot[DirectionGraph1, purple, samples = 9, domain = -6 : -1.5]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            	\addplot[DirectionGraph1, purple, samples = 9, domain = 1.5 : 6]
+            	({f(\s * \k, x)}, {g(\s * \k, x)});
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{floatingfigure}
+Решения $x\br{t}$ при $t \to +\infty$ стремятся к $+\infty$.
+
+\end{document}
