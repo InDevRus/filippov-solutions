@@ -1,0 +1,48 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+$$\tsys{& \parder{\zed}{x} = 2y\zed - \zed^2 \\& \parder{\zed}{y} = x\zed}$$
+
+$x \parder{\zed}{x} = 2y \cdot x\zed - x\zed^2 = 2y \parder{\zed}{y} - x\zed^2$.
+$x \parder{\zed}{x} - 2y \parder{\zed}{y} = -x\zed^2$.
+$\dfrac {dx} {x} = \dfrac {dy} {-2y} = \dfrac {d\zed} {-x\zed^2}$.
+
+В частности, интегрируемыми комбинациями являются $\dfrac {dx} {x} = \dfrac {dy} {-2y}$ и $\dfrac {dx} {x} = \dfrac {d\zed} {-x\zed^2}$.
+Первая даёт $2\ln\vbr{x} + \ln\vbr{y} = A$, $x^2 y = A$; вторая даёт $dx + \dfrac {d\zed} {\zed^2} = 0$,
+$x - \dfrac {1} {\zed} = B$. При делении было также потеряно решение $\zed\br{x; y} = 0$. \vspace{1mm}
+
+
+Таким образом, общее решение уравнения 
+$x \parder{\zed}{x} - 2y \parder{\zed}{y} = -x\zed^2$
+имеет вид
+$x - \dfrac {1} {\zed} = \linebreak = f\br{x^2 y}$, то есть
+$\zed\br{x; y} = \dfrac {1} {x + f\br{x^2 y}}$, а также $\zed\br{x; y} = 0$.
+
+Покажем, что никакое решение вида $\zed\br{x; y} = \dfrac {1} {x + f\br{x^2 y}}$ не удовлетворяет условию задачи.
+
+$\parder{\zed}{x} 
+= \dfrac {\partial} {\partial x} \br{\dfrac {1} {x + f\br{x^2 y}}}
+= \elevate{\dfrac {-1 - 2xy f'\br{x^2 y}} {\br{x + f\br{x^2 y}}^2}} = 2y\zed - \zed^2$.
+
+$\parder{\zed}{y} = \elevate{\dfrac {-x^2 f'\br{x^2 y}} {\br{x + f\br{x^2 y}}^2}} = x \zed$.
+$\elevate{\dfrac {-x f'\br{x^2 y}} {\br{x + f\br{x^2 y}}^2}} = \zed$.
+
+Поделив последние равенства, получим
+$\dfrac {1 + 2xy f'\br{x^2y}} {x f'\br{x^2y}} = 2y - \zed$. $1 = -\zed x f'\br{x^2y}$.
+$x f'\br{x^2y} = -x - f\br{x^2 y}$.
+
+Итак, для некоторого дифференцируемого выражения $f\br{t}$ должно выполняться \linebreak
+$x \br{f'\br{x^2 y} + 1} = -f\br{x^2 y}$ для всех $x$ и $y$.
+
+Выражения $f'\br{x^2 y} + 1$ и $f\br{x^2 y}$ не могут одновременно тождественно равняться нулю.
+Следовательно, вдоль какой-либо кривой вида $x^2 y = \tau$, последнее равенство невозможно, так как такая фиксация позволяет однозначно выразить $x$ из равенства
+$x \br{f'\br{\tau} + 1} = -f\br{\tau}$,
+то есть равенство выполняется не более, чем в одной точке. А поскольку на этих кривых тождество невозможно, оно тем более не может выполняться и в более общем случае.
+
+Итак, единственным допустимым решением является $\zed\br{x; y} = 0$.
+
+\end{document}
