@@ -1,0 +1,32 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+	$y\zed \parder{\zed} {x} - x\zed \parder{\zed} {y} = \tpow{e}{\zed}$.
+	$\dfrac {dx} {y\zed} = \dfrac {dy} {-x\zed} = \tpow{e}{-\zed} d\zed$.
+	
+	$\dfrac {dx} {y\zed} = \dfrac {dy} {-x\zed}$.
+	$x dx + y dy = 0$.
+	$x^2 + y^2 = A$.
+	
+	Для отыскания второй интегрируемой комбинации запишем
+	$\dfrac {dx} {y} = \dfrac {-dy} {x} = \zed \tpow{e} {-\zed} d\zed$
+	и воспользуемся свойством дробей: \vspace{1mm}
+	$\zed \tpow{e} {-\zed} d\zed = \dfrac {y dx - x dy} {y \cdot y + x \cdot x} = \dfrac {du} {1 + u^2} = d\br{\arctg u}$, где
+	$u\br{x; y} = \dfrac {x} {y}$. 
+	Учитывая, что $\tint \zed \tpow{e} {-\zed} d\zed = -\zed \tpow{e} {-\zed} - \tint \tpow{e} {-\zed} d\zed = \tpow{e} {-\zed} -\zed \tpow{e} {-\zed} + B$, получаем ещё один первый интеграл
+	$\arctg\br{\dfrac {x} {y}} + \tpow{e} {-\zed} \br{\zed - 1} = B$.
+	
+	Общее решение в неявной форме: 
+	$$F\br{x^2 + y^2; \arctg\br{\dfrac {x} {y}} - \tpow{e} {-\zed} \br{\zed - 1}} = 0.$$
+	$$\tpow{e} {-\zed} \br{1 - \zed} = f\br{x^2 + y^2} - \arctg\br{\dfrac {x} {y}}.$$
+	$$\tpow{e} {1 - \zed} \br{1 - \zed} = e \cdot \br{f\br{x^2 + y^2} - \arctg\br{\dfrac {x} {y}}}.$$
+	$$1 - \zed = W\hspace{0.25mm}\br{f\br{x^2 + y^2} - e\arctg\br{\dfrac {x} {y}}}.$$
+	
+	В явной форме получаем общее решение
+	$\zed\br{x; y} = 1 - W\hspace{0.1mm}\br{f\br{x^2 + y^2} - e\arctg\br{\dfrac {x} {y}}}$,
+	где $W\br{t}$ -- W-функция Ламберта.
+\end{document}
