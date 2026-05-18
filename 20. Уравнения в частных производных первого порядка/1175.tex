@@ -1,0 +1,28 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+	$x \parder{\zed} {x} + 2y \parder{\zed} {y} = x^2 y + \zed$.
+	$\dfrac {dx} {x} = \dfrac {dy} {2y} = \dfrac {d\zed} {x^2 y + \zed}$.
+	
+	$\dfrac {dx} {x} = \dfrac {dy} {2y}$ 
+	представляет собой интегрируемую комбинацию.
+	$2\ln\vbr{x} = \ln\vbr{y} + A$.
+	$\dfrac {y} {x^2} = A$.
+	Далее подставим в
+	$\dfrac {dx} {x} = \dfrac {d\zed} {x^2 y + \zed}$ первый интеграл $y = Ax^2$:
+	$\dfrac {d\zed} {dx} = \dfrac {x^2 y + \zed} {x} = xy + \dfrac {\zed} {x} = \linebreak = Ax^3 + \dfrac {\zed} {x}$.
+	Получилось линейное уравнение первого порядка.
+	$x\zed' - \zed = Ax^4$.
+	$\dfrac {x\zed' - \zed} {x^2} = \linebreak = \dfrac {d} {dx} \br{\dfrac {\zed} {x}} = Ax^2$.
+	$\dfrac {\zed} {x} = \dfrac {A} {3} x^3 + B$.
+	$B = \dfrac {\zed} {x} - \dfrac {A} {3} x^3 = \dfrac {\zed} {x} - \dfrac {xy} {3}$.
+	
+	Итак, общее решение имеет вид
+	$F\br{\dfrac {y} {x^2}; \dfrac {\zed} {x} - \dfrac {xy} {3}} = 0$.
+	$\dfrac {\zed} {x} - \dfrac {xy} {3} = f\br{\dfrac {y} {x^2}}$. В явном виде искомые функции имеют вид
+	$\zed\br{x; y} = \dfrac {x^2 y} {3} + x f\br{\dfrac {y} {x^2}}$.
+\end{document}
