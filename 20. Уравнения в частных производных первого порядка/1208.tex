@@ -5,53 +5,53 @@
 \input{../preambles/general}
 
 \begin{document}
-	$\br{x - \zed} \parder {\zed} {x} + \br{y - \zed} \parder {\zed} {y} = 2 \zed$.
-	$\dfrac {dx} {x - \zed} = \dfrac {dy} {y - \zed} = \dfrac {d\zed} {2\zed}$.
-	Интегрируемыми комбинациями являются
-	$\dfrac {dx} {x - \zed} = \dfrac {d\zed} {2\zed}$
-	и
-	$\dfrac {dy} {y - \zed} = \dfrac {d\zed} {2\zed}$. Они равносильны, так что достаточно решить только одну. К ним также можно добавить функцию $\zed\br{x; y} = 0$, хотя это решение и не подходит под условие задачи. \vspace{1mm}
-	
-	Решим, например, первую.
-	$\dfrac {dx} {d\zed} = \dfrac {1} {2\zed} x\br{\zed} - \dfrac {1} {2}$.
-	Решение этого линейного уравнения первого порядка нужно рассматривать в областях $\zed > 0$ и $\zed < 0$ по отдельности.
-	
-	\begin{itemize}
-		\item Рассмотрим уравнение выше в области $\zed > 0$.
-		
-		$\dfrac {1} {\sqrt{\zed}} \dfrac {dx} {d\zed} - \dfrac {1} {2\sqrt{\zed^3}} x = -\dfrac {1} {2 \sqrt{\zed}}$. 
-		$\dfrac {d} {d\zed} \br{\dfrac {1} {\sqrt{\zed}} \cdot x} = -\dfrac {1} {2 \sqrt{\zed}}$.
-		$\dfrac {x} {\sqrt{\zed}} = -\sqrt{\zed} + A_{1}$.
-		$\dfrac {x + \zed} {\sqrt{\zed}} = A_{1}$.
-		
-		\item В области $\zed < 0$ замена переменных $- \zed = \zeta > 0$, $\dfrac {dx} {d\zed} = -\dfrac {dx} {d\zeta}$
-		приводит к уравнению
-		$\dfrac {dx} {d\zeta} - \dfrac {1} {2\zeta} x\br{\zeta} = \dfrac {1} {2}$,
-		откуда $\dfrac {x - \zeta} {\sqrt{\zeta}} = A_{2}$,
-		то есть $\dfrac {x + \zed} {\sqrt{-\zed}} = A_{2}$.
-	\end{itemize}
-	
-	Таким образом, при $\zed > 0$ имеем первые интегралы
-	$\dfrac {x + \zed} {\sqrt{\zed}} = A_{1}$ и $\dfrac {y + \zed} {\sqrt{\zed}} = B_{1}$;
-	при $\zed < 0$ имеем $\dfrac {x + \zed} {\sqrt{-\zed}} = A_{2}$ и $\dfrac {y + \zed} {\sqrt{-\zed}} = B_{2}$.
-	
-	Переходим к частной поверхности. Её параметризация по параметру $t$ имеет вид $x\br{t} = t$, $y\br{t} = t - 2$, $\zed\br{t} = 1 - 2t$.
-	
-	Сначала рассмотрим область пространства $\zed > 0$, $t < \dfrac {1} {2}$.
-	Подставив параметризацию, получим
-	$\dfrac {1 - t} {\sqrt{1 - 2t}} = A$, $\dfrac {-1 - t} {\sqrt{1 - 2t}} = B$.
-	С одной стороны, имеем  $\dfrac {1 - t} {-1 - t} = \dfrac {A} {B}$, а с другой $\dfrac {2} {\sqrt{1 - 2t}} = A - B$.
-	Выразив параметр $t$, исключим его следующим образом:
-	$t = \dfrac {-\br{A + B}} {A  - B} = \dfrac {\br{A - B}^2 - 4} {2\br{A - B}^2}$.
-	Упростив последнее, получим $\br{3A + B}\br{A - B} = 4$.
-	Итак, искомая поверхность задаётся равенством $\br{3x + y + 4\zed}\br{x - y} = 4\zed$.
-	
-	В области $\zed < 0$, $t > \dfrac {1} {2}$ получаем 
-	$t = \dfrac {-\br{A + B}} {A  - B} = \dfrac {\br{A - B}^2 + 4} {2\br{A - B}^2}$,
-	а соответственно и $\br{3A + B}\br{A - B} = -4$.
-	Окончательно, $\br{3x + y + 4\zed}\br{x - y} = 4\zed$.
-	
-	Поскольку тождества одинаковы, поверхность
-	$\br{3x + y + 4\zed}\br{x - y} = 4\zed$ при $\zed \ne 0$ является ответом.
-	
+    $\br{x - \zed} \parder {\zed} {x} + \br{y - \zed} \parder {\zed} {y} = 2 \zed$.
+    $\dfrac {dx} {x - \zed} = \dfrac {dy} {y - \zed} = \dfrac {d\zed} {2\zed}$.
+    Интегрируемыми комбинациями являются
+    $\dfrac {dx} {x - \zed} = \dfrac {d\zed} {2\zed}$
+    и
+    $\dfrac {dy} {y - \zed} = \dfrac {d\zed} {2\zed}$. Они равносильны, так что достаточно решить только одну. К ним также можно добавить функцию $\zed\br{x; y} = 0$, хотя это решение и не подходит под условие задачи. \vspace{1mm}
+
+    Решим, например, первую.
+    $\dfrac {dx} {d\zed} = \dfrac {1} {2\zed} x\br{\zed} - \dfrac {1} {2}$.
+    Решение этого линейного уравнения первого порядка нужно рассматривать в областях $\zed > 0$ и $\zed < 0$ по отдельности.
+
+    \begin{itemize}
+        \item Рассмотрим уравнение выше в области $\zed > 0$.
+
+        $\dfrac {1} {\sqrt{\zed}} \dfrac {dx} {d\zed} - \dfrac {1} {2\sqrt{\zed^3}} x = -\dfrac {1} {2 \sqrt{\zed}}$.
+        $\dfrac {d} {d\zed} \br{\dfrac {1} {\sqrt{\zed}} \cdot x} = -\dfrac {1} {2 \sqrt{\zed}}$.
+        $\dfrac {x} {\sqrt{\zed}} = -\sqrt{\zed} + A_{1}$.
+        $\dfrac {x + \zed} {\sqrt{\zed}} = A_{1}$.
+
+        \item В области $\zed < 0$ замена переменных $- \zed = \zeta > 0$, $\dfrac {dx} {d\zed} = -\dfrac {dx} {d\zeta}$
+        приводит к уравнению
+        $\dfrac {dx} {d\zeta} - \dfrac {1} {2\zeta} x\br{\zeta} = \dfrac {1} {2}$,
+        откуда $\dfrac {x - \zeta} {\sqrt{\zeta}} = A_{2}$,
+        то есть $\dfrac {x + \zed} {\sqrt{-\zed}} = A_{2}$.
+    \end{itemize}
+
+    Таким образом, при $\zed > 0$ имеем первые интегралы
+    $\dfrac {x + \zed} {\sqrt{\zed}} = A_{1}$ и $\dfrac {y + \zed} {\sqrt{\zed}} = B_{1}$;
+    при $\zed < 0$ имеем $\dfrac {x + \zed} {\sqrt{-\zed}} = A_{2}$ и $\dfrac {y + \zed} {\sqrt{-\zed}} = B_{2}$.
+
+    Переходим к частной поверхности. Её параметризация по параметру $t$ имеет вид $x\br{t} = t$, $y\br{t} = t - 2$, $\zed\br{t} = 1 - 2t$.
+
+    Сначала рассмотрим область пространства $\zed > 0$, $t < \dfrac {1} {2}$.
+    Подставив параметризацию, получим
+    $\dfrac {1 - t} {\sqrt{1 - 2t}} = A$, $\dfrac {-1 - t} {\sqrt{1 - 2t}} = B$.
+    С одной стороны, имеем  $\dfrac {1 - t} {-1 - t} = \dfrac {A} {B}$, а с другой $\dfrac {2} {\sqrt{1 - 2t}} = A - B$.
+    Выразив параметр $t$, исключим его следующим образом:
+    $t = \dfrac {-\br{A + B}} {A  - B} = \dfrac {\br{A - B}^2 - 4} {2\br{A - B}^2}$.
+    Упростив последнее, получим $\br{3A + B}\br{A - B} = 4$.
+    Итак, искомая поверхность задаётся равенством $\br{3x + y + 4\zed}\br{x - y} = 4\zed$.
+
+    В области $\zed < 0$, $t > \dfrac {1} {2}$ получаем
+    $t = \dfrac {-\br{A + B}} {A  - B} = \dfrac {\br{A - B}^2 + 4} {2\br{A - B}^2}$,
+    а соответственно и $\br{3A + B}\br{A - B} = -4$.
+    Окончательно, $\br{3x + y + 4\zed}\br{x - y} = 4\zed$.
+
+    Поскольку тождества одинаковы, поверхность
+    $\br{3x + y + 4\zed}\br{x - y} = 4\zed$ при $\zed \ne 0$ является ответом.
+
 \end{document}

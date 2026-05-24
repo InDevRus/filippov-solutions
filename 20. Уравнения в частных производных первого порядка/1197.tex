@@ -5,28 +5,28 @@
 \input{../preambles/general}
 
 \begin{document}
-	
-	$\tg x \parder{\zed}{x} + y \parder{\zed}{y} = \zed$.
-	$\dfrac {dx} {\tg x} = \dfrac {dy} {y} = \dfrac {d
-		\zed} {\zed}$.
-	
-	Ищем первые интегралы.
-	$\dfrac {dx} {\tg x} = \dfrac {dy} {y}$.
-	$\ln\vbr{\sin x} = \ln\vbr{y} + A$.
-	$\dfrac {\sin x} {y} = A$.
-	$\dfrac {dy} {y} = \dfrac{d\zed} {\zed}$.
-	$\dfrac {\zed}{y} = B$.
-	Итак, общее решение имеет вид
-	$F\br{\dfrac {\sin x} {y}; \dfrac {\zed} {y}} = 0$, либо же $\zed = y f\br{\dfrac {\sin x} {y}}$.
-	
-	Параметризация кривой $y = x$, $\zed = x^3$ имеет вид
-	$$\tsys{& x\br{t} = t \\& y\br{t} = t \\& \zed\br{t} = t^3}$$
-	
-	Подставив в первые интегралы
-	$\dfrac {\sin x} {y} = A$ и $\dfrac {\zed}{y} = B$,
-	получим $\dfrac {\sin t} {t} = A$, $t^2 = B$.
-	$t = \pm \sqrt{B}$,
-	$\sin \sqrt{B} = A \sqrt{B}$.
-	$\sin \br{\sqrt{\dfrac {\zed} {y}}} = \dfrac {\sin x} {y} \sqrt{\dfrac {\zed} {y}}$.
-	
+
+    $\tg x \parder{\zed}{x} + y \parder{\zed}{y} = \zed$.
+    $\dfrac {dx} {\tg x} = \dfrac {dy} {y} = \dfrac {d
+        \zed} {\zed}$.
+
+    Ищем первые интегралы.
+    $\dfrac {dx} {\tg x} = \dfrac {dy} {y}$.
+    $\ln\vbr{\sin x} = \ln\vbr{y} + A$.
+    $\dfrac {\sin x} {y} = A$.
+    $\dfrac {dy} {y} = \dfrac{d\zed} {\zed}$.
+    $\dfrac {\zed}{y} = B$.
+    Итак, общее решение имеет вид
+    $F\br{\dfrac {\sin x} {y}; \dfrac {\zed} {y}} = 0$, либо же $\zed = y f\br{\dfrac {\sin x} {y}}$.
+
+    Параметризация кривой $y = x$, $\zed = x^3$ имеет вид
+    $$\tsys{& x\br{t} = t \\& y\br{t} = t \\& \zed\br{t} = t^3}$$
+
+    Подставив в первые интегралы
+    $\dfrac {\sin x} {y} = A$ и $\dfrac {\zed}{y} = B$,
+    получим $\dfrac {\sin t} {t} = A$, $t^2 = B$.
+    $t = \pm \sqrt{B}$,
+    $\sin \sqrt{B} = A \sqrt{B}$.
+    $\sin \br{\sqrt{\dfrac {\zed} {y}}} = \dfrac {\sin x} {y} \sqrt{\dfrac {\zed} {y}}$.
+
 \end{document}

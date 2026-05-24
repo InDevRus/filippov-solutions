@@ -5,23 +5,23 @@
 \input{../preambles/general}
 
 \begin{document}
-	$x^2 \zed \parder{\zed} {x} + y^2 \zed \parder{\zed} {y} = x + y$.
-	$\dfrac {dx} {x^2 \zed} = \dfrac {dy} {y^2 \zed} = \dfrac {d\zed} {x + y}$.
-	
-	Первые две дроби сразу являются интегрируемой комбинацией:
-	$\dfrac {dx} {x^2} = \dfrac {dy} {y^2}$.
-	$\dfrac {1} {x} + \dfrac {1} {y} = \linebreak = \dfrac {x + y} {xy} = A$.
-	
-	Вторую интегрируемую комбинацию из системы
-	$\dfrac {dx} {x^2} = \dfrac {dy} {y^2} = \dfrac {\zed d\zed} {x + y}$
-	можно получить, например, сравняв знаменатели по свойству дробей:
-	$\dfrac {\zed d\zed} {x + y} = \dfrac {\frac {1} {x} dx + \frac {1} {y} dy} {\frac {1} {x} \cdot x^2 + \frac {1} {y} \cdot y^2} = \dfrac {d\ln\vbr{xy}} {x + y}$.
-	Итак,
-	$\zed d\zed - d\ln\vbr{xy} = 0$, откуда
-	$xy \tpow{e}{-\frac {1} {2} \zed^2} = B$.
-	
-	Общее решение в неявной форме будет иметь вид
-	$F\br{\dfrac {x + y} {xy}; xy \tpow{e}{-\frac {1} {2} \zed^2}} = 0$.
-	В явной же форме получаем
-	$\zed^2 = f\br{\dfrac {x + y} {xy}} - \ln\br{x^2 y^2}$.
+    $x^2 \zed \parder{\zed} {x} + y^2 \zed \parder{\zed} {y} = x + y$.
+    $\dfrac {dx} {x^2 \zed} = \dfrac {dy} {y^2 \zed} = \dfrac {d\zed} {x + y}$.
+
+    Первые две дроби сразу являются интегрируемой комбинацией:
+    $\dfrac {dx} {x^2} = \dfrac {dy} {y^2}$.
+    $\dfrac {1} {x} + \dfrac {1} {y} = \linebreak = \dfrac {x + y} {xy} = A$.
+
+    Вторую интегрируемую комбинацию из системы
+    $\dfrac {dx} {x^2} = \dfrac {dy} {y^2} = \dfrac {\zed d\zed} {x + y}$
+    можно получить, например, сравняв знаменатели по свойству дробей:
+    $\dfrac {\zed d\zed} {x + y} = \dfrac {\frac {1} {x} dx + \frac {1} {y} dy} {\frac {1} {x} \cdot x^2 + \frac {1} {y} \cdot y^2} = \dfrac {d\ln\vbr{xy}} {x + y}$.
+    Итак,
+    $\zed d\zed - d\ln\vbr{xy} = 0$, откуда
+    $xy \tpow{e}{-\frac {1} {2} \zed^2} = B$.
+
+    Общее решение в неявной форме будет иметь вид
+    $F\br{\dfrac {x + y} {xy}; xy \tpow{e}{-\frac {1} {2} \zed^2}} = 0$.
+    В явной же форме получаем
+    $\zed^2 = f\br{\dfrac {x + y} {xy}} - \ln\br{x^2 y^2}$.
 \end{document}
