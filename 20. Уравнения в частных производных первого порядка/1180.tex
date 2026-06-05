@@ -1,0 +1,24 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\br{\zed - y}^2 \parder{\zed} {x} + x\zed \parder{\zed} {y} = xy$. 
+    \vspace{1mm}
+    
+    $\dfrac {dx} {\br{\zed - y}^2} = \dfrac {dy} {x\zed} = \dfrac {d\zed} {xy}$.
+    
+    \begin{enumerate}
+        \item $\dfrac {dy} {\zed} = \dfrac {d\zed} {y}$. $y^2 - \zed^2 = A$.
+        
+        \item Вторую интегрируемую комбинацию получим, комбинируя дроби следующим образом:
+        $\dfrac {dx} {\br{\zed - y}^2} = \dfrac {dy - d\zed} {x\zed - xy} = \dfrac {d\br{y - \zed}} {x\br{\zed - y}}$.
+        $x dx + \br{y - \zed} d\br{y - \zed} = 0$.
+        $x^2 + \br{y - \zed}^2 = B$.
+    \end{enumerate}
+    
+    В наиболее компактной форме общее решение можно записать, как
+    $$F\br{y^2 - \zed^2; x^2 + \br{y - \zed}^2} = 0.$$
+\end{document}
