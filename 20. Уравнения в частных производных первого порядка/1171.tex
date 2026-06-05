@@ -1,0 +1,26 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $y \parder{\zed} {x} + x \parder{\zed} {y} = x - y$. \vspace{1mm}
+
+    $\dfrac {dx} {y} = \dfrac {dy} {x} = \dfrac {d\zed} {x - y}$. \vspace{1mm}
+
+    \begin{enumerate}
+        \item $\dfrac {dx} {y} = \dfrac {dy} {x}$; $x dx - y dy = 0$; $x^2 + y^2 = A$.
+
+        \item Следующую интегрируемую комбинацию получим из первых двух дробей:
+        $\dfrac {d\zed} {x - y} \linebreak = \dfrac {dy - dx} {x - y}$.
+        $d\zed = d\br{y - x}$.
+        $\zed - y + x = B$.
+    \end{enumerate}
+
+    Итак, получаем в неявном виде
+    $F\br{x^2 + y^2; \zed - y + x} = 0$,
+    откуда можно также выразить решение в явном виде
+    $\zed - y + x = f\br{x^2 + y^2}$;
+    $\zed\br{x; y} = y - x + f\br{x^2 + y^2}$.
+\end{document}
