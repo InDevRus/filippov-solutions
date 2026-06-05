@@ -1,0 +1,24 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $2y^4 \parder{\zed} {x} - xy \parder{\zed} {y} = x \sqrt{\zed^2 + 1}$.
+    $\dfrac {2y^4} {x} \cdot \parder{\zed} {x} - y \parder{\zed} {y} = \sqrt{\zed^2 + 1}$.
+        
+    $\dfrac {x dx} {2y^4} = \dfrac {dy} {-y} = \dfrac {d\zed} {\sqrt{\zed^2 + 1}}$. \vspace{1mm}
+    
+    \begin{enumerate}
+        \item $x dx = -2y^3 dy$.
+        $x^2 + y^4 = A$. \vspace{1mm}
+        
+        \item $\dfrac {dy} {-y} = \dfrac {d\zed} {\sqrt{\zed^2 + 1}}$.
+        $\arsh{\zed} + \ln\vbr{y} = B$.
+    \end{enumerate}
+    
+    В результате $F\br{x^2 + y^4; \arsh \zed + \ln\vbr{y}} = 0$.
+    $\arsh \zed + \ln\vbr{y} = f\br{x^2 + y^4}$. \\
+    $\zed = \sh\br{f\br{x^2 + y^4} - \ln\vbr{y}}$.
+\end{document}
