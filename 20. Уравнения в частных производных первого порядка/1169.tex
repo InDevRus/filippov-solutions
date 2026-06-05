@@ -1,0 +1,17 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $x \parder{u} {x} + y \parder{u} {y} + \zed \parder{u} {\zed} = 0$.
+    $\dfrac {dx} {x} = \dfrac {dy} {y} = \dfrac {d\zed} {\zed}$.
+    \vspace{1mm}
+
+    В данной системе первое равенство $\dfrac {dx} {x} = \dfrac {dy} {y}$ представляет собой интегрируемую комбинацию:
+    $\dfrac {y dx - x dy} {y^2} = 0$, $\dfrac {x} {y} = A$.
+    Аналогично и с $\dfrac {dy} {y} = \dfrac {d\zed} {\zed}$, откуда $\dfrac {y} {\zed} = B$.
+
+    Для исходно однородного уравнения получаем $u = f\br{\dfrac {x} {y}; \dfrac {y} {\zed}}$.
+\end{document}
