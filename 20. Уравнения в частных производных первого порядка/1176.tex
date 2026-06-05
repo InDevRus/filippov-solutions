@@ -1,0 +1,35 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\br{x^2 + y^2} \parder{\zed} {x} + 2xy \parder{\zed} {y} = -\zed^2$.
+    
+    $\dfrac {dx} {x^2 + y^2} = \dfrac {dy} {2xy} = \dfrac {d\zed} {-\zed^2}$.
+    
+    \begin{enumerate}
+        \item $\dfrac {dx} {x^2 + y^2} = \dfrac {dy} {2xy}$.
+        $\dfrac {dx} {dy} = \dfrac {x^2 + y^2} {2xy}$.
+        $2x'\br{y} = \dfrac {x} {y} + \dfrac {y} {x}$.
+        Получилось однородное уравнение, заменяем
+        $x\br{y} = y \cdot w\br{y}$.
+        $2w'y + 2w = w + \dfrac {1} {w}$.
+        $2w'y = \dfrac {1 - w^2} {w}$.
+        $\dfrac {2w} {1 - w^2} w' = \dfrac {1} {y}$.
+        $-\ln\vbr{1 - w^2} = \ln\vbr{y} + A$.
+        $\br{1 - w^2} y = A$.
+        $\dfrac {y^2 - x^2} {y} = A$.
+        
+        \item $\dfrac {dx + dy} {x^2 + y^2 + 2xy} = \dfrac {d\zed} {-\zed^2}$.
+        $\dfrac {d\br{x + y}} {\br{x + y}^2} = -d\br{\dfrac {1} {x + y}} = d\br{\dfrac {1} {\zed}}$.
+        $\dfrac {1} {\zed} + \dfrac {1} {x + y} = B$.
+    \end{enumerate}
+    
+    Окончательно,
+    $F\br{\dfrac {y^2 - x^2} {y}; \dfrac {1} {\zed} + \dfrac {1} {x + y}} = 0$.
+    Выразим решение также в явном виде:
+    $\dfrac {1} {\zed} + \dfrac {1} {x + y} = f\br{\dfrac {y^2 - x^2} {y}}$.
+    $\zed = \br{f\br{\dfrac {y^2 - x^2} {y}} - \dfrac {1} {x + y}}^{-1}$.
+\end{document}
