@@ -1,0 +1,35 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $2x \parder{\zed} {x} + \br{y - x} \parder{\zed} {y} = x^2$. \vspace{1mm}
+
+    $\dfrac {dx} {2x} = \dfrac {dy} {y - x} = \dfrac {d\zed} {x^2}$.
+
+    \begin{enumerate}
+        \item $\dfrac {dy} {dx} = \dfrac {y - x} {2x}$.
+        Чтобы не допускать появления $\sqrt{\pm x}$, требующего решать это линейное уравнение первого порядка отдельно в областях $x > 0$ и $x < 0$, решим это уравнение, как однородное.
+        $y\br{x} = w\br{x} \cdot x$.
+        $2\br{w'x + w} = w - 1$.
+        $2w'x = -w - 1$.
+        Наконец, разделяем переменные:
+        $\dfrac {2}{w + 1} w' = - \dfrac {1} {x}$.
+        $2\ln\vbr{w + 1} = -\ln\vbr{x} + A$.
+        $\br{w + 1}^2 x = A$.
+        Итак,
+        $\dfrac {\br{y + x}^2} {x} = A$.
+        
+        \item $\dfrac {dx} {2x} = \dfrac {d\zed} {x^2}$.
+        $2x dx = 4\d\zed$.
+        $4\zed - x^2 = B$.
+    \end{enumerate}
+    
+    В итоге получаем общее решение в неявном виде
+    $F\hspace{0.25mm}\br{4\zed - x^2; \dfrac {\br{y + x}^2} {x}} = 0$, 
+    позволяющее получить решение в явном виде
+    $\zed = \dfrac {1} {4} x^2 + f\hspace{0.5mm} \br{\dfrac {\br{y + x}^2} {x}}$.
+        
+\end{document}
