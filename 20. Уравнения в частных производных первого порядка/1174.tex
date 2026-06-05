@@ -1,0 +1,26 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $xy \parder{\zed} {x} - x^2 \parder{\zed} {y} = y\zed$. \vspace{1mm}
+
+    $\dfrac {dx} {xy} = -\dfrac {dy} {x^2} = \dfrac {d\zed} {y\zed}$.
+    \vspace{1mm}
+    
+    \begin{enumerate}
+        \item $\dfrac {dx} {y} = - \dfrac {dy} {x}$.
+        $x dx + y dy = 0$.
+        $x^2 + y^2 = A$. \vspace{1mm}
+        
+        \item $\dfrac {dx} {x} = \dfrac {d\zed} {\zed}$.
+        $\dfrac {\zed} {x} = B$.
+    \end{enumerate}
+    
+    Итак, общее решение имеет вид
+    $F\br{x^2 + y^2; \dfrac {\zed} {x}} = 0$,
+    откуда можно выразить функцию $\zed\br{x; y}$ в явном виде
+    $\zed = x \cdot f\br{x^2 + y^2}$.
+\end{document}
