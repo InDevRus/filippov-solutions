@@ -1,0 +1,29 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $y \parder{\zed} {x} + \zed \parder{\zed} {y} = \dfrac {y} {x}$.
+    $x \parder{\zed} {x} + \dfrac {x\zed} {y} \parder{\zed} {y} = 1$,
+    причём $\zed\br{x; y} = 0$ частным решением не является.
+    \vspace{1mm}
+    
+    $\dfrac {dx} {x} = \dfrac {y dy} {x\zed} = {d\zed}$.
+    
+    \begin{enumerate}
+        \item $\dfrac {dx} {x} = d\zed$.
+        $x = A\tpow {e} {\zed}$;
+        $A = x \tpow {e}{-\zed}$.
+        
+        \item С учётом полученного выше интеграла, рассмотрим уравнение
+        $\dfrac {dy} {d\zed} = \dfrac {x\zed} {y}$. \\
+        $\dfrac {dy} {d\zed} = \dfrac {A\zed \tpow{e}{\zed}} {y}$.
+        $y dy = A\zed \tpow {e} {\zed} d\zed$.
+        $y^2 = 2A \br{\zed - 1} \tpow {e} {\zed} + B = 2x\br{\zed - 1} + B$.
+        $y^2 - 2x\br{\zed - 1} = B$.
+    \end{enumerate}
+    
+    Общее решение равняется $F\br{x \tpow{e} {-\zed}; y^2 + 2x \br{1 - \zed}} = 0$.
+\end{document}
