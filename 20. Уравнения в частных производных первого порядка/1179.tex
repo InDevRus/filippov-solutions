@@ -17,16 +17,17 @@
     и воспользуемся свойством дробей: \vspace{1mm}
     $\zed \tpow{e} {-\zed} d\zed = \dfrac {y dx - x dy} {y \cdot y + x \cdot x} = \dfrac {du} {1 + u^2} = d\br{\arctg u}$, где
     $u\br{x; y} = \dfrac {x} {y}$.
-    Учитывая, что $\tint \zed \tpow{e} {-\zed} d\zed = -\zed \tpow{e} {-\zed} - \tint \tpow{e} {-\zed} d\zed = \tpow{e} {-\zed} -\zed \tpow{e} {-\zed} + B$, получаем ещё один первый интеграл
-    $\arctg\br{\dfrac {x} {y}} + \tpow{e} {-\zed} \br{\zed - 1} = B$.
+    Учитывая, что
+    $\tint \zed \tpow{e} {-\zed} d\zed = -\zed \tpow{e} {-\zed} + \tint \tpow{e} {-\zed} d\zed = -\tpow{e} {-\zed} - \zed \tpow{e} {-\zed} + B$, получаем ещё один первый интеграл
+    $\arctg\br{\dfrac {x} {y}} + \tpow{e} {-\zed} \br{\zed + 1} = B$.
 
     Общее решение в неявной форме:
-    $$F\br{x^2 + y^2; \arctg\br{\dfrac {x} {y}} - \tpow{e} {-\zed} \br{\zed - 1}} = 0.$$
-    $$\tpow{e} {-\zed} \br{1 - \zed} = f\br{x^2 + y^2} - \arctg\br{\dfrac {x} {y}}.$$
-    $$\tpow{e} {1 - \zed} \br{1 - \zed} = e \cdot \br{f\br{x^2 + y^2} - \arctg\br{\dfrac {x} {y}}}.$$
-    $$1 - \zed = W\hspace{0.25mm}\br{f\br{x^2 + y^2} - e\arctg\br{\dfrac {x} {y}}}.$$
+    $$F\br{x^2 + y^2; \arctg\br{\dfrac {x} {y}} + \tpow{e} {-\zed} \br{\zed + 1}} = 0.$$
+    $$\tpow{e} {-\zed} \br{\zed + 1} = f\br{x^2 + y^2} - \arctg\br{\dfrac {x} {y}}.$$
+    $$\tpow{e} {-\zed - 1} \br{-\zed - 1} = \tpow{e}{-1} \br{\arctg\br{\dfrac {x} {y}} + f\br{x^2 + y^2}}.$$
+    $$-\zed - 1 = W\hspace{0.25mm}\br{\dfrac {1} {e} \arctg\br{\dfrac {x} {y}} + f\br{x^2 + y^2}}.$$
 
     В явной форме получаем общее решение
-    $\zed\br{x; y} = 1 - W\hspace{0.1mm}\br{f\br{x^2 + y^2} - e\arctg\br{\dfrac {x} {y}}}$,
+    $\zed\br{x; y} = -1 - W\hspace{0.25mm}\br{\dfrac {1} {e} \arctg\br{\dfrac {x} {y}} + f\br{x^2 + y^2}}$,
     где $W\br{t}$ -- W-функция Ламберта.
 \end{document}
