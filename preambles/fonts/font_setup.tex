@@ -1,10 +1,28 @@
 % For proper font
 \usepackage[no-math]{fontspec}
 
-% TNR within text
+% Times New Roman within text
 \setmainfont{Times New Roman}
 
-% TNR within equations
-\usepackage{newtxmath}
-\DeclareSymbolFont{operators}{OT1}{ntxtlf}{m}{n}
-\SetSymbolFont{operators}{bold}{OT1}{ntxtlf}{b}{n}
+% Times New Roman in equations
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Termes Math}
+
+\setmathfont{Times New Roman}[range = {
+    "0023, % Hashtag
+    "0025, % Percent sign
+    "0026, % Ampersand
+    "002C, % Comma
+    "003B, % Semicolon
+    \infty,
+    \partial
+}]
+\setmathfont[range=\mathup/{num, latin, Latin}]{Times New Roman}
+\setmathfont[range=\mathit/{latin, Latin}]{Times New Roman Italic}
+\setmathfont[range=\mathup/{greek, Greek}]{Times New Roman}
+\setmathfont[range=\mathit/{greek, Greek}]{Times New Roman}
+
+% PDFTeX Times New Roman initialization
+% \usepackage{newtxmath}
+% \DeclareSymbolFont{operators}{OT1}{ntxtlf}{m}{n}
+% \SetSymbolFont{operators}{bold}{OT1}{ntxtlf}{b}{n}
