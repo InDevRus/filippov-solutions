@@ -7,6 +7,7 @@
 % Times New Roman in equations
 \usepackage{unicode-math}
 \setmathfont{TeX Gyre Termes Math}
+\setmathfont[range={\int, \oint}]{XITS Math}
 
 \setmathfont{Times New Roman}[range = {
     "0023, % Hashtag
@@ -14,10 +15,12 @@
     "0026, % Ampersand
     "002C, % Comma
     "003B, % Semicolon
+    "2032,
     \infty,
-    \partial
+    \partial,
 }]
 \setmathfont[range=\mathup/{num, latin, Latin}]{Times New Roman}
+
 \setmathfont[range=\mathit/{latin, Latin}]{Times New Roman Italic}
 \setmathfont[range=\mathup/{greek, Greek}]{Times New Roman}
 \setmathfont[range=\mathit/{greek, Greek}]{Times New Roman}
