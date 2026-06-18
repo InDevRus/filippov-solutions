@@ -41,10 +41,10 @@
 
 % Partial derivatives, 2-nd order
 \newcommand{\tpardersecond}[3][]{
-    \ifthenelse{\isempty{#1}}{\frac {\partial^2 #2} {\partial^2 #3^2}}{\frac {\partial^2 #1} {\partial #2 \partial #3}}
+    \ifthenelse{\isempty{#1}}{\frac {\pow{\partial}{2} #2} {\pow{\partial}{2} \pow{#3}{2}}}{\frac {\pow{\partial}{2} #1} {\partial #2 \partial #3}}
 }
 \newcommand{\pardersecond}[3][]{
-    \ifthenelse{\isempty{#1}}{\dfrac {\partial^2 #2} {\partial^2 #3^2}}{\dfrac {\partial^2 #1} {\partial #2 \partial #3}}
+    \ifthenelse{\isempty{#1}}{\dfrac {\pow{\partial}{2} #2} {\pow{\partial}{2} \pow{#3}{2}}}{\dfrac {\pow{\partial}{2} #1} {\partial #2 \partial #3}}
 }
 
 % Automatic brackets placement with adjustable spacing
