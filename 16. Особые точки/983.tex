@@ -6,15 +6,15 @@
 \begin{document}
 
 $\tsys{
-    & Q\br{x; y} = x^2 + y^2 - 2
+    & Q\br{x; y} = \pow{x}{2} + \pow{y}{2} - 2
     \\& P\br{x; y} = x - y
 }$;
 $\tsys{
-& x^2 + y^2 - 2 = 0
+& \pow{x}{2} + \pow{y}{2} - 2 = 0
 \\& x - y = 0
 }$;
 $\tsys{
-& 2x^2 = 2
+& 2\pow{x}{2} = 2
 \\& y = x
 }$.
 
@@ -25,13 +25,13 @@ $\tsys{
     $\dfrac {d\phi} {d\xi} 
     = \dfrac {\br{\xi - 1}^2 + \br{\phi - 1}^2 - 2} {\br{\xi - 1} - \br{\phi - 1}}
     = \dfrac {-2\xi - 2\phi + \psi_{\phi}\br{\xi; \phi}} {\xi - \phi}$,
-    причём $\psi_{\phi}\br{\xi; \phi} \linebreak = \xi^2 + \phi^2$,
-    $\dfrac {\psi_{\phi}\br{\xi; \phi}} {r^{1 + 0,5}} = \sqrt{\xi^2 + \phi^2} \to 0$ при $r\br{\xi; \phi} \to 0$.
+    причём $\psi_{\phi}\br{\xi; \phi} \linebreak = \pow{\xi}{2} + \pow{\phi}{2}$,
+    $\dfrac {\psi_{\phi}\br{\xi; \phi}} {r^{1 + 0,5}} = \sqrt{\pow{\xi}{2} + \pow{\phi}{2}} \to 0$ при $r\br{\xi; \phi} \to 0$.
     
     Таким образом, уравнение с выделенными линейными частями имеет вид
     $\dfrac {d\phi} {d\xi} = \linebreak = \dfrac {-2\xi - 2\phi} {\xi - \phi}$.
     $A = \begin{pmatrix} 1 & -1 \\ -2 & -2 \end{pmatrix}$.
-    $\det\br{A - \lambda E} = \lambda^2 + \lambda - 4 = 0$.
+    $\det\br{A - \lambda E} = \pow{\lambda}{2} + \lambda - 4 = 0$.
     $\lambda_{1} = \dfrac {-1 - \sqrt{17}} {2} < 0$, а \linebreak
     $\lambda_{2} = \dfrac {-1 + \sqrt{17}} {2} > 0$.
     Это значит, что особая точка $A_{1}\br{-1; -1}$ -- <<седло>>.
@@ -43,10 +43,10 @@ $\tsys{
     $v_{2} = \begin{pmatrix} 2 \\ 3 - \sqrt{17} \end{pmatrix}$
     и сепаратрису $\phi_{2} = \dfrac {3 - \sqrt{17}} {2} \xi$.
     
-    \item $\tsys{& x = \xi + 1 \\& y = \phi + 1}$. $\dfrac {d\phi} {d\xi} = \dfrac {2\xi + 2\phi + \xi^2 + \phi^2} {\xi - \phi}$.
+    \item $\tsys{& x = \xi + 1 \\& y = \phi + 1}$. $\dfrac {d\phi} {d\xi} = \dfrac {2\xi + 2\phi + \pow{\xi}{2} + \pow{\phi}{2}} {\xi - \phi}$.
     Уравнение с исключительно линейными частями -- это $\dfrac {d\phi}  {d\xi} = \dfrac {2\xi + 2\phi} {\xi - \phi}$.
     $A = \begin{pmatrix} 1 & -1 \\ 2 & 2 \end{pmatrix}$.
-    $\det\br{A - \lambda E} = \lambda^2 - 3\lambda + 4 = 0$. $\lambda_{1, 2} = \linebreak = \dfrac {3 \mp \sqrt{7} i} {2}$,
+    $\det\br{A - \lambda E} = \pow{\lambda}{2} - 3\lambda + 4 = 0$. $\lambda_{1, 2} = \linebreak = \dfrac {3 \mp \sqrt{7} i} {2}$,
     и особая точка $A_{2}\br{1; 1}$ -- <<фокус>>.
 \end{enumerate}
 

@@ -1,9 +1,10 @@
 import argparse
-import itertools
 import pathlib
 import re
 import sys
 import typing
+
+from general import find_files_to_process, parse_arguments, initiate_error
 
 DEFAULT_CLEANUP_SOURCE: str = 'cleanup_masks.txt'
 PROGRAM_NAME: str = "Скрипт очистки скомпилированных файлов."
@@ -67,14 +68,6 @@ class ArgumentsNamespace(typing.Protocol):
         pass
 
 
-def parse_arguments(parser: argparse.ArgumentParser) -> ArgumentsNamespace:
-    namespace = parser.parse_args()
-    if not isinstance(namespace, ArgumentsNamespace):
-        print('Аргументы не соответствуют модели.', file=sys.stderr)
-        sys.exit(-1)
-    return namespace
-
-
 EXTENSION_PATTERN = re.compile(r'\.[\w.]+')
 
 
@@ -92,16 +85,6 @@ def load_extensions_masks(source_path: str) -> list[Mask]:
     return masks
 
 
-def find_files_to_delete(extensions_masks: list) -> list[pathlib.Path]:
-    current_path: pathlib.Path = pathlib.Path.cwd()
-    target_paths = list(itertools.chain.from_iterable(
-        current_path.rglob(f'*{extension_mask}') for extension_mask in extensions_masks
-    ))
-
-    target_paths.sort()
-    return target_paths
-
-
 def remove_files(target_paths: list[pathlib.Path], verbose: bool) -> None:
     path: pathlib.Path
     for path in target_paths:
@@ -116,18 +99,13 @@ def remove_files(target_paths: list[pathlib.Path], verbose: bool) -> None:
 
 
 def main() -> None:
-    def initiate_error(preamble: str, exception: Exception, exit_code: int) -> typing.Never:
-        print(preamble, file=sys.stderr)
-        print(exception, file=sys.stderr)
-        sys.exit(exit_code)
-
     parser: argparse.ArgumentParser = prepare_argparse()
-    arguments: ArgumentsNamespace = parse_arguments(parser)
+    arguments: ArgumentsNamespace = parse_arguments(parser, ArgumentsNamespace)
 
     try:
         extensions_marks: list[Mask] = load_extensions_masks(arguments.source)
     except OSError as error:
-        initiate_error(f'Не удалось открыть файл SOURCE:', error, 1)
+        return initiate_error(f'Не удалось открыть файл SOURCE:', error, 1)
 
     if arguments.delete_dat and DAT_FILE_EXTENSION not in extensions_marks:
         extensions_marks.append(DAT_FILE_EXTENSION)
@@ -135,9 +113,9 @@ def main() -> None:
         print()
 
     try:
-        target_files: list[pathlib.Path] = find_files_to_delete(extensions_marks)
+        target_files: list[pathlib.Path] = find_files_to_process(extensions_marks)
     except OSError as error:
-        initiate_error(f'Не удалось провести поиск файлов:', error, 1)
+        return initiate_error(f'Не удалось провести поиск файлов:', error, 1)
 
     if arguments.blank:
         for path in target_files:

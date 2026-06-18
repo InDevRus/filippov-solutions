@@ -6,13 +6,13 @@
 
 \begin{document}
 
-$\zed'\br{t} = \tpow{10}{\hspace{0.5mm}x + \zed}$.
-$\tpow{10}{-\zed} \cdot \zed' = \tpow{10}{\hspace{0.5mm}x}$.
+$z\'\br{t} = \tpow{10}{\hspace{0.5mm}x + z}$.
+$\tpow{10}{-z} \cdot z\' = \tpow{10}{\hspace{0.5mm}x}$.
 \vspace{1mm}
-Взяв интеграл левой и правой частей по $dx$, получаем $-\dfrac {\tpow{10}{-\zed}}{\ln 10} = \dfrac{\tpow{10}{\hspace{0.5mm}x}} {\ln 10} + C$.
+Взяв интеграл левой и правой частей по $dx$, получаем $-\dfrac {\tpow{10}{-z}}{\ln 10} = \dfrac{\tpow{10}{\hspace{0.5mm}x}} {\ln 10} + C$.
 
 Окончательно, общее решение равняется
-$\zed\br{x} = -\lg\br{C - \tpow{10}{\hspace{0.5mm}x}}$, где
+$z\br{x} = -\lg\br{C - \tpow{10}{\hspace{0.5mm}x}}$, где
 $C > 0$. Область определения: $x \in \br{-\infty; \lg\br{C}}$.
 
 \begin{figure}[!h]
@@ -25,7 +25,7 @@ $C > 0$. Область определения: $x \in \br{-\infty; \lg\br{C}}$.
         }
         \begin{axis}[
             width = 12cm,
-            ylabel = $\zed$,
+            ylabel = $z$,
             ymin = -4.2,
             ymax = 4.2,
             xmin = -5.2,

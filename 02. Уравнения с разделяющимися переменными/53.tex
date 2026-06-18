@@ -6,15 +6,15 @@
 
 \begin{document}
 
-$\br{x^2 - 1} y' + 2xy^2 = 0$. $\dfrac {y'} {y^2} + \dfrac {2x} {x^2 - 1} = 0$, причём $y = 0$ в том числе является решением. 
+$\br{\pow{x}{2} - 1} y\' + 2x\pow{y}{2} = 0$. $\dfrac {y\'} {\pow{y}{2}} + \dfrac {2x} {\pow{x}{2} - 1} = 0$, причём $y = 0$ в том числе является решением.
 
-$\tint \dfrac {y'} {y^2} dx = \tint \dfrac {1} {y^2} d\br{y\br{x}} = -\dfrac {1} {y} + C$.
-$\tint \dfrac {2x} {x^2 - 1} dx = \ln\vbr{x^2 - 1} + C$.
+$\tint \dfrac {y\'} {\pow{y}{2}} dx = \tint \dfrac {1} {\pow{y}{2}} d\br{y\br{x}} = -\dfrac {1} {y} + C$.
+$\tint \dfrac {2x} {\pow{x}{2} - 1} dx = \ln\vbr{\pow{x}{2} - 1} + C$.
 
-$\dfrac {1} {y} = C + \ln\vbr{x^2 - 1}$.
-$y = \dfrac {1} {C + \ln\vbr{x^2 - 1}}$.
+$\dfrac {1} {y} = C + \ln\vbr{\pow{x}{2} - 1}$.
+$y = \dfrac {1} {C + \ln\vbr{\pow{x}{2} - 1}}$.
 
-Итак, общее решение имеет вид $y = \dfrac {1} {C + \ln\vbr{x^2 - 1}}$, а также дополнительно $y = 0$.
+Итак, общее решение имеет вид $y = \dfrac {1} {C + \ln\vbr{\pow{x}{2} - 1}}$, а также дополнительно $y = 0$.
 
 \begin{figure}[!h]
 \begin{minipage}{.5\textwidth}
@@ -111,7 +111,7 @@ $y = \dfrac {1} {C + \ln\vbr{x^2 - 1}}$.
 Решение $y = 0$ не подходит, значит подставим $x = 0, y = 0$ в общее решение. 
 $1 = \dfrac {1} {C}$, $C = 1$.
 
-Искомое частное решение равняется $y = \dfrac {1} {1 + \ln\vbr{x^2 - 1}}$, причём $\vbr{x} < \sqrt{1 - \dfrac {1} {e}}$ \vspace{1mm} и за границы этого интервала решение продлить нельзя.
+Искомое частное решение равняется $y = \dfrac {1} {1 + \ln\vbr{\pow{x}{2} - 1}}$, причём $\vbr{x} < \sqrt{1 - \dfrac {1} {e}}$ \vspace{1mm} и за границы этого интервала решение продлить нельзя.
 \begin{figure}[!h]
 \begin{minipage}{\textwidth}
     \centering

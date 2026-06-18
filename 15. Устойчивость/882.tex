@@ -7,9 +7,9 @@
 \begin{document}
 
 $\dfrac {dy} {dx} = \dfrac {\dot{y}} {\dot{x}} = \dfrac {2y} {x}$.
-$\dfrac {x^2 y'_{x}\br{x} - 2x y\br{x}} {x^4} = 0$. 
-$\dfrac {d} {dx} \br{\dfrac {y\br{x}} {x^2}} = 0$.
-$y = Cx^2$. Итак, траекториями системы являются параболы, проходящие через начало координат фазовой плоскости.
+$\dfrac {\pow{x}{2} y\'_{x}\br{x} - 2x y\br{x}} {\pow{x}{4}} = 0$.
+$\dfrac {d} {dx} \br{\dfrac {y\br{x}} {\pow{x}{2}}} = 0$.
+$y = C\pow{x}{2}$. Итак, траекториями системы являются параболы, проходящие через начало координат фазовой плоскости.
 
 \begin{floatingfigure}{0.275\textwidth}
     \begin{tikzpicture}
@@ -32,7 +32,7 @@ $y = Cx^2$. Итак, траекториями системы являются �
             ytick = {-5, ..., 5},
             minor tick num = 3,
             declare function = {
-                f(\C, \x) = \C * x^2;
+                f(\C, \x) = \C * \pow{x}{2};
             }]
             
             \addplot[domain=-3:3] {f(0.5, x)};
@@ -62,11 +62,11 @@ $y = Cx^2$. Итак, траекториями системы являются �
 
 Докажем по определению устойчивость. Общее решение имеет вид $X\br{t} = \begin{pmatrix} A e^{-t} \\ B e^{-2t} \end{pmatrix}$. Для $t \ge t_{0} = 0$
 \begin{gather*}
-\br{X\br{t} - \Phi\br{t}}^2 = A^2 e^{-2t} + B^2 e^{-4t} \\
-\br{X\br{t_{0}} - \Phi\br{t_{0}}}^2 = A^2 + B^2
+\br{X\br{t} - \Phi\br{t}}^2 = \pow{A}{2} e^{-2t} + \pow{B}{2} e^{-4t} \\
+\br{X\br{t_{0}} - \Phi\br{t_{0}}}^2 = \pow{A}{2} + \pow{B}{2}
 \end{gather*}
 
-Для $\epsilon > 0$ положим $\delta\br{\epsilon} = \epsilon$ и потребуем, чтобы $A$ и $B$ были таковы, что $A^2 + B^2 < \delta^2$. Поскольку обе функции $e^{-2t}$ и $e^{-4t}$ убывают, $A^2 e^{-2t} + B^2 e^{-4t} \le A^2 + B^2 < \delta^2 = \epsilon^2$, и устойчивость показана.
+Для $\epsilon > 0$ положим $\delta\br{\epsilon} = \epsilon$ и потребуем, чтобы $A$ и $B$ были таковы, что $\pow{A}{2} + \pow{B}{2} < \delt\pow{a}{2}$. Поскольку обе функции $e^{-2t}$ и $e^{-4t}$ убывают, $\pow{A}{2} e^{-2t} + \pow{B}{2} e^{-4t} \le \pow{A}{2} + \pow{B}{2} < \pow{\delta}{2} = \pow{\epsilon}{2}$, и устойчивость показана.
 
 Асимптотическая устойчивость вытекает из того факта, что
 $$\lim_{t \to +\infty} e^{-2t} = \lim_{t \to +\infty} e^{-4t} = 0.$$

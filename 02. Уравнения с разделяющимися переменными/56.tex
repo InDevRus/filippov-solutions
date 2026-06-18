@@ -6,11 +6,11 @@
 
 \begin{document}
 
-$x y' = y^2 - y$.
-$\dfrac {y'} {y^2 - y} = \dfrac {1} {x}$, причём $y = 0$ и $y = 1$ также являются решениями.
+$x y\' = \pow{y}{2} - y$.
+$\dfrac {y\'} {\pow{y}{2} - y} = \dfrac {1} {x}$, причём $y = 0$ и $y = 1$ также являются решениями.
 
-$\tint \dfrac {y'(x)} {y^2(x) - y(x)} dx = 
-\tint \dfrac {1} {y^2 - y} dy = 
+$\tint \dfrac {y\'(x)} {\pow{y}{2}(x) - y(x)} dx =
+\tint \dfrac {1} {\pow{y}{2} - y} dy =
 \tint \br{ \dfrac {1 - y} {y\br{y - 1}} + \dfrac {y} {y\br{y - 1}}} dy = 
 \tint \br{ \dfrac {1} {y - 1} - \dfrac {1} {y}} dy \linebreak =
 \ln\vbr{y - 1} - \ln\vbr{y} + C = \ln\vbr{1 - \dfrac {1}{y}} + C$.

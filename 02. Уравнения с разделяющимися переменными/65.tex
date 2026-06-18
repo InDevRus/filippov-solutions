@@ -6,18 +6,18 @@
 
 \begin{document}
 
-$y' = \sqrt{4x + 2y - 1}$.
+$y\' = \sqrt{4x + 2y - 1}$.
 Сделаем линейную замену $u\br{x} = 4x + 2y\br{x} - 1$.
 $y\br{x} = \dfrac {1} {2} u\br{x} - \linebreak - 2x + \dfrac {1} {2}$.
-$y'\br{x} = \dfrac {1} {2} u'\br{x} - 2$. 
+$y\'\br{x} = \dfrac {1} {2} u\'\br{x} - 2$.
 В терминах $u\br{x}$ получаем
-$\dfrac {1} {2} u' - 2 = \sqrt{u}$.
-$u' = 2\sqrt{u} + 4$.
-Правая часть нулю не равняется, поэтому $\dfrac {u'} {\sqrt{u} + 2} = 2$.
+$\dfrac {1} {2} u\' - 2 = \sqrt{u}$.
+$u\' = 2\sqrt{u} + 4$.
+Правая часть нулю не равняется, поэтому $\dfrac {u\'} {\sqrt{u} + 2} = 2$.
 
-$\tint \dfrac {u'\br{x}} {\sqrt{u\br{x}} + 2} dx
+$\tint \dfrac {u\'\br{x}} {\sqrt{u\br{x}} + 2} dx
 = \tint \dfrac {du} {\sqrt{u} + 2}
-= \begin{bmatrix} u = v^2 \\ v \ge 0 \\ du = 2v dv \end{bmatrix}
+= \begin{bmatrix} u = \pow{v}{2} \\ v \ge 0 \\ du = 2v dv \end{bmatrix}
 = \tint \dfrac {2v} {v + 2} dv
 = \tint \br{2 - \dfrac {4} {v + 2}} dv = \linebreak
 = 2v - 4\ln\br{v + 2} + C

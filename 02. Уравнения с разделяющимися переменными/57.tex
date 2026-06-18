@@ -6,22 +6,22 @@
 
 \begin{document}
 
-$2x^2 yy' + y^2 = 2$.
-$y' = \dfrac {2 - y^2} {2x^2 y}$, а функция $y\br{x} = 0$ решением не является.
-$\dfrac {yy'} {y^2 - 2} = -\dfrac {1} {2x^2}$.
+$2\pow{x}{2} yy\' + \pow{y}{2} = 2$.
+$y\' = \dfrac {2 - \pow{y}{2}} {2\pow{x}{2} y}$, а функция $y\br{x} = 0$ решением не является.
+$\dfrac {yy\'} {\pow{y}{2} - 2} = -\dfrac {1} {2\pow{x}{2}}$.
 Стоит учитывать также, что среди решений есть функции
 $y = \sqrt{2}$ и $y = -\sqrt{2}$.
-$$\tint \dfrac {y\br{x} y'\br{x}} {y^2\br{x} - 2} {dx}
-= \tint \dfrac {y\ dy} {y^2 - 2}
-= \dfrac {1} {2} \tint \dfrac {1} {y^2 - 2} d\br{y^2}
-= \dfrac {1} {2} \ln\vbr{y^2 - 2} + C.$$
-$\dfrac {1} {2} \ln\vbr{y^2 - 2} = \dfrac {1} {2x} + C$.
-$\ln\vbr{y^2 - 2} = \dfrac {1} {x} + C$.
-$y^2 = C \exp\br{\dfrac {1} {x}} + 2$.
+$$\tint \dfrac {y\br{x} y\'\br{x}} {\pow{y}{2}\br{x} - 2} {dx}
+= \tint \dfrac {y\ dy} {\pow{y}{2} - 2}
+= \dfrac {1} {2} \tint \dfrac {1} {\pow{y}{2} - 2} d\br{\pow{y}{2}}
+= \dfrac {1} {2} \ln\vbr{\pow{y}{2} - 2} + C.$$
+$\dfrac {1} {2} \ln\vbr{\pow{y}{2} - 2} = \dfrac {1} {2x} + C$.
+$\ln\vbr{\pow{y}{2} - 2} = \dfrac {1} {x} + C$.
+$\pow{y}{2} = C \exp\br{\dfrac {1} {x}} + 2$.
 
-В общее решение $y^2 = C \exp\br{\dfrac {1} {x}} + 2$ в том числе входят функции \vspace{2mm} $y = \sqrt{2}$ и $y = -\sqrt{2}$ при $C = 0$.
+В общее решение $\pow{y}{2} = C \exp\br{\dfrac {1} {x}} + 2$ в том числе входят функции \vspace{2mm} $y = \sqrt{2}$ и $y = -\sqrt{2}$ при $C = 0$.
 Для построения графиков будет удобно выразить общее решение в обратной форме
-$x\br{y} = \dfrac {1} {\ln\vbr{y^2 - 2} + C}$
+$x\br{y} = \dfrac {1} {\ln\vbr{\pow{y}{2} - 2} + C}$
 
 \begin{figure}[!h]
 \begin{minipage}{0.5\textwidth}
