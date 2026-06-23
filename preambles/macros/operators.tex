@@ -9,7 +9,7 @@
 \newcommand{\tlowlim}[1]{\lowlim\limits_{#1}}
 \newcommand{\tuplim}[1]{\uplim\limits_{#1}}
 
-% Square roots with better power placement
+% Square roots with better degree placement
 \newcommand{\sqrth}[3][-4]{\sqrt[\uproot{#1}#2]{#3}} % \sqrth{3}{\frac {1} {2}}
 \newcommand{\sqrthh}[3][-6]{\sqrt[\uproot{#1}\mathlarger{#2}]{#3}} % \sqrthh{3}{\dfrac {1}{2}}
 
@@ -23,9 +23,9 @@
 
 % Text integrals
 \newcommand{\tint}{\displaystyle{\int}}
-\newcommand{\tintlim}[2]{\displaystyle{\int\limits_{#1}^{#2}}}
+\newcommand{\tintlim}[2]{\displaystyle{\int\limits_{\kern-1.6mm #1}^{\kern-0.8mm #2}}}
 \newcommand{\tbigint}{\displaystyle{\mathlarger{\int}}}
-\newcommand{\tbigintlim}[2]{\displaystyle{\mathlarger{\int}\limits_{#1}^{#2}}}
+\newcommand{\tbigintlim}[2]{\displaystyle{\mathlarger{\int}\limits_{\kern-2mm #1}^{\kern-0.8mm #2}}}
 
 % Iterative sum and product notations
 \newcommand{\tsumlim}[2]{\displaystyle{\mathlarger{\sum}\displaylimits_{#1}^{#2}}}
