@@ -1,9 +1,10 @@
 % Letters with fixed spacing
 \newcommand{\f}{\hspace{0.25mm}f\hspace{-0.25mm}}
-\renewcommand{\j}{\hspace{0.3mm}j}
 \newcommand{\y}{\hspace{0.2mm}y}
-
-\renewcommand{\'}{\hspace{0.1mm}\char"2032\hspace{-0.1mm}}
+\AtBeginDocument{
+    \renewcommand{\j}{\hspace{0.3mm}j}
+    \renewcommand{\'}{\hspace{0.1mm}\char"2032\hspace{-0.1mm}}
+}
 
 \newcommand{\Alpha}{\text{\char"0391}}
 \newcommand{\Beta}{\text{\char"0392}}
@@ -18,7 +19,9 @@
 \newcommand{\Rho}{\text{\char"03A1}}
 \newcommand{\Tau}{\text{\char"03A4}}
 
-\renewcommand{\epsilon}{\varepsilon}
 \newcommand{\omicron}{\char"03BF}
 \newcommand{\stigma}{\varsigma}
-\renewcommand{\phi}{\varphi}
+\AtBeginDocument{
+    \renewcommand{\epsilon}{\varepsilon}
+    \renewcommand{\phi}{\varphi}
+}
