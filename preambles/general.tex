@@ -18,16 +18,17 @@
 % For formula diacritics
 \usepackage{amsfonts}
 
-% For bigger integral signs
-\usepackage{bigints}
-
 % For semantic advancements
 \usepackage{enotez}
+
+% For long vector signs
+\usepackage{anyfontsize}
+\usepackage[b]{esvect}
 
 % For pictures
 \usepackage{graphicx}
 
-%For framing
+% For framing
 \usepackage{framed}
 
 % Automatic paragraph indentations
@@ -36,6 +37,9 @@
 
 % For writing conditional commands
 \usepackage{xifthen}
+
+% For scoping command definitions
+\usepackage{mathcommand}
 
 % Formula spacing configuration
 \delimitershortfall-1sp
@@ -71,4 +75,5 @@
 \import{\ProjectRootPath/preambles/macros/}{redefinitions}
 
 \import{\ProjectRootPath/preambles/fonts}{letters_setup}
+\import{\ProjectRootPath/preambles/fonts/adjustments}{accents_fix}
 \import{\ProjectRootPath/preambles/}{list_setup}
