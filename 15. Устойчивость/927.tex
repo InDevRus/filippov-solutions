@@ -6,7 +6,7 @@
 \begin{document}
 
 $\tsys{& \dot{x} = -3x + y - \pow{x}{3} \\& \dot{y} = 6x - 2y}$. Будем искать функцию Ляпунова в виде $v\br{x; y} = \dfrac {1} {2} \pow{x}{2} + \dfrac {k} {2} \pow{y}{2} $.
-$\parder{v}{x} \cdot f_{x} = -3x^{2} + xy - x^{4}$.
+$\parder{v}{x} \cdot f_{x} = -3\pow{x}{2} + xy - \pow{x}{4}$.
 $\parder{v}{y} \cdot f_{y} = 6kxy - 2k\pow{y}{2}$.
 $\dfrac{dv}{dt}\bigg| = -3\pow{x}{2} + \br{1 + 6k} xy - 2k\pow{y}{2} - \pow{x}{4}$.
 Однородный квадратный трёхчлен $-3\pow{x}{2} + \br{1 + 6k} xy - 2k\pow{y}{2}$ отрицательно определён, если $D = \br{1 + 6k}^2 - 24k \le 0$. Последнее неравенство имеет единственное решение $k = \dfrac {1} {6}$.

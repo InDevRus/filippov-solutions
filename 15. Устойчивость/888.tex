@@ -113,14 +113,14 @@ $$\rho\br{t} = \rho\br{x\br{t}} = \sqrt{\pow{x}{2}\br{t} + \pow{y}{2}\br{t}} = \
 Пусть теперь $\epsilon > 0$ -- произвольное и $\delta\br{\epsilon} = \arctg\br{\epsilon}$. Потребуем также, чтобы для начальной точки $A_{0}$ выполнялось $\sqrt{\pow{x}{2}\br{0} + \pow{y}{2}\br{0}} < \delta$. Из этого следует
 $$\delta > \sqrt{\pow{x}{2}\br{0} + \pow{y}{2}\br{0}} \ge \rho_{\min} = \arccos\br{\tpow {e} {-\frac {C} {2}}}.$$
 
-Функция $g\br{s} = \arccos\br{\tpow {e} {-\frac {s} {2}}}$ возрастает, что позволяет решить относительно $C$ неравенство $\arccos\br{\tpow {e} {-\frac {C} {2}}} < \delta$ и получить $C < \ln\br{\dfrac {1}{\cos^{2} \delta}}$.
+Функция $g\br{s} = \arccos\br{\tpow {e} {-\frac {s} {2}}}$ возрастает, что позволяет решить относительно $C$ неравенство $\arccos\br{\tpow {e} {-\frac {C} {2}}} < \delta$ и получить $C < \ln\br{\dfrac {1}{\pow{\cos}{2} \delta}}$.
 
 Наконец, учитывая неравенство $\ln a \le a - 1$ для всех $a$, основное тригонометрическое тождество и решение неравенства сверху, получаем при $t \ge t_{0} = 0$
 $$\sqrt{\pow{x}{2}\br{t} + \pow{y}{2}\br{t}}
 \le \rho_{\max}\br{C}
 = \sqrt{C}
-< \sqrt{\ln\br{\dfrac {1} {\cos^{2} \delta}}} 
-\le \sqrt{ \dfrac {1}{\cos^{2} \delta} - 1 }
+< \sqrt{\ln\br{\dfrac {1} {\co\pow{s}{2} \delta}}}
+\le \sqrt{ \dfrac {1}{\pow{\cos}{2} \delta} - 1 }
 = \sqrt{\pow{\tg}{2} \delta}
 = \epsilon.$$
 

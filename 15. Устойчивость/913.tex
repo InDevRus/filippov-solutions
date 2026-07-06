@@ -13,13 +13,13 @@ $\dot{u} - 2t
 = \pow{v}{2} + 2tv + \pow{t}{2} - 2t\br{v + t} - 2\br{v + t} - \br{u - \pow{t}{2}}
 = \pow{v}{2} - 2v - 2t - u$.
 $\dot{u} = \pow{v}{2} - 2v - u$.
-$\dot{v} + 1 = 2\br{u - \pow{t}{2}} + 2\pow{t}{2} + e^{-2v}$.
-$\dot{v} = 2u + e^{-2v} - 1$.
+$\dot{v} + 1 = 2\br{u - \pow{t}{2}} + 2\pow{t}{2} + \pow{e}{-2v}$.
+$\dot{v} = 2u + \pow{e}{-2v} - 1$.
 
-Полученная система $\tsys{& \dot{u} = \pow{v}{2} - 2v - u \\& \dot{v} = 2u + e^{-2v} - 1}$ автономна, и её нулевое решение можно исследовать на устойчивость по первому приближению.
+Полученная система $\tsys{& \dot{u} = \pow{v}{2} - 2v - u \\& \dot{v} = 2u + \pow{e}{-2v} - 1}$ автономна, и её нулевое решение можно исследовать на устойчивость по первому приближению.
 
 При $u \to 0$, $v \to 0$:
-$e^{-2v} = 1 - 2v + o\br{v}$. $\dfrac {d} {dt} \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix} = A \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix} + \begin{pmatrix} \psi_{u}\br{u; v} \\ \psi_{v}\br{u; v} \end{pmatrix}$, где 
+$\pow{e}{-2v} = 1 - 2v + o\br{v}$. $\dfrac {d} {dt} \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix} = A \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix} + \begin{pmatrix} \psi_{u}\br{u; v} \\ \psi_{v}\br{u; v} \end{pmatrix}$, где
 $A = \begin{pmatrix} -1 & -2 \\ 2 & -2 \end{pmatrix}$,
 $\psi_{u}\br{u; v} = \pow{v}{2} = O\br{\pow{u}{2} + \pow{v}{2}} = o\br{\sqrt{\pow{u}{2} + \pow{v}{2}}}$,
 $\psi_{v}\br{u; v} = o\br{\sqrt{\pow{u}{2} + \pow{v}{2}}}$.

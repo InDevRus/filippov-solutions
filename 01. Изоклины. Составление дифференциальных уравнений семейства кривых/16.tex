@@ -21,45 +21,45 @@ $y\'\'\br{x} = \dfrac {d} {dx} \br {\dfrac {d} {dx} y\br{x} }
 
 \begin{enumerate}[label={\asbuk*})]
 \item $y\' = y - \pow{x}{2}$.
-$y\'\'\br{x} = \dfrac {d} {dx} \br{y - \pow{x}{2}} = y\' - 2x = y - x^{2} - 2x$. \\
+$y\'\'\br{x} = \dfrac {d} {dx} \br{y - \pow{x}{2}} = y\' - 2x = y - \pow{x}{2} - 2x$. \\
 $y\'\'\'\br{x} = \dfrac {d} {dx} \br{y - \pow{x}{2} - 2x} = y\' - 2x - 2 = y - \pow{x}{2} - 2x - 2$.
 
 Пусть $y\'\'\br{x} = y - \pow{x}{2} - 2x = 0$. Тогда $y = \pow{x}{2} + 2x$. При этом $y\'\'\'\br{x} = y - \pow{x}{2} - 2x - 2 = \linebreak = -2 \ne 0$, а потому все точки этой кривой являются точками перегиба. Итак, точки перегиба данного уравнения лежат на и только на параболе $y = \pow{x}{2} + 2x$.
 
-\item $y\' = x - e^y$.
-$y\'\'\br{x} = 1 - y\' e^y
-= 1 - \br{x - e^y} e^y
-= 1 - xe^y + e^{2y}$. \\
-$y\'\'\'\br{x} = \dfrac {d} {dx} \br{1 - xe^y + e^{2y}}
-= -e^y - x y\' e^y + 2 y\' e^{2y}
-= -e^y - x \br{x - e^y} e^y + 2 \br{x - e^y} e^{2y} \vspace{1mm} \linebreak 
-= -e^y - \pow{x}{2} e^y + 3 x e^{2y} - 2 e^{3y}$.
+\item $y\' = x - pow{}$.
+$y\'\'\br{x} = 1 - y\' \pow{e}{y}
+= 1 - \br{x - \pow{e}{y}} \pow{e}{y}
+= 1 - x\pow{e}{y} + \pow{e}{2y}$. \\
+$y\'\'\'\br{x} = \dfrac {d} {dx} \br{1 - x\pow{e}{y} + \pow{e}{2y}}
+= -\pow{e}{y} - x y\' \pow{e}{y} + 2 y\' \pow{e}{2y}
+= -\pow{e}{y} - x \br{x - \pow{e}{y}} \pow{e}{y} + 2 \br{x - \pow{e}{y}} \pow{e}{2y} \vspace{1mm} \linebreak
+= -\pow{e}{y} - \pow{x}{2} \pow{e}{y} + 3 x \pow{e}{2y} - 2 \pow{e}{3y}$.
 
-Пусть $y\'\'\br{x} = 1 - xe^y + e^{2y} = 0$. Тогда $xe^{y} = 1 + e^{2y}$, $x = e^{-y} + e^{y}$, и
+Пусть $y\'\'\br{x} = 1 - x\pow{e}{y} + \pow{e}{2y} = 0$. Тогда $x\pow{e}{y} = 1 + \pow{e}{2y}$, $x = \pow{e}{-y} + \pow{e}{y}$, и
 $y\'\'\'\br{x}
-= -e^y - \linebreak - \br{e^{-y} + e^{y}}^2 e^y + 3 \br{e^{-y} + e^{y}} e^{2y} - 2 e^{3y} 
-= -e^{y} < 0$.
+= -\pow{e}{y} - \linebreak - \br{\pow{e}{-y} + \pow{e}{y}}^2 \pow{e}{y} + 3 \br{\pow{e}{-y} + \pow{e}{y}} \pow{e}{2y} - 2 \pow{e}{3y}
+= -\pow{e}{y} < 0$.
 
-Таким образом, всюду, где $y\'\'\br{x} = 0$ имеем $y\'\'\'\br{x} \ne 0$, то есть точки перегиба лежат на кривой $x = e^{-y} + e^{y}$ (или $ x= 2\ch\br{y}$) и только на ней.
+Таким образом, всюду, где $y\'\'\br{x} = 0$ имеем $y\'\'\'\br{x} \ne 0$, то есть точки перегиба лежат на кривой $x = \pow{e}{-y} + \pow{e}{y}$ (или $ x= 2\ch\br{y}$) и только на ней.
 
 \item $\pow{x}{2} + \pow{y}{2} y\' = 1$.
-$y\' = y^{-2} \br{1 - \pow{x}{2}} = y^{-2} - \pow{x}{2} y^{-2}$. \\
-$y\'\'\br{x} = -2 y^{-3} y\' + 2 \pow{x}{2} y^{-3} y\' - 2x y^{-2}
-= -2y^{-3} y\' \br{1 - \pow{x}{2}} - 2x y^{-2}
-= -2y^{-5} \br{1 - \pow{x}{2}}^2 - 2x y^{-2}$. \\
+$y\' = \pow{y}{-2} \br{1 - \pow{x}{2}} = \pow{y}{-2} - \pow{x}{2} \pow{y}{-2}$. \\
+$y\'\'\br{x} = -2 \pow{y}{-3} y\' + 2 \pow{x}{2} \pow{y}{-3} y\' - 2x \pow{y}{-2}
+= -2\pow{y}{-3} y\' \br{1 - \pow{x}{2}} - 2x \pow{y}{-2}
+= -2\pow{y}{-5} \br{1 - \pow{x}{2}}^2 - 2x \pow{y}{-2}$. \\
 \begin{multline*}
     y\'\'\'\br{x}
-    = 10 y^{-6} \br{1 - \pow{x}{2}}^2 y\' + 8 x y^{-5} \br{1 - \pow{x}{2}} - 2y^{-2} + 4xy^{-3} y\' = \\
-    = 10 y^{-8} \br{1 - \pow{x}{2}}^3 + 8 x y^{-5} \br{1 - \pow{x}{2}} - 2y^{-2} + 4xy^{-5} \br{1 - \pow{x}{2}} = \\
-    = 10 y^{-8} \br{1 - \pow{x}{2}}^3 + 12 xy^{-5} \br{1 - \pow{x}{2}} - 2y^{-2}.
+    = 10 \pow{y}{-6} \br{1 - \pow{x}{2}}^2 y\' + 8 x \pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2} + 4x\pow{y}{-3} y\' = \\
+    = 10 \pow{y}{-8} \br{1 - \pow{x}{2}}^3 + 8 x \pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2} + 4x\pow{y}{-5} \br{1 - \pow{x}{2}} = \\
+    = 10 \pow{y}{-8} \br{1 - \pow{x}{2}}^3 + 12 x\pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2}.
 \end{multline*}
-Пусть $y\'\'\br{x} = -2y^{-5} \br{1 - \pow{x}{2}}^2 - 2x y^{-2} = 0$, то есть $\br{1 - \pow{x}{2}}^2 = -x\pow{y}{3}$.
+Пусть $y\'\'\br{x} = -2\pow{y}{-5} \br{1 - \pow{x}{2}}^2 - 2x \pow{y}{-2} = 0$, то есть $\br{1 - \pow{x}{2}}^2 = -x\pow{y}{3}$.
 \begin{multline*}
     y\'\'\'\br{x}
-    = 10 y^{-8} \br{1 - \pow{x}{2}} \cdot \br{-x\pow{y}{3}} + 12 xy^{-5} \br{1 - \pow{x}{2}} - 2y^{-2}
-    = 2 xy^{-5} \br{1 - \pow{x}{2}} - 2y^{-2} = \\
-    = -2 y^{-8} \br{1 - \pow{x}{2}}^2 - 2y^{-2}
-    = -2y^{-2} \br{y^{-6} \br{1 - \pow{x}{2}}^2 + 1} < 0.
+    = 10 \pow{y}{-8} \br{1 - \pow{x}{2}} \cdot \br{-x\pow{y}{3}} + 12 x\pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2}
+    = 2 x\pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2} = \\
+    = -2 \pow{y}{-8} \br{1 - \pow{x}{2}}^2 - 2\pow{y}{-2}
+    = -2\pow{y}{-2} \br{\pow{y}{-6} \br{1 - \pow{x}{2}}^2 + 1} < 0.
 \end{multline*}
 
 Итак, всякая точка кривой $x\pow{y}{3} = -\br{1 - \pow{x}{2}}^2$ является точкой перегиба.
