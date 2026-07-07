@@ -4,21 +4,21 @@
 
 \input{../preambles/general}
 
-\begin{document}
+\begin{document}    
     $yz \parder{z} {x} - xz \parder{z} {y} = \tpow{e}{z}$.
-    $\dfrac {dx} {yz} = \dfrac {dy} {-xz} = \tpow{e}{-z} dz$.
+    $\dfrac {\d x} {yz} = \dfrac {\d y} {-xz} = \tpow{e}{-z} \d z$.
 
-    $\dfrac {dx} {yz} = \dfrac {dy} {-xz}$.
-    $x dx + y dy = 0$.
+    $\dfrac {\d x} {yz} = \dfrac {\d y} {-xz}$.
+    $x \d x + y \d y = 0$.
     $\pow{x}{2} + \pow{y}{2} = A$.
 
-    Для отыскания второй интегрируемой комбинации запишем
-    $\dfrac {dx} {y} = \dfrac {-dy} {x} = z \tpow{e} {-z} dz$
-    и воспользуемся свойством дробей: \vspace{1mm}
-    $z \tpow{e} {-z} dz = \dfrac {y dx - x dy} {y \cdot y + x \cdot x} = \dfrac {du} {1 + \pow{u}{2}} = d\br{\arctg u}$, где
-    $u\br{x; y} = \dfrac {x} {y}$.
+    Отыщем вторую интегрируемую комбинацию, записав
+    $\dfrac {\d x} {y} = \dfrac {-\d y} {x} = z \tpow{e} {-z} \d z$
+    и воспользовавшись свойством дробей:
+    $z \tpow{e} {-z} \d z = \dfrac {y \d x - x \d y} {y \cdot y + x \cdot x} = \dfrac {du} {1 + \pow{u}{2}} = d\br{\arctg u}$, где
+    $u = \dfrac {x} {y}$.
     Учитывая, что
-    $\tint z \tpow{e} {-z} dz = -z \tpow{e} {-z} + \tint \tpow{e} {-z} dz = -\tpow{e} {-z} - z \tpow{e} {-z} + B$, получаем ещё один первый интеграл
+    $\tint z \tpow{e} {-z} \d z = -z \tpow{e} {-z} + \tint \tpow{e} {-z} \d z = -\tpow{e} {-z} - z \tpow{e} {-z} + B$, получаем ещё один первый интеграл
     $\arctg\br{\dfrac {x} {y}} + \tpow{e} {-z} \br{z + 1} = B$.
 
     Общее решение в неявной форме:

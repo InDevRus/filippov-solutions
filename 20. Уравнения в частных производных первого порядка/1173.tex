@@ -5,13 +5,13 @@
 \input{../preambles/general}
 
 \begin{document}
-    $2x \parder{z} {x} + \br{y - x} \parder{z} {y} = \pow{x}{2}$. \vspace{1mm}
+    $2x \parder{z} {x} + \br{y - x} \parder{z} {y} = \pow{x}{2}$.
 
-    $\dfrac {dx} {2x} = \dfrac {dy} {y - x} = \dfrac {dz} {\pow{x}{2}}$.
+    $\dfrac {\d x} {2x} = \dfrac {\d y} {y - x} = \dfrac {\d z} {\pow{x}{2}}$.
 
     \begin{enumerate}
-        \item $\dfrac {dy} {dx} = \dfrac {y - x} {2x}$.
-        Чтобы не допускать появления $\sqrt{\pm x}$, требующего решать это линейное уравнение первого порядка отдельно в областях $x > 0$ и $x < 0$, решим это уравнение, как однородное.
+        \item $\dfrac {\d y} {\d x} = \dfrac {y - x} {2x}$.
+        Чтобы не допускать появления $\sqrt{\pm\,x}$, требующего решать это линейное уравнение первого порядка отдельно в областях $x > 0$ и $x < 0$, решим это уравнение, как однородное.
         $y\br{x} = w\br{x} \cdot x$.
         $2\br{w\'x + w} = w - 1$.
         $2w\'x = -w - 1$.
@@ -22,8 +22,8 @@
         Итак,
         $\dfrac {\br{y + x}^2} {x} = A$.
         
-        \item $\dfrac {dx} {2x} = \dfrac {dz} {\pow{x}{2}}$.
-        $2x dx = 4\dz$.
+        \item $\dfrac {\d x} {2x} = \dfrac {\d z} {\pow{x}{2}}$.
+        $2x \d x = 4 \d z$.
         $4z - \pow{x}{2} = B$.
     \end{enumerate}
     

@@ -6,19 +6,19 @@
 
 \begin{document}
     $\pow{x}{2} z \parder{z} {x} + \pow{y}{2} z \parder{z} {y} = x + y$.
-    $\dfrac {dx} {\pow{x}{2} z} = \dfrac {dy} {\pow{y}{2} z} = \dfrac {dz} {x + y}$.
+    $\dfrac {\d x} {\pow{x}{2} z} = \dfrac {\d y} {\pow{y}{2} z} = \dfrac {\d z} {x + y}$.
 
     Первые две дроби сразу являются интегрируемой комбинацией:
-    $\dfrac {dx} {\pow{x}{2}} = \dfrac {dy} {\pow{y}{2}}$.
+    $\dfrac {\d x} {\pow{x}{2}} = \dfrac {\d y} {\pow{y}{2}}$.
     $\dfrac {1} {x} + \dfrac {1} {y} = \linebreak = \dfrac {x + y} {xy} = A$.
 
     Вторую интегрируемую комбинацию из системы
-    $\dfrac {dx} {\pow{x}{2}} = \dfrac {dy} {\pow{y}{2}} = \dfrac {z dz} {x + y}$
+    $\dfrac {\d x} {\pow{x}{2}} = \dfrac {\d y} {\pow{y}{2}} = \dfrac {z \d z} {x + y}$
     можно получить, например, сравняв знаменатели по свойству дробей:
-    $\dfrac {z dz} {x + y} = \dfrac {\frac {1} {x} dx + \frac {1} {y} dy} {\frac {1} {x} \cdot \pow{x}{2} + \frac {1} {y} \cdot \pow{y}{2}} = \dfrac {d\ln\vbr{xy}} {x + y}$.
+    $\dfrac {z \d z} {x + y} = \dfrac {\frac {1} {x} \d x + \frac {1} {y} \d y} {\frac {1} {x} \cdot \pow{x}{2} + \frac {1} {y} \cdot \pow{y}{2}} = \dfrac {d\ln\vbr{xy}} {x + y}$.
     Итак,
-    $z dz - d\ln\vbr{xy} = 0$, откуда
-    $xy \tpow{e}{-\frac {1} {2} \pow{z}{2}} = B$.
+    $z \d z - d\ln\vbr{xy} = 0$, откуда
+    $xy \tpow{e}{\elevate{-\frac {1} {2} \pow{z}{2}}} = B$.
 
     Общее решение в неявной форме будет иметь вид
     $F\br{\dfrac {x + y} {xy}; xy \tpow{e}{-\frac {1} {2} \pow{z}{2}}} = 0$.

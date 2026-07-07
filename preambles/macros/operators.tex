@@ -14,7 +14,7 @@
 \newcommand{\sqrthh}[3][-6]{\sqrt[\uproot{#1}\mathlarger{#2}]{#3}} % \sqrthh{3}{\dfrac {1}{2}}
 
 % Power with bigger size
-\newcommand{\tpow}[3][-1]{\tpow{#1}{#2}{\mathlarger{#3}}}
+\newcommand{\tpow}[3][0.1]{\pow[#1]{#2}{\mathlarger{#3}}}
 
 % Text integrals
 \newcommand{\tint}{\displaystyle{\int}}
@@ -54,3 +54,6 @@
 
 % Raising command for the equation box
 \newcommand{\elevate}[2][1mm]{\raisebox{#1}{\({#2}\)}}
+
+% Alias for differential sign
+\renewcommand{\d}{\odif}

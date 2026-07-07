@@ -18,6 +18,9 @@
 % For formula diacritics
 \usepackage{amsfonts}
 
+% For more convenient derivative notations
+\usepackage[italic=true]{derivative}
+
 % For semantic advancements
 \usepackage{enotez}
 
@@ -73,6 +76,10 @@
 % Restrict inlne formula breaking
 \binoppenalty=10000
 \relpenalty=10000
+
+% Force spacing between lines
+\setlength{\lineskiplimit}{1mm}
+\setlength{\lineskip}{1mm}
 
 \import{\ProjectRootPath/preambles/macros/}{operators}
 \import{\ProjectRootPath/preambles/macros/}{redefinitions}

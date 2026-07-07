@@ -6,27 +6,27 @@
 
 \begin{document}
     $\br{x - z} \parder {z} {x} + \br{y - z} \parder {z} {y} = 2 z$.
-    $\dfrac {dx} {x - z} = \dfrac {dy} {y - z} = \dfrac {dz} {2z}$.
+    $\dfrac {\d x} {x - z} = \dfrac {\d y} {y - z} = \dfrac {\d z} {2z}$.
     Интегрируемыми комбинациями являются
-    $\dfrac {dx} {x - z} = \dfrac {dz} {2z}$
+    $\dfrac {\d x} {x - z} = \dfrac {\d z} {2z}$
     и
-    $\dfrac {dy} {y - z} = \dfrac {dz} {2z}$. Они равносильны, так что достаточно решить только одну. К ним также можно добавить функцию $z\br{x; y} = 0$, хотя это решение и не подходит под условие задачи. \vspace{1mm}
+    $\dfrac {\d y} {y - z} = \dfrac {\d z} {2z}$. Они равносильны, так что достаточно решить только одну. К ним также можно добавить функцию $z\br{x; y} = 0$, хотя это решение и не подходит под условие задачи.
 
     Решим, например, первую.
-    $\dfrac {dx} {dz} = \dfrac {1} {2z} x\br{z} - \dfrac {1} {2}$.
+    $\dfrac {\d x} {\d z} = \dfrac {1} {2z} x\br{z} - \dfrac {1} {2}$.
     Решение этого линейного уравнения первого порядка нужно рассматривать в областях $z > 0$ и $z < 0$ по отдельности.
 
     \begin{itemize}
         \item Рассмотрим уравнение выше в области $z > 0$.
 
-        $\dfrac {1} {\sqrt{z}} \dfrac {dx} {dz} - \dfrac {1} {2\sqrt{\pow{z}{3}}} x = -\dfrac {1} {2 \sqrt{z}}$.
-        $\dfrac {d} {dz} \br{\dfrac {1} {\sqrt{z}} \cdot x} = -\dfrac {1} {2 \sqrt{z}}$.
+        $\dfrac {1} {\sqrt{z}} \dfrac {\d x} {\d z} - \dfrac {1} {2\sqrt{\pow{z}{3}}} x = -\dfrac {1} {2 \sqrt{z}}$.
+        $\dfrac {d} {\d z} \br{\dfrac {1} {\sqrt{z}} \cdot x} = -\dfrac {1} {2 \sqrt{z}}$.
         $\dfrac {x} {\sqrt{z}} = -\sqrt{z} + A_{1}$.
         $\dfrac {x + z} {\sqrt{z}} = A_{1}$.
 
-        \item В области $z < 0$ замена переменных $- z = \zeta > 0$, $\dfrac {dx} {dz} = -\dfrac {dx} {d\zeta}$
+        \item В области $z < 0$ замена переменных $- z = \zeta > 0$, $\dfrac {\d x} {\d z} = -\dfrac {\d x} {d\zeta}$
         приводит к уравнению
-        $\dfrac {dx} {d\zeta} - \dfrac {1} {2\zeta} x\br{\zeta} = \dfrac {1} {2}$,
+        $\dfrac {\d x} {d\zeta} - \dfrac {1} {2\zeta} x\br{\zeta} = \dfrac {1} {2}$,
         откуда $\dfrac {x - \zeta} {\sqrt{\zeta}} = A_{2}$,
         то есть $\dfrac {x + z} {\sqrt{-z}} = A_{2}$.
     \end{itemize}
