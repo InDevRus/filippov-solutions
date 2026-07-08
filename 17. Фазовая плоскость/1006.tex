@@ -10,14 +10,14 @@
 $\ddot{x}\br{t} = 2x - 2\pow{x}{3}$.
 
 $\tsys{& \dot{x}\br{t} = y \\& \dot{y}\br{t} = 2x - 2\pow{x}{3}}$;
-$\dfrac {dy} {dx} = \dfrac {2x - 2\pow{x}{3}} {y}$.
+$\dfrac {\d y} {\d x} = \dfrac {2x - 2\pow{x}{3}} {y}$.
 $\pow{y}{2} + \pow{x}{4} - 2\pow{x}{2} = C$.
-$\pow{y}{2} + \br{\pow{x}{2} - 1}^2 = C$, $C > 0$. \vspace{1mm}
+$\pow{y}{2} + \br{\pow{x}{2} - 1}^2 = C$, $C > 0$.
 
 Исследуем особые точки $K\br{0; 0}$, $L\br{-1; 0}$ и $M\br{1; 0}$. 
 
 \begin{enumerate}
-    \item $K\br{0; 0}$. $\dfrac {dy} {dx} = \dfrac {2x - 2\pow{x}{3}} {y} = \dfrac {2x + O\br{\pow{x}{3}}} {y}$.
+    \item $K\br{0; 0}$. $\dfrac {\d y} {\d x} = \dfrac {2x - 2\pow{x}{3}} {y} = \dfrac {2x + O\br{\pow{x}{3}}} {y}$.
     $\begin{pmatrix} 0 & 1 \\ 2 & 0 \end{pmatrix}$.
     $\pow{\lambda}{2} - 2 = 0$.
     $\lambda_{1} = -\sqrt{2}$.
@@ -28,11 +28,11 @@ $\pow{y}{2} + \br{\pow{x}{2} - 1}^2 = C$, $C > 0$. \vspace{1mm}
 
     Вместо замены переменных оптимальнее будет разложить числитель по формуле Тейлора в окрестности особой точки.
 
-    Для первой имеем $\dfrac {dy} {dx} = \dfrac {-4\br{x + 1} + 6\br{x + 1}^2 - 2\br{x + 1}^3} {y} = \dfrac {-4\br{x + 1} + O\br{x + 1}^2} {y}$,
+    Для первой имеем $\dfrac {\d y} {\d x} = \dfrac {-4\br{x + 1} + 6\br{x + 1}^2 - 2\br{x + 1}^3} {y} = \dfrac {-4\br{x + 1} + O\br{x + 1}^2} {y}$,
     так как первая, вторая и т. д. производные числителя равны соответственно $-4$, $12$, $-12$, $0$, $\ldots$
 
     Аналогично, для второй точки получаем
-    $\dfrac {dy} {dx} = \dfrac {-4\br{x - 1} - 6\br{x - 1}^2 - 2\br{x - 1}^3} {y} = \linebreak =
+    $\dfrac {\d y} {\d x} = \dfrac {-4\br{x - 1} - 6\br{x - 1}^2 - 2\br{x - 1}^3} {y} = \linebreak =
     \dfrac {-4\br{x - 1} + O\br{x - 1}^2} {y}$.
 
     Для обеих матрица оператора равна $\begin{pmatrix} 0 & 1 \\ -4 & 0 \end{pmatrix}$, $\pow{\lambda}{2} + 4 = 0$. Из-за обозначенной выше симметрии обе особые точки -- <<центры>>.
@@ -187,9 +187,9 @@ $\pow{y}{2} + \br{\pow{x}{2} - 1}^2 = C$, $C > 0$. \vspace{1mm}
         \item при $a > 0$: $0 < \sqrt{1 - \sqrt{C}} \le x\br{t} \le \sqrt{1 + \sqrt{C}}$;
         \item при $a < 0$: $-\sqrt{1 + \sqrt{C}} \le x\br{t} \le -\sqrt{1 - \sqrt{C}} < 0$;
     \end{itemize}
-    \vspace{1mm}
+
     \item если $\pow{b}{2} + \br{\pow{a}{2} - 1}^2 = C > 1$, то решения знакопеременны, проходят через ноль бесконечное число раз, и
-    $-\sqrt{1 + \sqrt{C}} \le x\br{t} \le \sqrt{1 + \sqrt{C}}$; \vspace{1mm}
+    $-\sqrt{1 + \sqrt{C}} \le x\br{t} \le \sqrt{1 + \sqrt{C}}$;
     \item случаи $C = 0$, т. е.
     $\tsys{& a = -1 \\& b = 1}$ и $\tsys{& a = 1 \\& b = 1}$ в силу теоремы единственности соответствуют решениям $x\br{t} = -1$ и $x\br{t} = 1$ соответственно;
     \item случай $a = b = 0$ даёт нулевое решение $x\br{t} = 0$.
