@@ -7,9 +7,11 @@
 
 \begin{framed}
     \begin{proposition}\end{proposition}
-    При $r\br{\xi; \phi} = \sqrt{\pow{\xi}{2} + \pow{\phi}{2}} \to 0$ имеем $\xi \phi = O\br{\pow{r}{2}}$.
+    При $r\br{\xi; \phi} = \sqrt{\pow{\xi}{2} + \pow{\phi}{2}} \to 0$
+    имеем $\xi \phi = O\br{\pow{r}{2}}$.
     В частности
-    $\dfrac{\xi \phi} {\pow{r}{1 + \epsilon}} = \dfrac {\gamma\br{r} \pow{r}{2}} {\pow{r}{1 + \epsilon}} \to 0$
+    $\dfrac{\xi \phi} {\pow{r}{1 + \epsilon}}
+    = \dfrac {\gamma\br{r} \pow{r}{2}} {\pow{r}{1 + \epsilon}} \to 0$
     для всех $\epsilon \in \br{0; 1}$.
     
     Действительно, 
@@ -38,7 +40,7 @@ $\tsys{& x = \sub{\xi}{i} + \sub{x}{i} \\& y = \sub{\phi}{i} + \sub{y}{i}}$,
 где $\sub{A}{i}\br{\sub{x}{i}; \sub{y}{i}}$, $1 \le i \le 4$.
 Предположим, что $\sub{\xi}{i} \to 0$ и $\sub{\phi}{i} \to 0$.
 Тогда $\pow{y}{2} - y \to 0$ и $\pow{x}{2} + 8y \to 9$, $O\br{\br{x - \sub{x}{i}}^k} = O\br{\subpow{\xi}{i}{k}} = O\br{\br{O\br{\sub{r}{i}}}^k} = O\br{\subpow{r}{i}{k}}$
-для натуральных $k$, и аналогично для $y - \sub{y}{i}$ и $\sub{\phi}{i}$. \vspace{1mm}
+для натуральных $k$, и аналогично для $y - \sub{y}{i}$ и $\sub{\phi}{i}$.
 
 \begin{itemize}
     \item $\begin{aligned}[t]
@@ -47,7 +49,7 @@ $\tsys{& x = \sub{\xi}{i} + \sub{x}{i} \\& y = \sub{\phi}{i} + \sub{y}{i}}$,
         = -y + \pow{y}{2} + O\br{\subpow{r}{i}{2}} = \\
         & = -\sub{\phi}{i} - \sub{y}{i} + \subpow{\phi}{i}{2} + 2\sub{\phi}{i}\,\sub{y}{i} + \subpow{y}{i}{2} + O\br{\subpow{r}{i}{2}} = \\
         & = \br{\subpow{y}{i}{2} - \sub{y}{i}} + \br{2\sub{y}{i} - 1}\sub{\phi}{i} + O\br{\subpow{r}{i}{2}}
-        \vspace{1mm} \\
+         \\
         & = \br{2\sub{y}{i} - 1}\sub{\phi}{i} + O\br{\subpow{r}{i}{2}},
     \end{aligned},$
     
@@ -60,10 +62,10 @@ $\tsys{& x = \sub{\xi}{i} + \sub{x}{i} \\& y = \sub{\phi}{i} + \sub{y}{i}}$,
         & = -\dfrac {1}{6} \br{\pow{x}{2} + 8y} + \dfrac {3} {2} + O\br{\subpow{r}{i}{2}} = \\
         & = -\dfrac {1}{6} \br{\subpow{x}{i}{2} + 2\sub{\xi}{i} \sub{x}{i} + \subpow{\xi}{i}{2} + 8\sub{\phi}{i} + 8\sub{y}{i} } + \dfrac {3} {2} + O\br{\subpow{r}{i}{2}} = \\
         & = -\dfrac {1}{6} \br{\br{\subpow{x}{i}{2} + 8\sub{y}{i}} + 2\sub{\xi}{i} \sub{x}{i} + 8\sub{\phi}{i} } + \dfrac {3} {2} + O\br{\subpow{r}{i}{2}}
-        \vspace{1mm} = \\
+         = \\
         & = -\dfrac {1} {3} \sub{x}{i} \sub{\xi}{i} - \dfrac {4} {3} \sub{\phi}{i} + O\br{\subpow{r}{i}{2}},\end{aligned}$
         
-        поскольку $\subpow{x}{i}{2} + 8\sub{y}{i} = 9$. \vspace{1mm}
+        поскольку $\subpow{x}{i}{2} + 8\sub{y}{i} = 9$.
 \end{itemize}
 
 Итак, после всякой замены 

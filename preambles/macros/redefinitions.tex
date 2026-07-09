@@ -12,10 +12,12 @@
 \DeclareMathOperator{\inv}{inv}
 \DeclareMathOperator{\adj}{adj}
 \DeclareMathOperator{\sgn}{sgn}
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
+\AtBeginDocument{
+    \renewcommand{\Re}{\operatorname{Re}}
+    \renewcommand{\Im}{\operatorname{Im}}
 
-\renewcommand{\gcd}{\text{НОД}}
+    \renewcommand{\gcd}{\text{НОД}}
+}
 \newcommand{\lcm}{\text{НОК}}
 
 % Slant inequality signs insertion

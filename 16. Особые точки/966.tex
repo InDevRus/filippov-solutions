@@ -9,19 +9,21 @@
 $y\'\br{x} = \dfrac {2x - y} {x - y}$. Это уравнение задаёт траектории, например, системы $\tsys{& \dot{x} = x - y \\& \dot{y} = 2x - y}$.
 $A = \begin{pmatrix} 1 & -1 \\ 2 & -1 \end{pmatrix}$.
 $\det\br{\lambda E - A} = \br{\lambda - 1}\br{\lambda + 1} + 2 = \pow{\lambda}{2} + 1$.
-$\lambda_{1} = -i$, $\lambda_{2} = i$.
+$\sub{\lambda}{1} = -i$, $\sub{\lambda}{2} = i$.
 
 Итак, особая точка $\br{0; 0}$ -- это <<центр>>.
 
 Это означает, что решение дифференциального уравнения можно получить даже в явном виде.
-$y\' = \dfrac {2 - \frac {y} {x}} {1 - \frac {y} {x}}$.
+$y\' = \dfrac {2 - z} {1 - z}$, где
 $y = z\br{x} \cdot x$.
 $\dfrac {z - 1} {\pow{z}{2} - 2z + 2} z\' + \dfrac {1} {x} = 0$.
 $\dfrac {1} {2} \ln\vbr{\pow{z}{2} - 2z + 2} + \ln\vbr{x} = C$.
 $\br{\br{z - 1}^2 + 1} \pow{x}{2} = \pow{C}{2}$.
 $\br{y - x}^2 + \pow{x}{2} = \pow{C}{2}$.
 $\pow{y}{2} + 2\pow{x}{2} - 2xy = \pow{C}{2}$.
-Эта квадратичная форма задаёт эллипсы, в чём несложно убедиться, приведя эту форму к каноническому виду, для чего достаточно сделать поврот на угол $\alpha = \arctg\br{\dfrac {1 + \sqrt{5}} {2}}$.
+Эта квадратичная форма задаёт эллипсы, в чём несложно убедиться, приведя эту форму к
+каноническому виду, для чего достаточно сделать поврот на угол
+$\alpha = \arctg\br{\dfrac {1 + \sqrt{5}} {2}}$.
 Подстановка $\tsys{& x = \cos\br{\alpha} u - \sin\br{\alpha} v \\& y = \sin\br{\alpha} u + \cos\br{\alpha} v}$ приводит к форме $\dfrac {\pow{u}{2}} {\pow{a}{2}} + \dfrac {\pow{v}{2}} {\pow{b}{2}} = \pow{C}{2}$, где $a = \dfrac {1 + \sqrt{5}} {2}$, $b = \dfrac {1 - \sqrt{5}} {2}$.
 
 \begin{floatingfigure}{0.5\textwidth}

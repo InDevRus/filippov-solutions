@@ -5,21 +5,29 @@
 \input{../preambles/plotting}
 
 \begin{document}
-
 $y\'\br{x} = \dfrac {-2x + 4y} {x + y}$. $A = \begin{pmatrix} 1 & 1 \\ -2 & 4 \end{pmatrix}$.
-$\det\br{\lambda E - A} = \br{\lambda - 1}\br{\lambda - 4} + 2 = \pow{\lambda}{2}  - 5\lambda + 6$.
-$\lambda_{1} = 2$, $\lambda_{2} = 3$. Особая точка является <<узлом>>.
+$\det\br{\lambda E - A} = \br{\lambda - 1}\br{\lambda - 4} + 2 
+= \pow{\lambda}{2}  - 5\lambda + 6$.
+$\sub{\lambda}{1} = 2$, $\sub{\lambda}{2} = 3$.
+Особая точка является <<узлом>>.
 
-$A - \lambda_{1}E = 
+$A - \sub{\lambda}{1}E =
 \begin{pmatrix} -1 & 1 \\ -2 & 2 \end{pmatrix}
-\sim \begin{pmatrix} -1 & 1 \end{pmatrix}$, $v_{1} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.
-$A - \lambda_{2}E = 
+\sim \begin{pmatrix} -1 & 1 \end{pmatrix}$, $\sub{v}{1} 
+= \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.
+$A - \sub{\lambda}{2}E =
 \begin{pmatrix} -2 & 1 \\ -2 & 1 \end{pmatrix}
-\sim \begin{pmatrix} -2 & 1 \end{pmatrix}$, $v_{2} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$.
-$\lambda_{1}$ по модулю меньше, так что прямая $y_{1} = x$ будет являться касательной для всех траекторий (частных решений) в начале координат, кроме $y_{2} = 2x$.
+\sim \begin{pmatrix} -2 & 1 \end{pmatrix}$,
+$\sub{v}{2} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$.
+$\sub{\lambda}{1}$ по модулю меньше, так что прямая $\sub{y}{1} = x$
+будет являться касательной для всех траекторий (частных решений) в начале координат, кроме
+$\sub{y}{2} = 2x$.
 
 Решения можно построить как при помощи изоклин, так и путём построения графика параметрических функций: 
-$\tsys{& x = \pm f\br{p} \\& y = \pm p f\br{p} }$, где $f\br{p} = C \dfrac {\br{p - 1}^2} {\br{p - 2}^3}$.
+$\tsys{
+    & x = \pm \f\br{p} \\
+    & y = \pm p \f\br{p} 
+}$, где $f\br{p} = C \dfrac {\br{p - 1}^2} {\br{p - 2}^3}$.
 На левом рисунке указаны изоклины, на правом -- истиные траектории.
 
 \begin{figure}[!ht]

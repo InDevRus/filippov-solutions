@@ -9,15 +9,22 @@
 $\tsys{& \dot{x} = 2x - y \\& \dot{y} = x}$.
 $A = \begin{pmatrix} 2 & -1 \\ 1 & 0 \end{pmatrix}$.
 $\det\br{\lambda E - A} = \lambda \br{\lambda - 2} + 1$.
-$\lambda_{1} = \lambda_{2} = 1$. Особая точка является <<вырожденным узлом>>, причём неустойчивым, так как $\lambda_{1} = \lambda_{2} > 0$.
+$\sub{\lambda}{1} = \sub{\lambda}{2} = 1$.
+Особая точка является <<вырожденным узлом>>, причём неустойчивым, 
+так как $\sub{\lambda}{1} = \sub{\lambda}{2} > 0$.
 
-$A - \lambda_{1}E = 
+$A - \sub{\lambda}{1}E =
 \begin{pmatrix} 1 & -1 \\ 1 & -1 \end{pmatrix}
-\sim \begin{pmatrix} 1 & -1 \end{pmatrix}$, $v_{1} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.
-Единственная сепаратриса $y_{1} = x$ будет являться касательной для всех траекторий в начале координат.
+\sim \begin{pmatrix} 1 & -1 \end{pmatrix}$,
+ $\sub{v}{1} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.
+Единственная сепаратриса $\sub{y}{1} = x$
+будет являться касательной для всех траекторий в начале координат.
 
 Решения можно построить как при помощи изоклин, так и путём построения графика параметрических функций: 
-$\tsys{& x = \pow{e}{t} \br{t + 1} + C t \pow{e}{t} \\& y = t \pow{e}{t} + C \pow{e}{t} \br{t - 1} }$.
+$\tsys{
+    & x = \pow{e}{t} \br{t + 1} + C t \pow{e}{t} \\
+    & y = t \pow{e}{t} + C \pow{e}{t} \br{t - 1}
+}$.
 На левом рисунке указаны изоклины, на правом -- траектории.
 
 \begin{figure}[!ht]
