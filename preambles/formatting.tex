@@ -1,0 +1,61 @@
+\AtBeginDocument{
+    % Force spacing between lines
+    \setlength{\lineskiplimit}{1mm}
+    \setlength{\lineskip}{1mm}
+    % Set vertical spacing around math environments
+    \setlength{\abovedisplayskip}{0.5mm}
+    \setlength{\belowdisplayskip}{0.5mm}
+    \setlength{\abovedisplayshortskip}{0.25mm}
+    \setlength{\belowdisplayshortskip}{0.25mm}
+
+    \newmathcommand{\f}{\hspace{0.075em}f\hspace{-0.075em}}
+    \renewmathcommand{\j}{\hspace{0.15em}j}
+    \newmathcommand{\x}{\hspace{0.05em} x}
+    \newmathcommand{\y}{\hspace{0.05em} y}
+
+    % Add indentations inside display-style fractions
+    \let\ddfrac\dfrac
+    \renewcommand{\dfrac}[3][0.1em]{
+        \directlua{
+            local left_spacings = {
+                A = 0.05, H = 0.05, N = 0.025,
+                x = 0.05, z = 0.05, y = 0.05,
+                a = 0.05, b = 0.05, c = 0.05, e = 0.025,
+                f = 0.15, g = 0.1, h = 0.05, i = 0.05, j = 0.15,
+                n = 0.05, o = 0.05, p = 0.1, q = 0.05, r = 0.025, s = 0.075,
+                t = 0.025, x = 0.05, z = 0.05, y = 0.05, z = 0.05
+            }
+            local right_spacings = {
+                C = -0.045, E = -0.031, F = -0.065, G = -0.012,
+                H = -0.095, I = -0.085, J = -0.11, K = -0.07,
+                M = -0.1, N = -0.1, O = -0.005, P = -0.02,
+                S = -0.05, T = -0.1, U = -0.1,
+                V = -0.12, W = -0.12, X = -0.135, Y = -0.12,
+                Z = -0.06, d = -0.05, f = -0.05, g = -0.03,
+                j = -0.01, k = -0.05, l = -0.025, r = -0.025,
+                t = -0.02, v = -0.005, z = -0.01, y = 0.05
+            }
+            local indent = "\luaescapestring{\unexpanded{#1}}"
+            indent = "\\hspace{" .. indent .. "}"
+            local numerator = "\luaescapestring{\unexpanded{#2}}"
+            local denominator = "\luaescapestring{\unexpanded{#3}}"
+            local numerator_left_spacing = left_spacings[numerator:sub(1, 1)] or 0
+            local numerator_right_spacing = right_spacings[numerator:sub(-1)] or 0
+            local denominator_left_spacing = left_spacings[denominator:sub(1, 1)] or 0
+            local denominator_right_spacing = right_spacings[denominator:sub(-1)] or 0
+            if numerator_left_spacing == 0 then else
+                numerator = "\\kern" .. numerator_left_spacing .. "em " .. numerator
+            end
+            if numerator_right_spacing == 0 then else
+                numerator = numerator .. "\\kern" .. numerator_right_spacing .. "em "
+            end
+            if denominator_left_spacing == 0 then else
+                denominator = "\\kern" .. denominator_left_spacing .. "em " .. denominator
+            end
+            if numerator_right_spacing == 0 then else
+                denominator = denominator .. "\\kern" .. denominator_right_spacing .. "em "
+            end
+            tex.print("\\ddfrac{" .. indent .. numerator .. indent .. "}{" .. indent .. denominator .. indent .. "}")
+        }
+    }
+}
