@@ -1,3 +1,58 @@
+\directlua{
+    left_spacings = {
+        A = 0.05, H = 0.05, N = 0.025, a = 0.05, b = 0.05, c = 0.05,
+        e = 0.025, f = 0.15, g = 0.1, h = 0.05, i = 0.05, j = 0.2,
+        m = 0.05, n = 0.05, o = 0.05, p = 0.1, q = 0.05, r = 0.025,
+        s = 0.075, t = 0.025, x = 0.05, z = 0.05, y = 0.075, z = 0.05
+    }
+    right_spacings = {
+        C = -0.045, E = -0.031, F = -0.065, G = -0.012,
+        H = -0.095, I = -0.085, J = -0.11, K = -0.07,
+        M = -0.1, N = -0.1, O = -0.005, P = -0.02,
+        S = -0.05, T = -0.1, U = -0.1,
+        V = -0.12, W = -0.12, X = -0.135, Y = -0.12,
+        Z = -0.06, d = -0.05, f = -0.05, g = -0.03,
+        j = -0.01, k = -0.05, l = -0.025, r = -0.025,
+        t = -0.02, v = -0.005, z = -0.01, y = 0.075
+    }
+
+    function match_first_letter(math_token)
+        return math_token:match("^ *\\subpow *[^ a-zA-Z] *([a-zA-Z])")
+            or math_token:match("^ *\\pow *[^ a-zA-Z] *([a-zA-Z])")
+            or math_token:match("^ *\\sub *[^ a-zA-Z] *([a-zA-Z])")
+            or math_token:match("^ *([a-zA-Z])")
+            or ""
+        end
+
+    function match_last_letter(math_token)
+        return math_token:match("([a-zA-Z]) *$") or ""
+    end
+
+    function compute_dfrac(indent, numerator, denominator, vphantom)
+        indent = "\\hspace{" .. indent .. "}"
+        local numerator_left_spacing = left_spacings[match_first_letter(numerator)] or 0
+        local numerator_right_spacing = right_spacings[match_last_letter(numerator)] or 0
+        local denominator_left_spacing = left_spacings[match_first_letter(denominator)] or 0
+        local denominator_right_spacing = right_spacings[match_last_letter(denominator)] or 0
+        if numerator_left_spacing == 0 then else
+            numerator = "\\kern" .. numerator_left_spacing .. "em " .. numerator
+        end
+        if numerator_right_spacing == 0 then else
+            numerator = numerator .. "\\kern" .. numerator_right_spacing .. "em "
+        end
+        if denominator_left_spacing == 0 then else
+            denominator = "\\kern" .. denominator_left_spacing .. "em " .. denominator
+        end
+        if denominator_right_spacing == 0 then else
+            denominator = denominator .. "\\kern" .. denominator_right_spacing .. "em "
+        end
+        if vphantom == "" then else
+            numerator = numerator .. "\\vphantom{" .. vphantom .. "}"
+        end
+        tex.print("\\ddfrac{" .. indent .. numerator .. indent .. "}{" .. indent .. denominator .. indent .. "}")
+    end
+}
+
 \AtBeginDocument{
     % Force spacing between lines
     \setlength{\lineskiplimit}{1mm}
@@ -12,50 +67,26 @@
     \renewmathcommand{\j}{\hspace{0.15em}j}
     \newmathcommand{\x}{\hspace{0.05em} x}
     \newmathcommand{\y}{\hspace{0.05em} y}
+    \newmathcommand{\dfracphantom}{\vphantom{y}}
 
     % Add indentations inside display-style fractions
     \let\ddfrac\dfrac
     \renewcommand{\dfrac}[3][0.1em]{
         \directlua{
-            local left_spacings = {
-                A = 0.05, H = 0.05, N = 0.025,
-                x = 0.05, z = 0.05, y = 0.05,
-                a = 0.05, b = 0.05, c = 0.05, e = 0.025,
-                f = 0.15, g = 0.1, h = 0.05, i = 0.05, j = 0.15,
-                n = 0.05, o = 0.05, p = 0.1, q = 0.05, r = 0.025, s = 0.075,
-                t = 0.025, x = 0.05, z = 0.05, y = 0.05, z = 0.05
-            }
-            local right_spacings = {
-                C = -0.045, E = -0.031, F = -0.065, G = -0.012,
-                H = -0.095, I = -0.085, J = -0.11, K = -0.07,
-                M = -0.1, N = -0.1, O = -0.005, P = -0.02,
-                S = -0.05, T = -0.1, U = -0.1,
-                V = -0.12, W = -0.12, X = -0.135, Y = -0.12,
-                Z = -0.06, d = -0.05, f = -0.05, g = -0.03,
-                j = -0.01, k = -0.05, l = -0.025, r = -0.025,
-                t = -0.02, v = -0.005, z = -0.01, y = 0.05
-            }
             local indent = "\luaescapestring{\unexpanded{#1}}"
-            indent = "\\hspace{" .. indent .. "}"
             local numerator = "\luaescapestring{\unexpanded{#2}}"
             local denominator = "\luaescapestring{\unexpanded{#3}}"
-            local numerator_left_spacing = left_spacings[numerator:sub(1, 1)] or 0
-            local numerator_right_spacing = right_spacings[numerator:sub(-1)] or 0
-            local denominator_left_spacing = left_spacings[denominator:sub(1, 1)] or 0
-            local denominator_right_spacing = right_spacings[denominator:sub(-1)] or 0
-            if numerator_left_spacing == 0 then else
-                numerator = "\\kern" .. numerator_left_spacing .. "em " .. numerator
-            end
-            if numerator_right_spacing == 0 then else
-                numerator = numerator .. "\\kern" .. numerator_right_spacing .. "em "
-            end
-            if denominator_left_spacing == 0 then else
-                denominator = "\\kern" .. denominator_left_spacing .. "em " .. denominator
-            end
-            if numerator_right_spacing == 0 then else
-                denominator = denominator .. "\\kern" .. denominator_right_spacing .. "em "
-            end
-            tex.print("\\ddfrac{" .. indent .. numerator .. indent .. "}{" .. indent .. denominator .. indent .. "}")
+            compute_dfrac(indent, numerator, denominator, "")
+        }
+    }
+
+    % Display-style fraction with vertical indent
+    \newmathcommand{\dvfrac}[3][0.1em]{
+        \directlua{
+            local indent = "\luaescapestring{\unexpanded{#1}}"
+            local numerator = "\luaescapestring{\unexpanded{#2}}"
+            local denominator = "\luaescapestring{\unexpanded{#3}}"
+            compute_dfrac(indent, numerator, denominator, "y")
         }
     }
 }

@@ -34,9 +34,15 @@
 % Norm operator
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
+% Ordinary derivatives shortcuts
+\newcommand{\tder}[3][]{\ifthenelse{\isempty{#1}} {\frac{d #2}{d #3}} {\frac{\pow{d}{#1} #2}{d \pow{#3}{#1}}}}
+\newcommand{\der}[3][]{\ifthenelse{\isempty{#1}} {\dfrac{d #2}{d #3}} {\dfrac{\pow{d}{#1} #2}{d \pow{#3}{#1}}}}
+\newcommand{\vder}[3][]{\ifthenelse{\isempty{#1}} {\dvfrac{d #2}{d #3}} {\dvfrac{\pow{d}{#1} #2}{d \pow{#3}{#1}}}}
+
 % Partial derivatives, 1-st order
 \newcommand{\tparder}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\parder}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\vparder}[2]{\dvfrac{\partial #1}{\partial #2}}
 
 % Partial derivatives, 2-nd order
 \newcommand{\tpardersecond}[3][]{
@@ -44,6 +50,9 @@
 }
 \newcommand{\pardersecond}[3][]{
     \ifthenelse{\isempty{#1}}{\dfrac {\pow{\partial}{2} #2} {\pow{\partial}{2} \pow{#3}{2}}}{\dfrac {\pow{\partial}{2} #1} {\partial #2 \partial #3}}
+}
+\newcommand{\vpardersecond}[3][]{
+    \ifthenelse{\isempty{#1}}{\dvfrac {\pow{\partial}{2} #2} {\pow{\partial}{2} \pow{#3}{2}}}{\dvfrac {\pow{\partial}{2} #1} {\partial #2 \partial #3}}
 }
 
 % Automatic brackets placement with adjustable spacing
@@ -57,3 +66,4 @@
 
 % Alias for differential sign
 \renewcommand{\d}{\odif}
+

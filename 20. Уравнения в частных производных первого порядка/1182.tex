@@ -5,11 +5,13 @@
 \input{../preambles/general}
 
 \begin{document}
+    $\dfrac {\pow{d}{2} x}{d \pow{y}{2}} \der[2]{t}{x}$
+    
     $y \parder{z} {x} + z \parder{z} {y} = \dfrac {y} {x}$.
     $x \parder{z} {x} + \dfrac {xz} {y} \parder{z} {y} = 1$,
-    причём $z\br{x; y} = 0$ частным решением не является.
+    причём $z\br{x; y} = 0$ -- не решение.
 
-    $\dfrac {\d x} {x} = \dfrac {y \d y} {xz} = {\d z}$.
+    $\dvfrac {\d x} {x} = \dfrac {y \d y} {xz} = {\d z}$.
     
     \begin{enumerate}
         \item $\dfrac {\d x} {x} = \d z$.
@@ -17,8 +19,8 @@
         $A = x \tpow {e}{-z}$.
         
         \item С учётом полученного выше интеграла, рассмотрим уравнение
-        $\dfrac {\d y} {\d z} = \dfrac {xz} {y}$. \\
-        $\dfrac {\d y} {\d z} = \dfrac {Az \tpow{e}{z}} {y}$.
+        $\der{y}{z} = \dvfrac {xz} {y}$. \\
+        $\der{y}{z} = \dvfrac {Az \tpow{e}{z}} {y}$.
         $y \d y = Az \tpow {e} {z} \d z$.
         $\pow{y}{2} = 2A \br{z - 1} \tpow {e} {z} + B = 2x\br{z - 1} + B$.
         $\pow{y}{2} - 2x\br{z - 1} = B$.

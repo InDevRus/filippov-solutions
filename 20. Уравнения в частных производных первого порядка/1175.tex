@@ -6,23 +6,26 @@
 
 \begin{document}
     $x \parder{z} {x} + 2y \parder{z} {y} = \pow{x}{2} y + z$.
-    $\dfrac {\d x} {x} = \dfrac {\d y} {2y} = \dfrac {\d z} {\pow{x}{2} y + z}$.
+    $\dvfrac {\d x} {x} = \dvfrac {\d y} {2y} = \dvfrac {\d z} {\pow{x}{2} y + z}$.
 
-    $\dfrac {\d x} {x} = \dfrac {\d y} {2y}$
+    $\dvfrac {\d x} {x} = \dfrac {\d y} {2y}$
     представляет собой интегрируемую комбинацию.
     $2\ln\vbr{x} = \ln\vbr{y} + A$.
     $\dfrac {y} {\pow{x}{2}} = A$.
     Далее подставим в
-    $\dfrac {\d x} {x} = \dfrac {\d z} {\pow{x}{2} y + z}$ первый интеграл $y = A\pow{x}{2}$:
-    $\dfrac {\d z} {\d x} = \dfrac {\pow{x}{2} y + z} {x} = xy + \dfrac {z} {x} = \linebreak = A\pow{x}{3} + \dfrac {z} {x}$.
+    $\dvfrac {\d x} {x} = \dvfrac {\d z} {\pow{x}{2} y + z}$ первый интеграл
+    $y = A\pow{x}{2}$:
+    $$\der{z}{x} = \dvfrac {\pow{x}{2} y + z} {x}
+    = xy + \dvfrac {z} {x} = A\pow{x}{3} + \dvfrac {z} {x}.$$
     Получилось линейное уравнение первого порядка.
     $xz\' - z = A\pow{x}{4}$.
-    $\dfrac {xz\' - z} {\pow{x}{2}} = \linebreak = \dfrac {d} {\d x} \br{\dfrac {z} {x}} = A\pow{x}{2}$.
-    $\dfrac {z} {x} = \dfrac {A} {3} \pow{x}{3} + B$.
-    $B = \dfrac {z} {x} - \dfrac {A} {3} \pow{x}{3} = \dfrac {z} {x} - \dfrac {xy} {3}$.
+    $\dvfrac {xz\' - z} {\pow{x}{2}} = \vder{}{x} \br{\dvfrac{z}{x}} = \linebreak = A\pow{x}{2}$.
+    $\dvfrac{z}{x} = \dfrac {A} {3} \pow{x}{3} + B$.
+    $B = \dvfrac{z}{x} - \dfrac {A} {3} \pow{x}{3} = \dvfrac{z}{x} - \dfrac {xy} {3}$.
 
     Итак, общее решение имеет вид
-    $F\br{\dfrac {y} {\pow{x}{2}}; \dfrac {z} {x} - \dfrac {xy} {3}} = 0$.
-    $\dfrac {z} {x} - \dfrac {xy} {3} = f\br{\dfrac {y} {\pow{x}{2}}}$. В явном виде искомые функции имеют вид
-    $z\br{x; y} = \dfrac {\pow{x}{2} y} {3} + x f\br{\dfrac {y} {\pow{x}{2}}}$.
+    $F\br{\dfrac {y} {\pow{x}{2}}; \dvfrac{z}{x} - \dfrac {xy} {3}} = 0$.
+    $\dvfrac{z}{x} - \dfrac {xy} {3} = f\br{\dfrac {y} {\pow{x}{2}}}$.
+     В явном виде искомые функции имеют вид
+    $z\br{x; y} = \dfrac {\pow{x}{2} y} {3} + x \f\br{\dfrac {y} {\pow{x}{2}}}$.
 \end{document}
