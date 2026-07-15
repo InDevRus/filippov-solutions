@@ -1,0 +1,38 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\br{x + z} \parder{z} {x} + \br{y + z} \parder{z} {y} = x + y$.
+    
+    $\dvfrac {\d x} {x + z} = \dvfrac {\d y} {y + z} = \dvfrac {\d z} {x  + y}$.
+    
+    \begin{enumerate}
+        \item Первую интегрируемую комбинацию можно усмотреть, если
+        сложить числители и знаменатели всех трёх дробей и потом вычесть $\d x - \d y$,
+        что будет пропорционально $x - y$.
+        Таким образом,
+        $\dfrac {\d x + \d y + \d z} {2\br{x + y + z}} = \dvfrac {\d x - \d y} {x - y}$.
+        $\dfrac {1} {2} \ln\vbr{x + y + z} = \ln\vbr{x - y} + A$.
+        $\dfrac {x + y + z} {\br{x - y}^2} = A$.
+        
+        \item Вторую интегрирумую комбинацию получим следующим образом: заметим,
+        что производные пропорции
+        $\dvfrac {\d z - \d x}{y - z}$ и $\dvfrac {\d z - \d y}{x - z}$,
+        по свойству равные исходным, имеют числители и знаменатели, 
+        дополняющие друг друга до полного дифференциала:
+        $$\dvfrac {\br{\d z - \d x} + \br{\d z - \d y}}{\br{y - z} + \br{x - z}}
+        = \dvfrac {-\d{\br{2z - x - y}}} {2z - x - y}
+        = - \d{\ln\vbr{2z - x - y}}.$$
+        Соответственно, полученное выражение по свойству производных пропорций равно
+        всем ранее полученным, и в частности
+        $- \d{\ln\vbr{2z - x - y}} = \dvfrac {\d x - \d y} {x - y} = \d{\ln\vbr{x - y}}$,
+        то есть
+        $\br{2z - x - y}\br{x - y} = B$.
+    \end{enumerate}
+    
+    Получаем общее решение
+    $F\br{\dvfrac{x + y + z} {\br{x - y}^2}; \br{2z - x - y}\br{x - y}} = 0$.
+\end{document}
