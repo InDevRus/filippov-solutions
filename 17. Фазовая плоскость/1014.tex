@@ -9,22 +9,26 @@
 
 $\ddot{x} = -2\dot{x} - x - \pow{\dot{x}}{2}$.
 $\tsys{& \dot{x}\br{t} = y \\& \dot{y}\br{t} = -x - 2y - \pow{y}{2}}$.
-$\dfrac {\d y} {\d x} = \dfrac {-x - 2y - \pow{y}{2}} {y} = \dfrac {-x - 2y + O\br{\pow{y}{2}}} {y}$.
+$\der{y}{x} = \dfrac {-x - 2y - \pow{y}{2}\vphantom{O\br{y^2}}} {y}
+= \dfrac {-x - 2y + O\br{\pow{y}{2}}} {y}$.
 
 Особой будет лишь точка $M\br{0; 0}$.
-Линеаризованное уравнение $\dfrac {\d y} {\d x} = \dfrac {-x - 2y} {y}$
+Линеаризованное уравнение $\der{y}{x} = \dfrac {-x - 2y} {y}$
 имеет матрицу
 $A = \begin{pmatrix} 0 & 1 \\ -1 & -2 \end{pmatrix}$
-и характеристическое уравнение $\pow{\lambda}{2} + 2\lambda + 1 = 0$, $\lambda_{1} = \lambda_{2} = -1$.
+и характеристическое уравнение $\pow{\lambda}{2} + 2\lambda + 1 = 0$,
+$\lambda_{1} = \lambda_{2} = -1$.
 Таким образом, $M\br{0; 0}$ -- вырожденный узел, устойчивый для системы.
 
 Асимптотическую устойчивость также можно показать, используя функцию Ляпунова
 $v\br{x; y} = 2\pow{x}{2} + \pow{y}{2} + xy$,
-$\dfrac {\d v} {\d t} \bigg| = -\pow{x}{2} - 3\pow{y}{2} - x\pow{y}{2} - 2\pow{y}{3} = -\pow{x}{2} - \pow{y}{2}\br{x + 1} - 2\pow{y}{2}\br{y + 1} < 0$
+$\der{v}{t} \Bigg| = -\pow{x}{2} - 3\pow{y}{2} - x\pow{y}{2} - 2\pow{y}{3}
+= -\pow{x}{2} - \pow{y}{2}\br{x + 1} - 2\pow{y}{2}\br{y + 1} < 0$
 при 
 $0 < \sqrt{\pow{x}{2} + \pow{y}{2}} < \sub{\epsilon}{0} = 1$.
 
-$A - \lambda E = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \sim \begin{pmatrix} 1 & 1 \end{pmatrix}$,
+$A - \lambda E = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} 
+\sim \begin{pmatrix} 1 & 1 \end{pmatrix}$,
 $v_{1} = \begin{pmatrix} 1 \\ -1 
 \end{pmatrix}$
 и касательной будет прямая $y = -x$.
@@ -32,8 +36,9 @@ $v_{1} = \begin{pmatrix} 1 \\ -1
 Траектории построим при помощи изоклин $x = -\pow{y}{2} - \br{k + 2} y$,
 представленных на левом графике.
 График справа содержит решения уравнения без малых возмущений 
-$y\' = \dfrac {-x - 2y} {y}$ -- кривые $y + x = C \exp\br{- \dfrac {x} {y + x}}$.
-Из графика видно, что в окрестности особой точки такие кривые пренебрежимо мало отличаются от настоящих решений.
+$y\' = \dfrac {-x - 2y} {y}$ -- кривые $y + x = C \exp\br{- \dvfrac {x} {y + x}}$.
+Из графика видно, что в окрестности особой точки такие кривые пренебрежимо мало 
+отличаются от настоящих решений.
 
 \begin{figure}[!h]
     \begin{minipage}{.5\textwidth}
