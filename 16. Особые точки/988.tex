@@ -10,9 +10,9 @@
     При $r\br{\xi; \phi} = \sqrt{\pow{\xi}{2} + \pow{\phi}{2}} \to 0$
     имеем $\xi \phi = O\br{\pow{r}{2}}$.
     В частности
-    $\dfrac{\xi \phi} {\pow{r}{1 + \epsilon}} 
-    = \dfrac {\gamma\br{r} \pow{r}{2}} {\pow{r}{1 + \epsilon}} \to 0$ 
-    для всех $\epsilon \in \br{0; 1}$.
+    $$\dfrac{\xi \phi} {\pow{r}{1 + \epsilon}} 
+    = \dfrac {\gamma\br{r} \pow{r}{2}} {\pow{r}{1 + \epsilon}} \to 0
+    \text{ для всех }\epsilon \in \br{0; 1}.$$
     
     Действительно, 
     $0 \le \br{\vbr{\xi} - \vbr{\phi}}^2$
@@ -62,16 +62,20 @@ $\tsys{
         & = - \dfrac {\phi} {4} + O\br{\pow{r}{2}}.
     \end{aligned}$
     
-    $\dot{\phi} = \arctg\br{\pow{x}{2} + x\phi - 2x} = \pow{x}{2} + x\phi - 2x + O\br{\br{\pow{x}{2} + x\phi - 2x}^3} = -2x + O\br{\pow{r}{2}}$.
-    $A = \begin{pmatrix} 0 & - \frac {1} {4}  \\ -2 & \hspace{2mm} 0 \end{pmatrix}$.
+    $\dot{\phi} = \arctg\br{\pow{x}{2} + x\phi - 2x} 
+    = \pow{x}{2} + x\phi - 2x + O\br{\br{\pow{x}{2} + x\phi - 2x}^3} 
+    = -2x + O\br{\pow{r}{2}}$.
+    $A = \begin{pmatrix} 0 & - \frac {1} {4} \vspace{1mm}  \\ -2 & \hspace{2mm} 0 \end{pmatrix}$.
     $\pow{\lambda}{2} - \dfrac {1} {2} = 0$.
-    $\sub{\lambda}{1} = -\dfrac {1} {\sqrt{2}}$, $\sub{\lambda}{2} = \dfrac {1} {\sqrt{2}}$, а особая точка $\sub{A}{1}\br{0; -2}$ -- <<седло>>.
+    $\sub{\lambda}{1} = -\dfrac {1} {\sqrt{2}}$,
+    $\sub{\lambda}{2} = \dfrac {1} {\sqrt{2}}$,
+    а особая точка $\sub{A}{1}\br{0; -2}$ -- <<седло>>.
     
     Найдём сепаратрисы. 
     $A - \sub{\lambda}{1} E \sim \begin{pmatrix} -2\sqrt{2} & 1\end{pmatrix}$,
     $\sub{v}{1} = \begin{pmatrix} 1 \\ 2\sqrt{2} \end{pmatrix}$,
     $\sub{\phi}{1} = 2\sqrt{2} x$.
-    Аналогично, 
+    Аналогично,
     $A - \sub{\lambda}{2} E \sim \begin{pmatrix} 2\sqrt{2} & 1\end{pmatrix}$,
     $\sub{v}{2} = \begin{pmatrix} 1 \\ -2\sqrt{2} \end{pmatrix}$,
     $\sub{\phi}{2} = -2\sqrt{2} x$.
@@ -128,10 +132,12 @@ $\tsys{
     $\dot{\phi} = \arctg\br{\br{\xi - 2} \br{\xi + \phi}}
     = \pow{\xi}{2} - 2\xi + \xi \phi - 2\phi + O\br{\pow{r}{3}}
     = -2\xi - 2\phi + O\br{\pow{r}{2}}$.
-    $A = \begin{pmatrix} -1 & - \frac {1} {4}  \\ 1 & \hspace{2mm} 1 \end{pmatrix}$.
+    $A = \begin{pmatrix} -1 \vspace{1mm} & - \frac {1} {4}  \\ 1 & \hspace{2mm} 1 \end{pmatrix}$.
     $\sub{\lambda}{1} = \dfrac {-3 - \sqrt{3}} {2}$.
     $\sub{\lambda}{2} = \dfrac {-3 + \sqrt{3}} {2}$.
-    $\sub{\lambda}{1} < \sub{\lambda}{2} < 0$, поэтому особая точка $\sub{A}{3}\br{-2; 2}$ -- <<узел>>, при этом устойчивый.
+    $\sub{\lambda}{1} < \sub{\lambda}{2} < 0$,
+    поэтому особая точка $\sub{A}{3}\br{-2; 2}$
+    -- <<узел>>, при этом устойчивый.
     В полной аналогии с предыдущими случаями находим
     $\sub{v}{1} = \begin{pmatrix} 1 \\ 2 + 2\sqrt{3} \end{pmatrix}$,
     $\sub{v}{2} = \begin{pmatrix} 1 \\ 2 - 2\sqrt{3} \end{pmatrix}$;

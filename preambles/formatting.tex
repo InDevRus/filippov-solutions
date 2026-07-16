@@ -67,6 +67,7 @@
     \renewmathcommand{\j}{\hspace{0.15em}j}
     \newmathcommand{\x}{\hspace{0.05em} x}
     \newmathcommand{\y}{\hspace{0.05em} y}
+    \newmathcommand{\p}{\ \! p}
     \newmathcommand{\dfracphantom}{\vphantom{y}}
 
     % Add indentations inside display-style fractions
@@ -89,4 +90,8 @@
             compute_dfrac(indent, numerator, denominator, "y")
         }
     }
+
+    \let\ffrac\frac
+    \renewcommand{\frac}[3][0.1em]{\ffrac{\kern#1 #2 \kern #1}{\kern#1 #3 \kern#1}}
+    \newcommand{\vfrac}[3][0.1em]{\ffrac{\kern#1 #2 \vphantom{y} \kern #1}{\kern#1 #3 \kern#1}}
 }

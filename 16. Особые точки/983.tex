@@ -22,7 +22,7 @@ $\tsys{
 
 \begin{enumerate}[label = \arabic*)]
     \item $\tsys{& x = \xi - 1 \\& y = \phi - 1}$.
-    $\dfrac {d\phi} {\d \xi}
+    $\der{\phi}{\xi}
     = \dfrac {\br{\xi - 1}^2 + \br{\phi - 1}^2 - 2} {\br{\xi - 1} - \br{\phi - 1}}
     = \dfrac {-2\xi - 2\phi + \sub{\psi}{\phi}\br{\xi; \phi}} {\xi - \phi}$,
     притом что
@@ -31,7 +31,7 @@ $\tsys{
     + \pow{\phi}{2}} \to 0$ при $r\br{\xi; \phi} \to 0$.
     
     Итак, уравнение с выделенными линейными частями имеет вид
-    $\dfrac {d\phi} {\d \xi} = \dfrac {-2\xi - 2\phi} {\xi - \phi}$.
+    $\der{\phi}{\xi} = \dfrac {-2\xi - 2\phi} {\xi - \phi}$.
     $A = \begin{pmatrix} 1 & -1 \\ -2 & -2 \end{pmatrix}$.
     $\det\br{A - \lambda E} = \pow{\lambda}{2} + \lambda - 4 = 0$.
     $\sub{\lambda}{1} = \dfrac {-1 - \sqrt{17}} {2} < 0$, 
@@ -45,10 +45,17 @@ $\tsys{
     $\sub{v}{2} = \begin{pmatrix} 2 \\ 3 - \sqrt{17} \end{pmatrix}$
     и сепаратрису $\sub{\phi}{2} = \dfrac {3 - \sqrt{17}} {2} \xi$.
     
-    \item $\tsys{& x = \xi + 1 \\& y = \phi + 1}$. $\dfrac {d\phi} {\d \xi} = \dfrac {2\xi + 2\phi + \pow{\xi}{2} + \pow{\phi}{2}} {\xi - \phi}$.
-    Уравнение с исключительно линейными частями -- это $\dfrac {d\phi}  {\d \xi} = \dfrac {2\xi + 2\phi} {\xi - \phi}$.
+    \item $\tsys{
+        & x = \xi + 1 
+        \\& y = \phi + 1
+    }$.
+    $\der{\phi}{\xi}
+    = \dfrac {2\xi + 2\phi + \pow{\xi}{2} + \pow{\phi}{2}} {\xi - \phi}$.
+    Уравнение с исключительно линейными частями -- это 
+    $\der{\phi}{\xi} = \dfrac {2\xi + 2\phi} {\xi - \phi}$.
     $A = \begin{pmatrix} 1 & -1 \\ 2 & 2 \end{pmatrix}$.
-    $\det\br{A - \lambda E} = \pow{\lambda}{2} - 3\lambda + 4 = 0$. $\sub{\lambda}{1, 2} = \linebreak = \dfrac {3 \mp \sqrt{7} i} {2}$,
+    $\det\br{A - \lambda E} = \pow{\lambda}{2} - 3\lambda + 4 = 0$.
+    $\sub{\lambda}{1, 2} = \linebreak = \dfrac {3 \mp \sqrt{7} i} {2}$,
     и особая точка $\sub{A}{2}\br{1; 1}$ -- <<фокус>>.
 \end{enumerate}
 
