@@ -12,7 +12,7 @@
 \begin{framed}
     \begin{property}[интегрирующего множителя уравнения в дифференциальной форме]
         Если у уравнения
-        $M\br{x; y} \d x + N\br{x; y} \d y = 0$
+        $M\br{x; y} \di x + N\br{x; y} \di y = 0$
         есть интегрирующий множитель $\mu\br{x; y}$,
         непрерывный в выколотой окрестности некоторой точки $A$, а $U\br{x; y}$ -- интеграл 
         этого уравнения, то любой другой интегрирующий множитель $\sub{\mu}{1}\br{x; y}$ в этой же
@@ -32,7 +32,7 @@
 
 \begin{framed}
     \begin{property}[сохранения интегрирующего множителя при замене переменных] \hspace{1mm}
-        Если уравнение $M\br{x; y} \d x + N\br{x; y} \d y = 0$ имеет формальный непрерывный
+        Если уравнение $M\br{x; y} \di x + N\br{x; y} \di y = 0$ имеет формальный непрерывный
         интегрирующий множитель
         $\mu\br{x; y}$,
         то непрерывно дифференцируемая замена переменных
@@ -43,7 +43,7 @@
     \end{property}
 
     Действительно, если для некоторой функции $u\br{x; y}$ имеем 
-    $du = d\br{u\br{x; y}} = \linebreak = M\mu \d x + N \mu \d y$,
+    $du = d\br{u\br{x; y}} = \linebreak = M\mu \di x + N \mu \di y$,
     то в силу инвариантности формы первого дифференциала
     $$du = d\br{u\br{\f\br{\xi; \eta}; g\br{\xi; \eta}}} = 
     \br{M\, d\br{\f\br{\xi; \eta}} + N\, d\br{g\br{\xi; \eta}}} \cdot \mu.$$
@@ -69,13 +69,13 @@ $\tsys{& \xi = \alpha x + \beta y \\& \eta = \gamma x + \delta y}$
 \begin{case}[1] Особая точка является <<узлом>>. \end{case}
 В этом случае преобразование приводит к уравнению
 $\der{\eta}{\xi} = \dfrac {\sub{\lambda}{1} \eta} {\sub{\lambda}{2} \xi}$;
-$\dfrac {\sub{\lambda}{1}} {\sub{\lambda}{2}} \eta \d \xi - \xi \d \eta = 0$.
+$\dfrac {\sub{\lambda}{1}} {\sub{\lambda}{2}} \eta \di \xi - \xi \di \eta = 0$.
 Пусть $\dfrac {\sub{\lambda}{1}} {\sub{\lambda}{2}} = L > 0$.
 Для уравнения
-$- L \eta \d \xi + \xi \d \eta = 0$
+$- L \eta \di \xi + \xi \di \eta = 0$
 интегрирующим множителем будет, например, $\sub{\mu}{1} = \tpow{\xi}{-L - 1}$, 
 ибо после умножения будет
-$-L \tpow{\xi}{-L - 1} \eta \d \xi + \tpow{\xi}{L} \d \eta = 0$,
+$-L \tpow{\xi}{-L - 1} \eta \di \xi + \tpow{\xi}{L} \di \eta = 0$,
 $d\br{\eta \tpow{\xi}{-L}} = 0$,
 то есть общий интеграл равен $U\br{\xi; \eta} = \eta \tpow{\xi}{-L}$.
 
@@ -112,16 +112,16 @@ $\sub{\lambda}{1} = p + qi$ и $\sub{\lambda}{2} = p - qi$.
 которая возвращает изначально вещественнозначные траектории в вещественную плоскость.
 
 В результате имеем уравнение в новых терминах
-$\br{qu - pv} \d u + \br{pu + qv} \d v = 0$.
+$\br{qu - pv} \di u + \br{pu + qv} \di v = 0$.
 С учётом того, что $q \ne 0$, обозначим $\dfrac {\hspace{0.20em}p} {q} = s$.
-$\br{u - s v} \d u + \br{su + v} \d v = 0$.
+$\br{u - s v} \di u + \br{su + v} \di v = 0$.
 Интегрирующим множителем этого уравнения является, например,
 $$\sub{\mu}{1} = 2 \pow{e}{2s \arctg\br[-0.1em]{\vfrac {v} {u}}},$$
 потому что после домножения получаем полный дифференциал
 \begin{multline*}
-    \sub{\mu}{1} \cdot \br{u - sv} \d u + \sub{\mu}{1} \cdot \br{su + v} \d v = \\
-    = 2 \pow{e}{2s \arctg\br[-0.1em]{\vfrac {v} {u}}} \br{u - sv} \d u
-    + 2 \pow{e}{2s \arctg\br[-0.1em]{\vfrac {v} {u}}} \br{su + v} \d v    = \\
+    \sub{\mu}{1} \cdot \br{u - sv} \di u + \sub{\mu}{1} \cdot \br{su + v} \di v = \\
+    = 2 \pow{e}{2s \arctg\br[-0.1em]{\vfrac {v} {u}}} \br{u - sv} \di u
+    + 2 \pow{e}{2s \arctg\br[-0.1em]{\vfrac {v} {u}}} \br{su + v} \di v    = \\
     = d\ \br{\br{\pow{u}{2} + \pow{v}{2}} \pow{e}{2s \arctg\br[-0.1em]{\vfrac {v} {u}}}} = dU.
 \end{multline*}
 
@@ -153,7 +153,7 @@ $\mu$ может быть непрерывна, только если права
 \end{case}
 
 Преобразование координат из $\br{x; y}$ в $\br{\xi; \eta}$ приводит уравнение к следующему виду: 
-$\br{\xi + \lambda \eta} \d \xi - \lambda \xi \d \eta = 0$,
+$\br{\xi + \lambda \eta} \di \xi - \lambda \xi \di \eta = 0$,
 где $\lambda = \sub{\lambda}{1} = \sub{\lambda}{2}$, $\lambda \ne 0$.
 
 Для получения противоречия можно взять любой из интегрирующих множителей последнего уравнения,
@@ -176,7 +176,7 @@ $\mu\br{\xi; \eta} = \mu\br{\xi; \dfrac {1} {\lambda} \xi \ln\vbr{\xi} - \tau \x
     Особая точка является <<дикритическим узлом>>.
 \end{case}
 
-Имеем $\sub{\lambda}{1} = \sub{\lambda}{2} = 1$ и исходное уравнение $y \d x - x \d y = 0$.
+Имеем $\sub{\lambda}{1} = \sub{\lambda}{2} = 1$ и исходное уравнение $y \di x - x \di y = 0$.
 В качестве интегрирующего множителя можно рассмотреть 
 $\sub{\mu}{1} = \dfrac {1} {\pow{x}{2}}$, $\sub{\mu}{2} = \dfrac {1} {\pow{y}{2}}$ 
 или $\sub{\mu}{3} = \dfrac {1} {xy}$. При этом $U\br{x; y} = \dfrac {\hspace{0.1em}y} {x}$.

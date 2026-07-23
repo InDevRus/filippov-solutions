@@ -1,3 +1,4 @@
+% Корректировка горизонтального положения числителя и знаменателя
 \directlua{
     left_spacings = {
         A = 0.05, H = 0.05, N = 0.025, a = 0.05, b = 0.05, c = 0.05,
@@ -40,38 +41,52 @@
         if numerator_right_spacing == 0 then else
             numerator = numerator .. "\\kern" .. numerator_right_spacing .. "em "
         end
-        if denominator_left_spacing == 0 then else
+        if denominator_left_spacing >= 0 then else
             denominator = "\\kern" .. denominator_left_spacing .. "em " .. denominator
         end
-        if denominator_right_spacing == 0 then else
+        if denominator_right_spacing >= 0 then else
             denominator = denominator .. "\\kern" .. denominator_right_spacing .. "em "
         end
         if vphantom == "" then else
             numerator = numerator .. "\\vphantom{" .. vphantom .. "}"
         end
-        tex.print("\\ddfrac{" .. indent .. numerator .. indent .. "}{" .. indent .. denominator .. indent .. "}")
+        tex.print("\\olddfrac{" .. indent .. numerator .. indent .. "}{" .. indent .. denominator .. indent .. "}")
     end
 }
 
 \AtBeginDocument{
-    % Force spacing between lines
+    % Запрет перехода на следующую страницу внутри абзаца
+    \widowpenalties 1 10000
+    \raggedbottom
+
+    % Запрет переноса внутри математического окружения
+    \binoppenalty=10000
+    \relpenalty=10000
+
+    % Принудительный отступ между строками
     \setlength{\lineskiplimit}{1mm}
     \setlength{\lineskip}{1mm}
-    % Set vertical spacing around math environments
+    % Установить отступы перед и после математических окружений (align, multline, gather и т.д.)
     \setlength{\abovedisplayskip}{0.5mm}
     \setlength{\belowdisplayskip}{0.5mm}
     \setlength{\abovedisplayshortskip}{0.25mm}
     \setlength{\belowdisplayshortskip}{0.25mm}
 
+    % Символы с фиксированными отступами
+    \renewmathcommand{\prime}{\hspace{0.06em}\char"2032\hspace{-0.03em}}
+    \renewmathcommand{\'}{\prime}
+    % Знак прим с нижним индексом
+    \newcommand{\primesub}[2]{\sub{#1\prime \kern-0.3em}{#2}}
+
     \newmathcommand{\f}{\hspace{0.075em}f\hspace{-0.075em}}
     \renewmathcommand{\j}{\hspace{0.15em}j}
     \newmathcommand{\x}{\hspace{0.05em} x}
+    \newmathcommand{\X}{\hspace{0.075em}X\hspace{-0.075em}}
     \newmathcommand{\y}{\hspace{0.05em} y}
     \newmathcommand{\p}{\ \! p}
     \newmathcommand{\dfracphantom}{\vphantom{y}}
 
-    % Add indentations inside display-style fractions
-    \let\ddfrac\dfrac
+    \let\olddfrac\dfrac
     \renewcommand{\dfrac}[3][0.1em]{
         \directlua{
             local indent = "\luaescapestring{\unexpanded{#1}}"
@@ -81,7 +96,7 @@
         }
     }
 
-    % Display-style fraction with vertical indent
+    % Дробь с вертикальным отсупом (вставляется вертикальный фантом с буквой y)
     \newmathcommand{\dvfrac}[3][0.1em]{
         \directlua{
             local indent = "\luaescapestring{\unexpanded{#1}}"
@@ -91,7 +106,7 @@
         }
     }
 
-    \let\ffrac\frac
-    \renewcommand{\frac}[3][0.1em]{\ffrac{\kern#1 #2 \kern #1}{\kern#1 #3 \kern#1}}
-    \newcommand{\vfrac}[3][0.1em]{\ffrac{\kern#1 #2 \vphantom{y} \kern #1}{\kern#1 #3 \kern#1}}
+    \let\oldfrac\frac
+    \renewcommand{\frac}[3][0.1em]{\oldfrac{\kern#1 #2 \kern #1}{\kern#1 #3 \kern#1}}
+    \newcommand{\vfrac}[3][0.1em]{\oldfrac{\kern#1 #2 \vphantom{y} \kern #1}{\kern#1 #3 \kern#1}}
 }

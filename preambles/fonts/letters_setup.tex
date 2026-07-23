@@ -1,6 +1,4 @@
-% Symbols with fixed spacing
-\renewmathcommand{\'}{\hspace{0.2mm}\char"2032\hspace{-0.1mm}}
-
+% Определение недостающих греческих букв
 \newcommand{\Alpha}{\text{\char"0391}}
 \newcommand{\Beta}{\text{\char"0392}}
 \newcommand{\Epsilon}{\text{\char"0395}}
@@ -16,6 +14,7 @@
 
 \newcommand{\omicron}{\char"03BF}
 \newcommand{\stigma}{\varsigma}
+% Исправление команд для греческих букв
 \AtBeginDocument{
     \renewcommand{\epsilon}{\varepsilon}
     \renewcommand{\phi}{\varphi}

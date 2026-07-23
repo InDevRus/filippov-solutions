@@ -7,28 +7,28 @@
 \begin{document}
     $\br{x + z} \parder{z} {x} + \br{y + z} \parder{z} {y} = x + y$.
     
-    $\dfrac {\d x} {x + z} = \dfrac {\d y} {y + z} = \dfrac {\d z} {x  + y}$.
+    $\dfrac {\di x} {x + z} = \dfrac {\di y} {y + z} = \dfrac {\di z} {x  + y}$.
     
     \begin{enumerate}
         \item Первую интегрируемую комбинацию можно усмотреть, если
-        сложить числители и знаменатели всех трёх дробей и потом вычесть $\d x - \d y$,
+        сложить числители и знаменатели всех трёх дробей и потом вычесть $\di x - \di y$,
         что будет пропорционально $x - y$.
         Таким образом,
-        $\dfrac {\d x + \d y + \d z} {2\br{x + y + z}} = \dfrac {\d x - \d y} {x - y}$.
+        $\dfrac {\di x + \di y + \di z} {2\br{x + y + z}} = \dfrac {\di x - \di y} {x - y}$.
         $\dfrac {1} {2} \ln\vbr{x + y + z} = \ln\vbr{x - y} + A$.
         $\dfrac {x + y + z} {\br{x - y}^2} = A$.
         
         \item Вторую интегрирумую комбинацию получим следующим образом: заметим,
         что производные пропорции
-        $\dvfrac {\d z - \d x}{y - z}$ и $\dfrac {\d z - \d y}{x - z}$,
+        $\dvfrac {\di z - \di x}{y - z}$ и $\dfrac {\di z - \di y}{x - z}$,
         по свойству равные исходным, имеют числители и знаменатели, 
         дополняющие друг друга до полного дифференциала:
-        $$\dfrac {\br{\d z - \d x} + \br{\d z - \d y}}{\br{y - z} + \br{x - z}}
-        = \dfrac {-\d{\br{2z - x - y}}} {2z - x - y}
-        = - \d{\ln\vbr{2z - x - y}}.$$
+        $$\dfrac {\br{\di z - \di x} + \br{\di z - \di y}}{\br{y - z} + \br{x - z}}
+        = \dfrac {-\di{\br{2z - x - y}}} {2z - x - y}
+        = - \di{\ln\vbr{2z - x - y}}.$$
         Соответственно, полученное выражение по свойству производных пропорций равно
         всем ранее полученным, и в частности
-        $- \d{\ln\vbr{2z - x - y}} = \dfrac {\d x - \d y} {x - y} = \d{\ln\vbr{x - y}}$,
+        $- \di{\ln\vbr{2z - x - y}} = \dfrac {\di x - \di y} {x - y} = \di{\ln\vbr{x - y}}$,
         то есть
         $\br{2z - x - y}\br{x - y} = B$.
     \end{enumerate}

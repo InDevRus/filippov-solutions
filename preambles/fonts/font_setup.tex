@@ -1,38 +1,75 @@
-% For proper font
 \usepackage[no-math]{fontspec}
-
-% Times New Roman within text
 \setmainfont{Times New Roman}
 
-% Times New Roman in equations
-\usepackage{unicode-math}
+% Приглушение предупреждений, возникающих из-за пакета mathtools
+\usepackage[warnings-off={mathtools-overbracket, mathtools-colon}]{unicode-math}
+% Шрифт по умолчанию
 \setmathfont{TeX Gyre Termes Math}
 
 \setmathfont{times.otf}[range = {
-    "0023, % Hashtag
-    "0025, % Percent sign
-    "0026, % Ampersand
-    "002C, % Comma
-    "003B, % Semicolon
-    "2032, % Prime (derivative sign)
+    "0023, % Хештег
+    "0025, % Знак процента
+    "0026, % Амперсанд
+    "002C, % Запятая
+    "003B, % Точка с запятой
+    "2032, % Прайм (штрих, знак производной)
     \infty,
     \partial,
-    "2192, % Rightwards arrow (\to)
+    "2192, % Стрелка вправо (\to)
 }]
-\setmathfont[range=\mathup/{num, latin, Latin}]{times.otf}
-\setmathfont[range=\mathit/{latin, Latin}]{timesi.otf}
-\setmathfont[range=\mathup/{greek, Greek}]{times.otf}
+\setmathfont[range=\mathup/{num, latin, Latin, greek, Greek}]{times.otf}
 \setmathfont[range=\mathit/{greek, Greek}]{times.otf}
+\setmathfont[range=\mathit/{latin, Latin}]{timesi.otf}
 
+% Знаки принадлежности множествам
+\setmathfont[range = {\in, \notin, \smallin}, Scale = 0.9]{Garamond Math}
+
+% Интегралы
 \setmathfont[range = {\int, \oint}]{Erewhon Math}
-\setmathfont[range = {\sqrt}]{Asana Math}
-\setmathfont[range = {\in, \notin}]{Concrete Math}
+\newcommand{\tint}{\displaystyle{\int}}
+\newcommand{\tbigint}{\displaystyle{\mathlarger{\int}}}
+\newcommand{\tintlim}[2]{\displaystyle{\int\limits_{\kern-0.5em #1}^{\kern-0.2em #2}}\kern-0.35em}
+\newcommand{\tbigintlim}[2]{\displaystyle{\mathlarger{\int}\limits_{\kern-0.6em #1}^{\kern-0.2em #2}}\kern-0.4em}
+
 \setmathfont[range = {\pm, \mp}]{Libertinus Math}
 
-% Remove space after comma and semicolon
+% Последний вызов \setmathfont меняет общие метрики шрифта, такие как отступы числителя и знаменателя
+% от дробной черты, знак радикала и некоторые другие. Ниже предствален патч для шрифта Asana Math,
+% который был выбран из-за наиболее удачной реализации знака радикала.
+\directlua{
+    function patch_asana(fontdata)
+        texio.write_nl("log", "message1" .. fontdata.psname)
+        if fontdata.psname == "Asana-Math" then
+            local fracM = 0.85
+            local dfracUpM = 0.88
+            local dfracDownM = 0.975
+
+            if fontdata.MathConstants then
+                texio.write_nl("log", "pizda")
+                local mc = fontdata.MathConstants
+                mc.FractionNumeratorShiftUp = fracM * mc.FractionNumeratorShiftUp
+                mc.FractionDenominatorShiftDown = fracM * mc.FractionDenominatorShiftDown
+                mc.FractionNumeratorDisplayStyleShiftUp = dfracUpM * mc.FractionNumeratorDisplayStyleShiftUp
+                mc.FractionDenominatorDisplayStyleShiftDown = dfracDownM * mc.FractionDenominatorDisplayStyleShiftDown
+            end
+            if fontdata.mathparameters then
+                texio.write_nl("log", "manda")
+                local mp = fontdata.mathparameters
+                mp.FractionNumeratorShiftUp = fracM * mp.FractionNumeratorShiftUp
+                mp.FractionDenominatorShiftDown = fracM * mp.FractionDenominatorShiftDown
+                mp.FractionNumeratorDisplayStyleShiftUp = dfracUpM * mp.FractionNumeratorDisplayStyleShiftUp
+                mp.FractionDenominatorDisplayStyleShiftDown = dfracDownM * mp.FractionDenominatorDisplayStyleShiftDown
+            end
+        end
+    end
+    luatexbase.add_to_callback("luaotfload.patch_font", patch_asana, "patch_asana")
+}
+\setmathfont[range = {"221A-"221C}]{Asana-Math.otf}
+
+% Удаление пробела после запятой, которая идёт после цифры
 \usepackage{icomma}
 
-% PDFTeX Times New Roman initialization
+% Старая инициализация Times New Roman для PDFTeX
 %\usepackage{newtxmath}
 %\DeclareSymbolFont{operators}{OT1}{ntxtlf}{m}{n}
 %\SetSymbolFont{operators}{bold}{OT1}{ntxtlf}{b}{n}

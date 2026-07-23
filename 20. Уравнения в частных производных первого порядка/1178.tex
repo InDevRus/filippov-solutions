@@ -6,21 +6,21 @@
 
 \begin{document}
     $\pow{x}{2} z \parder{z} {x} + \pow{y}{2} z \parder{z} {y} = x + y$.
-    $\dvfrac {\d x} {\pow{x}{2} z} = \dvfrac {\d y} {\pow{y}{2} z} = \dvfrac {\d z} {x + y}$.
+    $\dvfrac {\di x} {\pow{x}{2} z} = \dvfrac {\di y} {\pow{y}{2} z} = \dvfrac {\di z} {x + y}$.
 
     Первые две дроби сразу являются интегрируемой комбинацией:
-    $\dvfrac {\d x} {\pow{x}{2}} = \dvfrac {\d y} {\pow{y}{2}}$.
+    $\dvfrac {\di x} {\pow{x}{2}} = \dvfrac {\di y} {\pow{y}{2}}$.
     $\dvfrac {1} {x} + \dvfrac {1} {y} = \linebreak = \dvfrac {x + y} {xy} = A$.
 
     Вторую интегрируемую комбинацию из системы
-    $\dvfrac {\d x} {\pow{x}{2}} = \dvfrac {\d y} {\pow{y}{2}} = \dvfrac {z \d z} {x + y}$
+    $\dvfrac {\di x} {\pow{x}{2}} = \dvfrac {\di y} {\pow{y}{2}} = \dvfrac {z \di z} {x + y}$
     можно получить, например, сравняв знаменатели по свойству дробей:
-    $\dvfrac {z \d z} {x + y} 
-    = \dfrac {\frac {1} {x} \d x + \frac {1} {y} \d y} {\frac {1} {x} \cdot \pow{x}{2}
+    $\dvfrac {z \di z} {x + y}
+    = \dfrac {\frac {1} {x} \di x + \frac {1} {y} \di y} {\frac {1} {x} \cdot \pow{x}{2}
         + \frac {1} {y} \cdot \pow{y}{2}} = \linebreak
     = \dvfrac {d\ln\vbr{xy}} {x + y}$.
     Итак,
-    $z \d z - d\ln\vbr{xy} = 0$, откуда
+    $z \di z - d\ln\vbr{xy} = 0$, откуда
     $xy \tpow{e}{\elevate{-\frac {1} {2} \pow{z}{2}}} = B$.
 
     Общее решение в неявной форме будет иметь вид

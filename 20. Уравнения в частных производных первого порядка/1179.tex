@@ -7,21 +7,21 @@
 \begin{document}    
     $yz \parder{z} {x} - xz \parder{z} {y} = \tpow{e}{z}$.
     
-    $\dvfrac {\d x} {yz} = \dvfrac {\d y} {-xz} = \tpow{e}{-z} \d z$.
-    $\dvfrac {\d x} {y} = \dvfrac {\d y} {-x} = z \tpow{e}{-z} \d z$.
+    $\dvfrac {\di x} {yz} = \dvfrac {\di y} {-xz} = \tpow{e}{-z} \di z$.
+    $\dvfrac {\di x} {y} = \dvfrac {\di y} {-x} = z \tpow{e}{-z} \di z$.
 
-    $\dvfrac {\d x} {y} = \dvfrac {\d y} {-x}$.
-    $x \d x + y \d y = 0$.
+    $\dvfrac {\di x} {y} = \dvfrac {\di y} {-x}$.
+    $x \di x + y \di y = 0$.
     $\pow{x}{2} + \pow{y}{2} = A$.
 
     Отыщем вторую интегрируемую комбинацию, записав
-    $\dvfrac {\d x} {y} = \dvfrac {-dy} {x} = z \tpow{e} {-z} \d z$
+    $\dvfrac {\di x} {y} = \dvfrac {-dy} {x} = z \tpow{e} {-z} \di z$
     и воспользовавшись свойством дробей:
-    $z \tpow{e} {-z} \d z = \dvfrac {y \d x - x \d y} {y \cdot y + x \cdot x} 
+    $z \tpow{e} {-z} \di z = \dvfrac {y \di x - x \di y} {y \cdot y + x \cdot x}
     = \dvfrac {du} {1 + \pow{u}{2}} = d\br{\arctg u}$, где
     $u = \dvfrac {x} {y}$.
     Учитывая, что
-    $\tint z \tpow{e} {-z} \d z = -z \tpow{e} {-z} + \tint \tpow{e} {-z} \d z 
+    $\tint z \tpow{e} {-z} \di z = -z \tpow{e} {-z} + \tint \tpow{e} {-z} \di z
     = -\tpow{e} {-z} - z \tpow{e} {-z} + B$,
     получаем ещё один первый интеграл
     $\arctg\br{\dvfrac {x} {y}} + \tpow{e} {-z} \br{z + 1} = B$.
@@ -32,7 +32,7 @@
     $$\tpow{e} {-z - 1} \br{-z - 1} = \tpow{e}{-1} \br{\arctg\br{\dvfrac {x} {y}} + f\br{\pow{x}{2} + \pow{y}{2}}}.$$
     $$-z - 1 = W\hspace{0.25mm}\br{\dvfrac {1} {e} \arctg\br{\dvfrac {x} {y}} + f\br{\pow{x}{2} + \pow{y}{2}}}.$$
 
-    В явной форме получаем общее решение
-    $z\br{x; y} = -1 - W\hspace{0.25mm}\br{\dvfrac {1} {e} \arctg\br{\dvfrac {x} {y}} + f\br{\pow{x}{2} + \pow{y}{2}}}$,
+    Получаем общее решение в явной форме
+    $$z\br{x; y} = -1 - W\hspace{0.25mm}\br{\dvfrac {1} {e} \arctg\br{\dvfrac {x} {y}} + \f\br{\pow{x}{2} + \pow{y}{2}}},$$
     где $W\br{t}$ -- W-функция Ламберта.
 \end{document}

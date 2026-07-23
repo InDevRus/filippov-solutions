@@ -21,8 +21,8 @@ $\pow{y}{2} + \br{\pow{x}{2} - 1}^2 = C$, $C > 0$.
     = \dfrac {2x + O\br{\pow{x}{3}}} {y}$.
     $\begin{pmatrix} 0 & 1 \\ 2 & 0 \end{pmatrix}$.
     $\pow{\lambda}{2} - 2 = 0$.
-    $\lambda_{1} = -\sqrt{2}$.
-    $\lambda_{2} = \sqrt{2}$.
+    $\sub{\lambda}{1} = -\sqrt{2}$.
+    $\sub{\lambda}{2} = \sqrt{2}$.
     Особая точка $K\br{0; 0}$ -- <<седло>>.
 
     \item Точки $L\br{-1; 0}$ и $M\br{1; 0}$ имеют одинаковое поведение
@@ -44,7 +44,7 @@ $\pow{y}{2} + \br{\pow{x}{2} - 1}^2 = C$, $C > 0$.
     Для обеих матрица оператора равна 
     $\begin{pmatrix} 0 & 1 \\ -4 & 0 \end{pmatrix}$,
     $\pow{\lambda}{2} + 4 = 0$.
-    $\lambda_{1} = -2i$, $\lambda_{2} = 2i$.
+    $\sub{\lambda}{1} = -2i$, $\sub{\lambda}{2} = 2i$.
     Из-за обозначенной выше симметрии обе особые точки
     $L\br{-1; 0}$ и $M\br{1; 0}$ -- <<центры>>.
 \end{enumerate}
@@ -195,13 +195,13 @@ $\pow{y}{2} + \br{\pow{x}{2} - 1}^2 = C$, $C > 0$.
 Построенный фазовый портрет позволяет сделать вывод о поведении кривых при 
 $t \to +\infty$. 
 Пусть $x\br{t}$ -- решение задачи Коши 
-$\ddot{x}\br{t} = 2x - 2\pow{x}{3}$, $x\br{t_0} = a$, $\dot{x}\br{t_0} = b$.
+$\ddot{x}\br{t} = 2x - 2\pow{x}{3}$, $x\br{\sub{t}{0}} = a$, $\dot{x}\br{\sub{t}{0}} = b$.
 Обозначим $\pow{b}{2} + \br{\pow{a}{2} + 1}^2 = C \ge 0$. 
 При $C \ne 1$ любое решение $x\br{t}$ при $t \to +\infty$ 
 принимает ограниченный повторяющийся набор значений, причём:
 \begin{itemize}
-    \item если $\pow{b}{2} + \br{\pow{a}{2} - 1}^2 = C \in \br{0; 1}$, то 
-    решения сохраняют знак и находятся в окрестности особой точки:
+    \item в случае $\pow{b}{2} + \br{\pow{a}{2} - 1}^2 = C \in \br{0; 1}$
+    решения знакопостоянны и остаются внутри отрезка, содержащего особую точку:
     \begin{itemize}
         \item при $a > 0$: $0 < \sqrt{1 - \sqrt{C}} \le x\br{t} \le \sqrt{1 + \sqrt{C}}$;
         \item при $a < 0$: $-\sqrt{1 + \sqrt{C}} \le x\br{t} \le -\sqrt{1 - \sqrt{C}} < 0$;
@@ -221,8 +221,8 @@ $\ddot{x}\br{t} = 2x - 2\pow{x}{3}$, $x\br{t_0} = a$, $\dot{x}\br{t_0} = b$.
 решение такой задачи Коши сохраняет знак и стремится к нулю при $t \to +\infty$.
 В частности, иллюстрациями к этому случаю будут две задачи Коши со следующими решениями
 \begin{align*}
-    \tsys{& \ddot{x}\br{t} = 2x - 2\pow{x}{3} \\& x\br{t_{0}} = 0 \\& \dot{x}\br{t_0} = \pm \sqrt{2}}
-    && x\br{t} = \pm \dfrac {2} {\sqrt{2\sqrt{2} \ch\br{t - t_{0}} + 1}}.
+    \tsys{& \ddot{x}\br{t} = 2x - 2\pow{x}{3} \\& x\br{\sub{t}{0}} = 0 \\& \dot{x}\br{\sub{t}{0}} = \pm \sqrt{2}}
+    && x\br{t} = \pm \dfrac {2} {\sqrt{2\sqrt{2} \ch\br{t - \sub{t}{0}} + 1}}.
 \end{align*}
 \begin{figure}[!h]
     \centering

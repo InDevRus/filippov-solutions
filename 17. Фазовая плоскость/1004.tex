@@ -21,7 +21,7 @@ $\pow{y}{2} = 2\pow{x}{3} + C$.
 Единственной особой точкой будет $E\br{0; 0}$.
 $\der{y}{x} = \dfrac {O\br{\pow{x}{2}}} {y}$.
 $A = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$.
-$\pow{\lambda}{2} = 0$. $\lambda_{1} = \lambda_{2} = 0$.
+$\pow{\lambda}{2} = 0$. $\sub{\lambda}{1} = \sub{\lambda}{2} = 0$.
 Таким образом, $E\br{0; 0}$ не относится к обычным особым точкам.
 
 \begin{floatingfigure}{0.4\textwidth}
@@ -54,13 +54,13 @@ $\pow{\lambda}{2} = 0$. $\lambda_{1} = \lambda_{2} = 0$.
         }
         \begin{axis}[
             trig format plots = rad,
-            width = 6.5cm,
+            width = 6.25cm,
             height = 10cm,
             ylabel=$\dot{x}$,
             ymin = -1.9,
             ymax = 1.9,
             xmin = -1.2,
-            xmax = 1.8, 
+            xmax = 1.6, 
             xtick = {-10, ..., 10},
             ytick = {-10, ..., 10},
             minor tick num = 3,
@@ -91,8 +91,8 @@ $\pow{\lambda}{2} = 0$. $\lambda_{1} = \lambda_{2} = 0$.
 
 Следовательно, всякое решение задачи Коши 
 $\ddot{x}\br{t} = 3\pow{x}{2}$,
-$x\br{t_0} = a$,
-$\dot{x}\br{t_0} = b$
+$x\br{\sub{t}{0}} = a$,
+$\dot{x}\br{\sub{t}{0}} = b$
 при $t \to +\infty$ будет стремиться к $+\infty$,
 кроме, случаев $\pow{b}{2} = 2\pow{a}{3}$, когда возможно стремление к началу координат.
 
@@ -105,8 +105,8 @@ $x \to +\infty$ при некотором конечном $t$.
 
 Неустойчивость нулевого решения системы \linebreak
 $\tsys{& \dot{x}\br{t} = y \\& \dot{y}\br{t} = 3\pow{x}{2}}$
-также можно легко показать, используя функцию Ляпунова $v\br{x; y} = xy$ в области
+также можно продемонстировать, \linebreak используя функцию Ляпунова $v\br{x; y} = xy$ в области
 $V = \cbr{x > 0; y > 0}$, для которой
-$\der{v}{t} \bigg| = \pow{y}{2} + 3\pow{x}{3} > 0$ внутри области $V$.
+$\der{v}{t} \Bigg| = \pow{y}{2} + 3\pow{x}{3} > 0$ внутри области $V$.
 
 \end{document}
