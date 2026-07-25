@@ -2,6 +2,7 @@ import argparse
 import itertools
 import pathlib
 import sys
+import typing
 
 
 def parse_arguments[T](parser: argparse.ArgumentParser,
@@ -13,8 +14,8 @@ def parse_arguments[T](parser: argparse.ArgumentParser,
     return namespace
 
 
-def find_files_to_process(extensions_masks: list[str]) -> list[pathlib.Path]:
-    current_path: pathlib.Path = pathlib.Path.cwd()
+def find_files_to_process(extensions_masks: list[str], root: pathlib.Path | None = None) -> list[pathlib.Path]:
+    current_path: pathlib.Path = pathlib.Path.cwd() if root is None else root
     target_paths = list(itertools.chain.from_iterable(
         current_path.rglob(f'*{extension_mask}') for extension_mask in extensions_masks
     ))

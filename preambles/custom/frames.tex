@@ -1,0 +1,17 @@
+\usepackage[most]{tcolorbox}
+
+\newlength{\framedHorizontalPadding}
+\setlength{\framedHorizontalPadding}{2mm}
+
+\newtcolorbox{framed}{
+    colback = lime,
+    opacityback = 0,
+    standard jigsaw,
+    breakable,
+    colframe = black,
+    opacityframe = 1,
+    boxrule = 0.1mm,
+    sharp corners,
+    left = \framedHorizontalPadding,
+    right = \framedHorizontalPadding,
+}

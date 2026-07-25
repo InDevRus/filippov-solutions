@@ -35,9 +35,6 @@
 % Вставка картинок
 \usepackage{graphicx}
 
-% Вставка рамки
-\usepackage{framed}
-
 % Вставка красной строки
 \usepackage{indentfirst}
 \setlength{\parindent}{1em}
@@ -50,6 +47,9 @@
 
 % Настройка команд отдельно в математическом и текстовом режимах
 \usepackage{mathcommand}
+
+% Для повторения LaTeX кода
+\usepackage{multido}
 
 % Конфигурация отступов формул
 \delimitershortfall-1sp
@@ -85,5 +85,8 @@
 \import{\ProjectRootPath/preambles/fonts/adjustments}{accents_fix}
 \import{\ProjectRootPath/preambles/fonts/adjustments}{custom_superscripts}
 
-\import{\ProjectRootPath/preambles/}{formatting}
-\import{\ProjectRootPath/preambles/}{list_setup}
+\import{\ProjectRootPath/preambles/custom}{formatting}
+\import{\ProjectRootPath/preambles/custom}{frames}
+\import{\ProjectRootPath/preambles/custom}{list_setup}
+
+% TODO: перевести команды на современный стиль объявления
