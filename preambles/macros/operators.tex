@@ -28,7 +28,8 @@
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 % Сокращение для знака дифференциала
-\renewcommand{\di}{\odif}
+\newcommand{\di}{\odif}
+% Знак прим с нижним индексом \primesub определён в formatting.tex
 
 % Сокращения для обычных производных
 \newcommand{\tder}[3][]{\ifthenelse{\isempty{#1}} {\frac{d #2}{d #3}} {\frac{\pow{d}{#1} #2}{d \pow{#3}{#1}}}}

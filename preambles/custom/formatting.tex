@@ -74,9 +74,11 @@
 
     % Символы с фиксированными отступами
     \renewmathcommand{\prime}{\hspace{0.06em}\char"2032\hspace{-0.03em}}
+    % Сокращение предыдущего, которое может давать сбой внутри
+    % некоторых окружений (например, в \begin{framed})
     \renewmathcommand{\'}{\prime}
     % Знак прим с нижним индексом
-    \newcommand{\primesub}[2]{\sub{#1\prime \kern-0.3em}{#2}}
+    \newmathcommand{\primesub}[3][1]{\subpow{#2\mathrlap{\multido{}{#1}{\prime}}}{#3}{\hphantom{\displaystyle\multido{}{#1}{\prime}}}}
 
     \newmathcommand{\f}{\hspace{0.075em}f\hspace{-0.075em}}
     \renewmathcommand{\j}{\hspace{0.15em}j}
