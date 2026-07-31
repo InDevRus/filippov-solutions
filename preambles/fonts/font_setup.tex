@@ -4,28 +4,32 @@
 % Приглушение предупреждений, возникающих из-за пакета mathtools
 \usepackage[warnings-off={mathtools-overbracket, mathtools-colon}]{unicode-math}
 % Шрифт по умолчанию
-\setmathfont{TeX Gyre Termes Math}
+\setmathfont[
+    Path = \ProjectRootPath/fonts/,
+    script-features={RawFeature={-ssty}},
+    sscript-features={RawFeature={-ssty}},
+]{texgyretermes-math.otf}
 
-\setmathfont{times.otf}[range = {
-    "0023, % Хештег
-    "0025, % Знак процента
-    "0026, % Амперсанд
-    "002C, % Запятая
-    "003B, % Точка с запятой
-    "2032, % Прайм (штрих, знак производной)
-    \infty,
-    \partial,
-    "2192, % Стрелка вправо (\to)
-}]
-\setmathfont[range=\mathup/{num, latin, Latin, greek, Greek}]{times.otf}
-\setmathfont[range=\mathit/{greek, Greek}]{times.otf}
-\setmathfont[range=\mathit/{latin, Latin}]{timesi.otf}
+\setmathfont[
+    Path = \ProjectRootPath/fonts/,
+    range = {\prime, \partial},
+    script-features={RawFeature={-ssty}},
+    sscript-features={RawFeature={-ssty}},
+]{texgyretermes-math.otf}
+
+\setmathfont[
+    Path = \ProjectRootPath/fonts/,
+    range = \mathup/{greek, Greek},
+    script-features={RawFeature={-ssty}},
+    sscript-features={RawFeature={-ssty}},
+    math-style = french
+]{texgyretermes-math.otf}
 
 % Знаки принадлежности множествам
 \setmathfont[range = {\in, \notin, \smallin}, Scale = 0.9]{Garamond Math}
 
-% Интегралы
-\setmathfont[range = {\int, \oint}]{Erewhon Math}
+% Стрелки и интегралы
+\setmathfont[range = {\int, \oint, "2190 - "21FF}]{Erewhon Math}
 \newcommand{\tint}{\displaystyle{\int}}
 \newcommand{\tbigint}{\displaystyle{\mathlarger{\int}}}
 \newcommand{\tintlim}[2]{\displaystyle{\int\limits_{\kern-0.5em #1}^{\kern-0.2em #2}}\kern-0.35em}
@@ -45,7 +49,6 @@
             local dfracDownM = 0.975
 
             if fontdata.MathConstants then
-                texio.write_nl("log", "pizda")
                 local mc = fontdata.MathConstants
                 mc.FractionNumeratorShiftUp = fracM * mc.FractionNumeratorShiftUp
                 mc.FractionDenominatorShiftDown = fracM * mc.FractionDenominatorShiftDown
@@ -53,7 +56,6 @@
                 mc.FractionDenominatorDisplayStyleShiftDown = dfracDownM * mc.FractionDenominatorDisplayStyleShiftDown
             end
             if fontdata.mathparameters then
-                texio.write_nl("log", "manda")
                 local mp = fontdata.mathparameters
                 mp.FractionNumeratorShiftUp = fracM * mp.FractionNumeratorShiftUp
                 mp.FractionDenominatorShiftDown = fracM * mp.FractionDenominatorShiftDown
