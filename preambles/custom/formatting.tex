@@ -73,12 +73,22 @@
     \setlength{\belowdisplayshortskip}{0.25mm}
 
     % Символы с фиксированными отступами
-    \renewmathcommand{\prime}{\hspace{0.06em}\char"2032\hspace{-0.03em}}
-    % Сокращение предыдущего, которое может давать сбой внутри
-    % некоторых окружений (например, в \begin{framed})
+
+    % Знак прим и его вариант для строчных букв
+    \renewmathcommand{\prime}{\char"2032}
+    \newmathcommand{\lprime}{\raisebox{-0.15em}{$\prime$}}
+    % Знаки выше с корректировкой отступов для "хвостатых" букв, таких как f.
+    \newmathcommand{\corprime}{\hspace{0.05em}\prime\hspace{-0.05em}}
+    \newmathcommand{\corlprime}{\hspace{0.05em}\lprime\hspace{-0.05em}}
+    % Сокращения для предыдущих, которые могут не работать внутри
+    % некоторых окружений, например в framed.
     \renewmathcommand{\'}{\prime}
+    \renewmathcommand{\`}{\lprime}
     % Знак прим с нижним индексом
-    \newmathcommand{\primesub}[3][1]{\subpow{#2\mathrlap{\multido{}{#1}{\prime}}}{#3}{\hphantom{\displaystyle\multido{}{#1}{\prime}}}}
+    \newmathcommand{\primesub}[3][1]{
+        \mathrlap{\hphantom{#2}\multido{}{#1}{\corprime\kern-0.06em}\kern-0.06em}
+        \subpow{#2}{#3}{\hphantom{\displaystyle\multido{}{#1}{\corprime\kern-0.06em}}\kern-0.06em}
+    }
 
     \newmathcommand{\f}{\hspace{0.075em}f\hspace{-0.075em}}
     \renewmathcommand{\j}{\hspace{0.15em}j}

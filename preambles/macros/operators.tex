@@ -1,6 +1,11 @@
-% Система уравнений через окружение aligned и матрицу, первое необходимо выравнивать
-\newcommand{\tsys}[1]{\left\{ \begin{aligned}#1\end{aligned} \right.}
-\newcommand{\msys}[1]{\left\{ \begin{matrix*}[l]#1\end{matrix*} \right.}
+% Скобки с отступами
+\newcommand{\br}[2][0.01em]{\left(\hspace{#1}#2\hspace{#1}\right)}
+\newcommand{\rbr}[2][0.03em]{\left[\hspace{#1}#2\hspace{#1}\right]}
+\newcommand{\cbr}[2][0.03em]{\left\{\hspace{#1}#2\hspace{#1}\right\}}
+\newcommand{\vbr}[2][0.06em]{\hspace{0.2mm}\left|\hspace{#1}#2\hspace{#1}\right|}
+
+% Система уравнений через окружение aligned
+\newcommand{\tsys}[1]{\left\{ \setlength{\jot}{-\lineskip} \begin{aligned} #1 \end{aligned} \right.}
 
 % Общий верхний и нижний пределы
 \DeclareMathOperator*\lowlim{\underline{\lim}}
@@ -51,12 +56,6 @@
 \newcommand{\vpardersecond}[3][]{
     \ifthenelse{\isempty{#1}}{\dvfrac {\pow{\partial}{2} #2} {\pow{\partial}{2} \pow{#3}{2}}}{\dvfrac {\pow{\partial}{2} #1} {\partial #2 \partial #3}}
 }
-
-% Скобки с отступами
-\newcommand{\br}[2][0.01em]{\left(\hspace{#1}#2\hspace{#1}\right)}
-\newcommand{\rbr}[2][0.03em]{\left[\hspace{#1}#2\hspace{#1}\right]}
-\newcommand{\cbr}[2][0.03em]{\left\{\hspace{#1}#2\hspace{#1}\right\}}
-\newcommand{\vbr}[2][0.06em]{\hspace{0.2mm}\left|\hspace{#1}#2\hspace{#1}\right|}
 
 % Поднятие бокса и оно же с уменьшением
 \newcommand{\elevate}[2][0.275em]{\raisebox{#1}{\({#2}\)}}
