@@ -1,6 +1,7 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
@@ -36,17 +37,17 @@
         интегрирующий множитель
         $\mu\br{x; y}$,
         то непрерывно дифференцируемая замена переменных
-        $x\br{\xi; \eta} = \f\br{\xi; \eta}$, $y\br{\xi; \eta} = g\br{\xi; \eta}$
+        $x\br{\xi; \eta} = f\br{\xi; \eta}$, $y\br{\xi; \eta} = g\br{\xi; \eta}$
         переводит исходное уравнение в такое, что
-        $\mu\br{\f\br{\xi; \eta}; g\br{\xi; \eta}}$
+        $\mu\br{\,f\br{\xi; \eta}; g\br{\xi; \eta}}$
         будет являться интегрирующим множителем и для него.
     \end{property}
 
     Действительно, если для некоторой функции $u\br{x; y}$ имеем 
     $du = d\br{u\br{x; y}} = \linebreak = M\mu \di x + N \mu \di y$,
     то в силу инвариантности формы первого дифференциала
-    $$du = d\br{u\br{\f\br{\xi; \eta}; g\br{\xi; \eta}}} = 
-    \br{M\, d\br{\f\br{\xi; \eta}} + N\, d\br{g\br{\xi; \eta}}} \cdot \mu.$$
+    $$du = d\br{u\br{\,f\br{\xi; \eta}; g\br{\xi; \eta}}} =
+    \br{M\, d\br{\,f\br{\xi; \eta}} + N\, d\br{g\br{\xi; \eta}}} \cdot \mu.$$
 \end{framed}
 \pagebreak
 
@@ -68,7 +69,7 @@ $\tsys{& \xi = \alpha x + \beta y \\& \eta = \gamma x + \delta y}$
 
 \begin{case}[1] Особая точка является <<узлом>>. \end{case}
 В этом случае преобразование приводит к уравнению
-$\der{\eta}{\xi} = \dfrac {\sub{\lambda}{1} \eta} {\sub{\lambda}{2} \xi}$;
+$\der{\eta}{\xi} \!=\! \dfrac {\sub{\lambda}{1} \eta} {\sub{\lambda}{2} \xi}$;
 $\dfrac {\sub{\lambda}{1}} {\sub{\lambda}{2}} \eta \di \xi - \xi \di \eta = 0$.
 Пусть $\dfrac {\sub{\lambda}{1}} {\sub{\lambda}{2}} = L > 0$.
 Для уравнения
@@ -80,7 +81,7 @@ $d\br{\eta \tpow{\xi}{-L}} = 0$,
 то есть общий интеграл равен $U\br{\xi; \eta} = \eta \tpow{\xi}{-L}$.
 
 С другой стороны, $\mu\br{x; y} = \mu\br{x\br{\xi; \eta}; y\br{\xi; \eta}}$ -- также 
-интегрирующий множитель, а значит для $\f = \f\br{\tau}$ имеем
+интегрирующий множитель, а значит для $f = f\br{\tau}$ имеем
 $\sub{\mu}{1} = \tpow{\xi}{-L - 1} = f\br{\eta \tpow{\xi}{-L}} \mu\br{\xi; \eta}$.
 
 Зафиксируем любое число $\tau \ne 0$, для которого значение $f\br{\tau}$ конечно и

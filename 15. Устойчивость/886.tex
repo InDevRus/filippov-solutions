@@ -1,6 +1,7 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
@@ -94,11 +95,11 @@ $\tsys{x = 0 \\ y = 0}$
 Покажем, что нулевое решение устойчиво, используя следующий вспомогательный факт.
 
 \begin{framed}
-    Для $x \in \left(0; 2\right]$ выполняется неравенство $\arccos\br{1 - x} < 3\sqrt{x}.$
+Для $x \in \left(0; 2\right]$ выполняется неравенство $\arccos\br{1 - x} < 3\sqrt{x}.$
 \begin{proof}
     Функция $f\br{x} = 3\sqrt{x} - \arccos\br{1 - x}$ определена на $x \in \rbr{0; 2}$ и
     имеет производную 
-    $f\corprime\br{x} = \dfrac {3} {2\sqrt{x}} - \dfrac {1} {\sqrt{1 - \br{1 - x}^2}}$.
+    $\f\prime\br{x} = \dfrac {3} {2\sqrt{x}} - \dfrac {1} {\sqrt{1 - \br{1 - x}^2}}$.
     Приравняв её к нулю, находим единственную стационарную точку $\sub{x}{0} = \dfrac {14} {9}$.
     Поскольку до неё производная положительная, а после неё отрицательная,
     это -- точка максимума. Следовательно, минимальное значение достигается в одном из 

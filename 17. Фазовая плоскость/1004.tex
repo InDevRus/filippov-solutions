@@ -14,8 +14,8 @@ $t = -u$,
 будет одинаковым.
 
 $\tsys{& \dot{x}\br{t} = y \\& \dot{y}\br{t} = 3\pow{x}{2}}$;
-$\der{y}{x} = \dfrac {3\pow{x}{2}} {y}$.
-$6\pow{x}{2} = 2yy\'$,
+$\der{y}{x} = \dvfrac {3\pow{x}{2}} {y}$.
+$6\pow{x}{2} = 2yy\`$,
 $\pow{y}{2} = 2\pow{x}{3} + C$.
 
 Единственной особой точкой будет $E\br{0; 0}$.
@@ -31,25 +31,6 @@ $\pow{\lambda}{2} = 0$. $\sub{\lambda}{1} = \sub{\lambda}{2} = 0$.
                 thin,
                 samples = 300,
                 restrict y to domain = -5 : 5,
-            },
-            DirectionGraph/.style = {
-                samples = 20,
-                quiver = {scale arrows = 0.075},
-                restrict y to domain = -5 : 5,
-            },
-            DirectionGraph1/.style = {
-                DirectionGraph,
-                quiver = {
-                    u = {dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
-                    v = {dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
-                }
-            },
-            DirectionGraph2/.style = {
-                DirectionGraph,
-                quiver = {
-                    u = {-dot_x(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)},
-                    v = {-dot_y(x, y) / sqrt(dot_x(x, y) ^ 2 + dot_y(x, y) ^ 2)}
-                }
             },
         }
         \begin{axis}[

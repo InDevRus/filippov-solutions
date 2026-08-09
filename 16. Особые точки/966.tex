@@ -1,12 +1,13 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
 
-$y\'\br{x} = \dfrac {2x - y} {x - y}$. Это уравнение задаёт траектории, например,
+$y\`\br{x} = \dfrac {2x - y} {x - y}$. Это уравнение задаёт траектории, например,
 системы $\tsys{& \dot{x} = x - y \\& \dot{y} = 2x - y}$.
 $A = \begin{pmatrix} 1 & -1 \\ 2 & -1 \end{pmatrix}$.
 $\det\br{\lambda E - A} = \br{\lambda - 1}\br{\lambda + 1} + 2 = \pow{\lambda}{2} + 1$.
@@ -15,17 +16,17 @@ $\sub{\lambda}{1} = -i$, $\sub{\lambda}{2} = i$.
 Итак, особая точка $\br{0; 0}$ -- это <<центр>>.
 
 Это означает, что решение дифференциального уравнения можно получить даже в явном виде.
-$y\' = \dfrac {2 - z} {1 - z}$, где
-$y = z\br{x} \cdot x$.
+$y\` = \dfrac {2 - z} {1 - z}$, где
+$y = z\br{x} \cdot x$. \vspace{1mm}
 \begin{align*}
-    \dfrac {z - 1} {\pow{z}{2} - 2z + 2} z\'\br{x} + \dfrac {1} {x} = 0 &&
+    \dfrac {z - 1} {\pow{z}{2} - 2z + 2} z\`\br{x} + \dfrac {1} {x} = 0 &&
     \dfrac {1} {2} \ln\vbr{\pow{z}{2} - 2z + 2} + \ln\vbr{x} = C
 \end{align*}
 $\br{\br{z - 1}^2 + 1}\, \pow{x}{2} = \pow{C}{2}$.
 $\br{y - x}^2 + \pow{x}{2} = \pow{C}{2}$.
 $\pow{y}{2} + 2\pow{x}{2} - 2xy = \pow{C}{2}$.
 Эта квадратичная форма задаёт эллипсы, в чём несложно убедиться, приведя эту форму к
-каноническому виду, для чего достаточно сделать поврот на угол
+каноническому виду, для чего достаточно сделать поворот на угол
 $\alpha = \arctg\br{\dfrac {1 + \sqrt{5}} {2}}$.
 Подстановка 
 $\tsys{
@@ -85,8 +86,8 @@ $\dfrac {\pow{u}{2}} {\pow{a}{2}} + \dfrac {\pow{v}{2}} {\pow{b}{2}}
     \end{tikzpicture}
 \end{floatingfigure}
 
-Соответственно, ось эллипса будет \linebreak направлена вдоль
-$y = \tg\br{\alpha} x $, то есть \linebreak $y = \dfrac {1 + \sqrt{5}} {2}\, x$.
-Эта прямая показана пунктирной линией.
+Соответственно, ось эллипса есть \linebreak прямая
+$y = \tg\br{\alpha} x $, то есть $y = \dfrac {1 + \sqrt{5}} {2}\, x$.
+Эта прямая обозначена пунктирной \linebreak линией.
 
 \end{document}

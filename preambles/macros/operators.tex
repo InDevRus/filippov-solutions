@@ -4,8 +4,9 @@
 \newcommand{\cbr}[2][0.03em]{\left\{\hspace{#1}#2\hspace{#1}\right\}}
 \newcommand{\vbr}[2][0.06em]{\hspace{0.2mm}\left|\hspace{#1}#2\hspace{#1}\right|}
 
-% Система уравнений через окружение aligned
+% Система уравнений через окружение aligned (сжатая и широкая)
 \newcommand{\tsys}[1]{\left\{ \setlength{\jot}{-\lineskip} \begin{aligned} #1 \end{aligned} \right.}
+\newcommand{\wsys}[1]{\left\{ \begin{aligned} #1 \end{aligned} \right.}
 
 % Общий верхний и нижний пределы
 \DeclareMathOperator*\lowlim{\underline{\lim}}
@@ -16,7 +17,7 @@
 \newcommand{\tuplim}[1]{\uplim\limits_{#1}}
 
 % Степень с показателем увеличенного размера
-\newcommand{\tpow}[3][0.1]{\pow[#1]{#2}{\mathlarger{#3}}}
+\newcommand{\tpow}[3][0]{\pow[#1]{#2}{\mathlarger{#3}}}
 
 % Сумма и произведение
 \newcommand{\tsumlim}[2]{\displaystyle{\mathlarger{\sum}\displaylimits_{#1}^{#2}}}

@@ -1,6 +1,7 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
@@ -123,10 +124,10 @@ $\tsys{
     }$.
     
     $\begin{aligned}
-        \dot{\xi} & = \sqrt{\pow{\xi}{2} - 4\xi - \phi + 4} - 2
-        = 2\ \br{1 + \dfrac {1} {2} \br{\dfrac {\pow{\xi}{2}} {4} 
+        \dot{\xi} & = \sqrt{\pow{\xi}{2} - 4\xi - \phi + 4} - 2 \\
+        & = 2\ \br{1 + \dfrac {1} {2} \br{\dfrac {\pow{\xi}{2}} {4} 
         - \xi - \dfrac {\phi} {4}} + O\br{\pow{r}{2}}} - 2 \\
-        & = -\xi - \linebreak - \dfrac {\phi} {4} + O\br{\pow{r}{2}}.
+        & = -\xi - \dfrac {\phi} {4} + O\br{\pow{r}{2}}.
     \end{aligned}$
     
     $\dot{\phi} = \arctg\br{\br{\xi - 2} \br{\xi + \phi}}
