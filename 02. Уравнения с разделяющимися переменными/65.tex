@@ -1,32 +1,41 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
 
-$y\' = \sqrt{4x + 2y - 1}$.
-Сделаем линейную замену $u\br{x} = 4x + 2y\br{x} - 1$.
-$y\br{x} = \dfrac {1} {2} u\br{x} - \linebreak - 2x + \dfrac {1} {2}$.
-$y\'\br{x} = \dfrac {1} {2} u\'\br{x} - 2$.
+$y\` = \sqrt{4x + 2y - 1}$.
+Сделаем линейную замену \vspace{\lineskip}
+\begin{align*}
+    u\br{x} = 4x + 2y\br{x} - 1;
+    && y\br{x} = \dfrac {1} {2} u\br{x} - 2x + \dfrac {1} {2};
+    && y\`\br{x} = \dfrac {1} {2} u\`\br{x} - 2.
+\end{align*}
 В терминах $u\br{x}$ получаем
-$\dfrac {1} {2} u\' - 2 = \sqrt{u}$.
-$u\' = 2\sqrt{u} + 4$.
-Правая часть нулю не равняется, поэтому $\dfrac {u\'} {\sqrt{u} + 2} = 2$.
+$\dfrac {1} {2} u\` - 2 = \sqrt{u}$.
+$u\` = 2\sqrt{u} + 4$.
+Правая часть нулю не равняется, поэтому $\dfrac {u\`} {\sqrt{u} + 2} = 2$. \\
+\begin{align*}
+    \tint \dfrac {u\`\br{x}} {\sqrt{u\br{x}} + 2} \di x
+    = \tint \dfrac {du} {\sqrt{u} + 2}
+    = \begin{bmatrix} u = \pow{v}{2} \\ v \ge 0 \\ du = 2v \di v \end{bmatrix}
+    = \tint \dfrac {2v} {v + 2} \di v
+    & = \tint \br{2 - \dfrac {4} {v + 2}} \di v \\
+    & = 2v - 4\ln\br{v + 2} + C \\
+    & = 2\sqrt{u} - 4\ln\br{\sqrt{u} + 2} + C.
+\end{align*}
 
-$\tint \dfrac {u\'\br{x}} {\sqrt{u\br{x}} + 2} dx
-= \tint \dfrac {du} {\sqrt{u} + 2}
-= \begin{bmatrix} u = \pow{v}{2} \\ v \ge 0 \\ du = 2v dv \end{bmatrix}
-= \tint \dfrac {2v} {v + 2} dv
-= \tint \br{2 - \dfrac {4} {v + 2}} dv = \linebreak
-= 2v - 4\ln\br{v + 2} + C
-= 2\sqrt{u} - 4\ln\br{\sqrt{u} + 1} + C$.
-
-Итак, $2\sqrt{u} - 4\ln\br{\sqrt{u} + 1} = 2x + C$.
-$\sqrt{2y + 4x - 1} - 2\ln\br{\sqrt{2y + 4x - 1} + 1} = x + C$. Последнюю запись будем считать общим решением в неявной форме.
-Чтобы было возможно построить графики этих решений, переведём общее решение в параметрическую форму:
-$$\tsys{& x = f\br{u} \\& y = \dfrac {1} {2} u + \dfrac {1} {2} - 2f\br{u}} \text{, где } f\br{u} = \sqrt{u} - 2\ln\br{\sqrt{u} + 1} + C.$$
+Итак, $2\sqrt{u} - 4\ln\br{\sqrt{u} + 2} = 2x + C$.
+$\sqrt{2y + 4x - 1} - 2\ln\br{\sqrt{2y + 4x - 1} + 2} = x + C$.
+Последнюю запись будем считать общим решением в неявной форме.
+Чтобы было возможно построить графики этих решений, 
+переведём общее решение в параметрическую форму:
+$$\tsys{x = f\br{u} \\ y = \dfrac {1} {2} u + \dfrac {1} {2} - 2f\br{u}} 
+    \text{, где } 
+f\br{u} = \sqrt{u} - 2\ln\br{\sqrt{u} + 2} + C.$$
 
 Пунктиром нарисована прямая $4x + 2y - 1 = 0$.
 \begin{figure}[!h]
@@ -40,7 +49,7 @@ $$\tsys{& x = f\br{u} \\& y = \dfrac {1} {2} u + \dfrac {1} {2} - 2f\br{u}} \tex
             },
         }
         \begin{axis}[
-            width = 12cm,
+            width = 11cm,
             ymin = -4.2,
             ymax = 4.2,
             xmin = -2.2,

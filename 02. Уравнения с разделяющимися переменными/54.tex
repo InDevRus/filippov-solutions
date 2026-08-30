@@ -1,22 +1,27 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
 
-$y\' \ctg x + y = 2$. $y\' \ctg x + \br{y - 2} = 0$. $y = 2$ является решением. $\dfrac {y\'} {y - 2} + \tg x = 0$.
+$y\` \ctg x + y = 2$. $y\` \ctg x + \br{y - 2} = 0$. $y = 2$
+является решением. $\dfrac {y\`} {y - 2} + \tg x = 0$.
 
-$\tint \dfrac {y\'} {y - 2} dx = \tint \dfrac {dy} {y - 2} = \ln\vbr{y - 2} + C$.
-$\tint \tg x \ dx 
-= \tint \dfrac {\sin x} {\cos x} dx 
-= -\tint \dfrac {d\br{\cos x}} {\cos x} = \linebreak
-= -\ln\vbr{\cos x} + C$.
+\begin{align*}
+    \tint \dfrac {y\`} {y - 2} \di x 
+    = \tint \dfrac {\di y} {y - 2} 
+    = \ln\vbr{\y - 2} + C;
+    && \tint \tg x \di x
+    = -\ln\vbr{\cos x} + C.
+\end{align*}
 
-$\ln \vbr{y - 2} - \ln \vbr{\cos x} = C$. $y = C \cos x + 2$. При этом $y = 2$ получается при $C = 2$.
-
-Итак, общее решение имеет вид $y = C \cos x + 2$.
+$\ln \vbr{\y - 2} - \ln \vbr{\cos x} = C$. 
+$y = C \cos x + 2$. 
+При этом $y = 2$ получается при $C = 2$.
+В итоге общее решение имеет вид $y = C \cos x + 2$.
 
 \begin{figure}[!h]
     \begin{tikzpicture}
@@ -54,6 +59,10 @@ $\ln \vbr{y - 2} - \ln \vbr{\cos x} = C$. $y = C \cos x + 2$. При этом $y
     \centering
 \end{figure}
 
-Найдём решение такое, что $\tlim{x \to 0} y\br{x} = -1$. Подставив в общее решение, получаем $-1 = C \cos 0 + 2$. $C = -3$, и искомое частное решение равно $y = -3 \cos x + 2$.
+Найдём решение такое, что 
+$\tlim{x \to 0} y\br{x} = -1$. 
+Подставив в общее решение, получаем 
+$-1 = C \cos 0 + 2$. $C = -3$,
+и искомое частное решение равно $y = -3 \cos x + 2$.
 
 \end{document}

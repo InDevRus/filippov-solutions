@@ -1,25 +1,32 @@
-% Page setup
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
 
-$
-\begin{cases}
-    x\'\' + 3y\'\' - x = 0 \\
-    x\' + 3y\' - 2y = 0
-\end{cases}
-$
+$\tsys{
+    & x\`\` + 3y\`\` - x = 0 \\
+    & x\` + 3y\` - 2y = 0
+}$
 
-$3y\' = 2y - x\'$. $3y\'\' = 2y\' - x\'\' = x - x\'\'$, откуда $x = 2y\'$. Подставив во второе, получим $2y\'\' + 3y\' - 2y = 0$. $2\pow{\lambda}{2} + 3\lambda  - 2 = 0$. $\lambda_1 = {-2}, \lambda_{2} = \dfrac {1} {2}$. $y\br{t} = C_{1}  \pow{e}{\frac {1} {2} t} + C_{2} \pow{e}{-2t}$. $x = 2y\' = \linebreak = C_{1}  \pow{e}{\frac {1} {2} t} - 4 C_{2} \pow{e}{-2t}$.
+$3y\` = 2y - x\`$. 
+$3y\`\` = 2y\` - x\`\` = x - x\`\`$,
+откуда $x = 2y\`$. 
+Подставив во второе, получим 
+$2y\`\` + 3y\` - 2y = 0$.
+$2\pow{\lambda}{2} + 3\lambda  - 2 = 0$.
+$\sub{\lambda}{1} = {-2}$,
+$\sub{\lambda}{2} = \dfrac {1} {2}$.
+\begin{align*}
+    y\br{t} = \sub{C}{1} \pow{e}{\frac {1} {2} t} + \sub{C}{2} \pow{e}{-2t};
+    && x = 2y\` = \sub{C}{1}  \pow{e}{\frac {1} {2} t} - 4 \sub{C}{2} \pow{e}{-2t}.
+\end{align*}
 
-$
-\begin{cases}
-    x\br{t} = C_{1}  \pow{e}{\frac {1} {2} t} - 4 C_{2} \pow{e}{-2t}\\
-    y\br{t} = C_{1}  \pow{e}{\frac {1} {2} t} + C_{2} \pow{e}{-2t}
-\end{cases}
-$
+$\tsys{
+    & x\br{t} = \sub{C}{1}  \pow{e}{\frac {1} {2} t} - 4 \sub{C}{2} \pow{e}{-2t}\\
+    & y\br{t} = \sub{C}{1}  \pow{e}{\frac {1} {2} t} + \sub{C}{2} \pow{e}{-2t}.
+}$
 
 \end{document}

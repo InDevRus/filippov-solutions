@@ -1,44 +1,59 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
 
 \begin{framed}
 \begin{formula}[вспомогательного угла]
-$$A \sin{x} \pm B \cos{x} = \sqrt{\pow{A}{2} + \pow{B}{2}} \sin\br{x \pm \phi},$$
+$$A \sin{x} \pm B \cos{x} 
+    = \sqrt{\pow{A}{2} + \pow{B}{2}} \sin\br{x \pm \phi},$$
 
 где $\phi$ называется вспомогательным углом таким, что
 
-$$
-\sin{\phi} = \frac {B}{\sqrt{\pow{A}{2} + \pow{B}{2}}},\
+$$\sin{\phi} = \frac {B}{\sqrt{\pow{A}{2} + \pow{B}{2}}},\
 \cos{\phi} = \frac {A}{\sqrt{\pow{A}{2} + \pow{B}{2}}},\
-\tg{\phi} = \frac {B}{A}.
-$$
+\tg{\phi} = \frac {B}{A}.$$
 В частности, можно взять $\phi = \arctg\br{\dfrac {B}{A}}$.
 \end{formula}
 \end{framed}
 
 \begin{framed}
-$$\int \sin\br{at} \pow{e}{bt} dt = \frac {\pow{e}{bt}}{\pow{a}{2} + \pow{b}{2}} \br{b \sin\br{ax} - a \cos\br{ax}} + C$$
+$$\int \sin\br{at} \pow{e}{bt} \di t 
+    = \frac {\pow{e}{bt}}
+    {\pow{a}{2} + \pow{b}{2}}
+    \br{b \sin\br{ax} - a \cos\br{ax}} + C$$
 \end{framed}
 
-Уравнение силы тока $I\br{t}$ имеет вид $LI\'\br{t} + RI\br{t} = V \sin\br{\omega t}$.
-$I\'\br{t} + \frac {R} {L} I\br{t} = \linebreak = \frac {V}{L} \sin\br{\omega t}$.
-$I\'\br{t} \tpow{e} {\frac{R}{L} t} + \frac {R} {L} I\br{t} \tpow {e} {\frac{R}{L} t} = \frac {V}{L} \tpow {e} {\frac{R}{L} t} \sin\br{\omega t}$.
-$\br{I\br{t} \tpow {e} {\frac{R}{L} t}}\' = \frac {V}{L}  \sin\br{\omega t} \tpow {e} {\frac{R}{L} t}$.
-
-$I\br{t} \tpow {e} {\frac{R}{L} t} = \bigintsss{\frac {V}{L} \sin\br{\omega t} \tpow {e} {\frac{R}{L} t} dt} = \dfrac {V}{\pow{L}{2} \omeg\pow{a}{2} + \pow{R}{2}} \tpow {e} {\frac{R}{L} t} \br{R \sin\br{\omega t} - L \omega \cos\br{\omega t}} + C$.
-
-$$I\br{t} = I_{0}\br{t} + I_{1}\br{t} = C \tpow {e} {-\frac{R}{L} t} + \dfrac {V}{\pow{L}{2} \omeg\pow{a}{2} + \pow{R}{2}} \br{R \sin\br{\omega t} - L \omega \cos\br{\omega t}}.$$
-
-Из вида общего решения видно, что оно при $t \to +\infty$ стремится к установившемуся режиму 
-$$ I_{1}\br{t} = \dfrac {V}{\pow{L}{2} \omeg\pow{a}{2} + \pow{R}{2}} \br{R \sin\br{\omega t} - L \omega \cos\br{\omega t}}. $$
-
-Приведя к виду со вспомогательным углом $\phi = \arctan\br{\dfrac{L\omega}{R}}$, получим
-
-$$ I_{1}\br{t} = \frac {V}{\sqrt{\pow{L}{2} \omeg\pow{a}{2} + \pow{R}{2}}} \sin\br{\omega t - \phi}. $$
-
+Уравнение силы тока $I\br{t}$ имеет вид 
+$LI\'\br{t} + RI\br{t} = V \sin\br{\omega t}$. \\
+$I\'\br{t} + \frac {R} {L} I\br{t} = \frac {V}{L} \sin\br{\omega t}$. \\
+$I\'\br{t} \tpow{e} {\selevate{\frac{R}{L} t}}
+    + \frac {R} {L} I\br{t} \tpow{e} {\selevate{\frac{R}{L} t}} 
+= \frac {V}{L} \tpow{e} {\selevate{\frac{R}{L} t}} \sin\br{\omega t}$. \\
+$\br{I\br{t} \tpow{e} {\selevate{\frac{R}{L} t}} }\' 
+= \frac {V}{L}  \sin\br{\omega t} \tpow{e} {\selevate{\frac{R}{L} t}} $. \\
+$I\br{t} \tpow{e} {\selevate{\frac{R}{L} t}} 
+= \tbigint{\frac {V}{L} \sin\br{\omega t} \tpow{e} {\selevate{\frac{R}{L} t}}  \di t}
+= \dfrac {V}{\pow{L}{2} \pow{\omega}{2} + \pow{R}{2}}
+    \tpow{e} {\selevate{\frac{R}{L} t}} \br{R \sin\br{\omega t} 
+    - L \omega \cos\br{\omega t}} + C$. \\
+Общее решение равно
+$$I\br{t} = \sub{I}{0}\br{t} + \sub{I}{1}\br{t} 
+= C \tpow{e} {\selevate{-\frac{R}{L} t}} 
+    + \dfrac {V}{\pow{L}{2} \pow{\omega}{2} + \pow{R}{2}}
+    \br{R \sin\br{\omega t} - L \omega \cos\br{\omega t}}.$$
+Из вида общего решения видно, что оно при $t \to +\infty$
+стремится к установившемуся режиму 
+$$ \sub{I}{1}\br{t} 
+= \dfrac {V}{\pow{L}{2} \pow{\omega}{2} + \pow{R}{2}}
+    \br{R \sin\br{\omega t} - L \omega \cos\br{\omega t}}.$$
+Приведя к виду со вспомогательным углом 
+$\phi = \arctg\br{\dfrac{L\omega}{R}}$, получим
+$$\sub{I}{1}\br{t} 
+= \frac {V}{\sqrt{\pow{L}{2} \pow{\omega}{2} 
+    + \pow{R}{2}}} \sin\br{\omega t - \phi}.$$
 
 \end{document}

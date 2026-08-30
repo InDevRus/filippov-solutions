@@ -1,6 +1,7 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
@@ -14,8 +15,8 @@
 
 $\pow{y}{2} = 2px$.
 $2p = \dfrac {\pow{y}{2}} {x}$.
-$0 = \dfrac {2yy\' \cdot x - \pow{y}{2}} {\pow{x}{2}}$.
-$y\' = \dfrac {y} {2x} = \tg \alpha$. \vspace{2mm}
+$0 = \dfrac {2yy\` \cdot x - \pow{y}{2}} {\pow{x}{2}}$.
+$y\` = \dfrac {y} {2x} = \tg \alpha$. \vspace{2mm}
 
 Имеем
 $\tg \beta 
@@ -25,9 +26,9 @@ $\tg \beta
 $\dfrac {y + 2\sqrt{3}x} {2x - \sqrt{3} y} = g\br{x; y\br{x}}$ и 
 $\dfrac {y - 2\sqrt{3}x} {2x + \sqrt{3} y}
 \linebreak = h\br{x; y\br{x}}$.
-Получаются уравнения изогональных траекторий вида $z\'\br{x} = g\br{x; z\br{x}}$ и $z\'\br{x} = h\br{x; z\br{x}}$,
-то есть $z\' = \dfrac {z + 2\sqrt{3}x} {2x - \sqrt{3} z}$
-и $z\' = \dfrac {z - 2\sqrt{3}x} {2x + \sqrt{3} z}$.
+Получаются уравнения изогональных траекторий вида $z\`\br{x} = g\br{x; z\br{x}}$ и $z\`\br{x} = h\br{x; z\br{x}}$,
+то есть $z\` = \dfrac {z + 2\sqrt{3}x} {2x - \sqrt{3} z}$
+и $z\` = \dfrac {z - 2\sqrt{3}x} {2x + \sqrt{3} z}$.
 
 \begin{remark}
     Ниже приведены решения соответствующих уравнений в параметрической форме $\tsys{& x\br{t} = C f\br{t} \\& z\br{t} = C t f\br{t}}$.
@@ -41,12 +42,12 @@ $\dfrac {y - 2\sqrt{3}x} {2x + \sqrt{3} y}
             & Функция $f = f\br{t}$\\
         \hline
             \rule{0mm}{15mm}
-            $\elevate[4mm]{z\' = \dfrac {z + 2\sqrt{3}x} {2x - \sqrt{3} z}}$
+            $\elevate[4mm]{z\` = \dfrac {z + 2\sqrt{3}x} {2x - \sqrt{3} z}}$
             & $\dfrac {\exp\br{\dfrac {3} {\sqrt{23}} \arctg\br{\dfrac {2\sqrt{3}t - 1} {\sqrt{23}} }}} {\sqrt{\sqrt{3} \pow{t}{2} - t + 2\sqrt{3}}}$
             \\[4mm]
         \hline
             \rule{0mm}{15mm}
-            $\elevate[4mm]{z\' = \dfrac {z - 2\sqrt{3}x} {2x + \sqrt{3} z}}$
+            $\elevate[4mm]{z\` = \dfrac {z - 2\sqrt{3}x} {2x + \sqrt{3} z}}$
             & $\dfrac {\exp\br{- \dfrac {3} {\sqrt{23}} \arctg\br{\dfrac {2\sqrt{3}t + 1} {\sqrt{23}} }}} {\sqrt{\sqrt{3} \pow{t}{2} + t + 2\sqrt{3}}}$
             \\[4mm]
         \hline

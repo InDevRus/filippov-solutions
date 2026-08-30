@@ -1,20 +1,21 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
 
-$\tpow{e}{-s}\br{1 + \dfrac {ds} {dt}} = 1$, где $s = s\br{t}$.
-$\dfrac {ds} {dt} = \tpow{e}{s} - 1$.
-$\dfrac {s\'\br{t}} {\tpow{e}{s} - 1} = 1$,
+$\tpow{e}{-s}\br{1 + \der{s}{t}} = 1$, где $s = s\br{t}$.
+$\der{s}{t} = \tpow{e}{s} - 1$.
+$\dfrac {s\`\br{t}} {\tpow{e}{s} - 1} = 1$,
 а функция $s\br{t} = 0$ относится к решениям.
-$\tint \dfrac {s\'\br{t}} {\tpow{e}{s} - 1} dt
-= \tint \dfrac {ds} {\tpow{e}{s} - 1} = 
+$\tint \dfrac {s\`\br{t}} {\tpow{e}{s} - 1} \di t
+= \tint \dfrac {\di s} {\tpow{e}{s} - 1} =
 = \begin{bmatrix}
     s = \ln u \\
-    ds = \dfrac {du} {u}
+    \di s = \dfrac {du} {u}
 \end{bmatrix} 
 = \tint \dfrac {du} {u\br{u - 1}}
 = \tint \br{\dfrac {1} {u - 1} - \dfrac {1} {u}} du = \linebreak
@@ -22,14 +23,14 @@ $\tint \dfrac {s\'\br{t}} {\tpow{e}{s} - 1} dt
 = \ln\vbr{1 - \tpow {e}{-s}} + C$.
 
 Итак, взятие интеграла обеих частей уравнения 
-$\dfrac {s\'\br{t}} {\tpow{e}{s} - 1} = 1$.
+$\dfrac {s\`\br{t}} {\tpow{e}{s} - 1} = 1$.
 даёт $\ln\vbr{\tpow {e}{-s} - 1} = t + C$.
 $\tpow{e}{-s} = 1 + C\tpow{e}{t}$.
 $s\br{t} = -\ln\vbr{1 + C\tpow{e}{t}}$,
 а функция $s\br{t} = 0$ входит в такое общее решение при $C = 0$.
 
 \begin{figure}[!h]
-\begin{minipage}{0.5\textwidth}
+\begin{minipage}{0.5\textwi\di th}
     \centering
     \begin{tikzpicture}
         \pgfplotsset{
@@ -38,7 +39,7 @@ $s\br{t} = -\ln\vbr{1 + C\tpow{e}{t}}$,
             },
         }
         \begin{axis}[
-            width = 7.5cm,
+            wi\di th = 7.5cm,
             xlabel = $t$,
             ylabel = $s$,
             ymin = -4.2,
@@ -62,7 +63,7 @@ $s\br{t} = -\ln\vbr{1 + C\tpow{e}{t}}$,
     \end{tikzpicture}
     \caption*{$C > 0$}
 \end{minipage}
-\begin{minipage}{0.5\textwidth}
+\begin{minipage}{0.5\textwi\di th}
     \centering
     \begin{tikzpicture}
         \pgfplotsset{
@@ -71,7 +72,7 @@ $s\br{t} = -\ln\vbr{1 + C\tpow{e}{t}}$,
             },
         }
         \begin{axis}[
-            width = 7.5cm,
+            wi\di th = 7.5cm,
             xlabel = $t$,
             ylabel = $s$,
             ymin = -4.2,
