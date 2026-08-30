@@ -6,23 +6,20 @@
 % Шрифт по умолчанию
 \setmathfont[
     Path = \ProjectRootPath/fonts/,
-    script-features={RawFeature={-ssty}},
-    sscript-features={RawFeature={-ssty}},
 ]{texgyretermes-math.otf}
 
 \setmathfont[
     Path = \ProjectRootPath/fonts/,
-    range = {\prime, \partial},
-    script-features={RawFeature={-ssty}},
-    sscript-features={RawFeature={-ssty}},
+    range = {\prime},
+    script-features={RawFeature={-ssty, -aalt, +kern}},
+    sscript-features={RawFeature={-ssty, -aalt, +kern}},
+    style = upright
 ]{texgyretermes-math.otf}
 
 \setmathfont[
     Path = \ProjectRootPath/fonts/,
     range = \mathup/{greek, Greek},
-    script-features={RawFeature={-ssty}},
-    sscript-features={RawFeature={-ssty}},
-    math-style = french
+    math-style = upright
 ]{texgyretermes-math.otf}
 
 % Знаки принадлежности множествам

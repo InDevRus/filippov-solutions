@@ -75,7 +75,6 @@
     % Символы с фиксированными отступами
 
     % Знак прим и его вариант для строчных букв
-    \renewmathcommand{\prime}{\char"2032\kern-0.06em}
     \newmathcommand{\lprime}{\raisebox{-0.15em}{$\prime$}}
     % Сокращения для предыдущих, которые могут не работать внутри
     % некоторых окружений, например в framed.
@@ -83,8 +82,8 @@
     \renewmathcommand{\`}{\lprime}
     % Знак прим с нижним индексом
     \newmathcommand{\primesub}[3][1]{
-        \mathrlap{\hphantom{#2}\multido{}{#1}{\prime}\kern-0.06em}
-        \subpow{#2}{#3}{\hphantom{\displaystyle\multido{}{#1}{\prime}}\kern-0.06em}
+        \mathrlap{\kern0.06em\hphantom{#2}\multido{}{#1}{\prime}\kern-0.06em}
+        \subpow{#2}{#3}{\hphantom{\multido{}{#1}{\prime}}\kern-0.06em}
     }
 
     \newmathcommand{\f}{f\hspace{0.075em}}
