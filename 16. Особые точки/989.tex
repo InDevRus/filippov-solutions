@@ -7,12 +7,12 @@
 \begin{document}
 
 $\tsys{
-    & P\br{x; y} = \pow{x}{2} - y
-    \\& Q\br{x; y} = \pow{x}{2} - \br{y - 2}^2
+    P\br{x; y} = \pow{x}{2} - y
+    \\ Q\br{x; y} = \pow{x}{2} - \br{y - 2}^2
 }$;
 $\tsys{
-    & y = \pow{x}{2}
-    \\& \pow{x}{2} - \br{\pow{x}{2} - 2}^2 = 0
+    y = \pow{x}{2}
+    \\ \pow{x}{2} - \br{\pow{x}{2} - 2}^2 = 0
 }$;
 $\br{x - \br{\pow{x}{2} - 2}}\br{x + \br{\pow{x}{2} - 2}} = 0$. \\
 Особыми точками будут 
@@ -22,10 +22,10 @@ $\sub{A}{3} = \br{1; 1}$,
 $\sub{A}{4} = \br{2; 4}$.
 
 \begin{enumerate}
-    \item $\tsys{& x = \xi - 2 \\& y = \phi + 4}$;
+    \item $\tsys{x = \xi - 2 \\ y = \phi + 4}$;
     $\tsys{
-        & \dot{\xi} = -4\xi - \phi + \pow{\xi}{2} \\
-        & \dot{\phi} = -4\xi - 4\phi + \pow{\xi}{2} - \pow{\phi}{2}
+        \dot{\xi} = -4\xi - \phi + \pow{\xi}{2} \\
+        \dot{\phi} = -4\xi - 4\phi + \pow{\xi}{2} - \pow{\phi}{2}
     }$;
     $A = \begin{pmatrix} -4 & -1 \\ -4 & -4 \end{pmatrix}$.
     $\br{\lambda + 4}^2 - 4 = 0$.
@@ -40,10 +40,10 @@ $\sub{A}{4} = \br{2; 4}$.
     
     $\sub{\phi}{1} = 2\xi$ -- трансверсаль, $\sub{\phi}{2} = -2\xi$ -- касательная.
     
-    \item $\tsys{& x = \xi - 1 \\& y = \phi + 1}$;
+    \item $\tsys{x = \xi - 1 \\ y = \phi + 1}$;
     $\tsys{
-        & \dot{\xi} = -2\xi - \phi + \pow{\xi}{2} \\
-        & \dot{\phi} = -2\xi + 2\phi + \pow{\xi}{2} - \pow{\phi}{2}
+        \dot{\xi} = -2\xi - \phi + \pow{\xi}{2} \\
+        \dot{\phi} = -2\xi + 2\phi + \pow{\xi}{2} - \pow{\phi}{2}
     }$;
     $A = \begin{pmatrix} -2 & -1 \\ -2 & 2 \end{pmatrix}$.
     $\pow{\lambda}{2} - 4 - 2 = 0$.
@@ -60,22 +60,22 @@ $\sub{A}{4} = \br{2; 4}$.
     $\sub{\phi}{1} = \br{-2 + \sqrt{6}} \xi$ 
     и $\sub{\phi}{2} = \br{-2 - \sqrt{6}} \xi$ -- сепаратрисы.
     
-    \item $\tsys{& x = \xi + 1 \\& y = \phi + 1}$;
+    \item $\tsys{x = \xi + 1 \\ y = \phi + 1}$;
     $\tsys{
-        & \dot{\xi} = 2\xi - \phi + \pow{\xi}{2} \\
-        & \dot{\phi} = 2\xi + 2\phi + \pow{\xi}{2} - \pow{\phi}{2}
+        \dot{\xi} = 2\xi - \phi + \pow{\xi}{2} \\
+        \dot{\phi} = 2\xi + 2\phi + \pow{\xi}{2} - \pow{\phi}{2}
     }$;
     $A = \begin{pmatrix} 2 & -1 \\ 2 & 2 \end{pmatrix}$.
     $\br{\lambda - 2}^2 + 2 = 0$.
     $\sub{\lambda}{1} = 2 - \sqrt{2}i$,
     $\sub{\lambda}{2} = 2 + \sqrt{2}i$.
     Таким образом, особая точка $\sub{A}{3} = \br{1; 1}$ -- <<фокус>>, причём неустойчивый.
-    В точке $\tsys{& \xi = 1 \\& \phi = 0}$ получаем вектор $\tsys{& \dot{\xi}\br{1; 0} = 3 \\& \dot{\phi}\br{1; 0} = 3}$, так что направление раскручивания траекторий -- против часовой.
+    В точке $\tsys{\xi = 1 \\ \phi = 0}$ получаем вектор $\tsys{\dot{\xi}\br{1; 0} = 3 \\ \dot{\phi}\br{1; 0} = 3}$, так что направление раскручивания траекторий -- против часовой.
     
-    \item $\tsys{& x = \xi + 2 \\& y = \phi + 4}$;
+    \item $\tsys{x = \xi + 2 \\ y = \phi + 4}$;
     $\tsys{
-        & \dot{\xi} = 4\xi - \phi + \pow{\xi}{2} \\
-        & \dot{\phi} = 4\xi - 4\phi + \pow{\xi}{2} - \pow{\phi}{2}
+        \dot{\xi} = 4\xi - \phi + \pow{\xi}{2} \\
+        \dot{\phi} = 4\xi - 4\phi + \pow{\xi}{2} - \pow{\phi}{2}
     }$;
     $A = \begin{pmatrix} 4 & -1 \\ 4 & -4 \end{pmatrix}$.
     $\pow{\lambda}{2} - 16 + 4 = 0$.

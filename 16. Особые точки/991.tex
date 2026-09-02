@@ -26,18 +26,18 @@
 \end{framed}
 
 $\tsys{
-    & P\br{x; y} = \ln\br{1 - y + \pow{y}{2}}
-    \\& Q\br{x; y} = 3 - \sqrt{\pow{x}{2} + 8y}
+    P\br{x; y} = \ln\br{1 - y + \pow{y}{2}}
+    \\ Q\br{x; y} = 3 - \sqrt{\pow{x}{2} + 8y}
 }$;
 $\tsys{
-    & \pow{y}{2} - y = 0
-    \\& \pow{x}{2} = 9 - 8y
+    \pow{y}{2} - y = 0
+    \\ \pow{x}{2} = 9 - 8y
 }$.\\
 Итак, получаем 4 особые точки:
 $\sub{A}{1}\br{-3; 0}$, $\sub{A}{2}\br{-1; 1}$, $\sub{A}{3}\br{1; 1}$, $\sub{A}{4}\br{3; 0}$.
 
 Для оптимизации процесса разложим каждую функцию заранее. Далее будут применены замены вида
-$\tsys{& x = \sub{\xi}{i} + \sub{x}{i} \\& y = \sub{\phi}{i} + \sub{y}{i}}$,
+$\tsys{x = \sub{\xi}{i} + \sub{x}{i} \\ y = \sub{\phi}{i} + \sub{y}{i}}$,
 где $\sub{A}{i}\br{\sub{x}{i}; \sub{y}{i}}$, $1 \le i \le 4$.
 Предположим, что $\sub{\xi}{i} \to 0$ и $\sub{\phi}{i} \to 0$.
 Тогда $\pow{y}{2} - y \to 0$ и $\pow{x}{2} + 8y \to 9$, $O\br{\br{x - \sub{x}{i}}^k} 
@@ -76,18 +76,18 @@ $\tsys{& x = \sub{\xi}{i} + \sub{x}{i} \\& y = \sub{\phi}{i} + \sub{y}{i}}$,
 \end{itemize}
 
 Итак, после всякой замены 
-$\tsys{& x = \sub{\xi}{i} + \sub{x}{i} \\& y = \sub{\phi}{i} + \sub{y}{i}}$
+$\tsys{x = \sub{\xi}{i} + \sub{x}{i} \\ y = \sub{\phi}{i} + \sub{y}{i}}$
 имеем $\tsys{
-    & \dot{\xi}\br{t} = \br{2\sub{y}{i} - 1}\sub{\phi}{i} + O\br{\subpow{r}{i}{2}} 
-    \\& \dot{\phi}\br{t} = -\dfrac {1} {3} \sub{x}{i} \sub{\xi}{i} - \dfrac {4} {3} \sub{\phi}{i} 
+    \dot{\xi}\br{t} = \br{2\sub{y}{i} - 1}\sub{\phi}{i} + O\br{\subpow{r}{i}{2}} 
+    \\ \dot{\phi}\br{t} = -\dfrac {1} {3} \sub{x}{i} \sub{\xi}{i} - \dfrac {4} {3} \sub{\phi}{i} 
         + O\br{\subpow{r}{i}{2}}}
 $.
 
 \begin{enumerate}
-    \item $\tsys{& \sub{x}{1} = -3 \\& \sub{y}{1} = 0}$; $\tsys{& x = \xi - 3 \\& y = \phi}$.
+    \item $\tsys{\sub{x}{1} = -3 \\ \sub{y}{1} = 0}$; $\tsys{x = \xi - 3 \\ y = \phi}$.
     $\tsys{
-        & \dot{\xi} = -\phi + O\br{\pow{r}{2}} 
-        \\& \dot{\phi} = \xi - \dfrac {4} {3} \phi + O\br{\pow{r}{2}}
+        \dot{\xi} = -\phi + O\br{\pow{r}{2}} 
+        \\ \dot{\phi} = \xi - \dfrac {4} {3} \phi + O\br{\pow{r}{2}}
     }$. \\
     $A = \begin{pmatrix} 0 &  -1 \\ 1 & -\frac {4} {3} \end{pmatrix}$.
     $\pow{\lambda}{2} - \dfrac {4} {3} \lambda + 1 = 0$, то есть
@@ -96,18 +96,18 @@ $.
     
     Система до линеаризации выглядит, как
     $\tsys{
-        & \dot{\xi} = \ln\br{1 + \pow{\phi}{2} - \phi} 
-        \\& \dot{\phi} = 3 - \sqrt{\pow{\xi}{2} - 6\xi + 8\phi + 9}
+        \dot{\xi} = \ln\br{1 + \pow{\phi}{2} - \phi} 
+        \\ \dot{\phi} = 3 - \sqrt{\pow{\xi}{2} - 6\xi + 8\phi + 9}
     }$, а в частности
     $\dot{\xi}\br{\dfrac {1} {4}; 0} = 0$ и 
     $\dot{\phi}\br{\dfrac {1} {4}; 0} = \dfrac {1} {4}$,
     то есть направления закручивания -- против часовой.
     
-    \item $\tsys{& \sub{x}{2} = -1 \\& \sub{y}{2} = 1}$;
-    $\tsys{& x = \xi - 1 \\& y = \phi + 1}$.
+    \item $\tsys{\sub{x}{2} = -1 \\ \sub{y}{2} = 1}$;
+    $\tsys{x = \xi - 1 \\ y = \phi + 1}$.
     $\tsys{
-        & \dot{\xi} = \phi + O\br{\pow{r}{2}} 
-        \\& \dot{\phi} = \dfrac {1} {3} \xi - \dfrac {4} {3} \phi + O\br{\pow{r}{2}}
+        \dot{\xi} = \phi + O\br{\pow{r}{2}} 
+        \\ \dot{\phi} = \dfrac {1} {3} \xi - \dfrac {4} {3} \phi + O\br{\pow{r}{2}}
     }$. \\
     $A = \begin{pmatrix} 0 &  1 \\ \frac {1} {3} & -\frac {4} {3} \end{pmatrix}$.
     $\pow{\lambda}{2} + \dfrac {4} {3} \lambda - \dfrac {1} {3} = 0$.
@@ -118,11 +118,11 @@ $.
     а $\phi = \dfrac {-2 -\sqrt{7}} {3}\, \xi$
     и $\phi = \dfrac {-2 +\sqrt{7}} {3}\, \xi$ -- сепаратрисы.
     
-    \item $\tsys{& \sub{x}{3} = 1 \\& \sub{y}{3} = 1}$;
-    $\tsys{& x = \xi + 1 \\& y = \phi + 1}$.
+    \item $\tsys{\sub{x}{3} = 1 \\ \sub{y}{3} = 1}$;
+    $\tsys{x = \xi + 1 \\ y = \phi + 1}$.
     $\tsys{
-        & \dot{\xi} = \phi + O\br{\pow{r}{2}} 
-        \\& \dot{\phi} = -\dfrac {1} {3} \xi - \dfrac {4} {3} \phi + O\br{\pow{r}{2}}
+        \dot{\xi} = \phi + O\br{\pow{r}{2}} 
+        \\ \dot{\phi} = -\dfrac {1} {3} \xi - \dfrac {4} {3} \phi + O\br{\pow{r}{2}}
     }$. \\
     $A = \begin{pmatrix} 0 &  1 \\ -\frac {1} {3} & -\frac {4} {3} \end{pmatrix}$.
     $\pow{\lambda}{2} + \dfrac {4} {3} \lambda + \dfrac {1} {3} = 0$.
@@ -143,11 +143,11 @@ $.
     $\phi = -\dfrac {1} {3} \xi$ -- касательная.
     \pagebreak
     
-    \item $\tsys{& \sub{x}{4} = 3 \\& \sub{y}{4} = 0}$;
-    $\tsys{& x = \xi + 3 \\& y = \phi}$.
+    \item $\tsys{\sub{x}{4} = 3 \\ \sub{y}{4} = 0}$;
+    $\tsys{x = \xi + 3 \\ y = \phi}$.
     $\tsys{
-        & \dot{\xi} = -\phi + O\br{\pow{r}{2}} 
-        \\& \dot{\phi} = -\xi - \dfrac {4} {3} \phi + O\br{\pow{r}{2}}
+        \dot{\xi} = -\phi + O\br{\pow{r}{2}} 
+        \\ \dot{\phi} = -\xi - \dfrac {4} {3} \phi + O\br{\pow{r}{2}}
     }$. \\
     $A = \begin{pmatrix} 0 & -1 \\ -1 & -\frac {4} {3} \end{pmatrix}$.
     $\pow{\lambda}{2} + \dfrac {4} {3} \lambda - 1 = 0$.

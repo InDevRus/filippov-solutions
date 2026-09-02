@@ -12,15 +12,15 @@ $\pow{a}{2} + \pow{b}{2} > 0$,
 всегда сводится к одной из двух краевых задач \vspace{\lineskip}
 \begin{align*}
     \tsys{
-        & \phi\`\`\br{\xi} = -q\br{\xi}\phi\br{\xi} \\
-        & \phi\br{\sub{\xi}{1}} = 1 \\
-        & \phi\br{\sub{\xi}{2}} = \gamma
+        \phi\`\`\br{\xi} = -q\br{\xi}\phi\br{\xi} \\
+        \phi\br{\sub{\xi}{1}} = 1 \\
+        \phi\br{\sub{\xi}{2}} = \gamma
     } \text{-- задача А; } 
     &&
     \tsys{
-        & \phi\`\`\br{\xi} = -q\br{\xi}\phi\br{\xi} \\
-        & \phi\br{\sub{\xi}{1}} = 0 \\
-        & \phi\br{\sub{\xi}{2}} = 1 
+        \phi\`\`\br{\xi} = -q\br{\xi}\phi\br{\xi} \\
+        \phi\br{\sub{\xi}{1}} = 0 \\
+        \phi\br{\sub{\xi}{2}} = 1 
     } \text{-- задача Б. }
 \end{align*}
 в каждой из которых обязательно 
@@ -69,9 +69,9 @@ $\phi\`\br{\xi} = -q\br{\xi}\phi\br{\xi}$.
 
 Рассмотрим задачу Коши
 $$\tsys{
-    & \primesub[2]{\phi}{1}\br{\xi} = -q\br{\xi}\sub{\phi}{1}\br{\xi} \\
-    & \sub{\phi}{1}\br{\sub{\xi}{1}} = 1 \\
-    & \primesub{\phi}{1}\br{\sub{\xi}{1}} = 1
+    \primesub[2]{\phi}{1}\br{\xi} = -q\br{\xi}\sub{\phi}{1}\br{\xi} \\
+    \sub{\phi}{1}\br{\sub{\xi}{1}} = 1 \\
+    \primesub{\phi}{1}\br{\sub{\xi}{1}} = 1
 }$$
 и положим $\sub{\phi}{1}\br{\xi}$ её решением. Поскольку 
 $\primesub[2]{\phi}{1}\br{\xi} = -q\br{\xi}\sub{\phi}{1}\br{\xi}$,
@@ -126,14 +126,14 @@ $$\sub{\Delta}{0} = \sub{\phi}{1}\br{\sub{\xi}{1}} \sub{\phi}{2}\br{\sub{\xi}{1}
 Особый случай преобразуется в краевую задачу 
 $$
 \tsys{
-    & \phi\`\`\br{\xi} = -q\br{\xi}\phi\br{\xi} \\
-    & \phi\br{\sub{\xi}{1}} = 0 \\
-    & \phi\br{\sub{\xi}{2}} = 0,
+    \phi\`\`\br{\xi} = -q\br{\xi}\phi\br{\xi} \\
+    \phi\br{\sub{\xi}{1}} = 0 \\
+    \phi\br{\sub{\xi}{2}} = 0,
 }$$
 а система уравнений становится однородной
 $$\tsys{
-    & 0 = A\sub{\phi}{1}\br{\sub{\xi}{1}} + B\sub{\phi}{2}\br{\sub{\xi}{1}} \\
-    & 0 = A\sub{\phi}{1}\br{\sub{\xi}{2}} + B\sub{\phi}{2}\br{\sub{\xi}{2}}.
+    0 = A\sub{\phi}{1}\br{\sub{\xi}{1}} + B\sub{\phi}{2}\br{\sub{\xi}{1}} \\
+    0 = A\sub{\phi}{1}\br{\sub{\xi}{2}} + B\sub{\phi}{2}\br{\sub{\xi}{2}}.
 }$$
 
 Эта система уравнений имеет только тривиальное решение, а искомая функция 
@@ -143,11 +143,11 @@ $$\tsys{
 
 Задача сводится либо к задаче А, либо задаче Б. Система уравнений будет иметь вид
 $$\tsys{
-    & 1 = A\sub{\phi}{1}\br{\sub{\xi}{1}} + B\sub{\phi}{2}\br{\sub{\xi}{1}} \\
-    & \gamma = A\sub{\phi}{1}\br{\sub{\xi}{2}} + B\sub{\phi}{2}\br{\sub{\xi}{2}}
+    1 = A\sub{\phi}{1}\br{\sub{\xi}{1}} + B\sub{\phi}{2}\br{\sub{\xi}{1}} \\
+    \gamma = A\sub{\phi}{1}\br{\sub{\xi}{2}} + B\sub{\phi}{2}\br{\sub{\xi}{2}}
 } \text{ и } \tsys{
-    & 0 = A\sub{\phi}{1}\br{\sub{\xi}{1}} + B\sub{\phi}{2}\br{\sub{\xi}{1}} \\
-    & 1 = A\sub{\phi}{1}\br{\sub{\xi}{2}} + B\sub{\phi}{2}\br{\sub{\xi}{2}}.
+    0 = A\sub{\phi}{1}\br{\sub{\xi}{1}} + B\sub{\phi}{2}\br{\sub{\xi}{1}} \\
+    1 = A\sub{\phi}{1}\br{\sub{\xi}{2}} + B\sub{\phi}{2}\br{\sub{\xi}{2}}.
 }
 $$
 соответственно для задач А и Б. В любом из этих двух случаев 
@@ -176,9 +176,9 @@ $y\br{x} = 0$, которое монотонно.
 существует и единственно для всех $\xi$. Далее выберем любую 
 точку $\sub{\xi}{3} < \sub{\xi}{1}$ и рассмотрим новую краевую задачу
 $$\tsys{
-    & \phi\`\`\br{\xi} = -q\br{\xi}\phi\br{\xi} \\
-    & \phi\br{\sub{\xi}{3}} = \phi\br{\sub{\xi}{3}} \ne 0 \\
-    & \phi\br{\sub{\xi}{1}} = 0,
+    \phi\`\`\br{\xi} = -q\br{\xi}\phi\br{\xi} \\
+    \phi\br{\sub{\xi}{3}} = \phi\br{\sub{\xi}{3}} \ne 0 \\
+    \phi\br{\sub{\xi}{1}} = 0,
 }$$
 задающую такую же функцию, как и данная задача Б. 
 Поскольку $\sub{\xi}{3} < \sub{\xi}{1}$, заменами переменных её 
@@ -187,15 +187,15 @@ $$\tsys{
 
 Итак, остаётся убедиться в том, что монотонно убывает решение задачи А
 $$\tsys{ 
-    & \phi\`\`\br{\xi} = -q\br{\xi}\phi\br{\xi} \\
-    & \phi\br{\sub{\xi}{1}} = 1 \\
-    & \phi\br{\sub{\xi}{2}} = 0.
+    \phi\`\`\br{\xi} = -q\br{\xi}\phi\br{\xi} \\
+    \phi\br{\sub{\xi}{1}} = 1 \\
+    \phi\br{\sub{\xi}{2}} = 0.
 }$$
 
 Задача приводит к системе уравнений
 $$\tsys{
-    & 1 = A\sub{\phi}{1}\br{\sub{\xi}{1}} + B\sub{\phi}{2}\br{\sub{\xi}{1}} \\
-    & 0 = A\sub{\phi}{1}\br{\sub{\xi}{2}} + B\sub{\phi}{2}\br{\sub{\xi}{2}},
+    1 = A\sub{\phi}{1}\br{\sub{\xi}{1}} + B\sub{\phi}{2}\br{\sub{\xi}{1}} \\
+    0 = A\sub{\phi}{1}\br{\sub{\xi}{2}} + B\sub{\phi}{2}\br{\sub{\xi}{2}},
 }$$
 имеющей решение $A = 1$,
 $B = - \br{

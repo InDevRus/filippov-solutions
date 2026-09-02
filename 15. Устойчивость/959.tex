@@ -7,9 +7,9 @@
 \begin{document}
 
 Любая задача Коши вида 
-$\tsys{& \ddot {x}\br{t} + p\br{t} x\br{t} = 0 \\
-    & x\br{\sub{t}{0}} = \alpha \\[1mm]
-    & \dot{x}\br{\sub{t}{0}} = \beta}$
+$\tsys{\ddot {x}\br{t} + p\br{t} x\br{t} = 0 \\
+    x\br{\sub{t}{0}} = \alpha \\[1mm]
+    \dot{x}\br{\sub{t}{0}} = \beta}$
 имеет единственное продолжаемое на всю числовую прямую решение 
 даже в точках $\sub{t}{0} = 2\pi n$, $n \in \mathbb{Z}$ разрыва функции $p\br{t}$.
 Действительно, и в левой, и в правой полуокрестностях всякой такой точки 
@@ -23,7 +23,7 @@ $x\br{t}$ и $\dot{x}\br{t}$ в ближайшей точке разрыва $p\
 единственным и непрерывно дифференцируемым.
 
 Перейдём к системе 
-$\tsys{& \dot{x}\br{t} = u\br{t} \\& \dot{u}\br{t} = -p\br{t} x\br{t}}$,
+$\tsys{\dot{x}\br{t} = u\br{t} \\ \dot{u}\br{t} = -p\br{t} x\br{t}}$,
 или в матричной форме 
 $\der{}{t}
     \begin{pmatrix} x \\ u \end{pmatrix}
@@ -47,21 +47,21 @@ $X\br{\sub{\Omicron}{2}}
 Решив эти две задачи Коши на промежутке $t \in \rbr{-\pi; \pi}$, получаем
 \begin{align*}
     & \sub{x}{1}\br{t} = \tsys{
-        & \cos\br{bt}\text{, если } t \in \rbr{-\pi; 0}
-        \\& \cos\br{at}\text{, если } t \in \left(0; \pi\right] } 
+        \cos\br{bt}\text{, если } t \in \rbr{-\pi; 0}
+        \\ \cos\br{at}\text{, если } t \in \left(0; \pi\right] } 
     && \sub{x}{2}\br{t} = \tsys{
-        & \,\sub{g}{b}\br{t} \text{, если } t \in \rbr{-\pi; 0}
-        \\& \,\sub{g}{a}\br{t} \text{, если } t \in \left(0; \pi\right] }
+        \sub{g}{b}\br{t} \text{, если } t \in \rbr{-\pi; 0}
+        \\ \sub{g}{a}\br{t} \text{, если } t \in \left(0; \pi\right] }
     \\& \sub{u}{1}\br{t} = \tsys{
-        & -b\sin\br{bt}\text{, если } t \in \rbr{-\pi; 0} 
-        \\& -a\sin\br{at}\text{, если } t \in \left(0; \pi\right] }
+        -b\sin\br{bt}\text{, если } t \in \rbr{-\pi; 0} 
+        \\ -a\sin\br{at}\text{, если } t \in \left(0; \pi\right] }
     && \sub{u}{2}\br{t} = \tsys{
-        & \cos\br{bt}\text{, если } t \in \rbr{-\pi; 0} 
-        \\& \cos\br{at}\text{, если } t \in \left(0; \pi\right] },
+        \cos\br{bt}\text{, если } t \in \rbr{-\pi; 0} 
+        \\ \cos\br{at}\text{, если } t \in \left(0; \pi\right] },
 \end{align*}
 где $\sub{g}{s}\br{t} = \wsys{
-        & \,\dfrac {1} {s} \sin\br{st} \text{, если } s > 0 \\
-        & \ t \text{, если } s = 0}$
+        & \dfrac {1} {s} \sin\br{st} \text{, если } s > 0 \\
+        & \,t \text{, если } s = 0}$
 -- нечётная функция, необходимая для покрытия \linebreak случаев $a = 0$ и $b = 0$.
 
 Пользуясь непрерывностью решений, будем находить значения этих четырёх функций в 

@@ -8,7 +8,7 @@
 \begin{document}
 
 $\ddot{x} = -2\dot{x} - 5x$.
-$\tsys{& \dot{x}\br{t} = y \\& \dot{y}\br{t} = -5x -2y}$;
+$\tsys{\dot{x}\br{t} = y \\ \dot{y}\br{t} = -5x -2y}$;
 $\der{y}{x} = \dfrac {-5x - 2y} {y}$.
 
 Особой точкой является $M\br{0; 0}$.
@@ -22,11 +22,11 @@ $y\` = -2 - \dvfrac {5x} {y}$.
 $$\br{\br{\dfrac {y} {x}}^2 + 2 \cdot \dfrac {y} {x} + 5}\,\pow{x}{2} 
 = \pow{C}{2} \exp\br{\arctg\br{\dfrac {y + x} {2x}}}.$$
 
-Аффинное преобразование $\tsys{& 2x = \check{x} \\& y + x = \check{y}}$
+Аффинное преобразование $\tsys{2x = \check{x} \\ y + x = \check{y}}$
 позволяет получить уравнение траекторий в параметрической форме:
 $$\tsys{
-    & x\br{\phi} = r\br{\phi} \cdot \dfrac {1}{2} \cos \phi
-    \\& y\br{\phi} = r\br{\phi} \br{\sin \phi - \dfrac {1} {2} \cos \phi}
+    x\br{\phi} = r\br{\phi} \cdot \dfrac {1}{2} \cos \phi
+    \\ y\br{\phi} = r\br{\phi} \br{\sin \phi - \dfrac {1} {2} \cos \phi}
     } \text{, где } r\br{\phi} = C \exp\br{\dfrac {\phi} {2}}.$$
 \begin{floatingfigure}{0.4\textwidth}
     \begin{tikzpicture}
