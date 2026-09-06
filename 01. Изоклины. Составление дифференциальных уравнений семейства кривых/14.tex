@@ -7,12 +7,22 @@
 
 \begin{document}
 
-Имеем уравнение $y\` = \dfrac {4x} {\pow{x}{2} + \pow{y}{2}}$. Для удобства дальнейших построений рассмотрим уравнение над обратной функцией $x\br{\y}$, используя правило производной обратной функции: $x\`\br{\y} = \dfrac {\pow{x}{2} + \pow{y}{2}} {4x}$.
+Имеем уравнение $y\` = \dfrac {4x} {\pow{x}{2} + \pow{y}{2}}$. 
+Для удобства дальнейших построений рассмотрим уравнение над обратной функцией 
+$x\br{\y}$, 
+используя правило производной обратной функции: 
+$x\`\br{\y} = \dfrac {\pow{x}{2} + \pow{y}{2}} {4x}$.
 
-При такой постановке задачи имеем уравнение изоклины: $\dfrac {\pow{x}{2} + \pow{y}{2}} {4x} = m$, где $m = \dvfrac{x}{y} \linebreak = \dfrac {1} {k} \ne 0$.
+При такой постановке задачи имеем уравнение изоклины: 
+$\dfrac {\pow{x}{2} + \pow{y}{2}} {4x} = m$, 
+где $m = \dvfrac{x}{y} \linebreak = \dfrac {1} {k} \ne 0$.
 $\pow{x}{2} - 4mx + \pow{y}{2} = 0$, $\br{\pow{x}{2} - 4mx + 4\pow{m}{2}} + \pow{y}{2} = 4\pow{m}{2}$.
-$\br{x - 2m}^2 + \pow{y}{2} = \br{2m}^2$, так что изоклинами будут окружности с центром $\br{2m; 0}$ и радиусом $\vbr{2m} > 0$.
-Формально говоря, на прямой $x = 0$, $y \ne 0$ касательная будет горизонтальной (для исходной задачи), а в точке $\br{0; 0}$ поведение производной неясно.
+$\br{x - 2m}^2 + \pow{y}{2} = \br{2m}^2$,
+так что изоклинами будут окружности с центром $\br{2m; 0}$
+и радиусом $\vbr{2m} > 0$.
+Формально говоря, на прямой $x = 0$, $y \ne 0$ касательная 
+будет горизонтальной (для исходной задачи), а в точке 
+$\br{0; 0}$ поведение производной неясно.
 На левом рисунке изображены изоклины, на правом -- решения уравнений.
 
 \begin{figure}[!h]
@@ -125,7 +135,8 @@ $\br{x - 2m}^2 + \pow{y}{2} = \br{2m}^2$, так что изоклинами б�
                 g(\m, \x) = 2 * \m * sin(x);
                 dot_x(\x, \y) = x * x + y * y;
                 dot_y(\x, \y) = 4 * x;
-                h(\C, \x) = sqrt(\C * exp(x / 2) - ((x + 2)^2 + 4));
+                p(\C, \x) = sqrt(x^2 - (\C + 2 * ln(x^2 + 4))^2);
+                q(\C, \x) = \C - 2 + 2 * ln(x^2 + 4);
             }]
 
             \pgfplotsinvokeforeach {-4, -3.875, ..., -0.125, 0.125, 0.25, ..., 4} {
@@ -136,87 +147,40 @@ $\br{x - 2m}^2 + \pow{y}{2} = \br{2m}^2$, так что изоклинами б�
                 \addplot[DirectionGraph2, samples = 30 * abs(#1), domain = -pi * (1 - 0.15) : pi * (1 - 0.15)]
                 ({f(#1, x)}, {g(#1, x)});
             }
-
-            \addplot[PreciseGraph, domain = 0 : 4.5]
-            ({h(8, x)}, {x});
-            \addplot[PreciseGraph, domain = 0 : 4.5]
-            ({-h(8, x)}, {x});
             
-            \addplot[PreciseGraph, olive, domain = -1 : 4.5]
-            ({h(8.24216, x)}, {x});
-            \addplot[PreciseGraph, olive, domain = -1 : 4.5]
-            ({-h(8.24216, x)}, {x});
-            
-            \addplot[PreciseGraph, blue, domain = -1.5 : 4.5]
-            ({h(8.99725, x)}, {x});
-            \addplot[PreciseGraph, blue, domain = -1.5 : 4.5]
-            ({-h(8.99725, x)}, {x});
-            
-            \addplot[PreciseGraph, red, domain = -2.2 : 4.5]
-            ({h(10.8733, x)}, {x});
-            \addplot[PreciseGraph, red, domain = -2.2 : 4.5]
-            ({-h(10.8733, x)}, {x});
-
-            \addplot[PreciseGraph, violet, domain = -2.5 : 4.5]
-            ({h(14.834, x)}, {x});
-            \addplot[PreciseGraph, violet, domain = -2.5 : 4.5]
-            ({-h(14.834, x)}, {x});
-            
-            \addplot[PreciseGraph, brown, domain = -3 : 4.5]
-            ({h(22.40845, x)}, {x});
-            \addplot[PreciseGraph, brown, domain = -3 : 4.5]
-            ({-h(22.40845, x)}, {x});
-            
-            \addplot[PreciseGraph, magenta, domain = -3.51 : 4.5]
-            ({h(35.96625, x)}, {x});
-            \addplot[PreciseGraph, magenta, domain = -3.51 : 4.5]
-            ({-h(35.96625, x)}, {x});
-            
-            \addplot[PreciseGraph, teal, domain = -4.01 : 4.5]
-            ({h(59.11244, x)}, {x});
-            \addplot[PreciseGraph, teal, domain = -4.01 : 4.5]
-            ({-h(59.11244, x)}, {x});
-
-            \addplot[PreciseGraph, olive, domain = 0.5 - 0.01 : 4.5]
-            ({h(7.982708, x)}, {x});
-            \addplot[PreciseGraph, olive, domain = 0.5 - 0.01 : 4.5]
-            ({-h(7.982708, x)}, {x});
-            
-            \addplot[PreciseGraph, blue, domain = 1 - 0.01 : 4.5]
-            ({h(7.8849, x)}, {x});
-            \addplot[PreciseGraph, blue, domain = 1 - 0.01 : 4.5]
-            ({-h(7.8849, x)}, {x});
-
-            \addplot[PreciseGraph, red, domain = 1.5 - 0.01 : 4.5]
-            ({h(7.6759565, x)}, {x});
-            \addplot[PreciseGraph, red, domain = 1.5 - 0.01 : 4.5]
-            ({-h(7.6759565, x)}, {x});
-            
-            \addplot[PreciseGraph, violet, domain = 2 - 0.01 : 4.5]
-            ({h(7.35758875, x)}, {x});
-            \addplot[PreciseGraph, violet, domain = 2 - 0.01 : 4.5]
-            ({-h(7.35758875, x)}, {x});
-            
-            \addplot[PreciseGraph, brown, domain = 2.5 - 0.01 : 4.5]
-            ({h(6.9477413, x)}, {x});
-            \addplot[PreciseGraph, brown, domain = 2.5 - 0.01 : 4.5]
-            ({-h(6.9477413, x)}, {x});
-            
-            \addplot[PreciseGraph, magenta, domain = 3 - 0.01 : 4.5]
-            ({h(6.4707746, x)}, {x});
-            \addplot[PreciseGraph, magenta, domain = 3 - 0.01 : 4.5]
-            ({-h(6.4707746, x)}, {x});
-            
-            \addplot[PreciseGraph, teal, domain = 3.5 - 0.01 : 4.5]
-            ({h(5.9517575, x)}, {x});
-            \addplot[PreciseGraph, teal, domain = 3.5 - 0.01 : 4.5]
-            ({-h(5.9517575, x)}, {x});
+            \foreach \s in {-1, 1}{
+                \addplot[PreciseGraph, domain = 2 : 10] ({\s * p(2 + 6 * ln(0.5), x)}, {q(2 + 6 * ln(0.5), x)});
+                
+                \addplot[PreciseGraph, domain = 0 : 10, olive] ({\s * p(-6.159, x)}, {q(-6.159, x)});
+                \addplot[PreciseGraph, olive] coordinates {(-0.15, -4) (0, -4) (0.15, -4)};
+                
+                \addplot[PreciseGraph, domain = 0 : 10, blue] ({\s * p(-4.2185, x)}, {q(-4.2185, x)});
+                \addplot[PreciseGraph, blue] coordinates {(-0.1, -3) (0, -3) (0.1, -3)};
+                
+                \addplot[PreciseGraph, domain = 0 : 10, orange] ({\s * p(-2.7726, x)}, {q(-2.7726, x)});
+                \addplot[PreciseGraph, orange] coordinates {(-0.01, -2) (0, -2) (0.01, -2)};
+                
+                \addplot[PreciseGraph, domain = 0 : 10, red] ({\s * p(-2.2189, x)}, {q(-2.2189, x)});
+                \addplot[PreciseGraph, red] coordinates {(-0.05, -1) (0, -1) (0.05, -1)};
+                
+                \addplot[PreciseGraph, domain = 0 : 10, violet] ({\s * p(-2.1299, x)}, {q(-2.1299, x)});
+                \addplot[PreciseGraph, violet] coordinates {(-0.05, 1) (0, 1) (0.05, 1)};
+                
+                \addplot[PreciseGraph, domain = 0 : 10, brown] ({\s * p(-1.99147, x)}, {q(-1.99147, x)});
+                \addplot[PreciseGraph, brown] coordinates {(-0.075, 2) (0, 2) (0.075, 2)};
+                
+                \addplot[PreciseGraph, domain = 0 : 10, magenta] ({\s * p(-1.7346, x)}, {q(-1.7346, x)});
+                \addplot[PreciseGraph, magenta] coordinates {(-0.125, 3) (0, 3) (0.125, 3)};
+            }
         \end{axis}
     \end{tikzpicture}
 \end{minipage}
 \end{figure}
 
-\begin{remark} Кривые на рисунке справа построены  по общему решению исходного уравнения, которое имеет неявную форму $\pow{x}{2} + \br{y + 2}^2 = C\tpow{e}{\elevate{\frac {y}{2}}} - 4$.
+\begin{remark} 
+    Кривые на рисунке справа построены по общему решению 
+    исходного уравнения, которое имеет неявную форму 
+    $\pow{x}{2} + \br{\y + 2}^2 = C\pow{e}{\elevate[0.3em]{\frac {y}{2}}} - 4$.
 \end{remark} 
 
 \end{document}

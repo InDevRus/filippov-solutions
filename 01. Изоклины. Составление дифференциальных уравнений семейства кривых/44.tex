@@ -7,8 +7,12 @@
 \begin{document}
 
 \begin{framed}
-    Если в полярных координатах $\tsys{& x = r \cos\theta \\& y = r \sin\theta}$ имеем  производную $\der{r}{\theta} = A\br{r; \theta}$,
-    то соответствующая производная в декартовых координатах $\der{y}{x} = B\br{r; \theta}$ связана с исходной $A\br{r; \theta}$ соотношениями
+    Если в полярных координатах
+    $\tsys{x = r \cos\theta \\ y = r \sin\theta}$
+    имеем производную 
+    $\der{r}{\theta} = A\br{r; \theta}$,
+    то соответствующая производная в декартовых координатах 
+    $\der{y}{x} = B\br{r; \theta}$ связана с исходной $A\br{r; \theta}$ соотношениями
     \begin{align*}
         \der{y}{x}
         = B\br{A; r; \theta}
@@ -20,16 +24,30 @@
 \end{framed}
 
 \begin{framed}
-    Для угла $\phi = \ang{90}$ имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} =\tg\br{\alpha \pm \ang{90}} = -\ctg \alpha = -\dfrac {1} {\tg\alpha}$.
+    Для угла $\phi = \ang{90}$ имеем 
+    $\tg{\beta} 
+    = \tg\br{\alpha \pm \phi} 
+    = \tg\br{\alpha \pm \ang{90}} 
+    = -\ctg \alpha 
+    = -\dfrac {1} {\tg\alpha}$.
 
-    С учётом указанного выше для данного угла $\phi$ всякое семейство изогональных траекторий $z\br{x}$ и соответствующее семейство в полярной системе $\tsys{& x = \rho \cos\theta \\& z = \rho \sin\theta}$ удовлетворяют соотношениям
+    С учётом указанного выше для данного угла $\phi$ 
+    всякое семейство изогональных траекторий $z\br{x}$ 
+    и соответствующее семейство в полярной системе 
+    $\tsys{x = \rho \cos\theta \\ z = \rho \sin\theta}$
+    удовлетворяют соотношениям
     \begin{align*}
         \sub{A}{z}
-        = \rho \cdot \dfrac {\sub{B}{z} \sin\theta + \cos\theta} {\sub{B}{z}\cos\theta - \sin\theta};
+        = \rho \cdot \dfrac 
+        {\sub{B}{z} \sin\theta + \cos\theta} 
+        {\sub{B}{z}\cos\theta - \sin\theta};
         &&
-        \sub{B}{z}\br{\rho; \theta} = -\dfrac {1} {\sub{B}{y}\br{\rho; \theta}};
+        \sub{B}{z}\br{\rho; \theta} 
+        = -\dfrac {1} {\sub{B}{y}\br{\rho; \theta}};
         &&
-        \sub{B}{y} = \dfrac {\sub{A}{y} \sin\theta + r \cos\theta} {\sub{A}{y} \cos\theta - r \sin\theta},
+        \sub{B}{y} = \dfrac 
+        {\sub{A}{y} \sin\theta + r \cos\theta}
+        {\sub{A}{y} \cos\theta - r \sin\theta},
     \end{align*}
     где введены обозначения
     $\sub{A}{y} = \der{r}{\theta}$,
@@ -38,21 +56,25 @@
     $\sub{B}{z} = \der{z}{x}$.
 
     Последовательно подставив и затем упростив, получим следующую формулу:
-    $$\sub{A}{z}\br{\rho; \theta} = -\dfrac {\rh\pow{o}{2}} {\sub{A}{y}\br{\rho; \theta}}.$$
+    $$\sub{A}{z}\br{\rho; \theta} 
+    = -\dfrac {\pow{\rho}{2}} {\sub{A}{y}\br{\rho; \theta}}.$$
 \end{framed}
 
 $r = a + \cos\theta$.
 $\sub{A}{y} = r\`\br{\theta} = -\sin\theta$.
-Таким образом, уравнение изогональных (ортогональных) траекторий в обозначениях, указанных выше, принимает форму
-$\der{\rho}{\theta} = \sub{A}{z} = \linebreak = -\dfrac {\rh\pow{o}{2}} {\sub{A}{y}} = \dfrac {\rh\pow{o}{2}} {\sin\theta}.$
-$\sin\theta\ \rho\`\br{\theta} = \rh\pow{o}{2}\br{\theta}$.
+Таким образом, уравнение изогональных (ортогональных) траекторий в 
+обозначениях, указанных выше, принимает форму
+$\der{\rho}{\theta} 
+= \sub{A}{z} = \linebreak 
+= -\dfrac {\pow{\rho}{2}} {\sub{A}{y}} 
+= \dfrac {\pow{\rho}{2}} {\sin\theta}.$
+$\sin\theta\ \rho\`\br{\theta} = \pow{\rho}{2}\br{\theta}$.
 
 \begin{remark}
     Уравнение
-    $\rho\` = \dfrac {\rh\pow{o}{2}} {\sin\theta}$
+    $\rho\` = \dfrac {\pow{\rho}{2}} {\sin\theta}$
     имеет общее решение
     $$\rho = \dfrac {1} {C - \ln\vbr{\tg\dfrac {\theta} {2}}}.$$
 \end{remark}
 
 \end{document}
-

@@ -22,16 +22,17 @@ $y\` = \dfrac {y} {2x} = \tg \alpha$. \vspace{2mm}
 $\tg \beta 
 = \dfrac {\dfrac {y} {2x} \pm \sqrt{3}} {1 \mp \sqrt{3} \dfrac {y} {2x}}
 = \dfrac {y \pm 2\sqrt{3}x} {2x \mp \sqrt{3} y}$.
-Обозначим
-$\dfrac {y + 2\sqrt{3}x} {2x - \sqrt{3} y} = g\br{x; y\br{x}}$ и 
-$\dfrac {y - 2\sqrt{3}x} {2x + \sqrt{3} y}
-\linebreak = h\br{x; y\br{x}}$.
-Получаются уравнения изогональных траекторий вида $z\`\br{x} = g\br{x; z\br{x}}$ и $z\`\br{x} = h\br{x; z\br{x}}$,
+Введём обозначения
+$\dfrac {y + 2\sqrt{3}x} {2x - \sqrt{3} y} = g\br{x; y\br{x}}$ и
+$\dfrac {y - 2\sqrt{3}x} {2x + \sqrt{3} y} = h\br{x; y\br{x}}$.
+Отсюда выводятся уравнения изогональных траекторий вида
+$z\`\br{x} = g\br{x; z\br{x}}$ и $z\`\br{x} = h\br{x; z\br{x}}$,
 то есть $z\` = \dfrac {z + 2\sqrt{3}x} {2x - \sqrt{3} z}$
 и $z\` = \dfrac {z - 2\sqrt{3}x} {2x + \sqrt{3} z}$.
 
 \begin{remark}
-    Ниже приведены решения соответствующих уравнений в параметрической форме $\tsys{& x\br{t} = C f\br{t} \\& z\br{t} = C t f\br{t}}$.
+    Ниже приведены решения соответствующих уравнений в параметрической форме 
+    $\tsys{x\br{t} = C f\br{t} \\ z\br{t} = C t f\br{t}}$.
 
     \centering
     \begin{tabularx}{0.8\textwidth} {
@@ -39,17 +40,25 @@ $\dfrac {y - 2\sqrt{3}x} {2x + \sqrt{3} y}
             | >{\hsize=1.5\hsize\centering\arraybackslash} X |}
         \hline
             Уравнение
-            & Функция $f = f\br{t}$\\
+            & Функция $\,f = f\br{t}$\\
         \hline
-            \rule{0mm}{15mm}
-            $\elevate[4mm]{z\` = \dfrac {z + 2\sqrt{3}x} {2x - \sqrt{3} z}}$
-            & $\dfrac {\exp\br{\dfrac {3} {\sqrt{23}} \arctg\br{\dfrac {2\sqrt{3}t - 1} {\sqrt{23}} }}} {\sqrt{\sqrt{3} \pow{t}{2} - t + 2\sqrt{3}}}$
-            \\[4mm]
+            \rule{0mm}{3.4em}
+            $\elevate[0.5em]{
+                z\lprime = \dfrac {z + 2\sqrt{3}x} {2x - \sqrt{3} z}
+            }$
+            & $\dfrac 
+            {\exp\br{\dfrac {3} {\sqrt{23}} \arctg\br{\dfrac {2\sqrt{3}t - 1} {\sqrt{23}} }}}
+            {\sqrt{\sqrt{3} \pow{t}{2} - t + 2\sqrt{3}}}$
+            \\[1em]
         \hline
-            \rule{0mm}{15mm}
-            $\elevate[4mm]{z\` = \dfrac {z - 2\sqrt{3}x} {2x + \sqrt{3} z}}$
-            & $\dfrac {\exp\br{- \dfrac {3} {\sqrt{23}} \arctg\br{\dfrac {2\sqrt{3}t + 1} {\sqrt{23}} }}} {\sqrt{\sqrt{3} \pow{t}{2} + t + 2\sqrt{3}}}$
-            \\[4mm]
+            \rule{0mm}{3.4em}
+            $\elevate[0.5em]{
+                z\lprime = \dfrac {z - 2\sqrt{3}x} {2x + \sqrt{3} z}
+            }$
+            & $\dfrac 
+            {\exp\br{- \dfrac {3} {\sqrt{23}} \arctg\br{\dfrac {2\sqrt{3}t + 1} {\sqrt{23}} }}} 
+            {\sqrt{\sqrt{3} \pow{t}{2} + t + 2\sqrt{3}}}$
+            \\[1em]
         \hline
     \end{tabularx}
 \end{remark}

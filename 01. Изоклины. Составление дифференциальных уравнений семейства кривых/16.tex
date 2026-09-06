@@ -9,103 +9,197 @@
 \begin{framed}
 \begin{property}[точки перегиба]
     Если в некоторой окрестности точки перегиба $\sub{x}{0}$ функция дважды дифференцируема,
-    то $\, \primesub[2]{f}{}\br{\sub{x}{0}} = 0$.
+    то $\, f\prime\prime\br{\sub{x}{0}} = 0$.
 \end{property}
 
 \begin{test}[точки перегиба]
     Точка $\sub{x}{0}$ дважды дифференцируемой в окрестности $\sub{x}{0}$ функции $f\br{x}$
-    является точкой перегиба, если $\, \primesub[2]{f}{}\br{\sub{x}{0}} = 0$, 
-    а при переходе через $\sub{x}{0} $ функция $\, \primesub[2]{f}{}\br{x}$ меняет знак. 
+    является точкой перегиба, если $\, f\prime\prime\br{\sub{x}{0}} = 0$, 
+    а при переходе через $\sub{x}{0} $ функция $\, f\prime\prime\br{x}$ меняет знак. 
     В частности, если в окрестности точки $\sub{x}{0}$ функция $f\br{x}$ трижды дифференцируема,
-    то достаточно $\, \primesub[3]{f}{}\br{\sub{x}{0}} \ne 0$.
+    то достаточно $\, f\prime\prime\prime\br{\sub{x}{0}} \ne 0$.
 \end{test}
 \end{framed}
 
-%Пользоваться будем тем фактом, что 
-%$\primesub[2]{y}{}\br{x} = \der{}{x} \br {\der{}{x} y\br{x} }
-%= \der{}{x} \br{f\br{x; y\br{x}}}$.
-%
-%\begin{enumerate}[label={\asbuk*})]
-%\item $y\` = y - \pow{x}{2}$.
-%$\primesub[2]{y}{}\br{x} = \der{}{x} \br{y - \pow{x}{2}} = y\` - 2x = y - \pow{x}{2} - 2x$. \\
-%$\primesub[3]{y}{}\br{x} = \der{}{x} \br{y - \pow{x}{2} - 2x} = y\` - 2x - 2 = y - \pow{x}{2} - 2x - 2$.
-%
-%Пусть $\primesub[2]{y}{}\br{x} = y - \pow{x}{2} - 2x = 0$. Тогда $y = \pow{x}{2} + 2x$. При этом $\primesub[3]{y}{}\br{x} = y - \pow{x}{2} - 2x - 2 = \linebreak = -2 \ne 0$, а потому все точки этой кривой являются точками перегиба. Итак, точки перегиба данного уравнения лежат на и только на параболе $y = \pow{x}{2} + 2x$.
-%
-%\item $y\` = x - pow{}$.
-%$\primesub[2]{y}{}\br{x} = 1 - y\` \pow{e}{y}
-%= 1 - \br{x - \pow{e}{y}} \pow{e}{y}
-%= 1 - x\pow{e}{y} + \pow{e}{2y}$. \\
-%$\primesub[3]{y}{}\br{x} = \der{}{x} \br{1 - x\pow{e}{y} + \pow{e}{2y}}
-%= -\pow{e}{y} - x y\` \pow{e}{y} + 2 y\` \pow{e}{2y}
-%= -\pow{e}{y} - x \br{x - \pow{e}{y}} \pow{e}{y} + 2 \br{x - \pow{e}{y}} \pow{e}{2y}  \linebreak
-%= -\pow{e}{y} - \pow{x}{2} \pow{e}{y} + 3 x \pow{e}{2y} - 2 \pow{e}{3y}$.
-%
-%Пусть $\primesub[2]{y}{}\br{x} = 1 - x\pow{e}{y} + \pow{e}{2y} = 0$. Тогда $x\pow{e}{y} = 1 + \pow{e}{2y}$, $x = \pow{e}{-y} + \pow{e}{y}$, и
-%$\primesub[3]{y}{}\br{x}
-%= -\pow{e}{y} - \linebreak - \br{\pow{e}{-y} + \pow{e}{y}}^2 \pow{e}{y} + 3 \br{\pow{e}{-y} + \pow{e}{y}} \pow{e}{2y} - 2 \pow{e}{3y}
-%= -\pow{e}{y} < 0$.
-%
-%Таким образом, всюду, где $\primesub[2]{y}{}\br{x} = 0$ имеем $\primesub[3]{y}{}\br{x} \ne 0$, то есть точки перегиба лежат на кривой $x = \pow{e}{-y} + \pow{e}{y}$ (или $ x= 2\ch\br{\y}$) и только на ней.
-%
-%\item $\pow{x}{2} + \pow{y}{2} y\` = 1$.
-%$y\` = \pow{y}{-2} \br{1 - \pow{x}{2}} = \pow{y}{-2} - \pow{x}{2} \pow{y}{-2}$. \\
-%$\primesub[2]{y}{}\br{x} = -2 \pow{y}{-3} y\` + 2 \pow{x}{2} \pow{y}{-3} y\` - 2x \pow{y}{-2}
-%= -2\pow{y}{-3} y\` \br{1 - \pow{x}{2}} - 2x \pow{y}{-2}
-%= -2\pow{y}{-5} \br{1 - \pow{x}{2}}^2 - 2x \pow{y}{-2}$. \\
-%\begin{multline*}
-%    \primesub[3]{y}{}\br{x}
-%    = 10 \pow{y}{-6} \br{1 - \pow{x}{2}}^2 y\` + 8 x \pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2} + 4x\pow{y}{-3} y\` = \\
-%    = 10 \pow{y}{-8} \br{1 - \pow{x}{2}}^3 + 8 x \pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2} + 4x\pow{y}{-5} \br{1 - \pow{x}{2}} = \\
-%    = 10 \pow{y}{-8} \br{1 - \pow{x}{2}}^3 + 12 x\pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2}.
-%\end{multline*}
-%Пусть $\primesub[2]{y}{}\br{x} = -2\pow{y}{-5} \br{1 - \pow{x}{2}}^2 - 2x \pow{y}{-2} = 0$, то есть $\br{1 - \pow{x}{2}}^2 = -x\pow{y}{3}$.
-%\begin{multline*}
-%    \primesub[3]{y}{}\br{x}
-%    = 10 \pow{y}{-8} \br{1 - \pow{x}{2}} \cdot \br{-x\pow{y}{3}} + 12 x\pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2}
-%    = 2 x\pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2} = \\
-%    = -2 \pow{y}{-8} \br{1 - \pow{x}{2}}^2 - 2\pow{y}{-2}
-%    = -2\pow{y}{-2} \br{\pow{y}{-6} \br{1 - \pow{x}{2}}^2 + 1} < 0.
-%\end{multline*}
-%
-%Итак, всякая точка кривой $x\pow{y}{3} = -\br{1 - \pow{x}{2}}^2$ является точкой перегиба.
-%
-%На прямой $y = 0$ первая производная не определена, а потому исследовать функцию $y\br{x}$ на наличие перегиба на этой прямой с помощью производной не получится.
-%
-%\item $y\`\br{x} = f\br{x; y}$.
-%Обозначим $\xi = x$. Тогда по правилу произодной сложной функции
-%$\primesub[2]{y}{}\br{x}
-%= \der{}{x} f\br{x; y\br{x}}
-%= \der{}{\xi} f\br{x\br{\xi}; y\br{\xi}}
-%= \parder{f}{x} \der{x}{\xi} + \parder{f}{y} \der{y}{\xi}
-%= \parder{f}{x} + \parder{f}{y} f\br{x; y}$,
-%ибо $\der{x}{\xi} = 1$ и $\der{y}{\xi} = \der{y}{x} = f\br{x; y}$.
-%
-%Итак, уравнение кривой точек перегиба имеет вид
-%$\primesub{f}{x} + f \cdot \primesub{f}{y} = 0$. Это условие необходимое, но не достаточное, так что проверку на наличие перегиба при фиксированных $x$ и $y$ необходимо делать исследованием знака $\primesub[2]{y}{}\br{x}$.
-%
-%Предположим теперь, что функция $f\br{x; y}$ имеет непрерывные вторые частные \linebreak производные $\pardersecond{f}{x}$, $\pardersecond{f}{y}$ и $\pardersecond[f]{x}{y}$ и найдём в этом предположении $\primesub[3]{y}{}\br{x}$.
-%
-%$$\primesub[3]{y}{}\br{x} = \der{}{x} \br{\primesub[2]{y}{}\br{x}} = \der{}{\xi} \br{\parder{f}{x} + f \parder{f}{y}}.$$
-%$\der{}{\xi} \parder{f}{x}
-%= \dfrac {\partial} {\partial x} \br{\parder{f}{x}} \cdot \der{x}{\xi} + \dfrac {\partial} {\partial y} \br{\parder{f}{y}} \cdot \der{y}{\xi}
-%= \pardersecond{f}{x} + \pardersecond[f]{x}{y} \cdot \der{y}{x}
-%= \pardersecond{f}{x} + \pardersecond[f]{x}{y} \cdot f$; \\
-%\begin{multline*}\der{}{\xi} \br{f \cdot \parder{f}{y}}
-%= \der{}{\xi} f \cdot \parder{f}{y} + f \cdot \der{}{\xi} \parder{f}{y} \\
-%= \br{\parder{f}{x} + \parder{f}{y} \cdot f} \parder{f}{y} + f \cdot \br{\dfrac {\partial}{\partial x}\br{\parder{f}{y}} \cdot \der{x}{\xi} + \dfrac {\partial}{\partial y}\br{\parder{f}{y}} \cdot \der{y}{\xi}} = \\
-%= \parder{f}{x}\parder{f}{y} + \br{\parder{f}{y}}^2 \cdot f + \pardersecond[f]{x}{y} \cdot f + \pardersecond{f}{y} \cdot \pow{f}{2}.
-%\end{multline*}
-%
-%Итого, $\primesub[3]{y}{}\br{x} = \der{}{\xi} \br{\parder{f}{x}} + \der{}{\xi} \br{f \parder{f}{y}} = \primesub[2]{f}{}_{xx} + \primesub[2]{f}{}_{xy} f + \primesub{f}{x}\primesub{f}{y} + \br{\primesub{f}{y}}^2 f + \primesub[2]{f}{}_{xy} f + \primesub[2]{f}{}_{yy} \pow{f}{2} \linebreak
-%= \primesub[2]{f}{}_{xx} + 2\primesub[2]{f}{}_{xy} f + \primesub[2]{f}{}_{yy} \pow{f}{2} + \primesub{f}{y} \cdot \br{\primesub{f}{x} + f \cdot \primesub{f}{y}}$.
-%
-%Пусть теперь $\primesub{f}{x} + f \cdot \primesub{f}{y} = 0$. При таком условии
-%$\primesub[3]{y}{}\br{x} = \primesub[2]{f}{}_{xx} + 2\primesub[2]{f}{}_{xy} f + \primesub[2]{f}{}_{yy} \pow{f}{2}$.
-%
-%Окончательно получаем достаточные условия наличия перегиба в точке:
-%$$\tsys{& \primesub{f}{x} + f \cdot \primesub{f}{y} = 0 \\& \primesub[2]{f}{}_{xx} + 2\primesub[2]{f}{}_{xy} f + \primesub[2]{f}{}_{yy} \pow{f}{2} \ne 0}.$$
-%
-%\end{enumerate}
+Пользоваться будем тем фактом, что 
+$y\`\`\br{x} = \der{}{x} \br {\der{}{x} y\br{x} }
+= \der{}{x} \br{\,f\br{x; y\br{x}}}$.
+
+\begin{enumerate}[label={\asbuk*})]
+\item $y\` = y - \pow{x}{2}$. \\
+$y\`\`\br{x} = \der{}{x} \br{\y - \pow{x}{2}} 
+    = y\` - 2x = y - \pow{x}{2} - 2x$. \\
+$y\`\`\`\br{x} = \der{}{x} \br{\y - \pow{x}{2} - 2x} 
+    = y\` - 2x - 2 = y - \pow{x}{2} - 2x - 2$.
+
+Пусть $y\`\`\br{x} = y - \pow{x}{2} - 2x = 0$.
+Тогда $y = \pow{x}{2} + 2x$. 
+При этом 
+$$y\`\`\`\br{x} = y - \pow{x}{2} - 2x - 2 = -2 \ne 0,$$
+а потому все точки этой кривой являются точками перегиба.
+Итак, точки перегиба данного уравнения лежат на и только на 
+параболе $y = \pow{x}{2} + 2x$.
+
+\item $y\` = x - \pow{e}{y}$.
+$y\`\`\br{x} = 1 - y\` \pow{e}{y}
+= 1 - \br{x - \pow{e}{y}} \pow{e}{y}
+= 1 - x\pow{e}{y} + \pow{e}{2y}$. \\
+$\begin{aligned}[t]
+    y\`\`\`\br{x} 
+    &= \der{}{x} \br{1 - x\pow{e}{y} + \pow{e}{2y}}
+    = -\pow{e}{y} - x y\` \pow{e}{y} + 2 y\` \pow{e}{2y}
+    = -\pow{e}{y} - x \br{x - \pow{e}{y}} \pow{e}{y} 
+    + 2 \br{x - \pow{e}{y}} \pow{e}{2y} \\
+    &= -\pow{e}{y} - \pow{x}{2} \pow{e}{y} + 3 x \pow{e}{2y} - 2 \pow{e}{3y}.
+\end{aligned}$
+
+Пусть 
+$y\`\`\br{x} = 1 - x\pow{e}{y} + \pow{e}{2y} = 0$. 
+Тогда $x\pow{e}{y} = 1 + \pow{e}{2y}$, $x = \pow{e}{-y} + \pow{e}{y}$,
+и \begin{align*}
+y\`\`\`\br{x}
+&= -\pow{e}{y} 
+        - \br{\pow{e}{-y} 
+    + \pow{e}{y}}^2 \pow{e}{y} 
+    + 3 \br{\pow{e}{-y}
+    + \pow{e}{y}} \pow{e}{2y} 
+    - 2 \pow{e}{3y}\\
+&= -\pow{e}{y} \br{1 + \pow{x}{2} - 3x \pow{e}{y} + 2\pow{e}{2y}} \\
+&= -\pow{e}{y} \br{
+    2\br{1 - x \pow{e}{y} + \pow{e}{2y}} + x^2 - x\pow{e}{y} - 1
+} \\
+&= -\pow{e}{y} \br{\pow{e}{2y} + \pow{e}{-2y} + 2 - \pow{e}{2y} - 1 - 1} \\
+&= -\pow{e}{-y} < 0.
+\end{align*}
+
+Таким образом, всюду, где 
+$y\`\`\br{x} = 0$ имеем $y\`\`\`\br{x} \ne 0$,
+то есть точки перегиба лежат на кривой 
+$x = \pow{e}{-y} + \pow{e}{y}$
+\big(или $ x= 2\ch\br{\y}$\big) и только на ней.
+
+\item $\pow{x}{2} + \pow{y}{2} y\` = 1$.
+$y\` = \pow{y}{-2} \br{1 - \pow{x}{2}} = \pow{y}{-2} - \pow{x}{2} \pow{y}{-2}$.
+\begin{align*}    
+y\`\`\br{x}
+&= -2 \pow{y}{-3} y\` + 2 \pow{x}{2} \pow{y}{-3} y\` - 2x \pow{y}{-2} \\
+&= -2\pow{y}{-3} y\` \br{1 - \pow{x}{2}} - 2x \pow{y}{-2} \\
+&= -2\pow{y}{-5} \br{1 - \pow{x}{2}}^2 - 2x \pow{y}{-2}.
+\end{align*}
+\begin{align*}
+    y\`\`\`\br{x}
+    &= 10 \pow{y}{-6} \br{1 - \pow{x}{2}}^2 y\` 
+        + 8x \pow{y}{-5} \br{1 - \pow{x}{2}} 
+        - 2\pow{y}{-2} 
+        + 4x\pow{y}{-3} y\` \\
+    &= 10 \pow{y}{-8} \br{1 - \pow{x}{2}}^3 
+        + 8x \pow{y}{-5} \br{1 - \pow{x}{2}} 
+        - 2\pow{y}{-2} 
+        + 4x\pow{y}{-5} \br{1 - \pow{x}{2}} \\
+    &= 10 \pow{y}{-8} \br{1 - \pow{x}{2}}^3 
+        + 12x \pow{y}{-5} \br{1 - \pow{x}{2}} 
+        - 2\pow{y}{-2}.
+\end{align*}
+Пусть $y\`\`\br{x} 
+= -2\pow{y}{-5} \br{1 - \pow{x}{2}}^2 - 2x \pow{y}{-2} = 0$,
+то есть $\br{1 - \pow{x}{2}}^2 = -x\pow{y}{3}$.
+Тогда
+\begin{align*}
+    y\`\`\`\br{x}
+    &= 10 \pow{y}{-8} \br{1 - \pow{x}{2}} 
+        \cdot \br{-x\pow{y}{3}} 
+        + 12 x\pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2} \\
+    &= 2x\pow{y}{-5} \br{1 - \pow{x}{2}} - 2\pow{y}{-2} \\
+    &= -2\pow{y}{-8} \br{1 - \pow{x}{2}}^2 - 2\pow{y}{-2} \\
+    &= -2\pow{y}{-2} \br{\pow{y}{-6} \br{1 - \pow{x}{2}}^2 + 1} < 0.
+\end{align*}
+
+Итак, всякая точка кривой 
+$x\pow{y}{3} = -\br{1 - \pow{x}{2}}^2$
+является точкой перегиба.
+
+На прямой $y = 0$ первая производная не определена, а потому 
+исследовать функцию $y\br{x}$ на наличие перегиба на этой 
+прямой с помощью производной не получится.
+
+\item $y\`\br{x} = f\br{x; y}$.
+Обозначим $\xi = x$. Тогда по правилу произодной сложной функции
+$y\`\`\br{x}
+= \der{}{x}\,f\br{x; y\br{x}}
+= \der{}{\xi}\,f\br{x\br{\xi}; y\br{\xi}}
+= \parder{f}{x} \der{x}{\xi} + \parder{f}{y} \der{y}{\xi}
+= \parder{f}{x} + \parder{f}{y}\,f\br{x; y}$,
+ибо $\der{x}{\xi} = 1$ и $\der{y}{\xi} = \der{y}{x} = f\br{x; y}$.
+
+Итак, уравнение кривой точек перегиба имеет вид
+$\,\primesub{f}{x} + f \cdot \primesub{f}{y} = 0$.
+Это условие необходимое, но не достаточное, так что 
+проверку на наличие перегиба при фиксированных 
+$x$ и $y$ необходимо делать исследованием знака $y\`\`\br{x}$.
+
+Предположим теперь, что функция $f\br{x; y}$ имеет непрерывные 
+вторые частные \linebreak производные $\pardersecond{f}{x}$,
+$\pardersecond{f}{y}$ и $\pardersecond[f]{x}{y}$ и 
+найдём в этом предположении $y\`\`\`\br{x}$. \vspace{-0.1em}
+$$y\`\`\`\br{x} 
+= \der{}{x} \br{\y\`\`\br{x}} 
+= \der{}{\xi} \br{\parder{f}{x} + f \parder{f}{y}}.$$
+\begin{align*}
+    \der{}{\xi} \parder{f}{x}
+    &= \dfrac {\partial} {\partial x} \br{\parder{f}{x}} \cdot \der{x}{\xi} 
+    + \dfrac {\partial} {\partial y} \br{\parder{f}{y}} \cdot \der{y}{\xi}
+    = \pardersecond{f}{x} + \pardersecond[f]{x}{y} \cdot \der{y}{x} \\
+    &= \pardersecond{f}{x} + \pardersecond[f]{x}{y} \cdot f;
+\end{align*}
+\begin{align*}
+\der{}{\xi} \br{\,f \cdot \parder{f}{y}}
+&= \der{}{\xi} f \cdot \parder{f}{y} + f \cdot \der{}{\xi} \parder{f}{y} \\
+&= \br{
+    \parder{f}{x} + \parder{f}{y} \cdot f
+} \parder{f}{y} 
++ f \cdot \br{
+    \dfrac {\partial}{\partial x}\br{\parder{f}{y}} \cdot \der{x}{\xi} 
+    + \dfrac {\partial}{\partial y}\br{\parder{f}{y}} \cdot \der{y}{\xi}
+} \\
+&= \parder{f}{x}\parder{f}{y} 
++ \br{\parder{f}{y}}^2 \cdot f 
++ \pardersecond[f]{x}{y} \cdot f 
++ \pardersecond{f}{y} \cdot \pow{f}{2}.
+\end{align*}
+
+Окончательно получаем
+$\begin{aligned}[t]
+y\`\`\`\br{x}
+&= \der{}{\xi} \br{\parder{f}{x}} 
+    + \der{}{\xi} \br{f \parder{f}{y}} \\
+&= \primesub[2]{f}{xx} 
+    + \primesub[2]{f}{xy}\,f 
+    + \primesub{f}{x}\,\primesub{f}{y} 
+    + \br{\,\primesub{f}{y}}^2 f 
+    + \primesub[2]{f}{xy}\,f 
+    + \primesub[2]{f}{yy}\,\pow{f}{2} \\
+&= \primesub[2]{f}{xx} 
+    + 2\primesub[2]{f}{xy}\,f 
+    + \primesub[2]{f}{yy}\,\pow{f}{2} 
+    + \primesub{f}{y} \cdot \br{
+        \,\primesub{f}{x} + f \cdot \primesub{f}{y}
+    }.
+\end{aligned}$
+
+Пусть теперь $y\`\`\br{x} = \primesub{f}{x} + f \cdot \primesub{f}{y} = 0$. С таким условием
+$y\`\`\`\br{x} 
+= \primesub[2]{f}{xx} 
++ 2\primesub[2]{f}{xy}\,f 
++ \primesub[2]{f}{yy}\,\pow{f}{2}$.
+
+Отсюда вытекают достаточные условия наличия перегиба в точке:
+$$\tsys{
+    \,\primesub{f}{x} + f \cdot \primesub{f}{y} = 0 \\
+    \,\primesub[2]{f}{xx} 
+        + 2\primesub[2]{f}{xy}\,f 
+        + \primesub[2]{f}{yy}\,\pow{f}{2} \ne 0.
+}$$
+
+\end{enumerate}
 
 \end{document}

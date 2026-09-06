@@ -7,24 +7,45 @@
 \begin{document}
 
 \begin{framed}
-    Для угла $\phi = \ang{45}$ имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} =\tg\br{\alpha \pm \ang{45}} = \dfrac {\tg\alpha \pm 1} {1 \mp \tg\alpha }$.
+    Для угла $\phi = \ang{45}$ имеем 
+    $\tg{\beta} = \tg\br{\alpha \pm \phi} 
+    = \tg\br{\alpha \pm \ang{45}} 
+    = \dfrac {\tg\alpha \pm 1} {1 \mp \tg\alpha }$.
 \end{framed}
 
 $\pow{x}{2} + \pow{y}{2} = \pow{a}{2}$.
 $2x + 2yy\` = 0$.
-Имеем дифференциальное уравнение: $y\` = -\dvfrac{x}{y}$.
+Уравнение: $y\` = -\dvfrac{x}{y}$.
 $\tg\alpha = -\dvfrac{x}{y}$.
-$\tg\beta$ будет иметь, вообще говоря, два различных значения для заданного $\tg\alpha$.
+$\tg\beta$ будет иметь, вообще говоря, 
+два различных значения для заданного $\tg\alpha$.
 
 В случае со знаком <<плюс>>
-$\tg \beta = \dfrac {\tg\alpha + 1} {1 - \tg\alpha} = \dfrac {-\dvfrac{x}{y} + 1} {1 + \dvfrac{x}{y}} = \dfrac {y - x} {x + y} = g\br{x; y\br{x}}$,
+$\tg \beta 
+= \dfrac {\tg\alpha + 1} {1 - \tg\alpha} 
+= \dfrac {-\dvfrac{x}{y} + 1} {1 + \dvfrac{x}{y}} 
+= \dfrac {y - x} {x + y} = g\br{x; y\br{x}}$,
 а в случае со знаком <<минус>> 
-$\tg \beta = \dfrac {\tg\alpha - 1} {1 + \tg\alpha} = \dfrac {-y - x} {y - x} = h\br{x; y\br{x}}$.
-Таким образом, имеем два уравнения изогональных траекторий вида $z\`\br{x} = g\br{x; z\br{x}}$ и $z\`\br{x} = h\br{x; z\br{x}}$. Более конкретно, $z\` = \dfrac {z - x} {z + x}$ и $z\` = - \dfrac {z + x} {z - x}$.
-
+$\tg \beta 
+= \dfrac {\tg\alpha - 1} {1 + \tg\alpha} 
+= \dfrac {-y - x} {y - x} 
+= h\br{x; y\br{x}}$.
+Таким образом, имеем два уравнения изогональных траекторий вида 
+$z\`\br{x} = g\br{x; z\br{x}}$ 
+и $z\`\br{x} = h\br{x; z\br{x}}$. 
+Более конкретно, 
+$z\` = \dfrac {z - x} {z + x}$ 
+и $z\` = - \dfrac {z + x} {z - x}$.
 
 \begin{remark}
-    Ниже приведены решения соответствующих уравнений в параметрической форме $\tsys{& x\br{t} = C f\br{t} \\& z\br{t} = C t f\br{t}}$ и в полярной форме $\tsys{& x\br{\theta} = C r\br{\theta} \cos\theta \\& z\br{\theta} = C r\br{\theta} \sin\theta}$.
+    Ниже приведены решения соответствующих уравнений в 
+    параметрической форме $\tsys{
+        x\br{t} = C f\br{t} \\
+        z\br{t} = C t f\br{t}
+    }$ и в полярной форме $\tsys{
+        x\br{\theta} = C r\br{\theta} \cos\theta \\
+        z\br{\theta} = C r\br{\theta} \sin\theta.
+    }$
 
     \centering
     \begin{tabularx}{0.8\textwidth} {
@@ -33,18 +54,18 @@ $\tg \beta = \dfrac {\tg\alpha - 1} {1 + \tg\alpha} = \dfrac {-y - x} {y - x} = 
             | >{\centering\arraybackslash}X |}
         \hline
             Уравнение
-            & Функция $f = f\br{t}$
+            & Функция $\,f = f\br{t}$
             & Функция $r = r\br{\theta}$ \\
         \hline
             \rule{0mm}{7mm}
-            $z\` = \dfrac {z - x} {z + x}$
-            & $f\br{t} = \dfrac {\tpow{e}{-\arctg t}} {\sqrt{\pow{t}{2} + 1}}$
-            & $r\br{\theta} = \tpow{e}{-\theta}$ \\ [4mm]
+            $z\lprime = \dfrac {z - x} {z + x}$
+            & $f\br{t} = \dfrac {\pow{e}{-\arctg t}} {\sqrt{\pow{t}{2} + 1}}$
+            & $r\br{\theta} = \pow{e}{-\theta}$ \\ [4mm]
         \hline
             \rule{0mm}{7mm}
-            $z\` = - \dfrac {z + x} {z - x}$
-            & {$f\br{t} = \dfrac {\tpow{e}{\arctg t}} {\sqrt{\pow{t}{2} + 1}}$}
-            & $r\br{\theta} = \tpow{e}{\theta}$ \\ [4mm]
+            $z\lprime = - \dfrac {z + x} {z - x}$
+            & {$f\br{t} = \dfrac {\pow{e}{\arctg t}} {\sqrt{\pow{t}{2} + 1}}$}
+            & $r\br{\theta} = \pow{e}{\theta}$ \\ [4mm]
         \hline
     \end{tabularx}
 \end{remark}

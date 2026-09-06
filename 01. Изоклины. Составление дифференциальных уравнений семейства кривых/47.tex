@@ -8,15 +8,19 @@
 
 \begin{framed}
     Для угла $\phi = \arctg 2$
-    имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} = \tg\br{\alpha \pm \arctg 2} = \dfrac {\tg \alpha \pm 2} {1 \mp 2 \tg\alpha}$.
+    имеем $\tg{\beta} 
+    = \tg\br{\alpha \pm \phi} 
+    = \tg\br{\alpha \pm \arctg 2} 
+    = \dfrac {\tg \alpha \pm 2} {1 \mp 2 \tg\alpha}$.
 \end{framed}
 
 $y = x \ln x + C x$, $x > 0$.
 $C = \dfrac {y - x \ln x} {x}$.
-$0 = \dfrac {\br{y\` - \ln x - 1}x - \br{y - x \ln x}} {\pow{x}{2}}
+$0 = \dfrac {\br{\y\` - \ln x - 1}x - \br{\y - x \ln x}} {\pow{x}{2}}
 = \dfrac {y\`x - x - y} {\pow{x}{2}}$,
 Имеем дифференциальное уравнение: $y\` = 1 + \dfrac {y} {x} = \tg \alpha$.
-$\tg\beta$ будет иметь, вообще говоря, два различных значения для заданного $\tg\alpha$. Эти два случая дают
+$\tg\beta$ будет иметь, вообще говоря, два различных 
+значения для заданного $\tg\alpha$. Эти два случая дают
 \begin{align*}
     \tg \beta = \dfrac {\tg \alpha + 2} {1 - 2 \tg\alpha}
     = \dfrac {\br{1 + \dfrac {y} {x}} + 2} {1 - 2 \br{1 + \dfrac {y} {x}}}
@@ -26,21 +30,27 @@ $\tg\beta$ будет иметь, вообще говоря, два различ
     & = \dfrac {-x + y} {3x + 2y} = h\br{x; y\br{x}}
 \end{align*}
 
-Итак, имеем два уравнения изогональных траекторий вида $z\`\br{x} = g\br{x; z\br{x}}$ и $z\`\br{x} \linebreak = h\br{x; z\br{x}}$,
-то есть $z\` = -\dfrac {3x + z} {x + 2z}$ и $z\` = \dfrac {-x + z} {3x + 2z}$.
+Итак, имеем два уравнения изогональных траекторий вида 
+$z\`\br{x} = g\br{x; z\br{x}}$ и
+$z\`\br{x} \linebreak = h\br{x; z\br{x}}$,
+то есть $z\` = -\dfrac {3x + z} {x + 2z}$ и
+$z\` = \dfrac {-x + z} {3x + 2z}$.
 
 \begin{remark}
     Ниже приведены общие решения уравнений.
 
     \begin{enumerate}
-        \item Уравнение $z\` = -\dfrac {3x + z} {x + 2z}$  имеет общее решение в виде следующей квадратичной формы:
+        \item Уравнение $z\` = -\dfrac {3x + z} {x + 2z}$
+        имеет общее решение в виде следующей квадратичной формы:
         $2\pow{z}{2} + 2z x + 3\pow{x}{2} = C$, $C > 0$.
 
-        \item Уравнение $z\` = \dfrac {-x + z} {3x + 2z}$ имеет решение в параметрической форме
-        $\tsys{& x\br{t} = C f\br{t} \\& z\br{t} = C t f\br{t}}$,
-        где $f\br{t} = \dfrac {\tpow {e}{\elevate{-2\arctg\br{2t + 1}}}} {\sqrt{2\pow{t}{2} + 2t + 1}}$.
+        \item Уравнение $z\` = \dfrac {-x + z} {3x + 2z}$
+        имеет решение в параметрической форме
+        $\tsys{x\br{t} = C f\br{t} \\ z\br{t} = C t f\br{t}}$,
+        где $f\br{t} = \dfrac 
+        {\pow {e}{\selevate{-2\arctg\br{2t + 1}}}} 
+        {\sqrt{2\pow{t}{2} + 2t + 1}}$.
     \end{enumerate}
 \end{remark}
 
 \end{document}
-

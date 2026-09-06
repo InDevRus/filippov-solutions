@@ -21,34 +21,48 @@ $y\` = \tg\alpha = - \dfrac {3x} {y}$.
 $\tg \beta 
 = \dfrac {\sqrt{3} \tg\alpha \pm 1} {\sqrt{3} \mp \tg\alpha}
 = \dfrac {3\sqrt{3}x \pm y} {\sqrt{3}x \mp 3y} $.
-Обозначим
+Введём обозначения
 $\dfrac {3\sqrt{3}x + y} {\sqrt{3}y - 3x} = g\br{x; y\br{x}}$ и 
-$\dfrac {3\sqrt{3}x - y} {\sqrt{3}y + 3x} 
-\linebreak = h\br{x; y\br{x}}$.
-Получаются уравнения изогональных траекторий вида $z\`\br{x} = g\br{x; z\br{x}}$ и $z\`\br{x} = h\br{x; z\br{x}}$,
-то есть $z\` = \dfrac {3\sqrt{3}x + z} {3x - \sqrt{3}z}$
-и $z\` = \dfrac {z - 3\sqrt{3}x} {\sqrt{3}z + 3x} $.
+$\dfrac {3\sqrt{3}x - y} {\sqrt{3}y + 3x} = h\br{x; y\br{x}}$.
+Итак, получаются уравнения изогональных траекторий вида
+$$z\`\br{x} = g\br{x; z\br{x}}
+\text{ и } 
+z\`\br{x} = h\br{x; z\br{x}}
+\text{, то есть } 
+z\` = \dfrac {3\sqrt{3}x + z} {3x - \sqrt{3}z}
+\text{ и } 
+z\` = \dfrac {z - 3\sqrt{3}x} {\sqrt{3}z + 3x}.$$
 
 \begin{remark}
-    Ниже приведены решения соответствующих уравнений в параметрической форме $\tsys{& x\br{t} = C f\br{t} \\& z\br{t} = C t f\br{t}}$.
+    Ниже приведены решения соответствующих уравнений 
+    в параметрической форме 
+    $\tsys{x\br{t} = C f\br{t} \\ z\br{t} = C t f\br{t}.}$
 
     \centering
     \begin{tabularx}{0.8\textwidth} {
-            | >{\hsize=0.5\hsize\centering\arraybackslash} X
-            | >{\hsize=1.5\hsize\centering\arraybackslash} X |}
+            | >{\hsize=0.55\hsize\centering\arraybackslash} X
+            | >{\hsize=1.45\hsize\centering\arraybackslash} X |}
         \hline
             Уравнение
-            & Функция $f = f\br{t}$\\
+            & Функция $\,f = f\br{t}$\\
         \hline
-            \rule{0mm}{15mm}
-            $\elevate[4mm]{z\` = \dfrac {3\sqrt{3}x + z} {3x - \sqrt{3}z}}$
-            & $\dfrac {\exp\br{\dfrac {1} {\sqrt{2}} \arctg\br{\dfrac {\sqrt{3}t - 1} {2\sqrt{2}} }}} {\sqrt{\sqrt{3} \pow{t}{2} - 2t + 3\sqrt{3}}}$
-            \\[4mm]
+            \rule{0mm}{3.4em}
+            $\elevate[0.6em]{
+                z\lprime = \dfrac {3\sqrt{3}x + z} {3x - \sqrt{3}z}
+            }$
+            & $\dfrac 
+            {\exp\br{\dfrac {1} {\sqrt{2}} \arctg\br{\dfrac {\sqrt{3}t - 1} {2\sqrt{2}} }}} 
+            {\sqrt{\sqrt{3} \pow{t}{2} - 2t + 3\sqrt{3}}}$
+            \\[1em]
         \hline
-            \rule{0mm}{15mm}
-            $\elevate[4mm]{z\` = \dfrac {-3\sqrt{3}x + z} {3x + \sqrt{3}z}}$
-            & $\dfrac {\exp\br{-\dfrac {1} {\sqrt{2}} \arctg\br{\dfrac {\sqrt{3}t + 1} {2\sqrt{2}} }}} {\sqrt{\sqrt{3} \pow{t}{2} + 2t + 3\sqrt{3}}}$
-            \\[4mm]
+            \rule{0mm}{3.4em}
+            $\elevate[0.6em]{
+                z\lprime = \dfrac {-3\sqrt{3}x + z} {3x + \sqrt{3}z}
+            }$
+            & $\dfrac 
+            {\exp\br{-\dfrac {1} {\sqrt{2}} \arctg\br{\dfrac {\sqrt{3}t + 1} {2\sqrt{2}} }}}
+            {\sqrt{\sqrt{3} \pow{t}{2} + 2t + 3\sqrt{3}}}$
+            \\[1em]
         \hline
     \end{tabularx}
 \end{remark}

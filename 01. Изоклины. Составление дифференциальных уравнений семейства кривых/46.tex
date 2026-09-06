@@ -7,8 +7,12 @@
 \begin{document}
 
 \begin{framed}
-    Если в полярных координатах $\tsys{& x = r \cos\theta \\& y = r \sin\theta}$ имеем  производную $\der{r}{\theta} = A\br{r; \theta}$,
-    то соответствующая производная в декартовых координатах $\der{y}{x} = B\br{r; \theta}$ связана с исходной $A\br{r; \theta}$ соотношениями
+    Если в полярных координатах
+    $\tsys{x = r \cos\theta \\ y = r \sin\theta}$
+    имеем производную 
+    $\der{r}{\theta} = A\br{r; \theta}$,
+    то соответствующая производная в декартовых координатах 
+    $\der{y}{x} = B\br{r; \theta}$ связана с исходной $A\br{r; \theta}$ соотношениями
     \begin{align*}
         \der{y}{x}
         = B\br{A; r; \theta}
@@ -20,35 +24,58 @@
 \end{framed}
 
 \begin{framed}
-    Для угла $\phi = \ang{45}$ имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} =\tg\br{\alpha \pm \ang{45}} = \dfrac {\tg\alpha \pm 1} {1 \mp \tg\alpha }$.
+    Для угла $\phi = \ang{45}$ имеем 
+    $\tg{\beta} 
+    = \tg\br{\alpha \pm \phi} 
+    = \tg\br{\alpha \pm \ang{45}} 
+    = \dfrac {\tg\alpha \pm 1} {1 \mp \tg\alpha }$.
 
-    С учётом указанного выше для данного угла $\phi$ всякое семейство изогональных траекторий $z\br{x}$ и соответствующее семейство в полярной системе $\tsys{& x = \rho \cos\theta \\& z = \rho \sin\theta}$ удовлетворяют соотношениям
+    С учётом указанного выше для данного угла $\phi$ 
+    всякое семейство изогональных траекторий $z\br{x}$ 
+    и соответствующее семейство в полярной системе 
+    $\tsys{x = \rho \cos\theta \\ z = \rho \sin\theta}$
+    удовлетворяют соотношениям
     \begin{align*}
         \sub{A}{z}\br{\rho; \theta}
-        = \rho \cdot \dfrac {\sub{B}{z}\br{\rho; \theta} \sin\theta + \cos\theta} {\sub{B}{z}\br{\rho; \theta} \cos\theta - \sin\theta};
+        = \rho \cdot \dfrac 
+        {\sub{B}{z}\br{\rho; \theta} \sin\theta + \cos\theta} 
+        {\sub{B}{z}\br{\rho; \theta} \cos\theta - \sin\theta};
         &&
-        \sub{B}{z}\br{\rho; \theta} = \dfrac {\sub{B}{y}\br{\rho; \theta} \pm 1} {1 \mp \sub{B}{y}\br{\rho; \theta}};
+        \sub{B}{z}\br{\rho; \theta} = \dfrac 
+        {\sub{B}{y}\br{\rho; \theta} \pm 1} 
+        {1 \mp \sub{B}{y}\br{\rho; \theta}};
     \end{align*}
-    $$\sub{B}{y}\br{r; \theta} = \dfrac {\sub{A}{y}\br{r; \theta} \sin\theta + r \cos\theta} {\sub{A}{y}\br{r; \theta} \cos\theta - r \sin\theta},$$
+    $$\sub{B}{y}\br{r; \theta} = \dfrac 
+    {\sub{A}{y}\br{r; \theta} \sin\theta + r \cos\theta} 
+    {\sub{A}{y}\br{r; \theta} \cos\theta - r \sin\theta},$$
     где введены обозначения
     $\sub{A}{y} = \der{r}{\theta}$,
     $\sub{B}{y} = \der{y}{x}$,
     $\sub{A}{z} = \der{\rho}{\theta}$,
     $\sub{B}{z} = \der{z}{x}$.
 
-    Последовательно подставив и затем упростив, получим следующие формулы двух семейств изогональных траекторий:
+    Последовательно подставив и затем упростив, получим 
+    следующие формулы двух семейств изогональных траекторий:
     \begin{align*}
-        \sub{A}{z}\br{\rho; \theta} = \rho \cdot \dfrac {\sub{A}{y}\br{\rho; \theta} - \rho} {\sub{A}{y}\br{\rho; \theta} + \rho} &&
-        \sub{A}{z}\br{\rho; \theta} = -\rho \cdot \dfrac {\sub{A}{y}\br{\rho; \theta} + \rho} {\sub{A}{y}\br{\rho; \theta} - \rho}
+        \sub{A}{z}\br{\rho; \theta} 
+        = \rho \cdot \dfrac 
+        {\sub{A}{y}\br{\rho; \theta} - \rho} 
+        {\sub{A}{y}\br{\rho; \theta} + \rho} &&
+        \sub{A}{z}\br{\rho; \theta} 
+        = -\rho \cdot \dfrac 
+        {\sub{A}{y}\br{\rho; \theta} + \rho} 
+        {\sub{A}{y}\br{\rho; \theta} - \rho}
     \end{align*}
 \end{framed}
 
 $r = a \sin\theta$.
 $a = \dfrac {r} {\sin\theta}$.
-$0 = \dfrac {r\` \sin\theta - r\cos\theta} {\sin^{2} \theta}$.
+$0 = \dfrac {r\` \sin\theta - r\cos\theta}
+{\sin^{2} \theta}$.
 $r\`\br{\theta} = r\ctg\theta = \sub{A}{y}$.
 
-Таким образом, два уравнения изогональных траекторий в обозначениях, указанных выше, принимают вид
+Таким образом, два уравнения изогональных траекторий 
+в обозначениях, указанных выше, принимают вид
 $\der{\rho}{\theta}
 = \sub{A}{z}
 = \rho \cdot \dfrac {\sub{A}{y} - \rho} {\sub{A}{y} + \rho}
@@ -67,4 +94,3 @@ $\rho\`\br{\theta} = \rho \ctg\br{\theta \pm \ang{45}}$;
 \end{remark}
 
 \end{document}
-

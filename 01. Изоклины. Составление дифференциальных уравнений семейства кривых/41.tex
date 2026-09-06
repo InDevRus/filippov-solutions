@@ -25,10 +25,23 @@ $\tg \beta = \dfrac {\tg\alpha + \sqrt{3}} {1 - \sqrt{3}\tg\alpha}
 $\tg \beta = \dfrac {\tg\alpha - \sqrt{3}} {1 + \sqrt{3}\tg\alpha} 
 = \dfrac {y - \sqrt{3}x} {\sqrt{3}y + x}
 = h\br{x; y\br{x}}$.
-Таким образом, имеем два уравнения изогональных траекторий вида $z\`\br{x} = g\br{x; z\br{x}}$ и $z\`\br{x} = h\br{x; z\br{x}}$, то есть $z\` = \dfrac {z + \sqrt{3}x} {-\sqrt{3}z + x}$ и $z\` = \dfrac {z - \sqrt{3}x} {\sqrt{3}z + x}$.
+Таким образом, имеем два уравнения изогональных траекторий вида 
+$z\`\br{x} = g\br{x; z\br{x}}$ 
+и $z\`\br{x} = h\br{x; z\br{x}}$, 
+то есть 
+$z\` = \dfrac {z + \sqrt{3}x} {-\sqrt{3}z + x}$
+и $z\` = \dfrac {z - \sqrt{3}x} {\sqrt{3}z + x}$.
 
 \begin{remark}
-    Ниже приведены решения соответствующих уравнений в параметрической форме $\tsys{& x\br{t} = C f\br{t} \\& z\br{t} = C t f\br{t}}$ и в полярной форме $\tsys{& x\br{\theta} = C r\br{\theta} \cos\theta \\& z\br{\theta} = C r\br{\theta} \sin\theta}$.
+    Ниже приведены решения соответствующих уравнений 
+    в параметрической форме 
+    $\tsys{
+        x\br{t} = C f\br{t} \\
+        z\br{t} = C t f\br{t}
+    }$ и в полярной форме $\tsys{
+        x\br{\theta} = C r\br{\theta} \cos\theta \\
+        z\br{\theta} = C r\br{\theta} \sin\theta
+    }$.
 
     \centering
     \begin{tabularx}{0.8\textwidth} {
@@ -37,23 +50,26 @@ $\tg \beta = \dfrac {\tg\alpha - \sqrt{3}} {1 + \sqrt{3}\tg\alpha}
             | >{\centering\arraybackslash}X |}
         \hline
             Уравнение
-            & Функция $f = f\br{t}$
+            & Функция $\,f = f\br{t}$
             & Функция $r = r\br{\theta}$ \\
         \hline
             \rule{0mm}{9mm}
-            $z\` = \dfrac {z + \sqrt{3}x} {-\sqrt{3}z + x}$
-            & $f\br{t} = \dfrac {\tpow{e}{\frac {1} {\sqrt{3}}\arctg t}} {\sqrt{\pow{t}{2} + 1}}$
-            & $r\br{\theta} = \tpow{e}{\frac {1}{\sqrt{3}}\theta}$
+            $z\lprime = \dfrac {z + \sqrt{3}x} {-\sqrt{3}z + x}$
+            & $f\br{t} = \dfrac 
+            {\pow{e}{\selevate[0.5em]{\frac {1} {\sqrt{3}}\arctg t}}}
+            {\sqrt{\pow{t}{2} + 1}}$
+            & $r\br{\theta} = \pow{e}{\selevate[0.5em]{\frac {1}{\sqrt{3}}\theta}}$
             \\[5mm]
         \hline
             \rule{0mm}{9mm}
-            $z\` = \dfrac {z - \sqrt{3}x} {\sqrt{3}z + x}$
-            & $f\br{t} = \dfrac {\tpow{e}{-\frac {1} {\sqrt{3}}\arctg t}} {\sqrt{\pow{t}{2} + 1}}$
-            & $r\br{\theta} = \tpow{e}{-\frac {1}{\sqrt{3}}\theta}$
+            $z\lprime = \dfrac {z - \sqrt{3}x} {\sqrt{3}z + x}$
+            & $f\br{t} = \dfrac 
+            {\pow{e}{\selevate[0.5em]{-\frac {1} {\sqrt{3}}\arctg t}}}
+            {\sqrt{\pow{t}{2} + 1}}$
+            & $r\br{\theta} = \pow{e}{\selevate[0.5em]{-\frac {1}{\sqrt{3}}\theta}}$
             \\[5mm]
         \hline
     \end{tabularx}
 \end{remark}
 
 \end{document}
-

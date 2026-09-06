@@ -7,7 +7,11 @@
 
 \begin{document}
 
-$f\br{x; y} = \dfrac {y - 3x} {3y + x}$. Уравнение изоклины: $\dfrac {y - 3x} {3y + x} = k$. $y\br{x} = \dfrac {k + 3} {1 - 3k} x$. Таким образом, изоклинами будут прямые. На левом рисунке изображены изоклины, на правом -- решения уравнений.
+$f\br{x; y} = \dfrac {y - 3x} {3y + x}$. 
+Уравнение изоклины: $\dfrac {y - 3x} {3y + x} = k$.
+$y\br{x} = \dfrac {k + 3} {1 - 3k} x$. 
+Таким образом, изоклинами будут прямые. 
+На левом рисунке изображены изоклины, на правом -- решения уравнений.
 
 \begin{figure}[!h]
 \begin{minipage}{.5\textwidth}
@@ -217,12 +221,21 @@ $f\br{x; y} = \dfrac {y - 3x} {3y + x}$. Уравнение изоклины: $\
         \end{axis}
     \end{tikzpicture}
 \end{minipage}
-\end{figure} 
+\end{figure}
 
-\begin{remark} Кривые на рисунке справа построены  по общему решению исходного уравнения, которое можно задать либо в параметрической форме
-$$\tsys{& x\br{t} = C f\br{t} \\& y\br{t} = Ct f\br{t}}\text{, где } f\br{t} = \dfrac {1}{\exp\br{\dfrac {1}{3} \arctg t} \sqrt{\pow{t}{2} + 1}},$$
-либо в форме в полярных координатах
-$\tsys{& x\br{\phi} = C r\br{\phi} \cos\phi \\& y\br{\phi} = C r\br{\phi} \sin\phi}$, где $r\br{\phi} = \tpow{e}{\elevate{-\frac {1} {3} \phi}}$.
+\begin{remark} 
+    Кривые на рисунке справа построены  по общему решению исходного уравнения,
+    которое можно задать либо в параметрической форме
+    $$\tsys{
+        x\br{t} = C f\br{t} 
+        \\ y\br{t} = Ct f\br{t}
+    }\text{, где } 
+    f\br{t} = \dfrac {1}{\exp\br{\dfrac {1}{3} \arctg t} \sqrt{\pow{t}{2} + 1}},$$
+    либо в форме в полярных координатах
+    $\tsys{
+        x\br{\phi} = C r\br{\phi} \cos\phi \vspace{0.1em} \\
+        y\br{\phi} = C r\br{\phi} \sin\phi}$,
+    где $r\br{\phi} = \pow{e}{\selevate{-\frac {1} {3} \phi}}$.
 \end{remark} 
 
 \end{document}
