@@ -1,18 +1,20 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
 
-$\zed'\br{t} = \tpow{10}{\hspace{0.5mm}x + \zed}$.
-$\tpow{10}{-\zed} \cdot \zed' = \tpow{10}{\hspace{0.5mm}x}$.
-\vspace{1mm}
-Взяв интеграл левой и правой частей по $dx$, получаем $-\dfrac {\tpow{10}{-\zed}}{\ln 10} = \dfrac{\tpow{10}{\hspace{0.5mm}x}} {\ln 10} + C$.
+$z\`\br{t} = \pow{10}{x + z}$.
+$\pow{10}{-z} \cdot z\` = \pow{10}{x}$.
+
+Взяв интеграл левой и правой частей по $\di x$, получаем 
+$-\dfrac {\pow{10}{-z}}{\ln 10} = \dfrac{\pow{10}{x}} {\ln 10} + C$.
 
 Окончательно, общее решение равняется
-$\zed\br{x} = -\lg\br{C - \tpow{10}{\hspace{0.5mm}x}}$, где
+$z\br{x} = -\lg\br{C - \pow{10}{x}}$, где
 $C > 0$. Область определения: $x \in \br{-\infty; \lg\br{C}}$.
 
 \begin{figure}[!h]
@@ -25,7 +27,7 @@ $C > 0$. Область определения: $x \in \br{-\infty; \lg\br{C}}$.
         }
         \begin{axis}[
             width = 12cm,
-            ylabel = $\zed$,
+            ylabel = $z$,
             ymin = -4.2,
             ymax = 4.2,
             xmin = -5.2,
@@ -40,7 +42,10 @@ $C > 0$. Область определения: $x \in \br{-\infty; \lg\br{C}}$.
             
             \draw[thick, blue] (-5.5, 0) -- (5.5, 0);
             
-            \pgfplotsinvokeforeach {0.001, 0.003, 0.01, 0.03, 0.1, 0.25, 0.5, 1, 3, 11, 32, 100, 300, 1000, 3000, 10000} {
+            \pgfplotsinvokeforeach {
+                0.001, 0.003, 0.01, 0.03, 0.1, 0.25,
+                0.5, 1, 3, 11, 32, 100, 300, 1000, 3000, 10000
+            } {
                 \addplot[Graph, domain = -5.5 : log10(#1 / 2)]
                 {f(#1, x)};
                 \addplot[Graph, domain = -log10(#1 / 2) : 5.5]

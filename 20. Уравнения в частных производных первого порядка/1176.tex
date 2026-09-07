@@ -5,31 +5,35 @@
 \input{../preambles/general}
 
 \begin{document}
-    $\br{x^2 + y^2} \parder{\zed} {x} + 2xy \parder{\zed} {y} = -\zed^2$.
+    $\br{\pow{x}{2} + \pow{y}{2}} \parder{z} {x} + 2xy \parder{z} {y} = -\pow{z}{2}$.
     
-    $\dfrac {dx} {x^2 + y^2} = \dfrac {dy} {2xy} = \dfrac {d\zed} {-\zed^2}$.
+    $\dvfrac {\di x} {\pow{x}{2} + \pow{y}{2}}
+    = \dvfrac {\di y} {2xy} = \dvfrac {\di z} {-\pow{z}{2}}$.
     
     \begin{enumerate}
-        \item $\dfrac {dx} {x^2 + y^2} = \dfrac {dy} {2xy}$.
-        $\dfrac {dx} {dy} = \dfrac {x^2 + y^2} {2xy}$.
-        $2x'\br{y} = \dfrac {x} {y} + \dfrac {y} {x}$.
+        \item $\dvfrac {\di x} {\pow{x}{2} + \pow{y}{2}} = \dvfrac {\di y} {2xy}$.
+        $\der{x}{y} = \dvfrac {\pow{x}{2} + \pow{y}{2}} {2xy}$.
+        $2x\`\br{\y} = \dvfrac{x}{y} + \dvfrac {y} {x}$.
         Получилось однородное уравнение, заменяем
-        $x\br{y} = y \cdot w\br{y}$.
-        $2w'y + 2w = w + \dfrac {1} {w}$.
-        $2w'y = \dfrac {1 - w^2} {w}$.
-        $\dfrac {2w} {1 - w^2} w' = \dfrac {1} {y}$.
-        $-\ln\vbr{1 - w^2} = \ln\vbr{y} + A$.
-        $\br{1 - w^2} y = A$.
-        $\dfrac {y^2 - x^2} {y} = A$.
+        $x\br{\y} = y \cdot w\br{\y}$.
+        $2w\`y + 2w = w + \dvfrac {1} {w}$.
+        $2w\`y = \dvfrac {1 - \pow{w}{2}} {w}$.
+        $\dvfrac {2w} {1 - \pow{w}{2}} w\` = \dvfrac {1} {y}$.
+        $-\ln\vbr{1 - \pow{w}{2}} = \ln\vbr{y} + A$.
+        $\br{1 - \pow{w}{2}} y = A$.
+        $\dvfrac {\pow{y}{2} - \pow{x}{2}} {y} = A$.
         
-        \item $\dfrac {dx + dy} {x^2 + y^2 + 2xy} = \dfrac {d\zed} {-\zed^2}$.
-        $\dfrac {d\br{x + y}} {\br{x + y}^2} = -d\br{\dfrac {1} {x + y}} = d\br{\dfrac {1} {\zed}}$.
-        $\dfrac {1} {\zed} + \dfrac {1} {x + y} = B$.
+        \item $\dvfrac {\di x + \di y} {\pow{x}{2} + \pow{y}{2} + 2xy}
+        = \dvfrac {\di z} {-\pow{z}{2}}$.
+        $\dvfrac {d\br{x + y}} {\br{x + y}^2} 
+        = -d\br{\dvfrac {1} {x + y}} = d\br{\dvfrac {1} {z}}$.
+        $\dvfrac {1} {z} + \dvfrac {1} {x + y} = B$.
     \end{enumerate}
     
     Окончательно,
-    $F\br{\dfrac {y^2 - x^2} {y}; \dfrac {1} {\zed} + \dfrac {1} {x + y}} = 0$.
+    $F\br{\dvfrac {\pow{y}{2} - \pow{x}{2}} {y}; \dvfrac {1} {z} + \dvfrac {1} {x + y}} = 0$.
     Выразим решение также в явном виде:
-    $\dfrac {1} {\zed} + \dfrac {1} {x + y} = f\br{\dfrac {y^2 - x^2} {y}}$.
-    $\zed = \br{f\br{\dfrac {y^2 - x^2} {y}} - \dfrac {1} {x + y}}^{-1}$.
+    $\dvfrac {1} {z} + \dvfrac {1} {x + y} = f\br{\dvfrac {\pow{y}{2} - \pow{x}{2}} {y}}$.
+    $z = \br{f\br{\dvfrac {\pow{y}{2} - \pow{x}{2}} {y}} - \dvfrac {1} {x + y}}^{-1}$.
+
 \end{document}

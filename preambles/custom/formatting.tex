@@ -1,0 +1,119 @@
+% Корректировка горизонтального положения числителя и знаменателя
+\directlua{
+    left_spacings = {
+        A = 0.05, H = 0.05, N = 0.025, a = 0.05, b = 0.05, c = 0.05,
+        e = 0.025, f = 0.15, g = 0.1, h = 0.05, i = 0.05, j = 0.2,
+        m = 0.05, n = 0.05, o = 0.05, p = 0.1, q = 0.05, r = 0.025,
+        s = 0.075, t = 0.05, x = 0.05, z = 0.05, y = 0.075, z = 0.05
+    }
+    right_spacings = {
+        C = -0.045, E = -0.031, F = -0.065, G = -0.012,
+        H = -0.095, I = -0.085, J = -0.11, K = -0.07,
+        M = -0.1, N = -0.1, O = -0.005, P = -0.02,
+        S = -0.05, T = -0.1, U = -0.1,
+        V = -0.12, W = -0.12, X = -0.135, Y = -0.12,
+        Z = -0.06, d = -0.05, f = -0.05, g = -0.03,
+        j = -0.01, k = -0.05, l = -0.025, r = -0.025,
+        t = -0.02, v = -0.005, z = -0.01
+    }
+
+    function match_first_letter(math_token)
+        return math_token:match("^ *\\subpow *[^ a-zA-Z] *([a-zA-Z])")
+            or math_token:match("^ *\\pow *[^ a-zA-Z] *([a-zA-Z])")
+            or math_token:match("^ *\\sub *[^ a-zA-Z] *([a-zA-Z])")
+            or math_token:match("^ *([a-zA-Z])")
+            or ""
+        end
+
+    function match_last_letter(math_token)
+        return math_token:match("([a-zA-Z]) *$") or ""
+    end
+
+    function compute_dfrac(indent, numerator, denominator, vphantom)
+        indent = "\\hspace{" .. indent .. "}"
+        local numerator_left_spacing = left_spacings[match_first_letter(numerator)] or 0
+        local numerator_right_spacing = right_spacings[match_last_letter(numerator)] or 0
+        local denominator_left_spacing = left_spacings[match_first_letter(denominator)] or 0
+        local denominator_right_spacing = right_spacings[match_last_letter(denominator)] or 0
+        if numerator_left_spacing == 0 then else
+            numerator = "\\kern" .. numerator_left_spacing .. "em " .. numerator
+        end
+        if numerator_right_spacing == 0 then else
+            numerator = numerator .. "\\kern" .. numerator_right_spacing .. "em "
+        end
+        if denominator_left_spacing >= 0 then else
+            denominator = "\\kern" .. denominator_left_spacing .. "em " .. denominator
+        end
+        if denominator_right_spacing >= 0 then else
+            denominator = denominator .. "\\kern" .. denominator_right_spacing .. "em "
+        end
+        if vphantom == "" then else
+            numerator = numerator .. "\\vphantom{" .. vphantom .. "}"
+        end
+        tex.print("\\olddfrac{" .. indent .. numerator .. indent .. "}{" .. indent .. denominator .. indent .. "}")
+    end
+}
+
+\AtBeginDocument{
+    % Запрет перехода на следующую страницу внутри абзаца
+    \widowpenalties 1 10000
+    \raggedbottom
+
+    % Запрет переноса внутри математического окружения
+    \binoppenalty=10000
+    \relpenalty=10000
+
+    % Принудительный отступ между строками
+    \setlength{\lineskiplimit}{1mm}
+    \setlength{\lineskip}{1mm}
+    % Установить отступы перед и после математических окружений (align, multline, gather и т.д.)
+    \setlength{\abovedisplayskip}{0.5mm}
+    \setlength{\belowdisplayskip}{0.5mm}
+    \setlength{\abovedisplayshortskip}{0.25mm}
+    \setlength{\belowdisplayshortskip}{0.25mm}
+
+    % Символы с фиксированными отступами
+
+    % Знак прим и его вариант для строчных букв
+    \newmathcommand{\lprime}{\raisebox{-0.15em}{$\prime$}}
+    % Сокращения для предыдущих, которые могут не работать внутри
+    % некоторых окружений, например в framed.
+    \renewmathcommand{\'}{\prime}
+    \renewmathcommand{\`}{\lprime}
+    % Знак прим с нижним индексом
+    \newmathcommand{\primesub}[3][1]{
+        \mathrlap{\kern0.06em\hphantom{#2}\multido{}{#1}{\prime}\kern-0.06em}
+        \subpow{#2}{#3}{\hphantom{\multido{}{#1}{\prime}}\kern-0.06em}
+    }
+
+    \newmathcommand{\f}{f\hspace{0.075em}}
+    \renewmathcommand{\j}{\hspace{0.15em}j}
+    \newmathcommand{\x}{\hspace{0.05em} x}
+    \newmathcommand{\y}{\hspace{0.05em} y}
+    \newmathcommand{\p}{\ \! p}
+    \newmathcommand{\dfracphantom}{\vphantom{y}}
+
+    \let\olddfrac\dfrac
+    \renewcommand{\dfrac}[3][0.1em]{
+        \directlua{
+            local indent = "\luaescapestring{\unexpanded{#1}}"
+            local numerator = "\luaescapestring{\unexpanded{#2}}"
+            local denominator = "\luaescapestring{\unexpanded{#3}}"
+            compute_dfrac(indent, numerator, denominator, "")
+        }
+    }
+
+    % Дробь с вертикальным отсупом (вставляется вертикальный фантом с буквой y)
+    \newmathcommand{\dvfrac}[3][0.1em]{
+        \directlua{
+            local indent = "\luaescapestring{\unexpanded{#1}}"
+            local numerator = "\luaescapestring{\unexpanded{#2}}"
+            local denominator = "\luaescapestring{\unexpanded{#3}}"
+            compute_dfrac(indent, numerator, denominator, "y")
+        }
+    }
+
+    \let\oldfrac\frac
+    \renewcommand{\frac}[3][0.1em]{\oldfrac{\kern#1 #2 \kern #1}{\kern#1 #3 \kern#1}}
+    \newcommand{\vfrac}[3][0.1em]{\oldfrac{\kern#1 #2 \vphantom{y} \kern #1}{\kern#1 #3 \kern#1}}
+}

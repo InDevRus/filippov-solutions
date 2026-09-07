@@ -5,20 +5,24 @@
 \input{../preambles/general}
 
 \begin{document}
-    $2y^4 \parder{\zed} {x} - xy \parder{\zed} {y} = x \sqrt{\zed^2 + 1}$.
-    $\dfrac {2y^4} {x} \cdot \parder{\zed} {x} - y \parder{\zed} {y} = \sqrt{\zed^2 + 1}$.
+    $2\pow{y}{4} \parder{z} {x} - xy \parder{z} {y} = x \sqrt{\pow{z}{2} + 1}$.
+    
+    $\dfrac {2\pow{y}{4}} {x} \cdot \vparder{z} {x} - y \vparder{z} {y} = \sqrt{\pow{z}{2} + 1}$.
         
-    $\dfrac {x dx} {2y^4} = \dfrac {dy} {-y} = \dfrac {d\zed} {\sqrt{\zed^2 + 1}}$. \vspace{1mm}
+    $\dvfrac {x \di x} {2\pow{y}{4}}
+    = \dvfrac {\di y} {-y}
+    = \dvfrac {\di z} {\sqrt{\pow{z}{2} + 1}}$.
     
     \begin{enumerate}
-        \item $x dx = -2y^3 dy$.
-        $x^2 + y^4 = A$. \vspace{1mm}
+        \item $x \di x = -2\pow{y}{3} \di y$.
+        $\pow{x}{2} + \pow{y}{4} = A$.
         
-        \item $\dfrac {dy} {-y} = \dfrac {d\zed} {\sqrt{\zed^2 + 1}}$.
-        $\arsh{\zed} + \ln\vbr{y} = B$.
+        \item $\dfrac {\di y} {-y} = \dvfrac {\di z} {\sqrt{\pow{z}{2} + 1}}$.
+        $\arsh{z} + \ln\vbr{y} = B$.
     \end{enumerate}
     
-    В результате $F\br{x^2 + y^4; \arsh \zed + \ln\vbr{y}} = 0$.
-    $\arsh \zed + \ln\vbr{y} = f\br{x^2 + y^4}$. \\
-    $\zed = \sh\br{f\br{x^2 + y^4} - \ln\vbr{y}}$.
+    В результате $F\br{\pow{x}{2} + \pow{y}{4}; \arsh z + \ln\vbr{y}} = 0$.
+    $\arsh z + \ln\vbr{y} = f\br{\pow{x}{2} + \pow{y}{4}}$.
+    
+    $z = \sh\br{f\br{\pow{x}{2} + \pow{y}{4}} - \ln\vbr{y}}$.
 \end{document}

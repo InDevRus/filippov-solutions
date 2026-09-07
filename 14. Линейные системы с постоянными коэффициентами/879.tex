@@ -1,62 +1,109 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
 
 \begin{framed}
 \begin{formula}[вспомогательного угла]
-$$A \sin{x} \pm B \cos{x} = \sqrt{A^2 + B^2} \sin\br{x \pm \phi},$$
+$$A \sin{x} \pm B \cos{x} 
+    = \textstyle\sqrt{\pow{A}{2} + \pow{B}{2}} \sin\br{x \pm \phi},$$
 
 где $\phi$ называется вспомогательным углом таким, что
 
 $$
-\sin{\phi} = \frac {B}{\sqrt{A^2 + B^2}},\ 
-\cos{\phi} = \frac {A}{\sqrt{A^2 + B^2}},\
+\sin{\phi} = \frac {B}{\sqrt{\pow{A}{2} + \pow{B}{2}}},\
+\cos{\phi} = \frac {A}{\sqrt{\pow{A}{2} + \pow{B}{2}}},\
 \tg{\phi} = \frac {B}{A}.
 $$
 В частности, можно взять $\phi = \arctg\br{\dfrac {B}{A}}$.
 \end{formula}
 \end{framed}
 
-Обозначим за $I_{L}\br{t}$ силу тока на самоиндукции, за $I_{C}\br{t}$ -- силу тока на конденсаторе. Поскольку самоиндукция и конденсатор подключены параллельно, $U_{L}\br{t} = U_{C}\br{t}$, но $I_{\br{L, C}}\br{t} = I_{R}\br{t} = I_{L}\br{t} + I_{C}\br{t}$, так как сопротивление и пара из самоиндукции и конденсатора подключены уже последовательно. При этом $I_{R}\br{t}$ -- искомая сила тока на сопротивлении.
+Обозначим за $\sub{I}{L}\br{t}$ силу тока на самоиндукции, 
+за $\sub{I}{C}\br{t}$ -- силу тока на конденсаторе. 
+Поскольку самоиндукция и конденсатор подключены параллельно, 
+$\sub{U}{L}\br{t} = \sub{U}{C}\br{t}$, 
+но $\sub{I}{\br{L; C}}\br{t} 
+    = \sub{I}{R}\br{t} 
+    = \sub{I}{L}\br{t} + \sub{I}{C}\br{t}$,
+так как сопротивление и пара из самоиндукции и конденсатора подключены 
+уже последовательно. При этом $\sub{I}{R}\br{t}$ -- искомая 
+сила тока на сопротивлении.
 
-$U_{L}\br{t} = L \cdot I'_{L}\br{t}$, $U_{C}\br{t} = \frac {1}{C} q\br{t}$, где $q\br{t}$ -- заряд конденсатора, производная которого в точности равна $I_{C}\br{t}$. Взяв производную, получим $LC I''_{L}\br{t} = I_{C}\br{t}$.
+$\sub{U}{L}\br{t} = L \cdot \primesub{I}{L}\br{t}$,
+$\sub{U}{C}\br{t} = \frac {1}{C} q\br{t}$,
+где $q\br{t}$ -- заряд конденсатора, производная которого в 
+точности равна $\sub{I}{C}\br{t}$. Взяв производную, получим 
+$LC \primesub[2]{I}{L}\br{t} = \sub{I}{C}\br{t}$.
 
-Вся цепь соединена так, что падения напряжений её элементов равняются $U_{R}\br{t} = \linebreak = R I_{R}\br{t} = R \br{I_{L}\br{t} + I_{C}\br{t}}$ и $U_{\br{L, C}}\br{t} = U_{L}\br{t} = L \cdot I'_{L}\br{t}$. Отсюда имеем
-$$R I_{L}\br{t} + R I_{C}\br{t} + L \cdot I'_{L}\br{t} = V \sin\br{\omega t}.$$
+Вся цепь соединена так, что падения напряжений её последовательно 
+соединённых участков равняются 
+$\sub{U}{R}\br{t} 
+    = R\sub{I}{R}\br{t} 
+    = R \br{\sub{I}{L}\br{t} + \sub{I}{C}\br{t}}$
+и $\sub{U}{\br{L, C}}\br{t} 
+    = \sub{U}{L}\br{t} 
+    = L \cdot \primesub{I}{L}\br{t}$, а отсюда имеем
+$$R \sub{I}{L}\br{t} + R \sub{I}{C}\br{t} + L \primesub{I}{L}\br{t} = V \sin\br{\omega t}.$$
 
-Неоднородная система уравнений 
-$$\begin{cases}
-    LC I''_{L}\br{t} - I_{C}\br{t} = 0 \\
-    R I_{L}\br{t} + R I_{C}\br{t} + L \cdot I'_{L}\br{t} = V \sin\br{\omega t}
-\end{cases}$$
-хотя и не приведена к нормальному виду, проще всего может быть решена исключением $I_{C}\br{t}$ и нахождением функций по отдельности.
+Линейная неоднородная система уравнений 
+$$\tsys{
+    LC \primesub[2]{I}{L}\br{t} - \sub{I}{C}\br{t} = 0 \\
+    R \sub{I}{L}\br{t} + R \sub{I}{C}\br{t} + L \primesub{I}{L}\br{t} = V \sin\br{\omega t}
+}$$
+не приведена к нормальному виду. Её проще всего решить исключением 
+$\sub{I}{C}\br{t}$ и нахождением функций по отдельности.
 
-После подстановки имеем уравнение $RLC I''_{L}\br{t} + L \cdot I'_{L}\br{t} + R I_{L}\br{t} = V \sin\br{\omega t}$. Решение соответствующего однородного уравнения стремится к нулю при $t \to +\infty$ с показательной скоростью из-за того, что оба корня харакеристического уравнения имеют вещественные части, меньшие нуля. Следовательно, установившийся режим происходит из частного решения неоднородного уравнения.
+После подстановки имеем уравнение 
+$RLC \primesub[2]{I}{L}\br{t} 
+    + L \primesub{I}{L}\br{t} 
+    + R \sub{I}{L}\br{t} 
+    = V \sin\br{\omega t}$.
+Решение соответствующего однородного уравнения стремится к нулю при 
+$t \to +\infty$ с показательной скоростью из-за того, что оба корня харакеристического 
+уравнения имеют вещественные части, меньшие нуля. Следовательно, установившийся режим 
+происходит из частного решения неоднородного уравнения.
 
-Это решение будем искать в форме $I_{L}\br{t} = a \sin\br{\omega t} + b \cos\br{\omega t}$. Подставив в уравнение, получаем
-$$\begin{cases}
-        \br{-RLC\omega^2 + R} a - L\omega b = V \\
-        L\omega a + \br{-RLC\omega^2 + R} b = 0
-    \end{cases}$$
+Это решение будем искать в форме 
+$\sub{I}{L}\br{t} = a \sin\br{\omega t} + b \cos\br{\omega t}$.
+Подставив в уравнение, получаем
+$$\tsys{
+    \br{-RLC\pow{\omega}{2} + R} a - L\omega b = V \\
+    L\omega a + \br{-RLC\pow{\omega}{2} + R} b = 0.
+}$$
 \begin{align*}
-    \Delta_{0} = R^2\br{1 - LC\omega^2}^2 + \br{L\omega}^2 &&
-    a = \frac {VR\br{1 - LC\omega^2}} {\Delta_{0}} &&
-    b = \frac {-VL\omega} {\Delta_{0}} &&
+    \sub{\Delta}{0} = \pow{R}{2}\br{1 - LC\pow{\omega}{2}}^2 + \br{L\omega}^2 &&
+    a = \frac {VR\br{1 - LC\pow{\omega}{2}}} {\sub{\Delta}{0}} &&
+    b = \frac {-VL\omega} {\sub{\Delta}{0}} &&
 \end{align*}
 
-$$I_{L}\br{t} = \frac{V}{R^2\br{1 - LC\omega^2}^2 + \br{L\omega}^2} \br{R\br{1 - LC\omega^2} \sin\br{\omega t} - L \cos\br{\omega t}}$$
-\begin{equation*}
-    \begin{split}
-        I_{R}\br{t} = I_{L}\br{t} + LCI''_{L}\br{t} = \frac {V\br{1 - LC\omega^2}} {R^2\br{1 - LC\omega^2}^2 + \br{L\omega}^2} \br{R \sin\br{\omega t} - \frac {L\omega} {1 - LC\omega^2} \cos\br{\omega t}} & \\
-        = \frac {V} {R^2 + \br{\dfrac {L\omega}{1 - LC\omega^2}}^2} \br{R \sin\br{\omega t} - \frac {L\omega} {1 - LC\omega^2} \cos\br{\omega t}} & \\
-        = \frac {V} {\sqrt{R^2 + \br{\dfrac {L\omega}{1 - LC\omega^2}}^2}} \sin\br{\omega t - \phi},
-    \end{split}
-\end{equation*}
-где $\phi = \arctg\br{\dfrac{L\omega}{R\br{1 - LC\omega^2}}}$.
-Амплитуда установившегося режима равняется $A\br{\omega} = \linebreak = \dfrac {V} {\sqrt{R^2 + \br{\dfrac {L\omega}{1 - LC\omega^2}}^2}}$ и она убывает с возрастанием выражения $\br{\dfrac {L\omega}{1 - LC\omega^2}}^2$.
+$$\sub{I}{L}\br{t} 
+    = \frac{V}{\pow{R}{2}\br{1 - LC\pow{\omega}{2}}^2 + \br{L\omega}^2} 
+        \br{R\br{1 - LC\pow{\omega}{2}} \sin\br{\omega t} - L\omega \cos\br{\omega t}}
+$$
+\begin{align*}
+    \sub{I}{R}\br{t} 
+    = \sub{I}{L}\br{t} + LC\primesub[2]{I}{L}\br{t} 
+    & = \frac {V\br{1 - LC\pow{\omega}{2}}} 
+        {\pow{R}{2}\br{1 - LC\pow{\omega}{2}}^2 + \br{L\omega}^2} 
+        \br{R \sin\br{\omega t} - \frac {L\omega} {1 - LC\pow{\omega}{2}} \cos\br{\omega t}} \\
+    & = \frac {V} 
+        {\pow{R}{2} + \br{\dfrac {L\omega}{1 - LC\pow{\omega}{2}}}^2}
+        \br{R \sin\br{\omega t} - \frac {L\omega} {1 - LC\pow{\omega}{2}} \cos\br{\omega t}} \\
+    & = \frac {V}
+        {\sqrt{\pow{R}{2} + \br{\dfrac {L\omega}{1 - LC\pow{\omega}{2}}}^2}} \sin\br{\omega t - \phi},
+\end{align*}
+где $\phi = \arctg\br{\dfrac{L\omega}{R\br{1 - LC\pow{\omega}{2}}}}$.
 
-Наибольшая амплитуда получается при $\omega = 0$ и при $\omega \to +\infty$ и равна $A_{\max} = \dfrac{V}{R}$. Наименьшая будет при $\omega = \pm \dfrac {1} {\sqrt{LC}}$ и равна $A_{\min} = 0$.
+Амплитуда установившегося режима равняется 
+$$A\br{\omega} = \dfrac {V} {\sqrt{\pow{R}{2} + \br{\dfrac {L\omega}{1 - LC\pow{\omega}{2}}}^2}}$$
+и она убывает с возрастанием выражения $\br{\dfrac {L\omega}{1 - LC\pow{\omega}{2}}}^2$.
+
+Наибольшая амплитуда $\sub{A}{\max} = \dfrac{V}{R}$ 
+достигается при $\omega = 0$ и в пределе при $\omega \to +\infty$.
+Наименьшая будет при $\omega = \dfrac {1} {\sqrt{LC}}$
+и равна $\sub{A}{\min} = 0$.
 \end{document}

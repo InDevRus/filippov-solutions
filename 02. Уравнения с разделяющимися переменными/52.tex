@@ -1,20 +1,29 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
-$\sqrt{y^2 + 1} dx = xy\ dy$. 
+$\sqrt{\pow{y}{2} + 1} \di x = xy \di y$.
 Кривая $x = 0$ также является решением.
-$\dfrac {1} {x} dx = \dfrac {y} {\sqrt{y^2 + 1}} dy$.
+$\dfrac {1} {x} \di x 
+= \dfrac {y} {\sqrt{\pow{y}{2} + 1}} \di y$.
 
-$\tint \dfrac {1} {x} dx = \ln\vbr{x} + C$;
-$\tint \dfrac {y} {\sqrt{y^2 + 1}} dy = \dfrac {1} {2} \tint \tpow{\br{y^2 + 1}} {-\frac {1} {2}} d\br{y^2} = \sqrt{y^2 + 1} + C$.
+$\tint \dfrac {1} {x} \di x = \ln\vbr{x} + C$;
+$\tint \dfrac {y} {\sqrt{\pow{y}{2} + 1}} \di y 
+= \dfrac {1} {2} 
+    \tint \pow{\br{\pow{y}{2} + 1}} {-\frac {1} {2}} d\br{\pow{y}{2}} 
+= \sqrt{\pow{y}{2} + 1} + C$.
 
-$\ln \vbr{x} + C = \sqrt{y^2 + 1}$. $y^2 = \br{\ln \vbr{x} + C}^2 - 1$ при условии $\vbr{x} \ge {e}^{-C}$.
+$\ln \vbr{x} + C = \sqrt{\pow{y}{2} + 1}$.
+$\pow{y}{2} = \br{\ln \vbr{x} + C}^2 - 1$ 
+при условии $\vbr{x} \ge \pow{e}{-C}$.
 
-Получаем общее решение в явном виде $y = \pm \sqrt{\br{\ln \vbr{x} + C}^2 - 1}$, $\vbr{x} \ge {e}^{-C}$ и дополнительное $x = 0$.
+Получаем общее решение в явном виде 
+$y = \pm \textstyle\sqrt{\br{\ln \vbr{x} + C}^2 - 1}$, $\vbr{x} \ge \pow{e}{-C}$
+и дополнительное $x = 0$.
 
 \begin{figure}[!h]
     \begin{tikzpicture}

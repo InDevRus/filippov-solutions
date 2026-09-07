@@ -4,45 +4,57 @@
 
 \input{../preambles/general}
 
-\begin{document}
-    $$\tsys{& \parder{\zed}{x} = 2y\zed - \zed^2 \\& \parder{\zed}{y} = x\zed}$$
+\begin{document}    
+    $$\wsys{& \parder{z}{x} = 2yz - \pow{z}{2} \\& \parder{z}{y} = xz}$$
 
-    $x \parder{\zed}{x} = 2y \cdot x\zed - x\zed^2 = 2y \parder{\zed}{y} - x\zed^2$.
-    $x \parder{\zed}{x} - 2y \parder{\zed}{y} = -x\zed^2$.
-    $\dfrac {dx} {x} = \dfrac {dy} {-2y} = \dfrac {d\zed} {-x\zed^2}$.
+    $x \parder{z}{x} = 2y \cdot xz - x\pow{z}{2} = 2y \parder{z}{y} - x\pow{z}{2}$.
+    $x \parder{z}{x} - 2y \parder{z}{y} = -x\pow{z}{2}$.
+    $\dvfrac {d x} {x} = \dvfrac {d y} {-2y} = \dvfrac {d z} {-x\pow{z}{2}}$.
 
-    В частности, интегрируемыми комбинациями являются $\dfrac {dx} {x} = \dfrac {dy} {-2y}$ и $\dfrac {dx} {x} = \dfrac {d\zed} {-x\zed^2}$.
-    Первая даёт $2\ln\vbr{x} + \ln\vbr{y} = A$, $x^2 y = A$; вторая даёт $dx + \dfrac {d\zed} {\zed^2} = 0$,
-    $x - \dfrac {1} {\zed} = B$. При делении было также потеряно решение $\zed\br{x; y} = 0$. \vspace{1mm}
-
+    В частности, интегрируемыми комбинациями являются
+    $\dvfrac {\di x} {x} = \dvfrac {\di y} {-2y}$ и
+    $\dvfrac {\di x} {x} = \dvfrac {\di z} {-x\pow{z}{2}}$.
+    Первая даёт $2\ln\vbr{x} + \ln\vbr{y} = A$, $\pow{x}{2} y = A$; 
+    вторая даёт $\di x + \dvfrac {\di z} {\pow{z}{2}} = 0$,
+    $x - \dvfrac {1} {z} = B$. При делении было также потеряно решение
+    $z\br{x; y} = 0$.
 
     Таким образом, общее решение уравнения
-    $x \parder{\zed}{x} - 2y \parder{\zed}{y} = -x\zed^2$
+    $x \parder{z}{x} - 2y \parder{z}{y} = -x\pow{z}{2}$
     имеет вид
-    $x - \dfrac {1} {\zed} = \linebreak = f\br{x^2 y}$, то есть
-    $\zed\br{x; y} = \dfrac {1} {x + f\br{x^2 y}}$, а также $\zed\br{x; y} = 0$.
+    $x - \dfrac {1} {z} = \linebreak = f\br{\pow{x}{2} y}$, то есть
+    $z\br{x; y} = \dfrac {1} {\x + f\br{\pow{x}{2} y}}$, а также $z\br{x; y} = 0$.
 
-    Покажем, что никакое решение вида $\zed\br{x; y} = \dfrac {1} {x + f\br{x^2 y}}$ не удовлетворяет условию задачи.
+    Покажем, что никакое решение вида 
+    $z\br{x; y} = \dfrac {1} {\x + f\br{\pow{x}{2} y}}$
+    не удовлетворяет условию задачи.
 
-    $\parder{\zed}{x}
-    = \dfrac {\partial} {\partial x} \br{\dfrac {1} {x + f\br{x^2 y}}}
-    = \elevate{\dfrac {-1 - 2xy f'\br{x^2 y}} {\br{x + f\br{x^2 y}}^2}} = 2y\zed - \zed^2$.
+    $\parder{z}{x}
+    = \parder{}{x} \br{\dfrac {1} {x + f\br{\pow{x}{2} y}}}
+    = \dfrac {-1 - 2 \x y \f\'\br{\pow{x}{2} y}} {\br{x + f\br{\pow{x}{2} y}}^2}
+    = 2yz - \pow{z}{2}$.
 
-    $\parder{\zed}{y} = \elevate{\dfrac {-x^2 f'\br{x^2 y}} {\br{x + f\br{x^2 y}}^2}} = x \zed$.
-    $\elevate{\dfrac {-x f'\br{x^2 y}} {\br{x + f\br{x^2 y}}^2}} = \zed$.
+    $\parder{z}{y} = \dfrac {-\pow{x}{2} \f\'\br{\pow{x}{2} y}}
+    {\br{x + f\br{\pow{x}{2} y}}^2} = x z$.
+    $\dfrac {-x \f\'\br{\pow{x}{2} y}} {\br{x + f\br{\pow{x}{2} y}}^2} = z$.
 
     Поделив последние равенства, получим
-    $\dfrac {1 + 2xy f'\br{x^2y}} {x f'\br{x^2y}} = 2y - \zed$. $1 = -\zed x f'\br{x^2y}$.
-    $x f'\br{x^2y} = -x - f\br{x^2 y}$.
+    $\dfrac {1 + 2 \x y \f\'\br{\pow{x}{2}y}} {x \f\'\br{\pow{x}{2}y}} = 2y - z$.
+    $1 = -z x \f\'\br{\pow{x}{2}y}$.
+    $x \f\'\br{\pow{x}{2}y} = -x - f\br{\pow{x}{2} y}$.
 
-    Итак, для некоторого дифференцируемого выражения $f\br{t}$ должно выполняться \linebreak
-    $x \br{f'\br{x^2 y} + 1} = -f\br{x^2 y}$ для всех $x$ и $y$.
+    Итак, для некоторого дифференцируемого выражения $f\br{t}$
+    должно выполняться \linebreak
+    $x \br{ \f\'\br{\pow{x}{2} y} + 1} = -f\br{\pow{x}{2} y}$ для всех $x$ и $y$.
 
-    Выражения $f'\br{x^2 y} + 1$ и $f\br{x^2 y}$ не могут одновременно тождественно равняться нулю.
-    Следовательно, вдоль какой-либо кривой вида $x^2 y = \tau$, последнее равенство невозможно, так как такая фиксация позволяет однозначно выразить $x$ из равенства
-    $x \br{f'\br{\tau} + 1} = -f\br{\tau}$,
-    то есть равенство выполняется не более, чем в одной точке. А поскольку на этих кривых тождество невозможно, оно тем более не может выполняться и в более общем случае.
+    Выражения $\f\'\br{\pow{x}{2} y} + 1$ и $f\br{\pow{x}{2} y}$ не могут одновременно
+    тождественно равняться нулю. Следовательно, вдоль какой-либо кривой вида 
+    $\pow{x}{2} y = \tau$, последнее равенство невозможно, так как такая фиксация 
+    позволяет однозначно выразить $x$ из равенства
+    $x \br[0.1em]{\f\'\br{\tau} + 1} = -f\br{\tau}$,
+    то есть равенство выполняется не более, чем в одной точке. 
+    А поскольку на этих кривых тождество невозможно, оно тем более не может
+    выполняться и в более общем случае.
 
-    Итак, единственным допустимым решением является $\zed\br{x; y} = 0$.
-
+    Итак, единственным допустимым решением является $z\br{x; y} = 0$.
 \end{document}

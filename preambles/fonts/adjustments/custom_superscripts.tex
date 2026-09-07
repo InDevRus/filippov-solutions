@@ -1,0 +1,120 @@
+% Код ниже расставляет отступы при записи верхнего и нижнего индекса
+
+\directlua{
+    subscript_compensations = {
+        C = 0.04, E = 0.03, F = 0.065, G = 0.01, H = 0.095,
+        I = 0.085, J = 0.11, K = 0.07, L = 0.05, M = 0.06,
+        N = 0.1, O = 0.005, P = 0.02, Q = 0.005, S = 0.05, T = 0.1, U = 0.07, V = 0.1,
+        W = 0.1, X = 0.07, Y = 0.1, Z = 0.06,
+        d = 0.05, f = 0.07, g = 0.01, i = 0.02, j = 0.05, k = 0.055, m = 0.01,
+        l = 0.025, q = 0.02, r = 0.05, t = 0.025, v = 0.005, w = 0.005,
+        x = 0.01, y = 0.01, z = 0.02
+    }
+    superkerns = {
+        ["\\Alpha"] = -0.1, ["\\Beta"] = 0, ["\\Gamma"] = 0,
+        ["\\Delta"] = -0.1, ["\\Epsilon"] = 0, ["\\Zeta"] = 0,
+        ["\\Eta"] = 0, ["\\Theta"] = 0, ["\\Iota"] = 0,
+        ["\\Kappa"] = -0.05, ["\\Lambda"] = -0.15,
+        ["\\Mu"] = 0, ["\\Nu"] = 0, ["\\Xi"] = 0,
+        ["\\Pi"] = 0, ["\\Omicron"] = 0, ["\\Rho"] = 0,
+        ["\\Sigma"] = 0, ["\\Tau"] = 0, ["\\Upsilon"] = 0,
+        ["\\Phi"] = 0.05, ["\\Chi"] = -0.05, ["\\Psi"] = 0, ["\\Omega"] = 0,
+        ["\\alpha"] = 0, ["\\beta"] = 0, ["\\gamma"] = 0,
+        ["\\delta"] = 0, ["\\epsilon"] = 0,
+        ["\\zeta"] = 0, ["\\eta"] = 0, ["\\theta"] = 0.05,
+        ["\\iota"] = 0, ["\\kappa"] = 0, ["\\lambda"] = -0.1,
+        ["\\mu"] = -0.05, ["\\nu"] = 0, ["\\xi"] = 0,
+        ["\\pi"] = 0, ["\\omicron"] = 0, ["\\rho"] = 0,
+        ["\\sigma"] = 0.05, ["\\tau"] = 0, ["\\upsilon"] = 0,
+        ["\\phi"] = 0, ["\\chi"] = 0, ["\\psi"] = 0,
+        ["\\omega"] = 0, ["\\stigma"] = -0.05,
+        A = 0, C = 0.08, D = 0.08, K = 0.02, L = 0,
+        M = 0.02, N = 0.02, O = 0.08, Q = 0.08,
+        U = 0.03, V = 0.01, W = 0, X = 0.03,
+        Y = 0.02, c = 0.07, e = 0.07,
+        ["\\f"] = 0.1, g = 0.1, m = 0.03, p = 0.07,
+        s = 0.07, t = 0.07, u = 0.07, v = 0.09,
+        w = 0.09, z = 0.06,
+        ["0"] = 0.05, ["1"] = -0.02, ["2"] = 0.03, ["3"] = 0.02, ["4"] = 0.05,
+        ["5"] = 0, ["6"] = 0.03, ["7"] = 0.03, ["8"] = 0.03, ["9"] = 0.04,
+        ["\\sin"] = 0, ["\\arcsin"] = 0,
+        ["\\sh"] = 0, ["\\Arsh"] = 0, ["\\ch"] = 0, ["\\Arch"] = 0,
+        ["\\th"] = 0, ["\\Arth"] = 0, ["\\cth"] = 0, ["\\Arcth"] = 0,
+    }
+    subkerns = {
+        ["\\Alpha"] = -0.05, ["\\Beta"] = 0, ["\\Gamma"] = -0.15,
+        ["\\Delta"] = 0, ["\\Epsilon"] = 0, ["\\Zeta"] = 0,
+        ["\\Eta"] = 0, ["\\Theta"] = 0, ["\\Iota"] = 0,
+        ["\\Kappa"] = 0, ["\\Lambda"] = 0, ["\\Mu"] = 0,
+        ["\\Nu"] = -0.05, ["\\Xi"] = 0, ["\\Pi"] = 0,
+        ["\\Omicron"] = 0, ["\\Rho"] = -0.1, ["\\Sigma"] = 0,
+        ["\\Tau"] = -0.1, ["\\Upsilon"] = -0.15, ["\\Phi"] = 0,
+        ["\\Chi"] = -0.05, ["\\Psi"] = -0.1, ["\\Omega"] = 0,
+        ["\\alpha"] = 0, ["\\beta"] = 0, ["\\gamma"] = 0,
+        ["\\delta"] = 0, ["\\epsilon"] = 0, ["\\zeta"] = 0,
+        ["\\eta"] = 0, ["\\theta"] = 0, ["\\iota"] = 0,
+        ["\\kappa"] = 0, ["\\lambda"] = 0, ["\\mu"] = 0,
+        ["\\nu"] = -0.05, ["\\xi"] = 0, ["\\pi"] = 0,
+        ["\\omicron"] = 0, ["\\rho"] = 0, ["\\sigma"] = 0,
+        ["\\tau"] = 0, ["\\upsilon"] = 0, ["\\phi"] = 0,
+        ["\\chi"] = 0, ["\\psi"] = 0, ["\\omega"] = 0, ["\\stigma"] = 0,
+        ["0"] = 0, ["1"] = -0.02, ["2"] = 0.03, ["3"] = 0, ["4"] = 0.05,
+        ["5"] = 0, ["6"] = 0.05, ["7"] = -0.05, ["8"] = 0, ["9"] = 0,
+        A = 0, B = 0, C = 0, D = 0.02, E = 0, F = -0.05,
+        G = 0, H = 0, K = 0, M = 0, N = 0, O = 0, P = -0.03,
+        Q = 0, T = 0, U = 0, V = 0, W = -0.03, X = 0, Y = 0,
+        n = 0.02, v = 0.02, w = 0.02, y = 0.02, z = 0.02
+    }
+}
+
+\newcommand{\subpow}[3]{
+    \directlua{
+        local base = "\luaescapestring{\unexpanded{#1}}"
+        base = base:gsub(" +$", "")
+        local subscript = "\luaescapestring{\unexpanded{#2}}"
+        local superscript = "\luaescapestring{\unexpanded{#3}}"
+        local shared_kerning = math.max(subkerns[base] or 0, superkerns[base] or 0)
+        local subkerning = shared_kerning + (subscript_compensations[base] or 0)
+        tex.print("{" .. base .. "}_{\\kern" .. subkerning .. "em " .. subscript .. "}^{\\kern".. shared_kerning .. "em " .. superscript .. "}")
+    }
+}
+
+\newcommand{\pow}[3][-1]{
+    \directlua{
+        local base = "\luaescapestring{\unexpanded{#2}}"
+        base = base:gsub(" +$", "")
+        local superscript = "\luaescapestring{\unexpanded{#3}}"
+        local kerning = 0
+        if #1 >= 0 then
+            kerning = #1
+        else
+            local base_tail = base:sub(-1)
+            if base_tail:match("[0-9]") then
+                kerning = superkerns[base_tail] or 0
+            else
+                kerning = superkerns[base] or 0.05
+            end
+        end
+        tex.print("{" .. base .. "}^{\\kern".. kerning .. "em " .. superscript .. "}")
+    }
+}
+
+\newcommand{\sub}[3][-1]{
+    \directlua{
+        local base = "\luaescapestring{\unexpanded{#2}}"
+        base = base:gsub(" +$", "")
+        local subscript = "\luaescapestring{\unexpanded{#3}}"
+        local kerning = 0
+        if #1 >= 0 then
+            kerning = #1
+        else
+            local base_tail = base:sub(-1)
+            if base_tail:match("[0-9]") then
+                kerning = subkerns[base_tail] or 0
+            else
+                kerning = subkerns[base] or 0.05
+            end
+        end
+        tex.print("{" .. base .. "}_{\\kern".. kerning .. "em " .. subscript .. "}")
+    }
+}

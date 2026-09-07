@@ -1,58 +1,63 @@
-% Operator definitions
+% Скобки с отступами
+\newcommand{\br}[2][0.01em]{\left(\hspace{#1}#2\hspace{#1}\right)}
+\newcommand{\rbr}[2][0.03em]{\left[\hspace{#1}#2\hspace{#1}\right]}
+\newcommand{\cbr}[2][0.03em]{\left\{\hspace{#1}#2\hspace{#1}\right\}}
+\newcommand{\vbr}[2][0.06em]{\hspace{0.2mm}\left|\hspace{#1}#2\hspace{#1}\right|}
 
-% Conditions system
-\newcommand{\tsys}[1]{\left\{ \begin{aligned}#1\end{aligned} \right.}
+% Система уравнений через окружение aligned (сжатая и широкая)
+\newcommand{\tsys}[1]{\left\{\begin{matrix*}[l]#1\end{matrix*} \right.}
+\newcommand{\wsys}[1]{\left\{ \begin{aligned} #1 \end{aligned} \right.}
 
-% General upper and lower limits
+% Общий верхний и нижний пределы
 \DeclareMathOperator*\lowlim{\underline{\lim}}
 \DeclareMathOperator*\uplim{\overline{\lim}}
 
-% Upper and lower limits (text mode adapted)
+% Верхний и нижний пределы с нижней подписью
 \newcommand{\tlowlim}[1]{\lowlim\limits_{#1}}
 \newcommand{\tuplim}[1]{\uplim\limits_{#1}}
 
-% Power notation (enlarged for text mode)
-\newcommand{\tpow}[2]{{#1}^{\mathlarger{#2}}}
+% Степень с показателем увеличенного размера
+\newcommand{\tpow}[3][0]{\pow[#1]{#2}{\mathlarger{#3}}}
 
-% Text integrals
-\newcommand{\tint}{\displaystyle{\int}}
-\newcommand{\tintlim}[2]{\displaystyle{\int\limits_{#1}^{#2}}}
-\newcommand{\tbigint}{\displaystyle{\mathlarger{\int}}}
-\newcommand{\tbigintlim}[2]{\displaystyle{\mathlarger{\int}\limits_{#1}^{#2}}}
-
-% Iterative sum and product notations
+% Сумма и произведение
 \newcommand{\tsumlim}[2]{\displaystyle{\mathlarger{\sum}\displaylimits_{#1}^{#2}}}
 \newcommand{\tprodlim}[2]{\displaystyle{\mathlarger{\prod}\displaylimits_{#1}^{#2}}}
 
-% Minimum, maximum and limit with additions conditions underneath
+% Интегралы находятся в font_setup.tex
+
+% Минимум, максимум и предел с подписями
 \newcommand{\tmin}[1]{\min\limits_{#1}}
 \newcommand{\tmax}[1]{\max\limits_{#1}}
 \newcommand{\tlim}[1]{\lim\limits_{#1}}
 
-% Norm operator
+% Оператор нормы
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
-% Partial derivatives, 1-st order
+% Сокращение для знака дифференциала
+\newcommand{\di}{\odif}
+% Знак прим с нижним индексом \primesub определён в formatting.tex
+
+% Сокращения для обычных производных
+\newcommand{\tder}[3][]{\ifthenelse{\isempty{#1}} {\frac{d #2}{d #3}} {\frac{\pow{d}{#1} #2}{d \pow{#3}{#1}}}}
+\newcommand{\der}[3][]{\ifthenelse{\isempty{#1}} {\dfrac{d #2}{d #3}} {\dfrac{\pow{d}{#1} #2}{d \pow{#3}{#1}}}}
+\newcommand{\vder}[3][]{\ifthenelse{\isempty{#1}} {\dvfrac{d #2}{d #3}} {\dvfrac{\pow{d}{#1} #2}{d \pow{#3}{#1}}}}
+
+% Частные производные первого порядка
 \newcommand{\tparder}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\parder}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\vparder}[2]{\dvfrac{\partial #1}{\partial #2}}
 
-% Partial derivatives, 2-nd order
+% Частные производные второго порядка
 \newcommand{\tpardersecond}[3][]{
-    \ifthenelse{\isempty{#1}}{\frac {\partial^2 #2} {\partial^2 #3^2}}{\frac {\partial^2 #1} {\partial #2 \partial #3}}
+    \ifthenelse{\isempty{#1}}{\frac {\pow{\partial}{2} #2} {\pow{\partial}{2} \pow{#3}{2}}}{\frac {\pow{\partial}{2} #1} {\partial #2 \partial #3}}
 }
 \newcommand{\pardersecond}[3][]{
-    \ifthenelse{\isempty{#1}}{\dfrac {\partial^2 #2} {\partial^2 #3^2}}{\dfrac {\partial^2 #1} {\partial #2 \partial #3}}
+    \ifthenelse{\isempty{#1}}{\dfrac {\pow{\partial}{2} #2} {\pow{\partial}{2} \pow{#3}{2}}}{\dfrac {\pow{\partial}{2} #1} {\partial #2 \partial #3}}
+}
+\newcommand{\vpardersecond}[3][]{
+    \ifthenelse{\isempty{#1}}{\dvfrac {\pow{\partial}{2} #2} {\pow{\partial}{2} \pow{#3}{2}}}{\dvfrac {\pow{\partial}{2} #1} {\partial #2 \partial #3}}
 }
 
-% Automatic brackets placement
-\newcommand{\br}[1]{\left(#1\right)}
-\newcommand{\vbr}[1]{\left|#1\right|}
-\newcommand{\cbr}[1]{\left\{#1\right\}}
-\newcommand{\rbr}[1]{\left[#1\right]}
-
-% Slant inequality signs insertion
-\renewcommand{\le}{\leqslant}
-\renewcommand{\ge}{\geqslant}
-
-% Raising command for the equation box
-\newcommand{\elevate}[2][1mm]{\raisebox{#1}{\({#2}\)}}
+% Поднятие бокса и оно же с уменьшением
+\newcommand{\elevate}[2][0.275em]{\raisebox{#1}{\({#2}\)}}
+\newcommand{\selevate}[2][0.275em]{\elevate[#1]{\mathsmaller{#2}}}

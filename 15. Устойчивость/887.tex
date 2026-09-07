@@ -1,18 +1,20 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
 
 Найдём траектории этой системы.
-$\dfrac {dy} {dx} = \dfrac {\dot{y}} {\dot{x}} = \dfrac {x^3 \br{1 + y^2}} {y}$.
-$\dfrac {2y y'_{x}\br{x}} {1 + y^2} = 2x^3$.
-$\ln\br{1 + y^2} \linebreak = \dfrac {1} {2} x^4 + C$.
-$y^2 = C \tpow{e}{\frac {1} {2} x^4} - 1$. Эти траектории определены только при $C > 0$.
+$\der{y}{x} = \dfrac {\dot{y}} {\dot{x}} = \dfrac {\pow{x}{3} \br{1 + \pow{y}{2}}} {y}$.
+$\dfrac {2y \primesub{y}{x} \br{x}} {1 + \pow{y}{2}} = 2\pow{x}{3}$. \\
+$\ln\br{1 + \pow{y}{2}} = \dfrac {1} {2} \pow{x}{4} + C$.
+$\pow{y}{2} = C \pow{e}{\selevate[0.4em]{\frac {1} {2} \pow{x}{4}}} - 1$.
+Эти траектории определены только при $C > 0$.
 
-\begin{floatingfigure}{0.4\textwidth}
+\begin{floatingfigure}{0.35\textwidth}
 \begin{tikzpicture}
         \pgfplotsset{
         VectorGraph/.style = {
@@ -25,7 +27,7 @@ $y^2 = C \tpow{e}{\frac {1} {2} x^4} - 1$. Эти траектории опре�
         }
         \begin{axis}[
             width = \textwidth,
-            height = 9.5cm,
+            height = 8cm,
             ymin = -3.4,
             ymax = 3.4,
             xmin = -1.9,
@@ -84,42 +86,68 @@ $y^2 = C \tpow{e}{\frac {1} {2} x^4} - 1$. Эти траектории опре�
 $\left\{ \begin{matrix} x = x\br{t} \\ y = y\br{t}\end{matrix} \right.$
 удаляется от начала координат, поэтому решение неустойчиво.
 
-Для доказательство неустойчивости будем использовать только траекторию $y = \sqrt{\tpow{e}{\frac {1}{2} x^4} - 1}$. \linebreak Она представляет особый интерес, так как проходит через начало координат, то есть через нулевое решение
-$\Phi\br{t} = \begin{pmatrix}0 \\ 0 \end{pmatrix}$. Это значит, что для всякого $\delta > 0$ можно подобрать точку I-ой четверти на этой траектории, лежащую в окрестности $O\br{\br{0; 0}; \delta}$ начала координат радиуса $\delta$. Эта траектория изображена на фазовой плоскости серым цветом.
+Для доказательства неустойчивости будем использовать только траекторию 
+$y = \sqrt{\pow{e}{\selevate[0.4em]{\frac {1}{2} \pow{x}{4}}} - 1}$.
+Она представляет особый интерес, так как проходит через начало координат,
+то есть через нулевое решение \linebreak
+$\Phi\br{t} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$. 
+Это значит, что для всякого $\delta > 0$ 
+можно подобрать точку I-ой четверти на этой траектории, лежащую в окрестности 
+$O\br{\br{0; 0}; \delta}$ начала координат радиуса $\delta$.
+Эта траектория изображена на фазовой плоскости серым цветом.
 
-Для всякого решения $X\br{t} = \begin{pmatrix} x\br{t} \\ y\br{t} \end{pmatrix}$, составляющего такую траекторию, имеем при $t \ge t_{0} = 0$
+Для всякого решения $X\br{t} = \begin{pmatrix} \,x\br{t} \\ \,y\br{t} \end{pmatrix}$,
+составляющего такую траекторию, имеем при $t \ge \sub{t}{0} = 0$
 \begin{gather*}
-\vbr{X\br{t} - \Phi\br{t}} 
-= \sqrt{x^2\br{t} + y^2\br{t}} 
-= \sqrt{x^2\br{t} + \tpow{e}{\frac {1}{2} x^4\br{t}} - 1} \\
-\vbr{X\br{t_{0}} - \Phi\br{t_{0}}} = \sqrt{x^2\br{0} + \tpow{e}{\frac {1}{2} x^4\br{0}} - 1}
+    \vbr{X\br{t} - \Phi\br{t}}
+        = \textstyle\sqrt{\pow{x}{2}\br{t} + \pow{y}{2}\br{t}}
+        = \sqrt{\pow{x}{2}\br{t} 
+            + \pow{e}{\selevate[0.4em]{\frac {1}{2} \pow{x}{4}\br{t}}} - 1} \\
+    \vbr{X\br{\sub{t}{0}} - \Phi\br{\sub{t}{0}}}
+        = \sqrt{\pow{x}{2}\br{0} 
+            + \pow{e}{\selevate[0.4em]{\frac {1}{2} \pow{x}{4}\br{0}}} - 1}
 \end{gather*}
 
-Пусть $\epsilon = \sqrt{\dfrac {3} {2}}$ и $\delta > 0$. Приведём для них пример такого решения, для которого $\sqrt{x^2\br{0} + \tpow{e}{\frac {1}{2} x^4\br{0}} - 1} < \delta$, но при некоторых $t$ будет $\sqrt{x^2\br{t} + \tpow{e}{\frac {1}{2} x^4\br{t}} - 1} \ge \epsilon$. 
+Пусть $\epsilon = \sqrt{\dfrac {3} {2}}$ и $\delta > 0$.
+Приведём для них пример такого решения, для которого 
+$\sqrt{\pow{x}{2}\br{0} + \pow{e}{\selevate[0.4em]{\frac {1}{2} \pow{x}{4}\br{0}}} - 1} < \delta$,
+но при некоторых $t > \sub{t}{0}$ будет 
+$\sqrt{\pow{x}{2}\br{t} + \pow{e}{\selevate[0.4em]{\frac {1}{2} \pow{x}{4}\br{t}}} - 1} \ge \epsilon$.
 
 Рассмотрим следующую задачу Коши:
-$$\begin{cases}
-\dfrac {d} {dt} \begin{pmatrix}x\br{t} \\ y\br{t}\end{pmatrix} = \begin{pmatrix} y \\  x^3 \br{1 + y^2} \end{pmatrix}\\
-x\br{0} = \min\br{1; \gamma} \\
-y\br{0} = \sqrt{ \tpow{e}{\frac {1}{2} x^{4}\br{0}} - 1}
-\end{cases}$$
-где $\gamma = \sqrt{\ln\br{\dfrac {\delta^2} {2} + 1}}$. Она удовлетворяет условию единственности, причём поскольку начальная точка фазовой плоскости $A_{0} = \br{x\br{0}; y\br{0}}$ лежит в I-ой четверти, $\frac {dx} {dt}\br{0} > 0$ и $\frac {dy} {dt}\br{0} > 0$. Это означает, что в окрестности точки $A_{0}$ обе функции $x\br{t}$ и $y\br{t}$ возрастают. С другой стороны, при $t \ge t_{0}$ точка остаётся на траектории, а значит и в I-ой четверти, а значит обе производные остаются положительными, а функции неограниченно возрастают.
+$$\tsys{
+    \der{}{t} \begin{pmatrix}\,x\br{t} \\ \,y\br{t}\end{pmatrix} 
+        = \begin{pmatrix} y \\ \pow{x}{3} \br{1 + \pow{y}{2}} \end{pmatrix}
+    \\ x\br{0} = \min\br{1; \gamma} 
+    \\ y\br{0} = \sqrt{\pow{e}{\selevate[0.4em]{\frac {1}{2} \pow{x}{4}\br{0}} - 1}}
+}$$
+где $\gamma = \sqrt{\ln\br{\dfrac {\pow{\delta}{2}} {2} + 1}}$.
 
-$0 < x\br{0} \le 1$, значит $x^2\br{0} \ge x^{4}\br{0}$. Для всех положительных $a$ выполняется неравенство $a < e^{a} - 1$, а значит
+Она удовлетворяет условию единственности, причём поскольку начальная точка фазовой плоскости 
+$\sub{A}{0} = \br{\x\br{0}; y\br{0}}$ лежит в I-ой четверти,
+$\der{x}{t}\br{0} > 0$ и $\der{y}{t}\br{0} > 0$. 
+Это означает, что в окрестности точки $\sub{A}{0}$ обе функции $x\br{t}$ и $y\br{t}$ возрастают.
+С другой стороны, при $t \ge \sub{t}{0}$ точка остаётся на траектории, а значит и в I-ой четверти,
+а значит обе производные остаются положительными, а функции неограниченно возрастают.
+
+$0 < x\br{0} \le 1$, значит $\pow{x}{2}\br{0} \ge \pow{x}{4}\br{0}$.
+Для всех положительных $a$ выполняется неравенство $a < \pow{e}{a} - 1$, а значит
 \begin{multline*}
-\sqrt{x^2\br{0} + \tpow{e}{\frac {1}{2} x^4\br{0}} - 1} 
-< \sqrt{\tpow{e}{x^2\br{0}} - 1 + \tpow{e}{\frac {1}{2} x^2\br{0}} - 1} 
-< \sqrt{2\br{\tpow{e}{x^2\br{0}} - 1}} \le \\
-\le \sqrt{2\br{\tpow{e}{\gamma^2} - 1}} = \delta 
+    \sqrt{\pow{x}{2}\br{0} + \pow{e}{\selevate[0.4em]{\frac {1}{2} \pow{x}{4}\br{0}}} - 1}
+    < \sqrt{\pow{e}{\selevate[0.4em]{\pow{x}{2}\br{0}}} - 1
+        + \pow{e}{\selevate[0.4em]{\frac {1}{2} \pow{x}{2}\br{0}}} - 1}
+    < \sqrt{2\br{\pow{e}{\pow{x}{2}\br{0}} - 1}} \le \\
+    \le \sqrt{2\br{\pow{e}{\pow{\gamma}{2}} - 1}} = \delta
 \end{multline*}
 
-Найдём такое $t_{1} > t_{0}$, что для $t \ge t_{1}$ будет выполняться $x\br{t} \ge 1$. Тогда для таких $t$ верно, что $x^4\br{t} \ge x^2\br{t}$ и
-$$
-\sqrt{x^2\br{t} + \tpow{e}{\frac {1}{2} x^4\br{t}} - 1} 
-\ge \sqrt{x^2\br{t} + \tpow{e}{\frac {1}{2} x^2\br{t}} - 1} 
-> \sqrt{x^2\br{t} + \dfrac {1} {2} x^2\br{t}} 
-= \sqrt{\dfrac {3} {2} x^2\br{t}} 
-\ge \sqrt{ \dfrac {3} {2} } = \epsilon,
-$$
+Найдём такое $\sub{t}{1} > \sub{t}{0}$, что для $t \ge \sub{t}{1}$ будет выполняться
+$x\br{t} \ge 1$. Тогда для таких $t$ верно, что $\pow{x}{4}\br{t} \ge \pow{x}{2}\br{t}$ и
+\begin{multline*}
+    \sqrt{\pow{x}{2}\br{t} + \pow{e}{\selevate[0.4em]{\frac {1}{2} \pow{x}{4}\br{t}}} - 1}
+    \ge \sqrt{\pow{x}{2}\br{t} + \pow{e}{\selevate[0.4em]{\frac {1}{2} \pow{x}{2}\br{t}}} - 1}
+    > \sqrt{\pow{x}{2}\br{t} + \dfrac {1} {2} \pow{x}{2}\br{t}} = \\
+    = \sqrt{\dfrac {3} {2} \pow{x}{2}\br{t}}
+    \ge \sqrt{ \dfrac {3} {2} } = \epsilon,
+\end{multline*}
 в чём и требовалось убедиться. 
 \end{document}

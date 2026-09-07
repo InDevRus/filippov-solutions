@@ -1,25 +1,33 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
 
-$y' = xy^2 + 2xy$.
-$y' = x\br{y^2 + 2y}$.
+$y\` = x\pow{y}{2} + 2xy$.
+$y\` = x\br{\pow{y}{2} + 2y}$.
 Функции $y\br{x} = 0$ и $y\br{x} = -2$ являются решениями.
-$\dfrac {y'} {y\br{y + 2}} = x$.
-Имеем $\dfrac {1} {y\br{y + 2}} = \dfrac {1} {2} \br{ \dfrac {1} {y} - \dfrac {1} {y + 2}}$, так что \vspace{1mm}
-$\tint \dfrac {y'} {y\br{y + 2}} dx = \dfrac {1} {2} \tint \dfrac {dy} {y} - \linebreak - \dfrac {1} {2} \tint \dfrac {dy} {y + 2} = \dfrac {1} {2}\br{\ln\vbr{y} - \ln\vbr{y + 2}} + C$.
+$\dfrac {y\`} {y\br{\y + 2}} = x$.
+Имеем $\dfrac {1} {y\br{\y + 2}}
+= \dfrac {1} {2} \br{ \dfrac {1} {y} - \dfrac {1} {y + 2}}$,
+так что
+$$\tint \dfrac {y\`} {y\br{\y + 2}} \di x
+= \dfrac {1} {2} \tint \dfrac {\di y} {y} 
+    - \dfrac {1} {2} \tint \dfrac {\di y} {y + 2} 
+= \dfrac {1} {2}\br{\ln\vbr{\y} - \ln\vbr{\y + 2}} + C.$$
 
-$\ln\vbr{y} - \ln\vbr{y + 2} = x^2 + C$.
-$\dfrac {y} {y + 2} = C\tpow{e}{x^2}$. При такой форме общего решения $y\br{x} = 0$ достигается при $C = 0$, а решение $y\br{x} = -2$ будет дополнительным.
-$1 - \dfrac {2} {y + 2} = C\tpow{e}{x^2}$.
-$y\br{x} = \dfrac {2} {1 + C\tpow{e}{\elevate{x^2}}} - 2$.
+$\ln\vbr{\y} - \ln\vbr{\y + 2} = \pow{x}{2} + C$.
+$\dfrac {y} {y + 2} = C\pow{e}{\pow{x}{2}}$. 
+При такой форме общего решения $y\br{x} = 0$
+достигается при $C = 0$, а решение $y\br{x} = -2$ будет дополнительным.
+$1 - \dfrac {2} {y + 2} = C\pow{e}{\pow{x}{2}}$.
+$y\br{x} = \dfrac {2} {1 + C\pow{e}{\elevate{\pow{x}{2}}}} - 2$.
 
-Окончательно, общее решение равно
-$y\br{x} = \dfrac {2} {1 + C\tpow{e}{\elevate{x^2}}} - 2$,
+Общее решение равно
+$y\br{x} = \dfrac {2} {1 + C\pow{e}{\elevate{\pow{x}{2}}}} - 2$,
 и дополнительно $y\br{x} = -2$.
 
 \begin{figure}[!h]

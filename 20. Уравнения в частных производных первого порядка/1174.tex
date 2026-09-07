@@ -5,22 +5,21 @@
 \input{../preambles/general}
 
 \begin{document}
-    $xy \parder{\zed} {x} - x^2 \parder{\zed} {y} = y\zed$. \vspace{1mm}
+    $xy \parder{z} {x} - \pow{x}{2} \parder{z} {y} = yz$.
 
-    $\dfrac {dx} {xy} = -\dfrac {dy} {x^2} = \dfrac {d\zed} {y\zed}$.
-    \vspace{1mm}
+    $\dvfrac {\di x} {xy} = -\dvfrac {\di y} {\pow{x}{2}} = \dvfrac {\di z} {yz}$.
     
     \begin{enumerate}
-        \item $\dfrac {dx} {y} = - \dfrac {dy} {x}$.
-        $x dx + y dy = 0$.
-        $x^2 + y^2 = A$. \vspace{1mm}
+        \item $\dvfrac {\di x} {y} = - \dvfrac {\di y} {x}$.
+        $x \di x + y \di y = 0$.
+        $\pow{x}{2} + \pow{y}{2} = A$.
         
-        \item $\dfrac {dx} {x} = \dfrac {d\zed} {\zed}$.
-        $\dfrac {\zed} {x} = B$.
+        \item $\dvfrac {\di x} {x} = \dvfrac {\di z} {z}$.
+        $\dvfrac{z}{x} = B$.
     \end{enumerate}
     
     Итак, общее решение имеет вид
-    $F\br{x^2 + y^2; \dfrac {\zed} {x}} = 0$,
-    откуда можно выразить функцию $\zed\br{x; y}$ в явном виде
-    $\zed = x \cdot f\br{x^2 + y^2}$.
+    $F\br{\pow{x}{2} + \pow{y}{2}; \dvfrac{z}{x}} = 0$,
+    откуда можно выразить функцию $z\br{x; y}$ в явном виде
+    $z = x \cdot f\br{\pow{x}{2} + \pow{y}{2}}$.
 \end{document}

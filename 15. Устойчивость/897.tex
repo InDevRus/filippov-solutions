@@ -1,12 +1,28 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
 
-Неограниченное при $t \to +\infty$ решение обозначим $\Psi\br{t}$. Поскольку это решение линейной однородной системы, любой столбец $k \Psi\br{t}$, $k \ne 0$ также является решением, при этом неограниченным. Найдём точку $t_{0}$ такую, что $\vbr{\Psi\br{t_{0}}} \ne 0$.
+Неограниченное при $t \to +\infty$ решение обозначим $\Psi\br{t}$,
+нулевое -- $\Phi\br{t}$. 
+Поскольку это решение линейной однородной системы, всякий столбец
+$k \Psi\br{t}$, $k \ne 0$ также является решением, при этом неограниченным. 
+Найдём точку $\sub{t}{0}$ такую, что $\vbr{\Psi\br{\sub{t}{0}}} \ne 0$.
 
-Положим $\epsilon = 1$, $\delta > 0$ -- произвольное число и $\Psi_{\delta}\br{t} =  \dfrac {\delta} {2\vbr{\Psi\br{t_{0}}}} \cdot \Psi\br{t}$. Тогда $\vbr{\Psi_{\delta}\br{t_{0}}} = \dfrac {\delta}  {2} < \delta$. Этот столбец является неограниченным решением, значит с выбранными $\epsilon$ и $\delta$ существует такое число $t_{1} > t_{0}$, что $\vbr{\Psi_{\delta}\br{t_{1}}} \ge 1 = \epsilon$. Неустойчивость нулевого решения показана.
+Положим $\epsilon = 1$, $\delta > 0$ -- произвольное число и 
+$\sub{\Psi}{\delta}\br{t} = \dfrac {\delta \Psi\br{t}} {2\vbr{\Psi\br{\sub{t}{0}}}}$
+-- частное решение.
+Для такого решения выполняется
+$\vbr{\sub{\Psi}{\delta}\br{\sub{t}{0}} - \Phi\br{t}}
+    = \vbr{\sub{\Psi}{\delta}\br{\sub{t}{0}}} = \dfrac {\delta} {2} < \delta$.
+Этот столбец является неограниченным решением, значит с выбранными 
+$\epsilon$ и $\delta$ существует такое число $\sub{t}{1} > \sub{t}{0}$,
+что 
+$\vbr{\sub{\Psi}{\delta}\br{\sub{t}{1}} - \Phi\br{\sub{t}{1}}}
+    = \vbr{\sub{\Psi}{\delta}\br{\sub{t}{1}}} \ge 1 = \epsilon$.
+Неустойчивость нулевого решения показана.
 
 \end{document}

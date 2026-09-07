@@ -5,23 +5,26 @@
 \input{../preambles/general}
 
 \begin{document}
-    $x^2 \zed \parder{\zed} {x} + y^2 \zed \parder{\zed} {y} = x + y$.
-    $\dfrac {dx} {x^2 \zed} = \dfrac {dy} {y^2 \zed} = \dfrac {d\zed} {x + y}$.
+    $\pow{x}{2} z \parder{z} {x} + \pow{y}{2} z \parder{z} {y} = x + y$.
+    $\dvfrac {\di x} {\pow{x}{2} z} = \dvfrac {\di y} {\pow{y}{2} z} = \dvfrac {\di z} {x + y}$.
 
     Первые две дроби сразу являются интегрируемой комбинацией:
-    $\dfrac {dx} {x^2} = \dfrac {dy} {y^2}$.
-    $\dfrac {1} {x} + \dfrac {1} {y} = \linebreak = \dfrac {x + y} {xy} = A$.
+    $\dvfrac {\di x} {\pow{x}{2}} = \dvfrac {\di y} {\pow{y}{2}}$.
+    $\dvfrac {1} {x} + \dvfrac {1} {y} = \linebreak = \dvfrac {x + y} {xy} = A$.
 
     Вторую интегрируемую комбинацию из системы
-    $\dfrac {dx} {x^2} = \dfrac {dy} {y^2} = \dfrac {\zed d\zed} {x + y}$
+    $\dvfrac {\di x} {\pow{x}{2}} = \dvfrac {\di y} {\pow{y}{2}} = \dvfrac {z \di z} {x + y}$
     можно получить, например, сравняв знаменатели по свойству дробей:
-    $\dfrac {\zed d\zed} {x + y} = \dfrac {\frac {1} {x} dx + \frac {1} {y} dy} {\frac {1} {x} \cdot x^2 + \frac {1} {y} \cdot y^2} = \dfrac {d\ln\vbr{xy}} {x + y}$.
+    $\dvfrac {z \di z} {x + y}
+    = \dfrac {\frac {1} {x} \di x + \frac {1} {y} \di y} {\frac {1} {x} \cdot \pow{x}{2}
+        + \frac {1} {y} \cdot \pow{y}{2}} = \linebreak
+    = \dvfrac {d\ln\vbr{xy}} {x + y}$.
     Итак,
-    $\zed d\zed - d\ln\vbr{xy} = 0$, откуда
-    $xy \tpow{e}{-\frac {1} {2} \zed^2} = B$.
+    $z \di z - d\ln\vbr{xy} = 0$, откуда
+    $xy \tpow{e}{\elevate{-\frac {1} {2} \pow{z}{2}}} = B$.
 
     Общее решение в неявной форме будет иметь вид
-    $F\br{\dfrac {x + y} {xy}; xy \tpow{e}{-\frac {1} {2} \zed^2}} = 0$.
+    $F\br{\dfrac {x + y} {xy}; xy \tpow{e}{-\frac {1} {2} \pow{z}{2}}} = 0$.
     В явной же форме получаем
-    $\zed^2 = f\br{\dfrac {x + y} {xy}} - \ln\br{x^2 y^2}$.
+    $\pow{z}{2} = f\br{\dfrac {x + y} {xy}} - \ln\br{\pow{x}{2} \pow{y}{2}}$.
 \end{document}

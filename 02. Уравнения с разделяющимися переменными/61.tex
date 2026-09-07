@@ -1,21 +1,22 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
 
-$x \dfrac {dx} {dt} + t = 1$.
-$x \dfrac {dx} {dt} = 1 - t$.
-$\tint x \dfrac {dx} {dt} dt
-= \tint x d\br{x\br{t}}
-= \dfrac {1} {2} x^2\br{t} + C$.
+$x \der{x}{t} + t = 1$.
+$x \der{x}{t} = 1 - t$.
+$\tint x \der{x}{t} \di t
+= \tint x \, d\br{x\br{t}}
+= \dfrac {1} {2} \pow{x}{2}\br{t} + C$.
 
-$\dfrac {1} {2} x^2 = t - \dfrac {t^2} {2} + C$.
-$x^2 + t^2 - 2t = C$.\vspace{1mm}
+$\dfrac {1} {2} \pow{x}{2} = t - \dfrac {\pow{t}{2}} {2} + C$.
+$\pow{x}{2} + \pow{t}{2} - 2t = C$.
 
-$x^2 + \br{t - 1}^2 = C$, где $C > 0$.
+$\pow{x}{2} + \br{t - 1}^2 = C$, где $C > 0$.
 
 \begin{figure}[!h]
     \centering

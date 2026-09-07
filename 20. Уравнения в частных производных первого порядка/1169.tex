@@ -5,13 +5,14 @@
 \input{../preambles/general}
 
 \begin{document}
-    $x \parder{u} {x} + y \parder{u} {y} + \zed \parder{u} {\zed} = 0$.
-    $\dfrac {dx} {x} = \dfrac {dy} {y} = \dfrac {d\zed} {\zed}$.
-    \vspace{1mm}
+    $x \parder{u} {x} + y \parder{u} {y} + z \parder{u} {z} = 0$.
+    $\dvfrac {\di x} {x} = \dvfrac {\di y} {y} = \dvfrac {\di z} {z}$.
 
-    В данной системе первое равенство $\dfrac {dx} {x} = \dfrac {dy} {y}$ представляет собой интегрируемую комбинацию:
-    $\dfrac {y dx - x dy} {y^2} = 0$, $\dfrac {x} {y} = A$.
-    Аналогично и с $\dfrac {dy} {y} = \dfrac {d\zed} {\zed}$, откуда $\dfrac {y} {\zed} = B$.
+    В данной системе первое равенство $\dvfrac {\di x} {x} = \dvfrac {\di y} {y}$
+    представляет собой интегрируемую комбинацию:
+    $\dfrac {y \di x - x \di y} {\pow{y}{2}} = 0$, $\dvfrac {x} {y} = A$.
+    Аналогично и с $\dvfrac {d y} {y} = \dvfrac {d z} {z}$, откуда $\dfrac {y} {z} = B$.
 
-    Для исходно однородного уравнения получаем $u = f\br{\dfrac {x} {y}; \dfrac {y} {\zed}}$.
+    Для исходно однородного уравнения получаем 
+    $u = f\br{\dfrac {\elevate[0.4mm]{\x}} {y}; \dfrac {y} {z}}$.
 \end{document}

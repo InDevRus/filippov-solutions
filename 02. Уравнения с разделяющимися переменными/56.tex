@@ -1,25 +1,33 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
 
-$x y' = y^2 - y$.
-$\dfrac {y'} {y^2 - y} = \dfrac {1} {x}$, причём $y = 0$ и $y = 1$ также являются решениями.
+$x y\` = \pow{y}{2} - y$.
+$\dfrac {y\`} {\pow{y}{2} - y} = \dfrac {1} {x}$,
+причём $y = 0$ и $y = 1$ также являются решениями.
 
-$\tint \dfrac {y'(x)} {y^2(x) - y(x)} dx = 
-\tint \dfrac {1} {y^2 - y} dy = 
-\tint \br{ \dfrac {1 - y} {y\br{y - 1}} + \dfrac {y} {y\br{y - 1}}} dy = 
-\tint \br{ \dfrac {1} {y - 1} - \dfrac {1} {y}} dy \linebreak =
-\ln\vbr{y - 1} - \ln\vbr{y} + C = \ln\vbr{1 - \dfrac {1}{y}} + C$.
+$\begin{aligned}[t]
+    \tbigint \dfrac {y\`\br{x}} {\pow{y}{2}\br{x} - y\br{x}} \di x 
+    = \tbigint \dfrac {1} {\pow{y}{2} - y} \di y 
+    & = \tbigint \br{ \dfrac {1 - y} {y\br{\y - 1}} + \dfrac {y} {y\br{\y - 1}}} \di y \\
+    & = \tbigint \br{ \dfrac {1} {y - 1} - \dfrac {1} {y}} \di y \\
+    & = \ln\vbr{\y - 1} - \ln\vbr{\y} + C \\
+    & = \ln\vbr{1 - \dfrac {1}{y}} + C.
+\end{aligned}$
 
 $\ln\vbr{1 - \dfrac {1}{y}} = \ln\vbr{x} + C$.
 $1 - \dfrac {1} {y} = Cx$.
-$y = \dfrac {1} {1 + Cx}$, а решение $y = 1$ получается при $C = 0$.
+$y = \dfrac {1} {1 + Cx}$,
+а решение $y = 1$ получается при $C = 0$.
 
-Итак, общее решение имеет вид $y = \dfrac {1} {1 + Cx}$, кроме которого имеется дополнительное $y = 0$.
+Итак, общее решение имеет вид 
+$y = \dfrac {1} {1 + Cx}$,
+кроме которого имеется дополнительное $y = 0$.
 
 \begin{figure}[!h]
 \begin{minipage}{.5\textwidth}
@@ -101,6 +109,9 @@ $y = \dfrac {1} {1 + Cx}$, а решение $y = 1$ получается при
 \end{minipage}
 \end{figure}
 
-Решение задачи с начальным условием $y\br{1} = 0,5$ таково, что $0,5 = \dfrac {1} {1 + C}$, $C = 1$. Значит, $y\br{x} = \dfrac {1} {1 + x}$ в области $x > -1$.
+Решение задачи с начальным условием 
+$y\br{1} = 0,5$ таково, что 
+$0,5 = \dfrac {1} {1 + C}$, $C = 1$.
+Значит, $y\br{x} = \dfrac {1} {1 + x}$ в области $x > -1$.
 
 \end{document}

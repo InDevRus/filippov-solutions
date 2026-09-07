@@ -1,61 +1,73 @@
-% Page setup
+% Нумерация страниц
 \pagenumbering{gobble}
 
-% Margin setup
+% Настройка полей
 \usepackage{geometry}
 \geometry{left=1cm}
 \geometry{right=1cm}
 \geometry{top=1cm}
 \geometry{bottom=1.5cm}
 
-% For inserting tables
+% Вставка таблицы
 \usepackage{array}
 \usepackage{tabularx}
 
-% Formula aligning
+% Инструменты выравнивания формул
 \usepackage{amsmath}
+\usepackage{mathtools}
 
-% For formula diacritics
+% Диакритика в математике
 \usepackage{amsfonts}
 
-% For bigger integral signs
-\usepackage{bigints}
+% Вычисления размеров на ходу
+\usepackage{calc}
 
-% For semantic advancements
+% Удобные записи производных
+\usepackage[italic=true]{derivative}
+
+% Настройки сносок
 \usepackage{enotez}
 
-% For pictures
+% Длинные знаки векторов
+\usepackage{anyfontsize}
+\usepackage[b]{esvect}
+
+% Вставка картинок
 \usepackage{graphicx}
 
-%For framing
-\usepackage{framed}
-
-% Automatic paragraph indentations
+% Вставка красной строки
 \usepackage{indentfirst}
 \setlength{\parindent}{1em}
 
-% For removing a space after the comma 
-\usepackage{icomma}
-
-% For the possibility of conditional commands
+% Условия в командах
 \usepackage{xifthen}
 
-% Formula spacing configuration
+% Луа-скрипты
+\usepackage{luacode}
+
+% Настройка команд отдельно в математическом и текстовом режимах
+\usepackage{mathcommand}
+
+% Для повторения LaTeX кода
+\usepackage{multido}
+
+% Конфигурация отступов формул
 \delimitershortfall-1sp
 \usepackage{mleftright}
 \mleftright
 
-% For resizing
+% Растягивание объектов
 \usepackage{relsize}
 
-% For floaty text
+% Обтекание текстом
 \usepackage{wrapfig}
 \usepackage{subcaption}
 \usepackage{floatflt}
 
-% For cyrillic characters support
+% Поддержка ввода кириллицы
 \usepackage[english, russian]{babel}
 
+% Настройка корневой позиции для компилятора
 \usepackage{import}
 \providecommand*{\ProjectRootPath}{..}
 
@@ -63,15 +75,17 @@
 
 \import{\ProjectRootPath/preambles/fonts}{font_setup}
 
-% For degree sign
+% Знак градуса
 \usepackage{siunitx}
-
-% Restrict inlne formula breaking
-\binoppenalty=10000
-\relpenalty=10000
 
 \import{\ProjectRootPath/preambles/macros/}{operators}
 \import{\ProjectRootPath/preambles/macros/}{redefinitions}
 
 \import{\ProjectRootPath/preambles/fonts}{letters_setup}
-\import{\ProjectRootPath/preambles/}{list_setup}
+\import{\ProjectRootPath/preambles/fonts/adjustments}{custom_superscripts}
+
+\import{\ProjectRootPath/preambles/custom}{frames}
+\import{\ProjectRootPath/preambles/custom}{formatting}
+\import{\ProjectRootPath/preambles/custom}{list_setup}
+
+% TODO: перевести команды на современный стиль объявления

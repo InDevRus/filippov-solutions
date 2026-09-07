@@ -1,56 +1,82 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
 
 \begin{framed}
-    Если в полярных координатах $\tsys{& x = r \cos\theta \\& y = r \sin\theta}$ имеем \vspace{1mm} производную $\dfrac {dr} {d\theta} = A\br{r; \theta}$,
-    то соответствующая производная в декартовых координатах $\dfrac {dy} {dx} = B\br{r; \theta}$ связана с исходной $A\br{r; \theta}$ соотношениями
+    Если в полярных координатах
+    $\tsys{x = r \cos\theta \\ y = r \sin\theta}$
+    имеем производную 
+    $\der{r}{\theta} = A\br{r; \theta}$,
+    то соответствующая производная в декартовых координатах 
+    $\der{y}{x} = B\br{r; \theta}$ связана с исходной $A\br{r; \theta}$ соотношениями
     \begin{align*}
-        \dfrac {dy} {dx}
+        \der{y}{x}
         = B\br{A; r; \theta}
         = \dfrac {A \sin\theta + r \cos\theta} {A \cos\theta - r \sin\theta};&&
-        \dfrac {dr} {d\theta}
+        \der{r}{\theta}
         = A\br{B; r; \theta}
         = r \cdot \dfrac {B \sin\theta + \cos\theta} {B\cos\theta - \sin\theta}.
     \end{align*}
 \end{framed}
 
 \begin{framed}
-    Для угла $\phi = \ang{90}$ имеем $\tg{\beta} = \tg\br{\alpha \pm \phi} =\tg\br{\alpha \pm \ang{90}} = -\ctg \alpha = -\dfrac {1} {\tg\alpha}$.
-
-    С учётом указанного выше для данного угла $\phi$ всякое семейство изогональных траекторий $\zed\br{x}$ и соответствующее семейство в полярной системе $\tsys{& x = \rho \cos\theta \\& \zed = \rho \sin\theta}$ удовлетворяют соотношениям
+    Для угла $\phi = \ang{90}$ имеем 
+    $\tg{\beta} 
+    = \tg\br{\alpha \pm \phi} 
+    = \tg\br{\alpha \pm \ang{90}} 
+    = -\ctg \alpha 
+    = -\dfrac {1} {\tg\alpha}$.
+    
+    С учётом указанного выше для данного угла $\phi$ 
+    всякое семейство изогональных траекторий $z\br{x}$ 
+    и соответствующее семейство в полярной системе 
+    $\tsys{x = \rho \cos\theta \\ z = \rho \sin\theta}$
+    удовлетворяют соотношениям
     \begin{align*}
-        A_{\zed}
-        = \rho \cdot \dfrac {B_{\zed} \sin\theta + \cos\theta} {B_{\zed}\cos\theta - \sin\theta};
+        \sub{A}{z}
+        = \rho \cdot \dfrac 
+        {\sub{B}{z} \sin\theta + \cos\theta} 
+        {\sub{B}{z}\cos\theta - \sin\theta};
         &&
-        B_{\zed}\br{\rho; \theta} = -\dfrac {1} {B_{y}\br{\rho; \theta}};
+        \sub{B}{z}\br{\rho; \theta} 
+        = -\dfrac {1} {\sub{B}{y}\br{\rho; \theta}};
         &&
-        B_{y} = \dfrac {A_{y} \sin\theta + r \cos\theta} {A_{y} \cos\theta - r \sin\theta},
+        \sub{B}{y} = \dfrac 
+        {\sub{A}{y} \sin\theta + r \cos\theta}
+        {\sub{A}{y} \cos\theta - r \sin\theta},
     \end{align*}
     где введены обозначения
-    $A_{y} = \dfrac {dr} {d\theta}$,
-    $B_{y} = \dfrac {dy} {dx}$,
-    $A_{\zed} = \dfrac {d\rho} {d\theta}$,
-    $B_{\zed} = \dfrac {d\zed} {dx}$. \vspace{1mm}
-
+    $\sub{A}{y} = \der{r}{\theta}$,
+    $\sub{B}{y} = \der{y}{x}$,
+    $\sub{A}{z} = \der{\rho}{\theta}$,
+    $\sub{B}{z} = \der{z}{x}$.
+    
     Последовательно подставив и затем упростив, получим следующую формулу:
-    $$A_{\zed}\br{\rho; \theta} = -\dfrac {\rho^2} {A_{y}\br{\rho; \theta}}.$$
+    $$\sub{A}{z}\br{\rho; \theta} 
+    = -\dfrac {\pow{\rho}{2}} {\sub{A}{y}\br{\rho; \theta}}.$$
 \end{framed}
 
-$r = a \cos^2\theta$.
-$a = \dfrac {r} {\cos^2 \theta}$.
-$0 = \dfrac {r' \cos^2 \theta + 2r \sin\theta \cos\theta} {\cos^4 \theta}$.
-$r' = -2r \tg\theta = A_{y}$.
-Таким образом, уравнение изогональных (ортогональных) траекторий в обозначениях, указанных выше, принимает форму
-$\dfrac {d\rho} {d\theta} = A_{\zed} = -\dfrac {\rho^2} {A_{y}} = \dfrac {\rho^2} {2\rho \tg\theta}.$
-$\rho'\br{\theta} = \dfrac {1} {2} \rho\br{\theta} \ctg\theta$.
+$r = a \cos^{2}\theta$.
+$a = \dfrac {r} {\cos^{2} \theta}$.
+$0 = \dfrac 
+{r\` \cos^{2} \theta + 2r \sin\theta \cos\theta} 
+{\cos^{4} \theta}$.
+$r\` = -2r \tg\theta = \sub{A}{y}$.
+Таким образом, уравнение изогональных (ортогональных) траекторий 
+в обозначениях, указанных выше, принимает форму
+$\der{\rho}{\theta} 
+= \sub{A}{z} 
+= -\dfrac {\pow{\rho}{2}} {\sub{A}{y}} 
+= \dfrac {\pow{\rho}{2}} {2\rho \tg\theta}.$
+$\rho\`\br{\theta} = \dfrac {1} {2} \rho\br{\theta} \ctg\theta$.
 
 \begin{remark}
     Уравнение
-    $\rho' = \dfrac {1} {2} \rho \ctg\theta$
+    $\rho\` = \dfrac {1} {2} \rho \ctg\theta$
     имеет общее решение $\rho = C \sqrt{\vbr{\sin\theta}}$.
 \end{remark}
 

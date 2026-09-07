@@ -6,27 +6,29 @@
 
 \begin{document}
 
-    $\tg x \parder{\zed}{x} + y \parder{\zed}{y} = \zed$.
-    $\dfrac {dx} {\tg x} = \dfrac {dy} {y} = \dfrac {d
-        \zed} {\zed}$.
+    $\tg x \parder{z}{x} + y \parder{z}{y} = z$.
+    $\dfrac {\di x} {\tg x}
+    = \dfrac {\di y} {y}
+    = \dfrac {\di z} {z}$.
 
     Ищем первые интегралы.
-    $\dfrac {dx} {\tg x} = \dfrac {dy} {y}$.
+    $\dvfrac {\di x} {\tg x} = \dvfrac {\di y} {y}$.
     $\ln\vbr{\sin x} = \ln\vbr{y} + A$.
-    $\dfrac {\sin x} {y} = A$.
-    $\dfrac {dy} {y} = \dfrac{d\zed} {\zed}$.
-    $\dfrac {\zed}{y} = B$.
+    $\dvfrac {\sin x} {y} = A$.
+    $\dvfrac {\di y} {y} = \dvfrac{\di z} {z}$.
+    $\dvfrac {z}{y} = B$.
     Итак, общее решение имеет вид
-    $F\br{\dfrac {\sin x} {y}; \dfrac {\zed} {y}} = 0$, либо же $\zed = y f\br{\dfrac {\sin x} {y}}$.
+    $F\br{\dvfrac {\sin x} {y}; \dvfrac {z} {y}} = 0$,
+    либо же $z = yf\br{\dvfrac {\sin x} {y}}$.
 
-    Параметризация кривой $y = x$, $\zed = x^3$ имеет вид
-    $$\tsys{& x\br{t} = t \\& y\br{t} = t \\& \zed\br{t} = t^3}$$
+    Параметризация кривой $y = x$, $z = \pow{x}{3}$ имеет вид
+    $$\tsys{x\br{t} = t \\ y\br{t} = t \\ z\br{t} = \pow{t}{3}}$$
 
     Подставив в первые интегралы
-    $\dfrac {\sin x} {y} = A$ и $\dfrac {\zed}{y} = B$,
-    получим $\dfrac {\sin t} {t} = A$, $t^2 = B$.
+    $\dvfrac {\sin x} {y} = A$ и $\dvfrac {z}{y} = B$,
+    получим $\dvfrac {\sin t} {t} = A$, $\pow{t}{2} = B$, так что
     $t = \pm \sqrt{B}$,
     $\sin \sqrt{B} = A \sqrt{B}$.
-    $\sin \br{\sqrt{\dfrac {\zed} {y}}} = \dfrac {\sin x} {y} \sqrt{\dfrac {\zed} {y}}$.
+    $\sin \br{\sqrt{\dvfrac {z} {y}}} = \dvfrac {\sin x} {y} \sqrt{\dvfrac {z} {y}}$.
 
 \end{document}

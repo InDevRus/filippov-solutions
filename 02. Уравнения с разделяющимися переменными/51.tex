@@ -1,19 +1,30 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
-$xy dx + \br{x + 1} dy = 0$.
-В том числе являются решениями кривые $y = 0$ и $x = -1$, притом последняя учитывается, так как уравнение изначально было дано в дифференциалах.
-$\dfrac {x}{x + 1} dx + \dfrac {1} {y} dy = 0$.
+$xy \di x + \br{x + 1} \di y = 0$.
+В том числе являются решениями кривые $y = 0$ и $x = -1$,
+притом последняя учитывается, так как уравнение изначально 
+было дано в дифференциалах.
+$\dfrac {x}{x + 1} \di x + \dfrac {1} {y} \di y = 0$.
 
-$\tint{\dfrac {x}{x + 1}} dx = \tint \br{1 - \dfrac {1} {x + 1}} dx = x - \ln \vbr{x + 1} + C$; $\tint \dfrac {dy} {y} = \ln\vbr{y} + C$.
+$\tint{\dfrac {x}{x + 1}} \di x 
+= \tint \br{1 - \dfrac {1} {x + 1}} \di x 
+= x - \ln \vbr{x + 1} + C$;
+$\tbigint \dfrac {\di y} {y} = \ln\vbr{y} + C$.
 
-Итак, $x - \ln\vbr{x + 1} + \ln\vbr{y} = C$. Потенцируя, получаем $\dfrac {\tpow{e}{x} y} {x + 1} = C$. Общее также можно получить в явном виде: $y = C \br{x + 1} \tpow{e}{-x}$, причём решение $y = 0$ достигается при $C = 0$.
+Итак, $x - \ln\vbr{x + 1} + \ln\vbr{y} = C$. 
+Потенцируя, получаем $\dfrac {\pow{e}{x} y} {x + 1} = C$. 
+Общее также можно получить в явном виде: 
+$y = C \br{x + 1} \pow{e}{-x}$,
+причём решение $y = 0$ достигается при $C = 0$.
 
-Окончательно получаем общее решение $y = C \br{x + 1} \tpow{e}{-x}$ и дополнительное $x = -1$.
+Окончательно получаем общее решение 
+$y = C \br{x + 1} \pow{e}{-x}$ и дополнительное $x = -1$.
 
 \begin{figure}[!h]
     \begin{tikzpicture}

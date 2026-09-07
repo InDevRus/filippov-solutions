@@ -1,31 +1,38 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 \input{../preambles/plotting}
 
 \begin{document}
 
-$y' = \cos\br{y - x}$. Введём функцию 
+$y\` = \cos\br{\y - x}$. Введём функцию
 $u\br{x} = y\br{x} - x$, $y\br{x} = u\br{x} + x$,
-$y'\br{x} = u'\br{x} + 1$.
-$u' + 1 = \cos u$.
-$u' = \cos u - 1$.
-$\dfrac {u'} {\cos u - 1} = 1$, причём решениями являются в том числе функции $u\br{x} = 2\pi n$, где $n$ -- целое число. \vspace{1mm}
-
-$\tint \dfrac {u'\br{x}} {\cos\br{u\br{x}} - 1} dx
-= \tint \dfrac {du} {\cos u - 1}
-= \begin{bmatrix} u = 2v \end{bmatrix}
-= \tint \dfrac {2 dv} {\cos 2v - 1}
-= \tint \dfrac {2 dv} {1 - 2\sin^2 v - 1} = \linebreak
-= \tint \dfrac {-dv} {\sin^2 v}
-= \ctg v + C = \ctg \dfrac {u} {2} + C$. \vspace{1mm}
+$y\`\br{x} = u\`\br{x} + 1$.
+$u\` + 1 = \cos u$.
+$u\` = \cos u - 1$.
+$\dfrac {u\`} {\cos u - 1} = 1$, 
+причём решениями являются в том числе функции $u\br{x} = 2\pi n$,
+где $n$ -- целое число. \vspace{-0.25em}
+\begin{multline*}
+    \tint \dfrac {u\`\br{x}} {\cos\br{u\br{x}} - 1} \di x
+    = \tint \dfrac {du} {\cos u - 1}
+    = \begin{bmatrix} u = 2v \end{bmatrix}
+    = \tint \dfrac {2 \di v} {\cos 2v - 1} = \\
+    = \tint \dfrac {2 \di v} {1 - 2\sin^{2} v - 1}
+    = \tint \dfrac {-\di v} {\sin^{2} v}
+    = \ctg v + C
+    = \ctg \dfrac {u} {2} + C.
+\end{multline*}
 
 $\ctg \dfrac {u} {2} = x + C$.
-$u\br{x} = 2\arcctg\br{x + C} + 2 \pi n$, где $n$ пробегает ряд целых чисел.
+$u\br{x} = 2\arcctg\br{x + C} + 2 \pi n$,
+где $n$ пробегает ряд целых чисел.
 
 Наконец, общим решением будет
-$y\br{x} = x + 2\arcctg\br{x + C} + 2 \pi n$; дополнительные решения равны $y\br{x} = x + 2\pi n$.
+$y\br{x} = x + 2\arcctg\br{x + C} + 2 \pi n$;
+дополнительные решения равны $y\br{x} = x + 2\pi n$.
 
 \begin{figure}[!h]
     \centering

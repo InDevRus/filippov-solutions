@@ -1,10 +1,69 @@
-% For proper font
 \usepackage[no-math]{fontspec}
-
-% TNR within text
 \setmainfont{Times New Roman}
 
-% TNR within equations
-\usepackage{newtxmath}
-\DeclareSymbolFont{operators}{OT1}{ntxtlf}{m}{n}
-\SetSymbolFont{operators}{bold}{OT1}{ntxtlf}{b}{n}
+% Приглушение предупреждений, возникающих из-за пакета mathtools
+\usepackage[warnings-off={mathtools-overbracket, mathtools-colon}]{unicode-math}
+% Шрифт по умолчанию
+\setmathfont[
+    Path = \ProjectRootPath/fonts/,
+]{texgyretermes-math.otf}
+
+\setmathfont[
+    Path = \ProjectRootPath/fonts/,
+    range = {\prime},
+    script-features={RawFeature={-ssty, -aalt, +kern}},
+    sscript-features={RawFeature={-ssty, -aalt, +kern}},
+    style = upright
+]{texgyretermes-math.otf}
+
+\setmathfont[
+    Path = \ProjectRootPath/fonts/,
+    range = \mathup/{greek, Greek},
+    math-style = upright
+]{texgyretermes-math.otf}
+
+% Стрелки и интегралы
+\setmathfont[range = {\int, \oint, "2190 - "21FF}]{Erewhon Math}
+\newcommand{\tint}{\displaystyle{\int}}
+\newcommand{\tbigint}{\displaystyle{\mathlarger{\int}}}
+\newcommand{\tintlim}[2]{\displaystyle{\int\limits_{\kern-0.5em #1}^{\kern-0.2em #2}}\kern-0.35em}
+\newcommand{\tbigintlim}[2]{\displaystyle{\mathlarger{\int}\limits_{\kern-0.6em #1}^{\kern-0.2em #2}}\kern-0.4em}
+
+% Последний вызов \setmathfont меняет общие метрики шрифта, такие как отступы числителя и знаменателя
+% от дробной черты, знак радикала и некоторые другие. Ниже предствален патч для шрифта Asana Math,
+% который был выбран из-за наиболее удачной реализации знака радикала.
+\directlua{
+    function patch_asana(fontdata)
+        texio.write_nl("log", "message1" .. fontdata.psname)
+        if fontdata.psname == "Asana-Math" then
+            local fracM = 0.85
+            local dfracUpM = 0.88
+            local dfracDownM = 0.975
+
+            if fontdata.MathConstants then
+                local mc = fontdata.MathConstants
+                mc.FractionNumeratorShiftUp = fracM * mc.FractionNumeratorShiftUp
+                mc.FractionDenominatorShiftDown = fracM * mc.FractionDenominatorShiftDown
+                mc.FractionNumeratorDisplayStyleShiftUp = dfracUpM * mc.FractionNumeratorDisplayStyleShiftUp
+                mc.FractionDenominatorDisplayStyleShiftDown = dfracDownM * mc.FractionDenominatorDisplayStyleShiftDown
+            end
+            if fontdata.mathparameters then
+                local mp = fontdata.mathparameters
+                mp.FractionNumeratorShiftUp = fracM * mp.FractionNumeratorShiftUp
+                mp.FractionDenominatorShiftDown = fracM * mp.FractionDenominatorShiftDown
+                mp.FractionNumeratorDisplayStyleShiftUp = dfracUpM * mp.FractionNumeratorDisplayStyleShiftUp
+                mp.FractionDenominatorDisplayStyleShiftDown = dfracDownM * mp.FractionDenominatorDisplayStyleShiftDown
+            end
+        end
+    end
+    luatexbase.add_to_callback("luaotfload.patch_font", patch_asana, "patch_asana")
+}
+\setmathfont[range = {"221A-"221C}]{Asana-Math.otf}
+
+% Удаление пробела после запятой, которая идёт после цифры
+\usepackage{icomma}
+
+% Старая инициализация Times New Roman для PDFTeX
+%\usepackage{newtxmath}
+%\DeclareSymbolFont{operators}{OT1}{ntxtlf}{m}{n}
+%\SetSymbolFont{operators}{bold}{OT1}{ntxtlf}{b}{n}

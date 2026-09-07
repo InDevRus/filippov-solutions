@@ -1,85 +1,125 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
 
-В окрестности точки $t = 0$ найдём фундаментальную матрицу решений $X\br{t}$ такую, что $X\br{\Omicron_{2}} = E_{2}$.
+В окрестности точки $t = 0$ найдём фундаментальную матрицу решений $X\br{t}$ такую, 
+что $X\br{\sub{\Omicron}{2}} = \sub{E}{2}$.
 \begin{align*}
-    & X\br{t} = \begin{pmatrix} x_{1}\br{t} & x_{2}\br{t} \\ y_{1}\br{t} & y_{2}\br{t} \end{pmatrix}
+    & X\br{t} = \begin{pmatrix} 
+        \sub{x}{1}\br{t} & \sub{x}{2}\br{t} \\
+        \sub{y}{1}\br{t} & \sub{y}{2}\br{t} \end{pmatrix}
     &&
-    \begin{pmatrix} x_{1}\br{t} & x_{2}\br{t} \\ y_{1}\br{t} & y_{2}\br{t} \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+    \begin{pmatrix} 
+        \sub{x}{1}\br{0} & \sub{x}{2}\br{0} \\
+        \sub{y}{1}\br{0} & \sub{y}{2}\br{0} \end{pmatrix}
+        = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
     \\
-    & x_{1}\br{t} = 1
+    & \sub{x}{1}\br{t} = 1
     &&
-    x_{2}\br{t} = \tsys{
-        & 0 \text{, если } t \in \rbr{-1; 0}
-        \\& 
+    \sub{x}{2}\br{t} = \tsys{
+        0 \text{, если } t \in \rbr{-1; 0}
+        \\ 
         at \text{, если } t \in \left(0; 1\right] }
     \\
-    & y_{1}\br{t} = \tsys{
-        & bt \text{, если } t \in \rbr{-1; 0}
-        \\& 
+    & \sub{y}{1}\br{t} = \tsys{
+        bt \text{, если } t \in \rbr{-1; 0}
+        \\ 
         0 \text{, если } t \in \left(0; 1\right] }
     &&
-    y_{2}\br{t} = 1
+    \sub{y}{2}\br{t} = 1
 \end{align*}
 
-Матрица монодромии $C$ такова, что $X\br{t + 2} = X\br{t} C$ для всех $t$. В частности, $X\br{1} = \linebreak = X\br{-1} C$ и $C = \br{X\br{-1}}^{-1} X\br{1}$.
+Матрица монодромии $C$ такова, что $X\br{t + 2} = X\br{t} C$ для всех $t$.
+В частности
+$$X\br{1} = X\br{-1} C \text{, откуда } C = \br{X\br{-1}}^{-1} X\br{1}.$$
 \begin{align*}
     X\br{-1} = \begin{pmatrix} 1 & 0 \\ -b & 1 \end{pmatrix};
-    &&
-    \br{X\br{-1}}^{-1} = \begin{pmatrix} 1 & 0 \\ b & 1 \end{pmatrix};
-    &&
-    X\br{1} = \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix};
-    &&
-    C = \begin{pmatrix} 1 & a \\ b & ab + 1 \end{pmatrix}.
+    && \br{X\br{-1}}^{-1} = \begin{pmatrix} 1 & 0 \\ b & 1 \end{pmatrix};
+    && X\br{1} = \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix};
+    && C = \begin{pmatrix} 1 & a \\ b & ab + 1 \end{pmatrix}.
 \end{align*}
 
 Вековое уравнение имеет вид 
-$$\det\br{C - \rho E} = \br{\rho - 1}\br{\rho - ab - 1} - ab = \rho^2 - \br{ab + 2}\rho + 1 = 0.$$
+$$\det\br{C - \rho E} 
+= \br{\rho - 1}\br{\rho - ab - 1} - ab 
+= \pow{\rho}{2} - \br{ab + 2}\rho + 1 = 0.$$
 
 \begin{framed}
-    \begin{criteria}[устойчивости по мультипликаторам] \end{criteria}
-    Пусть дана линейная однородная система с периодическими коэффициентами
+    \begin{criteria}[устойчивости нулевого решения по мультипликаторам] \end{criteria}
+    Пусть дана линейная однородная система с периодическими коэффицентами.
     \begin{itemize}
-        \item Для асимптотической устойчивости нулевого решения необходимо и достаточно, чтобы все мультипликаторы лежали внутри единичного круга $\vbr{\rho} < 1$.
+        \item Для асимптотической устойчивости нулевого решения необходимо и достаточно,
+        чтобы все мультипликаторы лежали внутри единичного круга $\vbr{\rho} < 1$.
         \item Для устойчивости необходимо и достаточно, чтобы
         \begin{enumerate}
             \item все мультипликаторы лежали в замкнутом единичном круге $\vbr{\rho} \le 1$;
-            \item каждый мультипликатор $\rho_{k}$, лежащий на единичной окружности (т.е. $\vbr{\rho_{k}} = 1$), имел кратность как корень характеристического (векового) уравнения $\det\br{C - \rho E} = 0$, равную дефекту $\nullity\br{C - \rho_{k} E}$.
+            \item каждый мультипликатор $\sub{\rho}{k}$,
+            находящийся на единичной окружности \linebreak (т.е. $\vbr{\sub{\rho}{k}} = 1$), 
+            имел кратность как корень характеристического (векового) \linebreak уравнения 
+            $\det\br{C - \rho E} = 0$, равную дефекту $\nullity\br{C - \sub{\rho}{k} E}$.
         \end{enumerate}
     \end{itemize}
 \end{framed}
 
-Уравнение и факт устойчивости эффективно зависят только от $ab$, так что для удобства переобозначим $ab = \gamma$. Исследовать будем уравнение $f\br{\rho} = \rho^2 - \br{\gamma + 2}\rho + 1 = 0$.
+Уравнение и факт устойчивости его нулевого решения эффективно зависят только от $ab$,
+так что для удобства переобозначим $ab = \gamma$. Исследовать будем уравнение
+$f\br{\rho} = \pow{\rho}{2} - \br{\gamma + 2}\rho + 1 = 0$.
 
 \begin{enumerate}
     \item Случай $D = \gamma \br{\gamma + 4} > 0$.
-    $\gamma \in \br{-\infty; -4} \cup \br{0; +\infty}$. Оба корня вещественны. \linebreak Условия $\rho_{1} \in \rbr{-1; 1}$ и $\rho_{2} \in \rbr{-1; 1}$ равносильны выполнению: $f\br{-1} \ge 0$, $f\br{1} \ge 0$ и $\gamma_{0} = \dfrac {\gamma + 2} {2} \in \rbr{-1; 1}$. При этом одновременное выполнение $f\br{1} = -\gamma > 0$ и $f\br{-1} = \linebreak = 4 + \gamma > 0$ означает, что $\gamma \in \rbr{-4; 0}$. Последнее несовместимо с предыдущим, так что при всех $\gamma \in \br{-\infty; -4} \cup \br{0; +\infty}$ нулевое решение неустойчиво.
+    $\gamma \in \br{-\infty; -4} \cup \br{0; +\infty}$. Оба корня вещественны. \linebreak
+    Условия $\sub{\rho}{1} \in \rbr{-1; 1}$ и $\sub{\rho}{2} \in \rbr{-1; 1}$
+    равносильны выполнению: $f\br{-1} \ge 0$,\, $f\br{1} \ge 0$ и 
+    $\sub{\gamma}{0} = \dfrac {\gamma + 2} {2} \in \rbr{-1; 1}$.
+    При этом одновременное выполнение $f\br{1} = -\gamma > 0$ 
+    и $f\br{-1} = \linebreak = 4 + \gamma > 0$ означает, что $\gamma \in \rbr{-4; 0}$.
+    Последнее несовместимо с предыдущим, так что при всех 
+    $\gamma \in \br{-\infty; -4} \cup \br{0; +\infty}$ нулевое решение неустойчиво.
     
-    \item Случай $D = \gamma \br{\gamma + 4} < 0$. $\gamma \in \br{-4; 0}$. \\
+    \item Случай $D = \gamma \br{\gamma + 4} < 0$. $\gamma \in \br{-4; 0}$. 
     \begin{align*}
-        \rho_{1, 2} = \dfrac {\gamma + 2 \mp \sqrt{-\gamma \br{\gamma + 4}} i} {2};
-        && \vbr{\rho_{1}} = \vbr{\rho_{2}} =
-        \sqrt{\dfrac {\br{\gamma + 2}^2 - \gamma \br{\gamma + 4}} {4}} = 1.
+        \sub{\rho}{1,2} = \dfrac {\gamma + 2 \mp \sqrt{-\gamma \br{\gamma + 4}}\,i} {2};
+        && \vbr{\sub{\rho}{1}} = \vbr{\sub{\rho}{2}} =
+        \textstyle\sqrt{\dfrac {\br{\gamma + 2}^2 - \gamma \br{\gamma + 4}} {4}} = 1.
     \end{align*}
-    Поскольку в этом случае $\gamma = ab \ne 0$, обе матрицы $C - \rho_{1} E$ и $C - \rho_{2} E$ ненулевые, а потому их дефекты равняются $1$. Таким образом, в этом случае нулевое решение устойчиво, но не асимптотически.
+    Поскольку в этом случае $\gamma = ab \ne 0$, обе матрицы
+    $C - \sub{\rho}{1} E$ и $C - \sub{\rho}{2} E$ ненулевые,
+    из-за чего их дефекты равняются $1$.
+    Таким образом, в этом случае нулевое решение устойчиво, но не асимптотически.
     
-    \item Случай $\gamma = ab = -4$. $b = -\dfrac {4} {a}$. $\rho_{1} = \rho_{2} = -1$. 
-    $C - \rho_{1} E 
-    = \begin{pmatrix} 2 & a \\ b & ab + 2 \end{pmatrix} 
-    = \begin{pmatrix} 2 & a \\ -\dfrac {4} {a} & -2 \end{pmatrix} $. 
-    $\rank\br{C - \rho_{1} E} = 1$, $\nullity\br{C - \rho_{1} E} = 2 - 1 = 1$. Итак, нулевое решение неустойчиво.
+    \item Случай $\gamma = ab = -4$. $b = -\dfrac {4} {a}$. $\sub{\rho}{1} = \sub{\rho}{2} = -1$. 
+    $C - \sub{\rho}{1} E 
+        = \begin{pmatrix} 2 & a \\ b & ab + 2 \end{pmatrix} 
+        = \begin{pmatrix} 2 & \negthickspace\! a 
+            \\ -\dfrac {4} {a} & \negthickspace\! -2 \end{pmatrix} $. 
+    $\rank\br{C - \sub{\rho}{1} E} = 1$,
+    $\nullity\br{C - \sub{\rho}{1} E} = 2 - 1 = 1$.
+    Итак, нулевое решение неустойчиво.
     
-    \item Случай $\gamma = ab = 0$. $\rho_{1} = \rho_{2} = 1$. $C -\rho_{1} E = \begin{pmatrix} 0 & a \\ b & ab \end{pmatrix} = \begin{pmatrix} 0 & a \\ b & 0 \end{pmatrix}$.
+    \item Случай $\gamma = ab = 0$.
+    $\sub{\rho}{1} = \sub{\rho}{2} = 1$.
+    $C -\sub{\rho}{1} E 
+        = \begin{pmatrix} 0 & a \\ b & ab \end{pmatrix} 
+        = \begin{pmatrix} 0 & a \\ b & 0 \end{pmatrix}$.
     \begin{itemize}
-        \item Если $a^2 + b^2 > 0$, то $\rank\br{C -\rho_{1} E} = 1$, $\nullity\br{C -\rho_{1} E} = 2 - 1 = 1$, и нулевое решение неустойчиво.
-        \item Если $a = 0$ и $b = 0$, то $\rank\br{C -\rho_{1} E} = \rank \Omicron_{2} = 0$, $\nullity\br{C -\rho_{1} E} = 2$, и нулевое решение устойчиво, но не асимптотически.
+        \item Если $\pow{a}{2} + \pow{b}{2} > 0$,
+            то $\rank\br{C - \sub{\rho}{1} E} = 1$,
+            $\nullity\br{C - \sub{\rho}{1} E} = 2 - 1 = 1$,
+            и нулевое решение неустойчиво.
+        \item Если $a = 0$ и $b = 0$, 
+        то $\rank\br{C -\sub{\rho}{1} E} 
+            = \rank \sub{\Omicron}{2} = 0$,
+        $\nullity\br{C -\sub{\rho}{1} E} = 2$,
+        и нулевое решение устойчиво, но не асимптотически.
     \end{itemize}
 \end{enumerate}
 
-Окончательно получаем, что при $ab \in \br{-4; 0}$, а также, если $a = 0$, $b = 0$, нулевое решение устойчиво, но не асимптотически; во всех остальных случаях нулевое решение неустойчиво.
+Окончательно получаем, что при $ab \in \br{-4; 0}$, а также,
+если $a = 0$ и $b = 0$, нулевое \linebreak решение устойчиво, но не асимптотически;
+во всех остальных случаях нулевое решение неустойчиво.
 
 \end{document}

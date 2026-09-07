@@ -1,30 +1,44 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
 
 Сделаем замену функций
-$\tsys{& u\br{t} = x\br{t} + t^2 \\& v\br{t} = y\br{t} - t}$ и исследуем на устойчивость нулевое решение полученной системы.
+$\tsys{u\br{t} = x\br{t} + \pow{t}{2} \\ v\br{t} = y\br{t} - t}$
+и исследуем на устойчивость нулевое решение полученной системы.
 
 $\dot{x} = \dot{u} - t$, $\dot{y} = \dot{v} + 1$.
 $\dot{u} - 2t
-= v^2 + 2tv + t^2 - 2t\br{v + t} - 2\br{v + t} - \br{u - t^2}
-= v^2 - 2v - 2t - u$.
-$\dot{u} = v^2 - 2v - u$.
-$\dot{v} + 1 = 2\br{u - t^2} + 2t^2 + e^{-2v}$.
-$\dot{v} = 2u + e^{-2v} - 1$.
+    = \pow{v}{2} + 2tv + \pow{t}{2} - 2t\br{v + t} - 2\br{v + t} - \br{u - \pow{t}{2}}
+    = \pow{v}{2} - 2v - 2t - u$.
+$\dot{u} = \pow{v}{2} - 2v - u$.
+Далее,
+$\dot{v} + 1 = 2\br{u - \pow{t}{2}} + 2\pow{t}{2} + \pow{e}{-2v}$.
+$\dot{v} = 2u + \pow{e}{-2v} - 1$.
 
-Полученная система $\tsys{& \dot{u} = v^2 - 2v - u \\& \dot{v} = 2u + e^{-2v} - 1}$ автономна, и её нулевое решение можно исследовать на устойчивость по первому приближению.
+Полученная система 
+$\tsys{\dot{u} = \pow{v}{2} - 2v - u \\ \dot{v} = 2u + \pow{e}{-2v} - 1}$
+автономна, и её нулевое решение можно исследовать на устойчивость по первому приближению.
 
-При $u \to 0$, $v \to 0$:
-$e^{-2v} = 1 - 2v + o\br{v}$. $\dfrac {d} {dt} \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix} = A \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix} + \begin{pmatrix} \psi_{u}\br{u; v} \\ \psi_{v}\br{u; v} \end{pmatrix}$, где 
+При $u \to 0$, $v \to 0$ выполняется
+$\pow{e}{-2v} = 1 - 2v + o\br{v}$.
+$\der{}{t} \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix} 
+    = A \begin{pmatrix} u\br{t} \\ v\br{t} \end{pmatrix} 
+    + \begin{pmatrix} \sub{\psi}{u}\br{u; v} \\ \sub{\psi}{v}\br{u; v} \end{pmatrix}$,
 $A = \begin{pmatrix} -1 & -2 \\ 2 & -2 \end{pmatrix}$,
-$\psi_{u}\br{u; v} = v^2 = O\br{u^2 + v^2} = o\br{\sqrt{u^2 + v^2}}$,
-$\psi_{v}\br{u; v} = o\br{\sqrt{u^2 + v^2}}$.
+$\sub{\psi}{u}\br{u; v} = \pow{v}{2} 
+    = O\br{\pow{u}{2} + \pow{v}{2}} 
+    = o\br{\sqrt{\pow{u}{2} + \pow{v}{2}}}$,
+$\sub{\psi}{v}\br{u; v} = o\br{\sqrt{\pow{u}{2} + \pow{v}{2}}}$.
 
-$\det\br{A - \lambda E} = \br{\lambda + 1}\br{\lambda + 2} + 4 = \lambda^2 + 3\lambda + 6$. $D = -15$, оба корня комплексные и $\Re\br{\lambda_{1}} = \Re\br{\lambda_{2}} = -\dfrac {3} {2}$. 
+$\det\br{A - \lambda E} 
+    = \br{\lambda + 1}\br{\lambda + 2} + 4 
+    = \pow{\lambda}{2} + 3\lambda + 6$.
+$D = -15$, оба корня комплексные и 
+$\Re\br{\sub{\lambda}{1}} = \Re\br{\sub{\lambda}{2}} = -\dfrac {3} {2}$.
 
 Таким образом, указанное решение исходной системы устойчиво асимптотически.
 

@@ -1,23 +1,24 @@
 \documentclass[a5paper,10pt]{article}
 
 % https://github.com/InDevRus/filippov-solutions
+
 \input{../preambles/general}
 
 \begin{document}
 
-$\tsys{& ax + \zed = b \\& y^2 + \zed^2 = b^2}$,
-где $\tsys{& y = y\br{x} \\& \zed = \zed\br{x}}$.
-Продифференцировав первое, имеем $a + \zed' = 0$. \\
-$\tsys{& \zed - x\zed' = b \\& y^2 + \zed^2 = b^2}$.
-$y^2 + \zed^2 = \br{\zed - x\zed'}^2$.
-$y^2 + 2x\zed\zed' - x^2 \br{\zed'}^2 = 0$.
-Дифференцирование второго уравнения даёт $yy' + \zed\zed' = 0$.
+$\tsys{ax + z = b \\ \pow{y}{2} + \pow{z}{2} = \pow{b}{2},}$
+где $\tsys{y = y\br{x} \\ z = z\br{x}.}$
+Продифференцировав первое, имеем $a + z\` = 0$. \\
+$\tsys{z - xz\` = b \\ \pow{y}{2} + \pow{z}{2} = \pow{b}{2}.}$
+$\pow{y}{2} + \pow{z}{2} = \br{z - xz\`}^2$.
+$\pow{y}{2} + 2xzz\` - \pow{x}{2} \br{z\`}^2 = 0$.
+Дифференцирование второго уравнения даёт $yy\` + zz\` = 0$.
 
 Окончательно получаем
 $\tsys{
-    & y^2 + 2x\zed\zed' - x^2 \br{\zed'}^2 = 0
-    \\& yy' + \zed\zed' = 0
-}$.
+    \pow{y}{2} + 2xzz\` - \pow{x}{2} \br{z\`}^2 = 0
+    \\ yy\` + zz\` = 0.
+}$
 
 \end{document}
 

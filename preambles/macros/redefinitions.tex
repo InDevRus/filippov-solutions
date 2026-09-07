@@ -1,12 +1,8 @@
-% Automatic replacement for two greek letters
-\renewcommand{\epsilon}{\varepsilon}
-\renewcommand{\phi}{\varphi}
-
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\erfi}{erfi}
 \DeclareMathOperator{\erfc}{erfc}
 
-% Redefinition of some operators (to the appropriation of Russian notation)
+% Переопределение операторов для соответствия русской нотации
 \DeclareMathOperator{\arsh}{arsh}
 \DeclareMathOperator{\arch}{arch}
 \DeclareMathOperator{\arth}{arth}
@@ -16,8 +12,19 @@
 \DeclareMathOperator{\inv}{inv}
 \DeclareMathOperator{\adj}{adj}
 \DeclareMathOperator{\sgn}{sgn}
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
+\AtBeginDocument{
+    \renewcommand{\Re}{\operatorname{Re}}
+    \renewcommand{\Im}{\operatorname{Im}}
 
-\renewcommand{\gcd}{\text{НОД}}
+    \renewcommand{\gcd}{\text{НОД}}
+}
 \newcommand{\lcm}{\text{НОК}}
+
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Ln}{Ln}
+
+% Замена знаков сравнения
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+
+\DeclareMathOperator{\logN}{ln}
