@@ -1,0 +1,51 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+
+В обозначениях задачи \textbf{737}
+$\psi\br{x} = \pow{e}{\selevate{-\frac {1}{2} \pow{x}{2}}}$,
+$\phi\`\br{x} = \pow{\psi}{-2}\br{x} = \pow{e}{x}$,
+так что, например,
+$\phi\br{x} = \pow{e}{x}$.
+Тогда заменяем \vspace{0.4em}
+\begin{align*}
+    \tsys{
+        t = \phi\br{x} = \pow{e}{x} \\
+        y = u \psi\br{x} = u \pow{e}{-\frac {1}{2} x}
+    }
+    &&
+    \sub{Q}{u\br{t}}\br{t} 
+    = 1 + \pow{\psi}{3}\br{x} \psi\`\`\br{x}
+    = 1 + \dfrac{1}{4} \pow{e}{-2x}
+    = 1 + \dfrac{1}{4} \pow{t}{-2},
+\end{align*}
+в результате чего получаем 
+$u\`\`\br{t} + \br{1 + \dfrac {1}{4}\pow{t}{-2}}\,u\br{t} = 0$.
+При $t \to +\infty$ результат таков:
+\begin{align*}
+    \sub{u}{1}\br{t} = \cos t + O\br{\pow{t}{-1}}
+    \qquad
+    \sub{u}{2}\br{t} = \sin t + O\br{\pow{t}{-1}}
+\end{align*}
+при этом
+$\sub{y}{1}\br{x} 
+= \pow{e}{\selevate{-\frac {1}{2} x}}
+\br{\cos\br{\pow{e}{x}} + O\br{\pow{e}{-x}}}
+= \pow{e}{\selevate{-\frac {1}{2} x}} \cos\br{\pow{e}{x}}
++ O\br{\pow{e}{\selevate{-\frac {3}{2} x}}}$,
+а значит
+\begin{align*}
+    \sub{y}{1}\br{x} 
+    = \pow{e}{\selevate{-\frac {1}{2} x}} \cos\br{\pow{e}{x}}
+    + O\br{\pow{e}{\selevate{-\frac {3}{2} x}}}
+    \qquad
+    \sub{y}{2}\br{x}
+    = \pow{e}{\selevate{-\frac {1}{2} x}} \sin\br{\pow{e}{x}}
+    + O\br{\pow{e}{\selevate{-\frac {3}{2} x}}}
+\end{align*}
+
+\end{document}

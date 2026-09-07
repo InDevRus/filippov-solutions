@@ -1,0 +1,46 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+
+В обозначениях задачи \textbf{737}
+$\psi\br{x} = \pow{x}{\selevate{-\frac {1}{4}}}$,
+$\phi\`\br{x} = \pow{\psi}{-2}\br{x} = \pow{x}{\selevate{\frac {1}{2}}}$,
+так что, например,
+$\phi\br{x} = \dfrac {2}{3} \pow{x}{\selevate{\frac {3}{2}}}$.
+Тогда заменяем \vspace{0.4em}
+\begin{align*}
+    \tsys{
+        t = \phi\br{x} = \pow{x}{\selevate{\frac {1}{2}}} \\
+        y = u \psi\br{x} = u \pow{x}{-\frac {1}{4}}
+    }
+    &&
+    \sub{Q}{u\br{t}}\br{t} 
+    = -1 + \pow{\psi}{3}\br{x} \psi\`\`\br{x}
+    = -1 + \dfrac{5}{16} \pow{x}{-3}
+    = -1 + \dfrac{5}{24} \pow{t}{-2},
+\end{align*}
+в результате чего получаем 
+$u\`\`\br{t} + \br{-1 + \dfrac {5}{24}\pow{t}{-2}}\,u\br{t} = 0$.
+При $t \to +\infty$ оценки таковы:
+\begin{align*}
+    \sub{u}{1}\br{t} = \pow{e}{t} \br{1 + O\br{\pow{t}{-1}}}
+    \qquad
+    \sub{u}{2}\br{t} = \pow{e}{-t} \br{1 + O\br{\pow{t}{-1}}}
+\end{align*}
+\begin{align*}
+    \sub{y}{1}\br{x}
+    = \pow{x}{\selevate{-\frac {1}{4}}}
+    \exp\br{\dfrac {2}{3}\pow{x}{\selevate{\frac {3}{2}}}}
+    \br{1 + O\br{\pow{x}{\selevate{-\frac {3}{2}}}}}
+    \qquad
+    \sub{y}{2}\br{x}
+    = \pow{x}{\selevate{-\frac {1}{4}}}
+    \exp\br{-\dfrac {2}{3}\pow{x}{\selevate{\frac {3}{2}}}}
+    \br{1 + O\br{\pow{x}{\selevate{-\frac {3}{2}}}}}
+\end{align*}
+
+\end{document}
