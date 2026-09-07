@@ -1,0 +1,52 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+
+В обозначениях задачи \textbf{737}
+$\psi\br{x} = \pow{x}{\selevate{-\frac {1}{2}}}$,
+$\phi\`\br{x} = \pow{\psi}{-2}\br{x} = x$,
+например,
+$\phi\br{x} = \frac{1}{2} \pow{x}{2}$.
+Тогда заменяем \vspace{0.4em}
+\begin{align*}
+    \tsys{
+        t = \phi\br{x} = \frac{1}{2} \pow{x}{2} \\
+        y = u \psi\br{x} = u \pow{x}{-\frac {1}{2}}
+    }
+    &&
+    \sub{Q}{u\br{t}}\br{t} 
+    = 1 + \pow{\psi}{3}\br{x} \psi\`\`\br{x}
+    = 1 + \dfrac{3}{4} \pow{x}{-4}
+    = 1 + \dfrac{3}{16} \pow{t}{-2},
+\end{align*}
+в результате чего получаем 
+$u\`\` + \br{1 + \dfrac {3}{16}\pow{t}{-2}}\,u\br{t} = 0$.
+При $t \to +\infty$ результат таков:
+\begin{align*}
+    \sub{u}{1}\br{t} = \cos t + O\br{\pow{t}{-1}}
+    \qquad
+    \sub{u}{2}\br{t} = \sin t + O\br{\pow{t}{-1}}
+\end{align*}
+при этом
+$\sub{y}{1}\br{x} 
+= \pow{x}{\selevate{-\frac {1}{2}}}
+\br{\cos\br{\frac {1}{2} \pow{x}{2}} + O\br{\pow{x}{-2}}}
+= \pow{x}{\selevate{-\frac {1}{2}}} 
+\cos\br{\frac {1}{2} \pow{x}{2}} 
++ O\br{\pow{x}{\selevate{-\frac {5}{2}}}}$,
+а значит
+\begin{align*}
+    \sub{y}{1}\br{x}
+    = \dfrac {1}{\sqrt{x}} \cos\br{\frac {1}{2} \pow{x}{2}} 
+    + O\br{\pow{x}{\selevate{-\frac {5}{2}}}}
+    \qquad
+    \sub{y}{2}\br{x}
+    = \dfrac {1}{\sqrt{x}} \sin\br{\frac {1}{2} \pow{x}{2}} 
+    + O\br{\pow{x}{\selevate{-\frac {5}{2}}}}
+\end{align*}
+
+\end{document}
