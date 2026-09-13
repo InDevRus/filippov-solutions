@@ -1,0 +1,28 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $xy\` - y = \br{x + y} \ln\br{\dfrac{x + y}{x}}$.
+    $y\` = \dfrac{y}{x} + \br{1 + \dfrac{y}{x}} \ln\br{1 + \dfrac{y}{x}}$. \\
+    Заменяем
+    $y\br{x} = t\br{x} \cdot x$.
+    $y\` = t\`x + t$. \\
+    $t\`x + t = t + \br{1 + t} \ln\br{1 + t}$.
+    $t\`x = \br{1 + t} \ln\br{1 + t}$.
+    $\dfrac{t\`}{\br{1 + t}\ln\br{1 + t}} = \dfrac {1}{x}$,
+    причём $t\br{x} = 0$ и $t\br{x} = -1$ являются решениями,
+    которые дают $y\br{x} = 0$ и $y\br{x} = -x$ соответственно.
+    $$\tint \dfrac{\di t}{\br{1 + t}\ln\br{1 + t}}
+    = \tint \dfrac{\di\br{\ln\br{1 + t}}}{\ln\br{1 + t}}
+    = \ln{\vbr{\ln\br{1 + t}}} + C. $$
+
+    $\ln{\vbr{\ln\br{1 + t}}} = \ln\vbr{x} + C$.
+    $\ln\br{1 + t} = C x$.
+    $t\br{x} = \pow{e}{Cx} - 1$. \\
+    Итак, общее решение равно
+    $y\br{x} = x\br{\pow{e}{Cx} - 1}$, а также дополнительно
+    $y\br{x} = -x$.
+\end{document}
