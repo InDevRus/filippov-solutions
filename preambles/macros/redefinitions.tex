@@ -1,22 +1,44 @@
-% Исправление неправильного верхнего индекса
-% описано в subsuperscripts.tex
-% При добавлении новых операторов необходимо добавлять
-% эти исправления
+% Исправление неправильного верхнего индекса операторов,
+% созданных ниже, описано в subsuperscripts.tex.
+% При декларировании новых операторов необходимо добавлять
+% эти исправления в список ниже.
+
+\directlua{
+    fixable_operators = {
+        ["\\cos"] = 1, ["\\sin"] = 1, ["\\tg"] = 1, ["\\ctg"] = 1,
+        ["\\sec"] = 1, ["\\cosec"] = 1,
+        ["\\arcsin"] = 1, ["\\arccos"] = 1, ["\\arctg"] = 1, ["\\arcctg"] = 1,
+        ["\\log"] = 1, ["\\ln"] = 1, ["\\lg"] = 1, ["\\exp"] = 1,
+        ["\\sh"] = 1, ["\\ch"] = 1, ["\\th"] = 1, ["\\cth"] = 1,
+        ["\\arsh"] = 1, ["\\arch"] = 1, ["\\arth"] = 1, ["\\arcth"] = 1,
+        ["\\deg"] = 1, ["\\det"] = 1, ["\\dim"] = 1,
+        ["\\erf"] = 1, ["\\erfi"] = 1, ["\\erfc"] = 1,
+        ["\\sgn"] = 1,
+        ["\\arsh"] = 1, ["\\arch"] = 1, ["\\arth"] = 1, ["\\arcth"] = 1,
+        ["\\rank"] = 1, ["\\nullity"] = 1, ["\\inv"] = 1, ["\\adj"] = 1, ["\\tr"] = 1,
+        ["\\Re"] = 1, ["\\Im"] = 1, 
+        ["\\Res"] = 1, ["\\Lm"] = 1, 
+    }
+}
 
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\erfi}{erfi}
 \DeclareMathOperator{\erfc}{erfc}
 
 % Переопределение операторов для соответствия русской нотации
+\DeclareMathOperator{\sgn}{sgn}
+
 \DeclareMathOperator{\arsh}{arsh}
 \DeclareMathOperator{\arch}{arch}
 \DeclareMathOperator{\arth}{arth}
 \DeclareMathOperator{\arcth}{arcth}
+
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\nullity}{null}
 \DeclareMathOperator{\inv}{inv}
 \DeclareMathOperator{\adj}{adj}
-\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{tr}
+
 \AtBeginDocument{
     \renewcommand{\Re}{\operatorname{Re}}
     \renewcommand{\Im}{\operatorname{Im}}
@@ -31,5 +53,3 @@
 % Замена знаков сравнения
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
-
-\DeclareMathOperator{\logN}{ln}

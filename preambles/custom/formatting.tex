@@ -23,7 +23,7 @@
             or math_token:match("^ *\\sub *[^ a-zA-Z] *([a-zA-Z])")
             or math_token:match("^ *([a-zA-Z])")
             or ""
-        end
+    end
 
     function match_last_letter(math_token)
         return math_token:match("([a-zA-Z]) *$") or ""

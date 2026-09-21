@@ -65,7 +65,13 @@
         Q = 0, T = 0, U = 0, V = 0, W = -0.03, X = 0, Y = 0,
         n = 0.02, v = 0.02, w = 0.02, y = 0.02, z = 0.02
     }
-    
+
+    function form_grouped_base(base)
+        if fixable_operators[base] then
+            return base .. " {\\!}"
+        end
+        return "{" .. base .. "}"
+    end
 }
 
 \newcommand{\subpow}[3]{
@@ -96,7 +102,8 @@
                 kerning = superkerns[base] or 0.05
             end
         end
-        tex.print("{" .. base .. "}^{\\kern".. kerning .. "em " .. superscript .. "}")
+        grouped_base = form_grouped_base(base)
+        tex.print(grouped_base .. "^{\\kern".. kerning .. "em " .. superscript .. "}")
     }
 }
 
