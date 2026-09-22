@@ -1,0 +1,40 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\br{x - z} \parder{u} {x} + \br{\y - z} \parder{u} {y} + 2z \parder{u}{z} = 0$.
+
+    $\dvfrac{\di x}{x - z} = \dvfrac{\di y}{y - z} = \dvfrac{\di z}{2z}$.
+
+    \begin{enumerate}
+        \item Из первой пропорции получаем производную пропорцию
+        $\dvfrac{\di x - \di y}{x - y} = \dvfrac{\di z}{2z}$,
+        из которой получаем первый интеграл
+        $\ln\vbr{x - y} = \dfrac{1}{2}\ln\vbr{z} + A$.
+        $\dfrac{\br{x - y}^{2}}{z} = A$.
+
+        \item Из первых двух дробей можно получить ещё одну
+        интегрируемую комбинацию путём линейного комбинирования числителей
+        и знаменателей.
+        Допустим, что мы комбинируем $\di x$, $a \di y$ и $b \di z$ 
+        для некоторых $a$ и $b$. Тогда 
+        $\dvfrac{\di x + a \di y + b \di z}{x + ay + \br{-1 - a + 2b} z}$
+        будет являться полным дифференциалом, если и только если выполняется
+        $2b - a - 1 = b$, то есть $b - a = 1$.
+        Например, для $b = 2$, $a = 1$ получаем интегрируемую комбинацию
+        $\dvfrac{\di x + \di y + 2 \di z}{x - z + y - z + 4z} = \dvfrac{\di z}{2z}$,
+        откуда уже
+        $\ln\vbr{x + y + 2z} = \dfrac{1}{2} \ln\vbr{z} + B$;
+        $\dvfrac{\br{x + y + 2z}^2}{z} = B$.
+
+        Стоит также отметить, что первая интегрируемая комбинация есть частный случай
+        при $a = -1$, $b = 0$.
+    \end{enumerate}
+
+    Поскольку исходное уравнение является однородным, общее решение можно записать
+    в форме
+    $u = \f\br{\dfrac{\br{x - y}^{2}}{z}; \dvfrac{\br{x + y + 2z}^2}{z}}$.
+\end{document}
