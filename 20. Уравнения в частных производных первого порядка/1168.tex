@@ -1,0 +1,19 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\br{x + 2y} \parder{z} {x} - y \parder{z} {y} = 0$.
+
+    $\dvfrac{\di x}{x + 2y} = \dfrac{\di y}{-y}$.
+    $\br{\y \di x + x \di y} + 2y \di y 
+    = \di \br{xy + \pow{y}{2}}
+    = 0$.
+    $xy + \pow{y}{2} = A$.
+    
+    Поскольку исходное уравнение является однородным, общее решение можно записать
+    в форме
+    $z = f\br{xy + \pow{y}{2}}$.
+\end{document}
