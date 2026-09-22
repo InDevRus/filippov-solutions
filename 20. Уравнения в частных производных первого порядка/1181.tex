@@ -1,0 +1,26 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $xy \parder{z} {x} + \br{x - 2z} \parder{z} {y} = yz$.
+
+    $\dvfrac{\di x}{xy} = \dvfrac{\di y}{x - 2z} = \dvfrac{\di z}{yz}$.
+
+    \begin{enumerate}
+        \item $\dvfrac{\di x}{x} = \dvfrac{\di z}{z}$.
+        $\ln\vbr{x} = \ln\vbr{z} + A$.
+        $\dvfrac{z}{x} = A$.
+        \item Учитывая, что $z = Ax$, подставим это в
+        $\dvfrac{\di x}{xy} = \dvfrac{\di y}{x - 2z}$.
+        $\dvfrac{\di x}{\di y} = \dvfrac{xy}{x - 2Ax} = \dvfrac{y}{1 - 2A}$.
+        $2x = \dvfrac{1}{1 - 2A} \pow{y}{2} + B$.
+        $2x \br{1 - 2A} = \pow{y}{2} + B$.
+        $2x - \pow{y}{2} - 4z = B$.
+    \end{enumerate}
+
+    Отсюда $F\br{\dvfrac{z}{x}; 2x - \pow{y}{2} - 4z} = 0$.
+
+\end{document}

@@ -5,22 +5,24 @@
 \input{../preambles/general}
 
 \begin{document}
+    $\pow{\sin}{2} x \parder{z} {x} + \tg z \parder{z} {y} = \pow{\cos}{2} z$.
+
     $\dvfrac {\di x} {\pow{\sin}{2} x} 
     = \dvfrac {\di y} {\vphantom{\pow{\sin}{2}}\tg{z}} 
     = \dvfrac {\di z}{\pow{\cos}{2} z}$.
         
     \begin{enumerate}
-        \item $\dfrac {\di x} {x} = \di z$.
-        $x = A\pow{e}{z}$;
-        $A = x \pow {e}{-z}$.
+        \item $\dfrac {\di x} {\pow{\sin}{2} x} 
+        = \dfrac {\di z} {\pow{\cos}{2} z}$
+        -- интегрируемая комбинация.
+        $\tg z + \ctg x = A$.
         
-        \item С учётом полученного выше интеграла, рассмотрим уравнение
-        $\der{y}{z} = \dvfrac {xz} {y}$. \\
-        $\der{y}{z} = \dvfrac {Az \pow{e}{z}} {y}$.
-        $y \di y = Az \pow {e} {z} \di z$.
-        $\pow{y}{2} = 2A \br{z - 1} \pow {e} {z} + B = 2x\br{z - 1} + B$.
-        $\pow{y}{2} - 2x\br{z - 1} = B$.
+        \item $\di y = \dfrac {\tg z \di z} {\pow{\cos}{2} z} 
+        = \di\br{\dfrac{1}{2} \pow{\tg}{2} z}$,
+        откуда
+        $2y - \pow{\tg}{2} z = B$.
     \end{enumerate}
     
-    Общее решение равняется $F\br{x \pow{e} {-z}; \pow{y}{2} + 2x \br{1 - z}} = 0$.
+    Общее решение равняется 
+    $F\br{\tg z + \ctg x; 2y - \pow{\tg}{2} z} = 0$.
 \end{document}
