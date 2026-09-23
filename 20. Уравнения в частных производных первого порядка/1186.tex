@@ -1,0 +1,41 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\br{\y + z} \parder{u} {x} + \br{z + x} \parder{u} {y} + \br{x + y} \parder{u} {y} = u$.
+    
+    $\dvfrac {\di x} {y + z} 
+    = \dvfrac {\di y} {z + x} 
+    = \dvfrac {\di z} {x + y} 
+    = \dvfrac {\di u} {u}$,
+    причём функция $u\br{x; y; z} = 0$ является решением.
+    
+    Производными дробями, каждая из которых равна дробям выше, являются
+    $\dvfrac{\di x - \di y}{y - x}$,
+    $\dvfrac{\di x - \di z}{z - x}$ и
+    $\dvfrac{\di x + \di y + \di z}{2\br{x + y + z}}$.
+    На основе этого выводим две интегрируемые комбинации: 
+    \begin{enumerate}
+        \item $\dvfrac{\di x - \di y}{y - x} = \dvfrac{\di x - \di z}{z - x}$,
+        которая даёт $\di \br{\ln\vbr{x - y} - \ln\vbr{x - z}} = 0$,
+        $\dvfrac{x - y}{x - z} = A$;
+
+        \item $\dvfrac{\di x - \di y}{y - x} = \dvfrac{\di x + \di y + \di z}{2\br{x + y + z}}$, откуда
+        $\di\br{\ln\vbr{x + y + z} + 2\ln\vbr{x - y}} = 0$, а окончательно
+        $\br{x + y + z} \br{x - y}^2 = B$.
+    \end{enumerate}
+    Третья комбинация должна включать $u$, так что возьмём, например,
+    $\dvfrac{\di x - \di y}{y - x} = \dvfrac{\di u}{u}$.
+    $\di\br{\ln\vbr{u} + \ln\vbr{x - y}} = 0$.
+    $u\br{x - y} = C$.
+
+    Для упрощения записи заменим первый интеграл $A\br{x; y}$ на новый
+    $$D = \dfrac{B}{A} = \br{x + y + z}\br{x - y}\br{x - z}.$$
+    Общее решение получаем сначала в неявном виде
+    $$F\br{\br{x + y + z}\br{x - y}\br{x - z}; \br{x + y + z} \br{x - y}^2; u\br{x - y}} = 0,$$
+    из которого можно уже получить решение в явном виде
+    $$u\br{x; y; z} = \dfrac{1}{x - y}\, f\br{\br{x + y + z}\br{x - y}\br{x - z}; \br{x + y + z} \br{x - y}^2}.$$
+\end{document}
