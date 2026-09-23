@@ -1,0 +1,33 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\br{xz + y} \parder{z} {x} + \br{x + yz} \parder{z} {y} = 1 - \pow{z}{2}$.
+    
+    $\dvfrac {\di x} {xz + y} = \dvfrac {\di y} {x + yz} = \dvfrac {\di z} {1 - \pow{z}{2}}$,
+    причём функции $z\br{x; y} = 1$, $z\br{x; y} = -1$ и $z\br{x; y} = -\dvfrac{x}{y}$ не являются решениями.
+    
+    \begin{enumerate}
+        \item Производная пропорция
+        $\dvfrac {\di z} {1 - \pow{z}{2}} = \dvfrac {\di x - \di y} {xz + y - x - yz}$
+        является интегрируемой комбинацией:
+        $\dvfrac {\di z} {1 - \pow{z}{2}} = \dvfrac {\di x - \di y} {\br{x - y}\br{z - 1}}$.
+        $\dvfrac {\di x - \di y} {x - y} + \dvfrac {\di z} {z + 1}
+        = \di\br{\ln\vbr{x - y} + \ln\vbr{z + 1}} = 0$.
+        $\br{x - y}\br{z + 1} = A$.
+        
+        \item Аналогично
+        $\dvfrac {\di z} {1 - \pow{z}{2}} 
+        = \dvfrac {\di x + \di y} {xz + y + x + yz}
+        = \dvfrac {\di x + \di y} {\br{x + y}\br{z + 1}}$.
+        $\dvfrac{\di x + \di y}{x + y} + \dvfrac{\di z}{z - 1} = 0$,
+        то есть
+        $\di\br{\ln\vbr{x + y} + \ln\vbr{z - 1}} = 0$ и
+        $\br{x + y}\br{z - 1} = B$.
+    \end{enumerate}
+    
+    $F\br{\br{x - y}\br{z + 1}; \br{x + y}\br{z - 1}} = 0$.
+\end{document}
