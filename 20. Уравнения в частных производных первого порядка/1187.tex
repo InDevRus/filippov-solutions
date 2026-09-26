@@ -1,0 +1,38 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $x \parder{u} {x} + y \parder{u} {y} + \br{z + u} \parder{u} {y} = xy$.
+    
+    $\dvfrac {\di x} {x} 
+    = \dvfrac {\di y} {y} 
+    = \dvfrac {\di z} {z + u} 
+    = \dvfrac {\di u} {xy}$,
+    причём функция $u\br{x; y; z} = -z$ не  является решением.
+    
+    \begin{enumerate}
+        \item $\dvfrac {\di x} {x} = \dvfrac {\di y} {y}$.
+        $\ln\vbr{x} - \ln\vbr{\y} = A$.
+        $\dvfrac{x}{y} = A$.
+        
+        \item $\dvfrac{\di y}{y} = \dvfrac{\di u}{xy}$;
+        $x \di y = \di u$. С учётом полученного $A y \di y = \di u$.
+        $A \pow{y}{2} - 2u = B$.
+        $xy - 2u = B$.
+
+        \item $\dvfrac{\di y}{y} = \dvfrac{\di z}{z + u} 
+        = \dvfrac{\di z}{z - \frac{1}{2}B + \frac{1}{2} xy}
+        = \dvfrac{\di z}{z - \frac{1}{2}B + \frac{1}{2} A\pow{y}{2}}$. \\
+        $y \di z - z \di y + \br{\dfrac {1}{2} B - \dfrac{1}{2} A\pow{y}{2}} \di y = 0$.
+        $\di \br{\dfrac{z}{y}} + \br{\dfrac {1}{2} B \pow{y}{-2} - \dfrac{1}{2} A} \di y = 0$.
+        $\dvfrac{z}{y} - \dvfrac{B}{2y} - \dvfrac {Ay}{2} = C$.
+        $\dvfrac{z}{y} - \dvfrac{x}{2} + \dvfrac{u}{y} - \dvfrac{x}{2} = C$.
+        $\dvfrac{z + u - xy}{y} = C$.
+    \end{enumerate}
+
+    Итак, 
+    $F\br{\dvfrac{x}{y}; xy - 2u; \dvfrac{z + u - xy}{y}} = 0$.
+\end{document}
