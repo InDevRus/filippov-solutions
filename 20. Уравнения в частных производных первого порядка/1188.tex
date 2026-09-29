@@ -1,0 +1,43 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\br{u - x} \parder{u} {x} + \br{u - y} \parder{u} {y} - z \parder{u} {y} = x + y$.
+    
+    $\dvfrac{\di x} {u - x} = \dvfrac{\di y} {u - y} = \dvfrac{\di z} {-z} = \dvfrac{\di u} {x + y}$.
+
+    \begin{enumerate}
+        \item $\dvfrac{\di x - \di y} {y - x} = \dvfrac{\di z} {-z}$.
+        $\ln\vbr{\y - x} - \ln\vbr{z} = A$.
+        $\dvfrac{y - x}{z} = A$.
+
+        \item $\dvfrac{\di x + \di y + 2 \di u} {2u + x + y} = \dvfrac{\di z} {-z}$.
+        $\ln\vbr{2u + x + y} + \ln\vbr{z} = B$.
+        $\br{2u + x + y}z = B$.
+
+        \item $\dvfrac{\di x + \di y} {2u - x - y} = \dvfrac{\di u} {x + y}$.
+        Переобозначим $x + y = v$.
+        $\dvfrac{\di v} {2u - v} = \dvfrac{\di u} {v}$.
+        Это однородное уравнение 1-ой степени, особая точка которого является <<седлом>>. 
+        Подбором находим два частных решения (сепаратрисы) $v - u = 0$ и $v + 2u = 0$.
+        Замена переменных
+        $$\tsys{
+            \phi = \dfrac{v - u}{3} \vspace{0.5em} \\
+            \xi = \dfrac{v + 2u}{3},
+        }
+        \text{ т.е. }
+        \tsys{
+            v = 2\phi + \xi \\
+            u = \xi - \phi
+        }$$
+        приводит к $\xi \di \phi + 2\phi \di \xi = 0$,
+        откуда $\phi \pow{\xi}{2} = C$; $\br{x + y - u} \br{x + y + 2u}^2 = C$.
+    \end{enumerate} 
+
+    Запись ответа можно упростить, заменив $A$ на
+    $D = A \cdot B = \br{\y - x}\br{2u + x + y}$. Итак,
+    $F\br{\br{\y - x}\br{2u + x + y}; \br{2u + x + y}z; \br{x + y - u} \br{x + y + 2u}^2} = 0$.
+\end{document}
