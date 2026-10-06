@@ -1,0 +1,32 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\pow{e}{x} \parder{z} {x} + \pow{y}{2} \parder{z} {y} = y \pow{e}{x}$.
+
+    $\dvfrac {\di x} {\pow{e}{x}} = \dvfrac {\di y} {\pow{y}{2}} = \dvfrac {\di z} {y \pow{e}{x}}$.
+
+    \begin{enumerate}
+        \item $\pow{e}{-x} \di x = \pow{y}{-2} \di y$.
+        $\pow{e}{-x} - \dvfrac{1}{y} = A$.
+
+        \item $\dfrac {1} {\pow{e}{-x} y} \di y = \di z$.
+        Подставим $\pow{e}{-x} = A + \dvfrac{1}{y}$, тогда
+        $\dfrac {1} {Ay + 1} \di y = \di z$.
+        $z - \dfrac{1}{A} \ln\vbr{Ay + 1} = B$.
+        При этом $\ln\vbr{Ay + 1} = \ln\vbr{\y\pow{e}{-x}} = \ln\vbr{\y} - x$,
+        так что 
+        $z + \dfrac {x - \ln\vbr{\y}} {\pow{e}{-x} - \frac{1}{y}} = B$.
+    \end{enumerate}
+    Получаем общее решение
+    $$F\br{
+        \pow{e}{-x} - \dvfrac{1}{y};
+        z + \dfrac {x - \ln\vbr{\y}} {\pow{e}{-x} - \frac{1}{y}}}
+    = 0,$$
+    откуда 
+    $z = f\br{\pow{e}{-x} - \dvfrac{1}{y}} 
+        + \dfrac {\ln\vbr{\y} - x} {\pow{e}{-x} - \frac{1}{y}}.$
+\end{document}
