@@ -1,0 +1,26 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\pow{y}{2} \parder{z} {x} + xy \parder{z} {y} = x$.
+    
+    $\dvfrac{\di x} {\pow{y}{2}} = \dvfrac{\di y} {xy} = \dvfrac{\di z} {x}$.
+    
+    \begin{enumerate}
+        \item $\dvfrac{\di x} {y} = \dvfrac{\di y} {x}$.
+        $\pow{y}{2} - \pow{x}{2} = A$.
+        \item $\dvfrac{\di y} {y} = \di z$.
+        $z - \ln\vbr{\y} = B$.
+    \end{enumerate}
+
+    Окончательно $z\br{x; y} = f\br{\pow{y}{2} - \pow{x}{2}} + \ln\vbr{\y}$.
+    
+    При $x = 0$ должно выполняться $z = \pow{y}{2}$, так что 
+    $\pow{y}{2} = f\br{\pow{y}{2}} + \ln\vbr{\y}$. Из последнего вытекает
+    $\,f\br{\pow{y}{2}} = \pow{y}{2} - \dfrac {1}{2}\ln\vbr{\pow{\y}{2}}$,
+    то есть искомой поверхностью является
+    $$z\br{x; y} = \pow{y}{2} - \pow{x}{2} + \dfrac{1}{2} \ln\vbr{\dvfrac {\pow{y}{2}}{\pow{\y}{2} - \pow{x}{2}}}.$$
+\end{document}

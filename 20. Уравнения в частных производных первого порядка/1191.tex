@@ -1,0 +1,20 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $2\sqrt{x} \parder{z} {x} - y \parder{z} {y} = 0$.
+    
+    $\dvfrac{\di x} {2\sqrt{x}} = -\dvfrac{\di y} {y}$.
+    $\sqrt{x} + \ln\vbr{\y} = A$.
+    $y \pow{e}{\sqrt{x}} = A$.
+    $z = f\br{y \pow{e}{\sqrt{x}}}$.
+    При $x = 1$ должно выполняться $z = \pow{y}{2}$, так что 
+    $\pow{y}{2} = f\br{ey}$.
+    Подставив вместо $y$ выражение $\dfrac {s} {e}$, получаем
+    $\f\br{s} = \br{\dfrac {s} {e}}^2$
+    Итак, $z = \pow{y}{2} \pow{e}{2\sqrt{x} - 2}$
+    будет искомым решением.
+\end{document}

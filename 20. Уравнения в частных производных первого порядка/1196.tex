@@ -1,0 +1,37 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $x \parder{z} {x} + y \parder{z} {y} = z - xy$.
+    
+    $\dvfrac{\di x} {x} = \dvfrac{\di y} {y} = \dvfrac{\di z} {z - xy}$.
+    
+    \begin{enumerate}
+        \item $\dvfrac{\di x} {x} = \dvfrac{\di y} {y}$.
+        $\dvfrac{y}{x} = A$.
+        \item $\dvfrac{\di x} {x} = \dvfrac{\di z} {z - xy}$.
+        $xz\` = z - xy$. Это линейное уравнение, если учесть $y = Ax$.
+        Подставив, получим
+        $\dvfrac {xz\` - z} {\pow{x}{2}} = -A$.
+        $\dvfrac {z}{x} = -Ax + B$.
+        $\dvfrac{z + xy}{x} = B$.
+    \end{enumerate}
+
+    Результатом являются два интеграла 
+    $\tsys{
+        y = Ax \\
+        z + xy = Bx,
+    }$
+    куда подставим $x = 2$ и $z = \pow{y}{2} + 1$.
+    $\tsys{
+        y = 2A \\
+        \pow{y}{2} + 1 + 2y = 2B,
+    }$ поэтому зависимость между интегралами такова: $\br{2A + 1}^2 = 2B$.
+    В итоге $\br{2 \cdot \dvfrac {y}{x} + 1}^2 = 2 \cdot \dvfrac {z + xy}{x}$;
+    $\br{2y + x}^2 = 2x\br{z + xy}$.
+    В явном виде имеем функцию
+    $z\br{x; y} = \dvfrac {\br{2y + x}^2}{2x} - xy$.
+\end{document}
