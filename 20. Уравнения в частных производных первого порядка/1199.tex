@@ -1,0 +1,28 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $x \vparder{z}{x} + y \vparder{z}{y} = z - \pow{x}{2} - \pow{y}{2}$.
+    $\dvfrac {\di x} {x}
+    = \dvfrac {\di y} {y}
+    = \dvfrac {\di z} {z - \pow{x}{2} - \pow{y}{2}}$.
+
+    Один из интегралов $\dvfrac {x}{y} = A$ очевиден. 
+    Чтобы найти второй интеграл, запишем с учётом уже найденного
+    $\dvfrac{\di y}{y} = \dvfrac{\di z}{z - \pow{A}{2}\pow{y}{2} - \pow{y}{2}}$.
+    $\dvfrac{y \di z - z \di y}{\pow{y}{2}} + \br{\pow{A}{2} + 1} \di y = 0$,
+    откуда уже
+    $\dvfrac {z}{y} + \br{\pow{A}{2} + 1} y = B$.
+    $\dvfrac{z + \pow{x}{2} + \pow{y}{2}}{y} = B$.
+
+    При $y = -2$ должно быть выполнено
+    $z = x - \pow{x}{2}$.
+    После подстановки получаем
+    $x = -2A$ и $\dfrac{x + 4}{-2} = B$.
+    $A - 2 = B$. 
+    Наконец, подставив и умножив на $y$, выводим результат
+    $x - 2y = z + \pow{x}{2} + \pow{y}{2}$.
+\end{document}
