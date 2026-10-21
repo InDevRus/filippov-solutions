@@ -1,0 +1,30 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $yz \vparder{z}{x} + xz \vparder{z}{y} = xy$.
+    $\dvfrac {\di x} {yz}
+    = \dvfrac {\di y} {xz}
+    = \dvfrac {\di z} {xy}$.
+
+    $\dvfrac {\di x} {y} = \dvfrac {\di y} {x}$ даёт
+    $\pow{y}{2} - \pow{x}{2} = A$, а 
+    $\dvfrac {\di y} {z} = \dvfrac {\di z} {y}$
+    соответственно
+    $\pow{z}{2} - \pow{y}{2} = B$.
+    Общее решение выражается в виде
+    $\pow{z}{2} - \pow{y}{2} = f\br{\pow{y}{2} - \pow{x}{2}}$.
+
+    Должно выполняться одновременно
+    $x = a$ и $\pow{y}{2} + \pow{z}{2} = \pow{a}{2}$, т.е. 
+    $\pow{a}{2} - 2\pow{y}{2} = f\br{\pow{y}{2} - \pow{a}{2}}$.
+    $f\br{\pow{y}{2} - \pow{a}{2}} = -2\br{\pow{y}{2} - \pow{a}{2}} - \pow{a}{2}$, так что
+    $f\br{s} = -2s - \pow{a}{2}$.
+
+    Итак, $\pow{z}{2} - \pow{y}{2} = -2\br{\pow{y}{2} - \pow{x}{2}} - \pow{a}{2}$.
+    $2\pow{x}{2} - \pow{y}{2} - \pow{z}{2} = \pow{a}{2}$.
+
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $\br{\y - z} \vparder{z}{x} + \br{z - x} \vparder{z}{y} = x - y$.
+    $\dvfrac {\di x} {y - z}
+    = \dvfrac {\di y} {z - x}
+    = \dvfrac {\di z} {x - y}$.
+
+    Затемим, что в сумме знаменатели этих дробей зануляются, 
+    так что можно скомбинировать, например, так
+    $\dvfrac{\di x + \di y + \di z + \di x}{y - z} = \dvfrac {\di x} {y - z}$,
+    откуда уже выводим интеграл
+    $x + y + z = A$.
+
+    Следующий интеграл неочевиден, так что вычислим его прямым методом с учётом найденного выше
+    $\di z \br{\y - z} = \di x \br{x - \y}$. 
+    $\di z \br{A - x - 2z} = \di x \br{2x + z - A}$. Далее,
+    $2z \di z + 2x \di x + \br{x \di z + z \di x} - A\br{\di x + \di z} = 0$.
+    $\pow{x}{2} + \pow{z}{2} + xz - Ax - Az = B$.
+    Подставив $A = x + y + z$ и упростив, получаем
+    $xy + yz + xz = B$.
+    
+    Отдельно отметим, что вместо полученного интеграла можно в том числе взять
+    $C = \pow{x}{2} + \pow{y}{2} + \pow{z}{2} = \pow{A}{2} - 2B$.
+
+    Итак, $x + y + z = A$, $xy + yz + xz = B$. При $z = y = -x$ имеем
+    $-x = A$ и $-\pow{x}{2} = B$, так что $B + \pow{A}{2} = 0$.
+    $\br{x + y + z}^2 + xy + yz + xz = 0$, либо же
+    $\pow{x}{2} + \pow{y}{2} + \pow{z}{2} = 3 \br{x + y + z}^2$.
+
+\end{document}

@@ -1,0 +1,25 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $z \vparder{z}{x} + \br{\pow{z}{2} - \pow{x}{2}} \vparder{z}{y} = -x$.
+    $\dvfrac {\di x} {z}
+    = \dvfrac {\di y} {\pow{z}{2} - \pow{x}{2}}
+    = \dvfrac {\di z} {-x}$.
+    
+    $\dvfrac {\di x} {z} = \dvfrac {\di z} {-x}$.
+    $\pow{x}{2} + \pow{z}{2} = A$.
+    Далее скомбинируем
+    $\dvfrac {\di y} {\pow{z}{2} - \pow{x}{2}} 
+    = \dvfrac{z \di x + x \di z}{\pow{z}{2} - \pow{x}{2}}$.
+    $zx - y = B$.
+
+    Подставив $\tsys{y = \pow{x}{2} \\ z = 2x}$ в 
+    $\tsys{\pow{x}{2} + \pow{z}{2} = A \\ zx - y = B,}$ получаем
+    $\tsys{5\pow{x}{2} = A \\ \pow{x}{2} = B.}$
+    $A = 5B$.
+    $\pow{x}{2} + \pow{y}{2} = 5\br{zx - y}$.
+\end{document}
