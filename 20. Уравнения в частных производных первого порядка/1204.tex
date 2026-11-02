@@ -1,0 +1,30 @@
+\documentclass[a5paper,10pt]{article}
+
+% https://github.com/InDevRus/filippov-solutions
+
+\input{../preambles/general}
+
+\begin{document}
+    $x \vparder{z}{x} + \br{xz + y} \vparder{z}{y} = z$.
+    $\dvfrac {\di x} {x}
+    = \dvfrac {\di y} {xz + y}
+    = \dvfrac {\di z} {z}$.
+
+    $\dvfrac {z}{x} = A$.
+    $\dvfrac {\di y}{\di x} = \dvfrac {xz + y}{x} = \dvfrac {A \pow{x}{2} + y}{x}$.
+    $\dvfrac {x \di y - y \di x}{\pow{x}{2}} - A \di x = 0$.
+    $\dvfrac {y}{x} - Ax = B$.
+    $\dvfrac {y - zx}{x} = B$.
+    Первые интегралы имеют вид
+    $\dvfrac {z}{x} = A$;
+    $\dvfrac {y - zx}{x} = B$.
+    Подставив $xz = 1$ и $x + y = 2z$, получаем
+    $A = \dfrac{1}{\pow{x}{2}}$;
+    $B = \dfrac{2}{\pow{x}{2}} - \dfrac{1}{x} - 1$.
+    Далее
+    $$0 = \br{\br{\dfrac{2}{\pow{x}{2}} - \dfrac{1}{x} - 1} 
+        - 2 \cdot \dfrac{1}{\pow{x}{2}} + 1}^2 - \dfrac{1}{\pow{x}{2}}
+    = \br{B - 2A + 1}^2 - A.$$
+    Окончательно
+    $\br{xz - y - x + 2z}^2 = xz$.
+\end{document}
